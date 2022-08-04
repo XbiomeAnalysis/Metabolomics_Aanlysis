@@ -1318,13 +1318,20 @@ div.csl-indent {
 <span id="cb170-3"><a href="example.html#cb170-3" aria-hidden="true" tabindex="-1"></a>features_tab[<span class="fu">is.na</span>(features_tab)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb170-4"><a href="example.html#cb170-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb170-5"><a href="example.html#cb170-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(features_tab[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span></code></pre></div>
-<pre><code>##        MEDL00066 MEDL00375 MEDL00587 MEDL01799 MEDL01801 MEDL01844 MEDL01922 MEDL01994 MEDL02002 MEDL02018
-## CJY_V0     10447     31087    618200         0         0    127250         0   2590400         0    485040
-## CJY_V1   4011900     88306    563130     51267   1046200   4172100    107560   3772200    133920   1400100
-## DGL_V0    560560    449150   1079300    304040    147100  19462000     39149   2950700   3216700    684140
-## DGL_V1    149120    263050   2047500     24342    357050  14373000    964600   3328000   2512900   1659500
-## HXZ_V0    442540    216830   1399700   1481800   1976000   7830000    269570   2588200   3719000   3433700
-## HXZ_V1    181010     37280   1171700         0         0   5171400    196770   3097700         0   3269900</code></pre>
+<pre><code>##        MEDL00066 MEDL00375 MEDL00587 MEDL01799 MEDL01801 MEDL01844 MEDL01922 MEDL01994
+## CJY_V0     10447     31087    618200         0         0    127250         0   2590400
+## CJY_V1   4011900     88306    563130     51267   1046200   4172100    107560   3772200
+## DGL_V0    560560    449150   1079300    304040    147100  19462000     39149   2950700
+## DGL_V1    149120    263050   2047500     24342    357050  14373000    964600   3328000
+## HXZ_V0    442540    216830   1399700   1481800   1976000   7830000    269570   2588200
+## HXZ_V1    181010     37280   1171700         0         0   5171400    196770   3097700
+##        MEDL02002 MEDL02018
+## CJY_V0         0    485040
+## CJY_V1    133920   1400100
+## DGL_V0   3216700    684140
+## DGL_V1   2512900   1659500
+## HXZ_V0   3719000   3433700
+## HXZ_V1         0   3269900</code></pre>
 </div>
 <div id="building-network-model-6" class="section level3 hasAnchor" number="8.8.2">
 <h3><span class="header-section-number">8.8.2</span> Building network model<a href="example.html#building-network-model-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1369,19 +1376,28 @@ div.csl-indent {
 <div id="data-curation-3" class="section level3 hasAnchor" number="8.9.1">
 <h3><span class="header-section-number">8.9.1</span> Data curation<a href="example.html#data-curation-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p>Data Matrix</p></li>
+<li><p>Data Matrix</p>
+<ul>
 <li><p>Row -&gt; metabolites</p></li>
 <li><p>Column -&gt; samples</p></li>
+</ul></li>
 </ul>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="example.html#cb174-1" aria-hidden="true" tabindex="-1"></a>features_tab <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">assay</span>(se_impute)</span>
 <span id="cb174-2"><a href="example.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(features_tab[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span></code></pre></div>
-<pre><code>##            CJY_V0  CJY_V1   DGL_V0   DGL_V1  HXZ_V0  HXZ_V1  LBC_V0  LBC_V1    LHC_V1     LHC_V0
-## MEDL00066   10447 4011900   560560   149120  442540  181010   12620  173400   97848.0   25072.83
-## MEDL00375   31087   88306   449150   263050  216830   37280  302150  607850   87101.0    7595.70
-## MEDL00587  618200  563130  1079300  2047500 1399700 1171700 1120700 1109300 1025300.0  533040.00
-## MEDL01844  127250 4172100 19462000 14373000 7830000 5171400   57063 1946700  100670.0  143560.00
-## MEDL01922  184698  107560    39149   964600  269570  196770   28797   72528  140508.2  182958.02
-## MEDL01994 2590400 3772200  2950700  3328000 2588200 3097700 3373500 3283000 3427700.0 3223700.00</code></pre>
+<pre><code>##            CJY_V0  CJY_V1   DGL_V0   DGL_V1  HXZ_V0  HXZ_V1  LBC_V0  LBC_V1    LHC_V1
+## MEDL00066   10447 4011900   560560   149120  442540  181010   12620  173400   97848.0
+## MEDL00375   31087   88306   449150   263050  216830   37280  302150  607850   87101.0
+## MEDL00587  618200  563130  1079300  2047500 1399700 1171700 1120700 1109300 1025300.0
+## MEDL01844  127250 4172100 19462000 14373000 7830000 5171400   57063 1946700  100670.0
+## MEDL01922  184698  107560    39149   964600  269570  196770   28797   72528  140508.2
+## MEDL01994 2590400 3772200  2950700  3328000 2588200 3097700 3373500 3283000 3427700.0
+##               LHC_V0
+## MEDL00066   25072.83
+## MEDL00375    7595.70
+## MEDL00587  533040.00
+## MEDL01844  143560.00
+## MEDL01922  182958.02
+## MEDL01994 3223700.00</code></pre>
 <ul>
 <li>Data normalization</li>
 </ul>
@@ -1389,20 +1405,20 @@ div.csl-indent {
 <span id="cb176-2"><a href="example.html#cb176-2" aria-hidden="true" tabindex="-1"></a>features_tab_norm <span class="ot">&lt;-</span> XMAS2<span class="sc">::</span><span class="fu">norm_tss</span>(phyloseq<span class="sc">::</span><span class="fu">otu_table</span>(features_tab, <span class="at">taxa_are_rows =</span> T)) <span class="sc">%&gt;%</span> </span>
 <span id="cb176-3"><a href="example.html#cb176-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> <span class="fu">t</span>()</span>
 <span id="cb176-4"><a href="example.html#cb176-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(features_tab_norm[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span></code></pre></div>
-<pre><code>##           MEDL00066    MEDL00375    MEDL00587    MEDL01844    MEDL01922    MEDL01994    MEDL02002    MEDL02018
-## CJY_V0 7.266924e-06 2.162409e-05 0.0004300194 8.851499e-05 1.284758e-04 0.0018018800 9.688354e-04 0.0003373934
-## CJY_V1 2.018886e-03 4.443774e-05 0.0002833808 2.099503e-03 5.412682e-05 0.0018982634 6.739182e-05 0.0007045646
-## DGL_V0 1.534502e-04 1.229523e-04 0.0002954523 5.327614e-03 1.071682e-05 0.0008077376 8.805537e-04 0.0001872795
-## DGL_V1 3.721535e-05 6.564846e-05 0.0005109874 3.587019e-03 2.407318e-04 0.0008305572 6.271356e-04 0.0004141556
-## HXZ_V0 1.100101e-04 5.390131e-05 0.0003479485 1.946443e-03 6.701183e-05 0.0006433951 9.244983e-04 0.0008535762
-## HXZ_V1 6.310899e-05 1.299764e-05 0.0004085122 1.803004e-03 6.860370e-05 0.0010800105 8.873314e-04 0.0011400479
-##           MEDL02174    MEDL02519
-## CJY_V0 0.0008276238 5.364045e-04
-## CJY_V1 0.0053125408 9.121950e-04
-## DGL_V0 0.0013967809 6.574793e-04
-## DGL_V1 0.0060542331 1.840278e-04
-## HXZ_V0 0.0018885718 1.518648e-04
-## HXZ_V1 0.0009249314 5.116427e-06</code></pre>
+<pre><code>##           MEDL00066    MEDL00375    MEDL00587    MEDL01844    MEDL01922    MEDL01994
+## CJY_V0 7.266924e-06 2.162409e-05 0.0004300194 8.851499e-05 1.284758e-04 0.0018018800
+## CJY_V1 2.018886e-03 4.443774e-05 0.0002833808 2.099503e-03 5.412682e-05 0.0018982634
+## DGL_V0 1.534502e-04 1.229523e-04 0.0002954523 5.327614e-03 1.071682e-05 0.0008077376
+## DGL_V1 3.721535e-05 6.564846e-05 0.0005109874 3.587019e-03 2.407318e-04 0.0008305572
+## HXZ_V0 1.100101e-04 5.390131e-05 0.0003479485 1.946443e-03 6.701183e-05 0.0006433951
+## HXZ_V1 6.310899e-05 1.299764e-05 0.0004085122 1.803004e-03 6.860370e-05 0.0010800105
+##           MEDL02002    MEDL02018    MEDL02174    MEDL02519
+## CJY_V0 9.688354e-04 0.0003373934 0.0008276238 5.364045e-04
+## CJY_V1 6.739182e-05 0.0007045646 0.0053125408 9.121950e-04
+## DGL_V0 8.805537e-04 0.0001872795 0.0013967809 6.574793e-04
+## DGL_V1 6.271356e-04 0.0004141556 0.0060542331 1.840278e-04
+## HXZ_V0 9.244983e-04 0.0008535762 0.0018885718 1.518648e-04
+## HXZ_V1 8.873314e-04 0.0011400479 0.0009249314 5.116427e-06</code></pre>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="example.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # CSS</span></span>
 <span id="cb178-2"><a href="example.html#cb178-2" aria-hidden="true" tabindex="-1"></a><span class="co"># features_tab_norm &lt;- XMAS2::norm_css(phyloseq::otu_table(features_tab, taxa_are_rows = T)) %&gt;% </span></span>
 <span id="cb178-3"><a href="example.html#cb178-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   data.frame() %&gt;% t()</span></span>
@@ -1416,9 +1432,11 @@ div.csl-indent {
 </ul>
 <div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="example.html#cb179-1" aria-hidden="true" tabindex="-1"></a>powers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="fu">seq</span>(<span class="dv">12</span>, <span class="dv">20</span>, <span class="dv">2</span>))</span></code></pre></div>
 <ul>
-<li><p>Call the network topology analysis function</p></li>
+<li><p>Call the network topology analysis function</p>
+<ul>
 <li><p>Row -&gt; samples</p></li>
 <li><p>Column -&gt; metabolites</p></li>
+</ul></li>
 </ul>
 <div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="example.html#cb180-1" aria-hidden="true" tabindex="-1"></a>sft <span class="ot">&lt;-</span> <span class="fu">pickSoftThreshold</span>(</span>
 <span id="cb180-2"><a href="example.html#cb180-2" aria-hidden="true" tabindex="-1"></a>  features_tab_norm,</span>
@@ -1553,8 +1571,10 @@ div.csl-indent {
 <span id="cb187-5"><a href="example.html#cb187-5" aria-hidden="true" tabindex="-1"></a>hubs <span class="ot">&lt;-</span> <span class="fu">chooseTopHubInEachModule</span>(features_tab_norm, netwk<span class="sc">$</span>colors)</span>
 <span id="cb187-6"><a href="example.html#cb187-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb187-7"><a href="example.html#cb187-7" aria-hidden="true" tabindex="-1"></a>hubs</span></code></pre></div>
-<pre><code>##           0           1           2           3           4           5           6           7 
-##  &quot;MEDN1108&quot;  &quot;MEDP1255&quot;  &quot;MEDP1033&quot;  &quot;MEDP0434&quot; &quot;MW0107573&quot;  &quot;MEDP0065&quot;  &quot;MEDP1386&quot;  &quot;MEDP0389&quot;</code></pre>
+<pre><code>##           0           1           2           3           4           5           6 
+##  &quot;MEDN1108&quot;  &quot;MEDP1255&quot;  &quot;MEDP1033&quot;  &quot;MEDP0434&quot; &quot;MW0107573&quot;  &quot;MEDP0065&quot;  &quot;MEDP1386&quot; 
+##           7 
+##  &quot;MEDP0389&quot;</code></pre>
 <ul>
 <li>The number of features per module</li>
 </ul>
@@ -1722,17 +1742,17 @@ div.csl-indent {
 <span id="cb197-4"><a href="example.html#cb197-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb197-5"><a href="example.html#cb197-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">graph.adjacency</span>(TOM, <span class="at">mode=</span><span class="st">&quot;undirected&quot;</span>, <span class="at">weighted=</span> <span class="cn">TRUE</span>)</span>
 <span id="cb197-6"><a href="example.html#cb197-6" aria-hidden="true" tabindex="-1"></a><span class="fu">delete.edges</span>(g, <span class="fu">which</span>(<span class="fu">E</span>(g)<span class="sc">$</span>weight <span class="sc">&lt;</span><span class="dv">1</span>))</span></code></pre></div>
-<pre><code>## IGRAPH d1521b3 UNW- 540 540 -- 
+<pre><code>## IGRAPH 9154f9a UNW- 540 540 -- 
 ## + attr: name (v/c), weight (e/n)
-## + edges from d1521b3 (vertex names):
-##  [1] MEDL00066--MEDL00066 MEDL00375--MEDL00375 MEDL00587--MEDL00587 MEDL01844--MEDL01844 MEDL01922--MEDL01922
-##  [6] MEDL01994--MEDL01994 MEDL02002--MEDL02002 MEDL02018--MEDL02018 MEDL02174--MEDL02174 MEDL02519--MEDL02519
-## [11] MEDL02630--MEDL02630 MEDL02681--MEDL02681 MEDN0005 --MEDN0005  MEDN0006 --MEDN0006  MEDN0007 --MEDN0007 
-## [16] MEDN0010 --MEDN0010  MEDN0015 --MEDN0015  MEDN0018 --MEDN0018  MEDN0025 --MEDN0025  MEDN0032 --MEDN0032 
-## [21] MEDN0036 --MEDN0036  MEDN0042 --MEDN0042  MEDN0046 --MEDN0046  MEDN0047 --MEDN0047  MEDN0049 --MEDN0049 
-## [26] MEDN0052 --MEDN0052  MEDN0053 --MEDN0053  MEDN0056 --MEDN0056  MEDN0059 --MEDN0059  MEDN0075 --MEDN0075 
-## [31] MEDN0089 --MEDN0089  MEDN0098 --MEDN0098  MEDN0100 --MEDN0100  MEDN0110 --MEDN0110  MEDN0113 --MEDN0113 
-## [36] MEDN0120 --MEDN0120  MEDN0140 --MEDN0140  MEDN0141 --MEDN0141  MEDN0144 --MEDN0144  MEDN0147 --MEDN0147 
+## + edges from 9154f9a (vertex names):
+##  [1] MEDL00066--MEDL00066 MEDL00375--MEDL00375 MEDL00587--MEDL00587 MEDL01844--MEDL01844
+##  [5] MEDL01922--MEDL01922 MEDL01994--MEDL01994 MEDL02002--MEDL02002 MEDL02018--MEDL02018
+##  [9] MEDL02174--MEDL02174 MEDL02519--MEDL02519 MEDL02630--MEDL02630 MEDL02681--MEDL02681
+## [13] MEDN0005 --MEDN0005  MEDN0006 --MEDN0006  MEDN0007 --MEDN0007  MEDN0010 --MEDN0010 
+## [17] MEDN0015 --MEDN0015  MEDN0018 --MEDN0018  MEDN0025 --MEDN0025  MEDN0032 --MEDN0032 
+## [21] MEDN0036 --MEDN0036  MEDN0042 --MEDN0042  MEDN0046 --MEDN0046  MEDN0047 --MEDN0047 
+## [25] MEDN0049 --MEDN0049  MEDN0052 --MEDN0052  MEDN0053 --MEDN0053  MEDN0056 --MEDN0056 
+## [29] MEDN0059 --MEDN0059  MEDN0075 --MEDN0075  MEDN0089 --MEDN0089  MEDN0098 --MEDN0098 
 ## + ... omitted several edges</code></pre>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="example.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(g)<span class="sc">$</span>width <span class="ot">&lt;-</span> <span class="fu">E</span>(g)<span class="sc">$</span>weight<span class="sc">*</span>strength_adjust <span class="sc">+</span> <span class="fu">min</span>(<span class="fu">E</span>(g)<span class="sc">$</span>weight)</span>
 <span id="cb199-2"><a href="example.html#cb199-2" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(g)<span class="sc">$</span>color <span class="ot">&lt;-</span> <span class="st">&quot;red&quot;</span></span>
@@ -1744,7 +1764,7 @@ div.csl-indent {
 <div id="systematic-information-6" class="section level2 hasAnchor" number="8.10">
 <h2><span class="header-section-number">8.10</span> Systematic Information<a href="example.html#systematic-information-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="example.html#cb200-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
-<pre><code>## ─ Session info ────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ─ Session info ─────────────────────────────────────────────────────────────────────────
 ##  setting  value
 ##  version  R version 4.1.2 (2021-11-01)
 ##  os       macOS Monterey 12.2.1
@@ -1758,7 +1778,7 @@ div.csl-indent {
 ##  rstudio  2022.07.1+554 Spotted Wakerobin (desktop)
 ##  pandoc   2.18 @ /Applications/RStudio.app/Contents/MacOS/quarto/bin/tools/ (via rmarkdown)
 ## 
-## ─ Packages ────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ─ Packages ─────────────────────────────────────────────────────────────────────────────
 ##  package              * version    date (UTC) lib source
 ##  abind                  1.4-5      2016-07-21 [1] CRAN (R 4.1.0)
 ##  ade4                   1.7-18     2021-09-16 [1] CRAN (R 4.1.0)
@@ -2012,7 +2032,7 @@ div.csl-indent {
 ## 
 ##  [1] /Library/Frameworks/R.framework/Versions/4.1/Resources/library
 ## 
-## ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+## ────────────────────────────────────────────────────────────────────────────────────────</code></pre>
 
 </div>
 </div>
