@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Cluster Analysis | Data Analysis in Metabolomics</title>
+  <meta name="description" content="A template for Data Analysis in Metabolomics" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Cluster Analysis | Data Analysis in Metabolomics" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A template for Data Analysis in Metabolomics" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Cluster Analysis | Data Analysis in Metabolomics" />
+  
+  <meta name="twitter:description" content="A template for Data Analysis in Metabolomics" />
+  
+
+<meta name="author" content="Hua Zou and Bangzhuo Tong" />
+
+
+<meta name="date" content="2022-08-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-processing.html"/>
+<link rel="next" href="chemometrics-analysis.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Analysis in Metabolomics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-is-metabolomics"><i class="fa fa-check"></i><b>1.1</b> What is metabolomics?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-are-the-procedures-in-this-template"><i class="fa fa-check"></i><b>1.2</b> What are the procedures in this template?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#statistical-analysis"><i class="fa fa-check"></i><b>1.2.1</b> Statistical Analysis</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#functional-analysis"><i class="fa fa-check"></i><b>1.2.2</b> Functional Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#software"><i class="fa fa-check"></i><b>1.3</b> Software</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#reference"><i class="fa fa-check"></i><b>1.4</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data Processing</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#loading-packages"><i class="fa fa-check"></i><b>2.1</b> Loading packages</a></li>
+<li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#importing-data"><i class="fa fa-check"></i><b>2.2</b> Importing data</a></li>
+<li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#data-checking"><i class="fa fa-check"></i><b>2.3</b> Data Checking</a></li>
+<li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#data-filtering"><i class="fa fa-check"></i><b>2.4</b> Data Filtering</a></li>
+<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#missing-value-imputation"><i class="fa fa-check"></i><b>2.5</b> Missing Value Imputation</a></li>
+<li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#data-normalization"><i class="fa fa-check"></i><b>2.6</b> Data Normalization</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="data-processing.html"><a href="data-processing.html#normalization-by-normalizedata-function"><i class="fa fa-check"></i><b>2.6.1</b> Normalization by <strong>NormalizeData</strong> function</a></li>
+<li class="chapter" data-level="2.6.2" data-path="data-processing.html"><a href="data-processing.html#normalization-by-poma-r-package"><i class="fa fa-check"></i><b>2.6.2</b> Normalization by <strong>POMA</strong> R package</a></li>
+<li class="chapter" data-level="2.6.3" data-path="data-processing.html"><a href="data-processing.html#comparison-of-unnormalized-and-normalized-dataset"><i class="fa fa-check"></i><b>2.6.3</b> Comparison of unnormalized and normalized dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="data-processing.html"><a href="data-processing.html#removing-outliers"><i class="fa fa-check"></i><b>2.7</b> Removing outliers</a></li>
+<li class="chapter" data-level="2.8" data-path="data-processing.html"><a href="data-processing.html#saving-datasets-into-rds-files"><i class="fa fa-check"></i><b>2.8</b> Saving datasets into RDS files</a></li>
+<li class="chapter" data-level="2.9" data-path="data-processing.html"><a href="data-processing.html#systematic-information"><i class="fa fa-check"></i><b>2.9</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="cluster-analysis.html"><a href="cluster-analysis.html"><i class="fa fa-check"></i><b>3</b> Cluster Analysis</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html#loading-packages-1"><i class="fa fa-check"></i><b>3.1</b> Loading packages</a></li>
+<li class="chapter" data-level="3.2" data-path="cluster-analysis.html"><a href="cluster-analysis.html#importing-data-1"><i class="fa fa-check"></i><b>3.2</b> Importing data</a></li>
+<li class="chapter" data-level="3.3" data-path="cluster-analysis.html"><a href="cluster-analysis.html#hierarchical-clustering"><i class="fa fa-check"></i><b>3.3</b> Hierarchical Clustering</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html#agglomerative-hierarchical-clustering"><i class="fa fa-check"></i><b>3.3.1</b> Agglomerative Hierarchical Clustering</a></li>
+<li class="chapter" data-level="3.3.2" data-path="cluster-analysis.html"><a href="cluster-analysis.html#divisive-hierarchical-clustering"><i class="fa fa-check"></i><b>3.3.2</b> Divisive Hierarchical Clustering</a></li>
+<li class="chapter" data-level="3.3.3" data-path="cluster-analysis.html"><a href="cluster-analysis.html#comparison"><i class="fa fa-check"></i><b>3.3.3</b> Comparison</a></li>
+<li class="chapter" data-level="3.3.4" data-path="cluster-analysis.html"><a href="cluster-analysis.html#determining-optimal-clusters"><i class="fa fa-check"></i><b>3.3.4</b> Determining Optimal Clusters</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="cluster-analysis.html"><a href="cluster-analysis.html#partitional-clustering"><i class="fa fa-check"></i><b>3.4</b> Partitional Clustering</a></li>
+<li class="chapter" data-level="3.5" data-path="cluster-analysis.html"><a href="cluster-analysis.html#systematic-information-1"><i class="fa fa-check"></i><b>3.5</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html"><i class="fa fa-check"></i><b>4</b> Chemometrics Analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#loading-packages-2"><i class="fa fa-check"></i><b>4.1</b> Loading packages</a></li>
+<li class="chapter" data-level="4.2" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#importing-data-2"><i class="fa fa-check"></i><b>4.2</b> Importing data</a></li>
+<li class="chapter" data-level="4.3" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>4.3</b> Principal Component Analysis (PCA)</a></li>
+<li class="chapter" data-level="4.4" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#partial-least-squares-discriminant-analysis-pls-da"><i class="fa fa-check"></i><b>4.4</b> Partial Least Squares-Discriminant Analysis (PLS-DA)</a></li>
+<li class="chapter" data-level="4.5" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#sparse-partial-least-squares-discriminant-analysis-spls-da"><i class="fa fa-check"></i><b>4.5</b> Sparse Partial Least Squares-Discriminant Analysis (sPLS-DA)</a></li>
+<li class="chapter" data-level="4.6" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#orthogonal-partial-least-squares-discriminant-analysis-orthopls-da"><i class="fa fa-check"></i><b>4.6</b> Orthogonal Partial Least Squares-Discriminant Analysis (orthoPLS-DA)</a></li>
+<li class="chapter" data-level="4.7" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#systematic-information-2"><i class="fa fa-check"></i><b>4.7</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="univariate-analysis.html"><a href="univariate-analysis.html"><i class="fa fa-check"></i><b>5</b> Univariate Analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="univariate-analysis.html"><a href="univariate-analysis.html#loading-packages-3"><i class="fa fa-check"></i><b>5.1</b> Loading packages</a></li>
+<li class="chapter" data-level="5.2" data-path="univariate-analysis.html"><a href="univariate-analysis.html#importing-data-3"><i class="fa fa-check"></i><b>5.2</b> Importing data</a></li>
+<li class="chapter" data-level="5.3" data-path="univariate-analysis.html"><a href="univariate-analysis.html#fold-change-analysis"><i class="fa fa-check"></i><b>5.3</b> Fold Change Analysis</a></li>
+<li class="chapter" data-level="5.4" data-path="univariate-analysis.html"><a href="univariate-analysis.html#t-test"><i class="fa fa-check"></i><b>5.4</b> T Test</a></li>
+<li class="chapter" data-level="5.5" data-path="univariate-analysis.html"><a href="univariate-analysis.html#wilcoxon-test"><i class="fa fa-check"></i><b>5.5</b> Wilcoxon Test</a></li>
+<li class="chapter" data-level="5.6" data-path="univariate-analysis.html"><a href="univariate-analysis.html#limma-test"><i class="fa fa-check"></i><b>5.6</b> Limma Test</a></li>
+<li class="chapter" data-level="5.7" data-path="univariate-analysis.html"><a href="univariate-analysis.html#volcano-plot"><i class="fa fa-check"></i><b>5.7</b> Volcano plot</a></li>
+<li class="chapter" data-level="5.8" data-path="univariate-analysis.html"><a href="univariate-analysis.html#correlation-heatmaps"><i class="fa fa-check"></i><b>5.8</b> Correlation Heatmaps</a></li>
+<li class="chapter" data-level="5.9" data-path="univariate-analysis.html"><a href="univariate-analysis.html#glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package"><i class="fa fa-check"></i><b>5.9</b> glasso: this function will compute a Gaussian Graphical Model using the glmnet package</a></li>
+<li class="chapter" data-level="5.10" data-path="univariate-analysis.html"><a href="univariate-analysis.html#systematic-information-3"><i class="fa fa-check"></i><b>5.10</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html"><i class="fa fa-check"></i><b>6</b> Multivariate analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#importing-data-4"><i class="fa fa-check"></i><b>6.1</b> Importing data</a></li>
+<li class="chapter" data-level="6.2" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#data-curation"><i class="fa fa-check"></i><b>6.2</b> Data curation</a></li>
+<li class="chapter" data-level="6.3" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#regularized-generalized-linear-models"><i class="fa fa-check"></i><b>6.3</b> Regularized Generalized Linear Models</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#lasso-alpha-1"><i class="fa fa-check"></i><b>6.3.1</b> Lasso: alpha = 1</a></li>
+<li class="chapter" data-level="6.3.2" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#ridge-alpha-0"><i class="fa fa-check"></i><b>6.3.2</b> Ridge: alpha = 0</a></li>
+<li class="chapter" data-level="6.3.3" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#elasticnet-0-alpha-1"><i class="fa fa-check"></i><b>6.3.3</b> Elasticnet: 0 &lt; alpha &lt; 1</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#classification"><i class="fa fa-check"></i><b>6.4</b> Classification</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#random-forest"><i class="fa fa-check"></i><b>6.4.1</b> Random Forest</a></li>
+<li class="chapter" data-level="6.4.2" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#support-vector-machine-svm"><i class="fa fa-check"></i><b>6.4.2</b> Support Vector Machine (SVM)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#systematic-information-4"><i class="fa fa-check"></i><b>6.5</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="network-analysis.html"><a href="network-analysis.html"><i class="fa fa-check"></i><b>7</b> Network Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="network-analysis.html"><a href="network-analysis.html#introduction-1"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="network-analysis.html"><a href="network-analysis.html#loading-packages-4"><i class="fa fa-check"></i><b>7.2</b> Loading packages</a></li>
+<li class="chapter" data-level="7.3" data-path="network-analysis.html"><a href="network-analysis.html#importing-data-5"><i class="fa fa-check"></i><b>7.3</b> Importing data</a></li>
+<li class="chapter" data-level="7.4" data-path="network-analysis.html"><a href="network-analysis.html#data-curation-1"><i class="fa fa-check"></i><b>7.4</b> Data curation</a></li>
+<li class="chapter" data-level="7.5" data-path="network-analysis.html"><a href="network-analysis.html#associations-among-features"><i class="fa fa-check"></i><b>7.5</b> Associations Among Features</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="network-analysis.html"><a href="network-analysis.html#single-network-with-pearson-correlation-as-association-measure"><i class="fa fa-check"></i><b>7.5.1</b> Single network with Pearson correlation as association measure</a></li>
+<li class="chapter" data-level="7.5.2" data-path="network-analysis.html"><a href="network-analysis.html#single-network-with-spearman-correlation-as-association-measure"><i class="fa fa-check"></i><b>7.5.2</b> Single network with spearman correlation as association measure</a></li>
+<li class="chapter" data-level="7.5.3" data-path="network-analysis.html"><a href="network-analysis.html#single-network-with-wgcna-bicor-as-association-measure"><i class="fa fa-check"></i><b>7.5.3</b> Single network with WGCNA (bicor) as association measure</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="network-analysis.html"><a href="network-analysis.html#network-comparison"><i class="fa fa-check"></i><b>7.6</b> Network comparison</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="network-analysis.html"><a href="network-analysis.html#data-preparing"><i class="fa fa-check"></i><b>7.6.1</b> Data preparing</a></li>
+<li class="chapter" data-level="7.6.2" data-path="network-analysis.html"><a href="network-analysis.html#building-network-model-3"><i class="fa fa-check"></i><b>7.6.2</b> Building network model</a></li>
+<li class="chapter" data-level="7.6.3" data-path="network-analysis.html"><a href="network-analysis.html#network-analysis-1"><i class="fa fa-check"></i><b>7.6.3</b> Network analysis</a></li>
+<li class="chapter" data-level="7.6.4" data-path="network-analysis.html"><a href="network-analysis.html#visualizing-the-network-3"><i class="fa fa-check"></i><b>7.6.4</b> Visualizing the network</a></li>
+<li class="chapter" data-level="7.6.5" data-path="network-analysis.html"><a href="network-analysis.html#quantitative-network-comparison"><i class="fa fa-check"></i><b>7.6.5</b> Quantitative network comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="network-analysis.html"><a href="network-analysis.html#systematic-information-5"><i class="fa fa-check"></i><b>7.7</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html"><i class="fa fa-check"></i><b>8</b> Enrichment Analysis</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#enviroment-set-up"><i class="fa fa-check"></i><b>8.1</b> Enviroment Set up</a></li>
+<li class="chapter" data-level="8.2" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#over-representation-analysis-ora"><i class="fa fa-check"></i><b>8.2</b> Over representation analysis (ORA)</a></li>
+<li class="chapter" data-level="8.3" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#clean-environment-1"><i class="fa fa-check"></i><b>8.3</b> Clean environment 1</a></li>
+<li class="chapter" data-level="8.4" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#single-sample-profiling"><i class="fa fa-check"></i><b>8.4</b> Single Sample Profiling</a></li>
+<li class="chapter" data-level="8.5" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#clean-environment-2"><i class="fa fa-check"></i><b>8.5</b> Clean environment 2</a></li>
+<li class="chapter" data-level="8.6" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#quantitative-enrichment-analysis-qea"><i class="fa fa-check"></i><b>8.6</b> Quantitative Enrichment Analysis (QEA)</a></li>
+<li class="chapter" data-level="8.7" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#systematic-information-6"><i class="fa fa-check"></i><b>8.7</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="pathway-analysis.html"><a href="pathway-analysis.html"><i class="fa fa-check"></i><b>9</b> Pathway Analysis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="pathway-analysis.html"><a href="pathway-analysis.html#enviroment-set-up-1"><i class="fa fa-check"></i><b>9.1</b> Enviroment Set up</a></li>
+<li class="chapter" data-level="9.2" data-path="pathway-analysis.html"><a href="pathway-analysis.html#over-representation-analysis"><i class="fa fa-check"></i><b>9.2</b> Over representation analysis</a></li>
+<li class="chapter" data-level="9.3" data-path="pathway-analysis.html"><a href="pathway-analysis.html#clean-environment-1-1"><i class="fa fa-check"></i><b>9.3</b> Clean environment 1</a></li>
+<li class="chapter" data-level="9.4" data-path="pathway-analysis.html"><a href="pathway-analysis.html#concentration-table-qea"><i class="fa fa-check"></i><b>9.4</b> Concentration Table (QEA)</a></li>
+<li class="chapter" data-level="9.5" data-path="pathway-analysis.html"><a href="pathway-analysis.html#systematic-information-7"><i class="fa fa-check"></i><b>9.5</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="example.html"><a href="example.html"><i class="fa fa-check"></i><b>10</b> Example</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="example.html"><a href="example.html#loading-packages-5"><i class="fa fa-check"></i><b>10.1</b> Loading packages</a></li>
+<li class="chapter" data-level="10.2" data-path="example.html"><a href="example.html#importing-data-6"><i class="fa fa-check"></i><b>10.2</b> Importing data</a></li>
+<li class="chapter" data-level="10.3" data-path="example.html"><a href="example.html#data-processing-1"><i class="fa fa-check"></i><b>10.3</b> Data Processing</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="example.html"><a href="example.html#data-checking-1"><i class="fa fa-check"></i><b>10.3.1</b> Data Checking</a></li>
+<li class="chapter" data-level="10.3.2" data-path="example.html"><a href="example.html#data-filtering-1"><i class="fa fa-check"></i><b>10.3.2</b> Data Filtering</a></li>
+<li class="chapter" data-level="10.3.3" data-path="example.html"><a href="example.html#missing-value-imputation-1"><i class="fa fa-check"></i><b>10.3.3</b> Missing Value Imputation</a></li>
+<li class="chapter" data-level="10.3.4" data-path="example.html"><a href="example.html#data-normalization-1"><i class="fa fa-check"></i><b>10.3.4</b> Data Normalization</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="example.html"><a href="example.html#cluster-analysis-1"><i class="fa fa-check"></i><b>10.4</b> Cluster Analysis</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="example.html"><a href="example.html#hierarchical-clustering-1"><i class="fa fa-check"></i><b>10.4.1</b> Hierarchical Clustering</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="example.html"><a href="example.html#chemometrics-analysis-1"><i class="fa fa-check"></i><b>10.5</b> Chemometrics Analysis</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="example.html"><a href="example.html#partial-least-squares-discriminant-analysis-pls-da-1"><i class="fa fa-check"></i><b>10.5.1</b> Partial Least Squares-Discriminant Analysis (PLS-DA)</a></li>
+<li class="chapter" data-level="10.5.2" data-path="example.html"><a href="example.html#sparse-partial-least-squares-discriminant-analysis-spls-da-1"><i class="fa fa-check"></i><b>10.5.2</b> Sparse Partial Least Squares-Discriminant Analysis (sPLS-DA)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="example.html"><a href="example.html#univariate-analysis-1"><i class="fa fa-check"></i><b>10.6</b> Univariate Analysis</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="example.html"><a href="example.html#fold-change-analysis-1"><i class="fa fa-check"></i><b>10.6.1</b> Fold Change Analysis</a></li>
+<li class="chapter" data-level="10.6.2" data-path="example.html"><a href="example.html#t-test-1"><i class="fa fa-check"></i><b>10.6.2</b> T Test</a></li>
+<li class="chapter" data-level="10.6.3" data-path="example.html"><a href="example.html#volcano-plot-1"><i class="fa fa-check"></i><b>10.6.3</b> Volcano plot</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="example.html"><a href="example.html#feature-selection"><i class="fa fa-check"></i><b>10.7</b> Feature Selection</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="example.html"><a href="example.html#regularized-generalized-linear-models-lasso-alpha-1"><i class="fa fa-check"></i><b>10.7.1</b> Regularized Generalized Linear Models (Lasso: alpha = 1)</a></li>
+<li class="chapter" data-level="10.7.2" data-path="example.html"><a href="example.html#classification-random-forest"><i class="fa fa-check"></i><b>10.7.2</b> Classification (Random Forest)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="example.html"><a href="example.html#network-analysis-2"><i class="fa fa-check"></i><b>10.8</b> Network Analysis</a>
+<ul>
+<li class="chapter" data-level="10.8.1" data-path="example.html"><a href="example.html#data-curation-2"><i class="fa fa-check"></i><b>10.8.1</b> Data curation</a></li>
+<li class="chapter" data-level="10.8.2" data-path="example.html"><a href="example.html#building-network-model-4"><i class="fa fa-check"></i><b>10.8.2</b> Building network model</a></li>
+<li class="chapter" data-level="10.8.3" data-path="example.html"><a href="example.html#visualizing-the-network-4"><i class="fa fa-check"></i><b>10.8.3</b> Visualizing the network</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="example.html"><a href="example.html#network-analysis-by-wgcna"><i class="fa fa-check"></i><b>10.9</b> Network Analysis by WGCNA</a>
+<ul>
+<li class="chapter" data-level="10.9.1" data-path="example.html"><a href="example.html#data-curation-3"><i class="fa fa-check"></i><b>10.9.1</b> Data curation</a></li>
+<li class="chapter" data-level="10.9.2" data-path="example.html"><a href="example.html#tuning-soft-thresholds"><i class="fa fa-check"></i><b>10.9.2</b> Tuning soft thresholds</a></li>
+<li class="chapter" data-level="10.9.3" data-path="example.html"><a href="example.html#create-the-network-using-the-blockwisemodules"><i class="fa fa-check"></i><b>10.9.3</b> Create the network using the <code>blockwiseModules</code></a></li>
+<li class="chapter" data-level="10.9.4" data-path="example.html"><a href="example.html#plot-modules"><i class="fa fa-check"></i><b>10.9.4</b> plot modules</a></li>
+<li class="chapter" data-level="10.9.5" data-path="example.html"><a href="example.html#relationships-among-modules"><i class="fa fa-check"></i><b>10.9.5</b> Relationships among modules</a></li>
+<li class="chapter" data-level="10.9.6" data-path="example.html"><a href="example.html#module-eigengene-correlation"><i class="fa fa-check"></i><b>10.9.6</b> Module (Eigengene) correlation</a></li>
+<li class="chapter" data-level="10.9.7" data-path="example.html"><a href="example.html#relate-module-cluster-assignments-to-groups"><i class="fa fa-check"></i><b>10.9.7</b> Relate Module (cluster) Assignments to Groups</a></li>
+<li class="chapter" data-level="10.9.8" data-path="example.html"><a href="example.html#generate-and-export-networks"><i class="fa fa-check"></i><b>10.9.8</b> Generate and Export Networks</a></li>
+<li class="chapter" data-level="10.9.9" data-path="example.html"><a href="example.html#network-visualization"><i class="fa fa-check"></i><b>10.9.9</b> Network visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="10.10" data-path="example.html"><a href="example.html#systematic-information-8"><i class="fa fa-check"></i><b>10.10</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analysis in Metabolomics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cluster-analysis" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Cluster Analysis<a href="cluster-analysis.html#cluster-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>Hierarchical clustering is an alternative approach to k-means clustering for identifying groups in the dataset. It does not require us to pre-specify the number of clusters to be generated as is required by the k-means approach. Furthermore, hierarchical clustering has an added advantage over K-means clustering in that it results in an attractive tree-based representation of the observations, called a dendrogram.</p>
+</blockquote>
+<div id="loading-packages-1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Loading packages<a href="cluster-analysis.html#loading-packages-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="cluster-analysis.html#cb78-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">warning =</span> F)</span>
+<span id="cb78-2"><a href="cluster-analysis.html#cb78-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-3"><a href="cluster-analysis.html#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb78-4"><a href="cluster-analysis.html#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb78-5"><a href="cluster-analysis.html#cb78-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(POMA)</span>
+<span id="cb78-6"><a href="cluster-analysis.html#cb78-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb78-7"><a href="cluster-analysis.html#cb78-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SummarizedExperiment)</span>
+<span id="cb78-8"><a href="cluster-analysis.html#cb78-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cluster)    <span class="co"># clustering algorithms</span></span>
+<span id="cb78-9"><a href="cluster-analysis.html#cb78-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra) <span class="co"># clustering visualization</span></span></code></pre></div>
+<pre><code>## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="cluster-analysis.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dendextend) <span class="co"># for comparing two dendrograms</span></span></code></pre></div>
+<pre><code>## Registered S3 method overwritten by &#39;dendextend&#39;:
+##   method     from 
+##   rev.hclust vegan</code></pre>
+<pre><code>## 
+## ---------------------
+## Welcome to dendextend version 1.15.2
+## Type citation(&#39;dendextend&#39;) for how to cite the package.
+## 
+## Type browseVignettes(package = &#39;dendextend&#39;) for the package vignette.
+## The github page is: https://github.com/talgalili/dendextend/
+## 
+## Suggestions and bug-reports can be submitted at: https://github.com/talgalili/dendextend/issues
+## You may ask questions at stackoverflow, use the r and dendextend tags: 
+##   https://stackoverflow.com/questions/tagged/dendextend
+## 
+##  To suppress this message use:  suppressPackageStartupMessages(library(dendextend))
+## ---------------------</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dendextend&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     cutree</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="cluster-analysis.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rm(list = ls())</span></span>
+<span id="cb85-2"><a href="cluster-analysis.html#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb85-3"><a href="cluster-analysis.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">future.globals.maxSize =</span> <span class="dv">1000</span> <span class="sc">*</span> <span class="dv">1024</span><span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+</div>
+<div id="importing-data-1" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Importing data<a href="cluster-analysis.html#importing-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The input data sets are from the previous chapter.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="cluster-analysis.html#cb86-1" aria-hidden="true" tabindex="-1"></a>se_normalize <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;./dataset/POMA/se_normalize.RDS&quot;</span>)</span></code></pre></div>
+</div>
+<div id="hierarchical-clustering" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Hierarchical Clustering<a href="cluster-analysis.html#hierarchical-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hierarchical clustering can be divided into two main types: <strong>agglomerative</strong> and <strong>divisive</strong>.</p>
+<p>Calculate dissimilarity</p>
+<blockquote>
+<p>However, a bigger question is: How do we measure the dissimilarity between two clusters of observations? A number of different cluster agglomeration methods (i.e, linkage methods) have been developed to answer to this question. The most common types methods are:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Maximum or complete linkage clustering</strong>: It computes all pairwise dissimilarities between the elements in cluster 1 and the elements in cluster 2, and considers the largest value (i.e., maximum value) of these dissimilarities as the distance between the two clusters. It tends to produce more compact clusters.</li>
+<li><strong>Minimum or single linkage clustering</strong>: It computes all pairwise dissimilarities between the elements in cluster 1 and the elements in cluster 2, and considers the smallest of these dissimilarities as a linkage criterion. It tends to produce long, “loose” clusters.</li>
+<li><strong>Mean or average linkage clustering</strong>: It computes all pairwise dissimilarities between the elements in cluster 1 and the elements in cluster 2, and considers the average of these dissimilarities as the distance between the two clusters.</li>
+<li><strong>Centroid linkage clustering</strong>: It computes the dissimilarity between the centroid for cluster 1 (a mean vector of length p variables) and the centroid for cluster 2.</li>
+<li><strong>Ward’s minimum variance method</strong>: It minimizes the total within-cluster variance. At each step the pair of clusters with minimum between-cluster distance are merged.</li>
+</ol>
+</blockquote>
+<p>Data Processing:</p>
+<ol style="list-style-type: decimal">
+<li><p>Rows are observations (individuals) and columns are variables.</p></li>
+<li><p>Any missing value in the data must be removed or estimated.</p></li>
+<li><p>The data must be standardized (i.e., scaled) to make variables comparable. Recall that, standardization consists of transforming the variables such that they have mean zero and standard deviation one.</p></li>
+</ol>
+<p>Functions to computing hierarchical clustering:</p>
+<ol style="list-style-type: decimal">
+<li><p><em>hclust</em> [in stats package] and <em>agnes</em> [in cluster package] for agglomerative hierarchical clustering.</p></li>
+<li><p><em>diana</em> [in cluster package] for divisive hierarchical clustering.</p></li>
+</ol>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="cluster-analysis.html#cb87-1" aria-hidden="true" tabindex="-1"></a>HieraCluster <span class="ot">&lt;-</span> <span class="cf">function</span>(object,</span>
+<span id="cb87-2"><a href="cluster-analysis.html#cb87-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">method_dis =</span> <span class="fu">c</span>(<span class="st">&quot;euclidean&quot;</span>, <span class="st">&quot;bray&quot;</span>),</span>
+<span id="cb87-3"><a href="cluster-analysis.html#cb87-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">method_cluster =</span> <span class="fu">c</span>(<span class="st">&quot;average&quot;</span>, <span class="st">&quot;single&quot;</span>, <span class="st">&quot;complete&quot;</span>, <span class="st">&quot;ward&quot;</span>, <span class="st">&quot;ward.D2&quot;</span>),</span>
+<span id="cb87-4"><a href="cluster-analysis.html#cb87-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">cluster_type =</span> <span class="fu">c</span>(<span class="st">&quot;Agglomerative&quot;</span>, <span class="st">&quot;Divisive&quot;</span>),</span>
+<span id="cb87-5"><a href="cluster-analysis.html#cb87-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">tree_num =</span> <span class="dv">4</span>) {</span>
+<span id="cb87-6"><a href="cluster-analysis.html#cb87-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb87-7"><a href="cluster-analysis.html#cb87-7" aria-hidden="true" tabindex="-1"></a>  features_tab <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">assay</span>(object) </span>
+<span id="cb87-8"><a href="cluster-analysis.html#cb87-8" aria-hidden="true" tabindex="-1"></a>  metadata_tab <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">colData</span>(object)</span>
+<span id="cb87-9"><a href="cluster-analysis.html#cb87-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb87-10"><a href="cluster-analysis.html#cb87-10" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">t</span>(features_tab)</span>
+<span id="cb87-11"><a href="cluster-analysis.html#cb87-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (cluster_type <span class="sc">==</span> <span class="st">&quot;Agglomerative&quot;</span>) {</span>
+<span id="cb87-12"><a href="cluster-analysis.html#cb87-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Agglomerative Hierarchical Clustering </span></span>
+<span id="cb87-13"><a href="cluster-analysis.html#cb87-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Dissimilarity matrix</span></span>
+<span id="cb87-14"><a href="cluster-analysis.html#cb87-14" aria-hidden="true" tabindex="-1"></a>    d <span class="ot">&lt;-</span> <span class="fu">dist</span>(df, <span class="at">method =</span> method_dis)</span>
+<span id="cb87-15"><a href="cluster-analysis.html#cb87-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb87-16"><a href="cluster-analysis.html#cb87-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Hierarchical clustering using Linkage method</span></span>
+<span id="cb87-17"><a href="cluster-analysis.html#cb87-17" aria-hidden="true" tabindex="-1"></a>    hc <span class="ot">&lt;-</span> <span class="fu">hclust</span>(d, <span class="at">method =</span> method_cluster)</span>
+<span id="cb87-18"><a href="cluster-analysis.html#cb87-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># hc &lt;- agnes(df, method = method_cluster)</span></span>
+<span id="cb87-19"><a href="cluster-analysis.html#cb87-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb87-20"><a href="cluster-analysis.html#cb87-20" aria-hidden="true" tabindex="-1"></a>    <span class="do">####### identifying the strongest clustering structure ################</span></span>
+<span id="cb87-21"><a href="cluster-analysis.html#cb87-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># # methods to assess</span></span>
+<span id="cb87-22"><a href="cluster-analysis.html#cb87-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># m &lt;- c( &quot;average&quot;, &quot;single&quot;, &quot;complete&quot;, &quot;ward&quot;)</span></span>
+<span id="cb87-23"><a href="cluster-analysis.html#cb87-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># names(m) &lt;- c( &quot;average&quot;, &quot;single&quot;, &quot;complete&quot;, &quot;ward&quot;)</span></span>
+<span id="cb87-24"><a href="cluster-analysis.html#cb87-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span></span>
+<span id="cb87-25"><a href="cluster-analysis.html#cb87-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># # function to compute coefficient</span></span>
+<span id="cb87-26"><a href="cluster-analysis.html#cb87-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ac &lt;- function(x) {</span></span>
+<span id="cb87-27"><a href="cluster-analysis.html#cb87-27" aria-hidden="true" tabindex="-1"></a>    <span class="co">#   agnes(df, method = x)$ac</span></span>
+<span id="cb87-28"><a href="cluster-analysis.html#cb87-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># }</span></span>
+<span id="cb87-29"><a href="cluster-analysis.html#cb87-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span></span>
+<span id="cb87-30"><a href="cluster-analysis.html#cb87-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># map_dbl(m, ac)     </span></span>
+<span id="cb87-31"><a href="cluster-analysis.html#cb87-31" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (cluster_type <span class="sc">==</span> <span class="st">&quot;Divisive&quot;</span>) {</span>
+<span id="cb87-32"><a href="cluster-analysis.html#cb87-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Divisive Hierarchical Clustering </span></span>
+<span id="cb87-33"><a href="cluster-analysis.html#cb87-33" aria-hidden="true" tabindex="-1"></a>    hc <span class="ot">&lt;-</span> <span class="fu">diana</span>(df, <span class="at">metric =</span> method_dis)</span>
+<span id="cb87-34"><a href="cluster-analysis.html#cb87-34" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb87-35"><a href="cluster-analysis.html#cb87-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb87-36"><a href="cluster-analysis.html#cb87-36" aria-hidden="true" tabindex="-1"></a>  hc_res <span class="ot">&lt;-</span> <span class="fu">as.hclust</span>(hc)</span>
+<span id="cb87-37"><a href="cluster-analysis.html#cb87-37" aria-hidden="true" tabindex="-1"></a>  sub_grp <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_res, <span class="at">k =</span> tree_num)</span>
+<span id="cb87-38"><a href="cluster-analysis.html#cb87-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-39"><a href="cluster-analysis.html#cb87-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(hc_res, <span class="at">cex =</span> <span class="fl">0.6</span>)</span>
+<span id="cb87-40"><a href="cluster-analysis.html#cb87-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rect.hclust</span>(hc_res, <span class="at">k =</span> tree_num, <span class="at">border =</span> <span class="dv">2</span><span class="sc">:</span>(tree_num<span class="sc">+</span><span class="dv">1</span>)) </span>
+<span id="cb87-41"><a href="cluster-analysis.html#cb87-41" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb87-42"><a href="cluster-analysis.html#cb87-42" aria-hidden="true" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">data=</span>df,</span>
+<span id="cb87-43"><a href="cluster-analysis.html#cb87-43" aria-hidden="true" tabindex="-1"></a>              <span class="at">cluster=</span>sub_grp,</span>
+<span id="cb87-44"><a href="cluster-analysis.html#cb87-44" aria-hidden="true" tabindex="-1"></a>              <span class="at">hc=</span>hc_res)</span>
+<span id="cb87-45"><a href="cluster-analysis.html#cb87-45" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb87-46"><a href="cluster-analysis.html#cb87-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb87-47"><a href="cluster-analysis.html#cb87-47" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div id="agglomerative-hierarchical-clustering" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Agglomerative Hierarchical Clustering<a href="cluster-analysis.html#agglomerative-hierarchical-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p><strong>Agglomerative clustering</strong>: It’s also known as AGNES (Agglomerative Nesting). It works in a bottom-up manner. That is, each object is initially considered as a single-element cluster (leaf). At each step of the algorithm, the two clusters that are the most similar are combined into a new bigger cluster (nodes). This procedure is iterated until all points are member of just one single big cluster (root). The result is a tree which can be plotted as a dendrogram.</p>
+</blockquote>
+<ul>
+<li>Calculation</li>
+</ul>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="cluster-analysis.html#cb88-1" aria-hidden="true" tabindex="-1"></a>Agg_hc_res <span class="ot">&lt;-</span> <span class="fu">HieraCluster</span>(</span>
+<span id="cb88-2"><a href="cluster-analysis.html#cb88-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">object =</span> se_normalize,</span>
+<span id="cb88-3"><a href="cluster-analysis.html#cb88-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">method_dis =</span> <span class="st">&quot;euclidean&quot;</span>,</span>
+<span id="cb88-4"><a href="cluster-analysis.html#cb88-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">method_cluster =</span> <span class="st">&quot;ward.D2&quot;</span>,</span>
+<span id="cb88-5"><a href="cluster-analysis.html#cb88-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">cluster_type =</span> <span class="st">&quot;Agglomerative&quot;</span>)</span></code></pre></div>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-20-1.png" width="768" /></p>
+<ul>
+<li>Visualization: visualize the result in a scatter plot</li>
+</ul>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="cluster-analysis.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(<span class="fu">list</span>(<span class="at">data =</span> Agg_hc_res<span class="sc">$</span>data, </span>
+<span id="cb89-2"><a href="cluster-analysis.html#cb89-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">cluster =</span> Agg_hc_res<span class="sc">$</span>cluster))</span></code></pre></div>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-21-1.png" width="768" /></p>
+</div>
+<div id="divisive-hierarchical-clustering" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Divisive Hierarchical Clustering<a href="cluster-analysis.html#divisive-hierarchical-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p><strong>Divisive hierarchical clustering</strong>: It’s also known as DIANA (Divise Analysis) and it works in a top-down manner. The algorithm is an inverse order of AGNES. It begins with the root, in which all objects are included in a single cluster. At each step of iteration, the most heterogeneous cluster is divided into two. The process is iterated until all objects are in their own cluster.</p>
+</blockquote>
+<ul>
+<li>Calculation</li>
+</ul>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="cluster-analysis.html#cb90-1" aria-hidden="true" tabindex="-1"></a>Div_hc_res <span class="ot">&lt;-</span> <span class="fu">HieraCluster</span>(</span>
+<span id="cb90-2"><a href="cluster-analysis.html#cb90-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">object =</span> se_normalize,</span>
+<span id="cb90-3"><a href="cluster-analysis.html#cb90-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">method_dis =</span> <span class="st">&quot;euclidean&quot;</span>,</span>
+<span id="cb90-4"><a href="cluster-analysis.html#cb90-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">method_cluster =</span> <span class="st">&quot;ward&quot;</span>,</span>
+<span id="cb90-5"><a href="cluster-analysis.html#cb90-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">cluster_type =</span> <span class="st">&quot;Divisive&quot;</span>)</span></code></pre></div>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-22-1.png" width="768" /></p>
+<ul>
+<li>Visualization: visualize the result in a scatter plot</li>
+</ul>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="cluster-analysis.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(<span class="fu">list</span>(<span class="at">data =</span> Div_hc_res<span class="sc">$</span>data, </span>
+<span id="cb91-2"><a href="cluster-analysis.html#cb91-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">cluster =</span> Div_hc_res<span class="sc">$</span>cluster))</span></code></pre></div>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-23-1.png" width="768" /></p>
+</div>
+<div id="comparison" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Comparison<a href="cluster-analysis.html#comparison" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>dendrograms: In the dendrogram displayed above, each leaf corresponds to one observation.</li>
+</ul>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="cluster-analysis.html#cb92-1" aria-hidden="true" tabindex="-1"></a>Agg_hc_dend <span class="ot">&lt;-</span> <span class="fu">as.dendrogram</span>(Agg_hc_res<span class="sc">$</span>hc)</span>
+<span id="cb92-2"><a href="cluster-analysis.html#cb92-2" aria-hidden="true" tabindex="-1"></a>Div_hc_dend <span class="ot">&lt;-</span> <span class="fu">as.dendrogram</span>(Div_hc_res<span class="sc">$</span>hc)</span>
+<span id="cb92-3"><a href="cluster-analysis.html#cb92-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-4"><a href="cluster-analysis.html#cb92-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tanglegram</span>(Agg_hc_dend, Div_hc_dend)</span></code></pre></div>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-24-1.png" width="768" /></p>
+<ul>
+<li>tanglegrams</li>
+</ul>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="cluster-analysis.html#cb93-1" aria-hidden="true" tabindex="-1"></a>dend_list <span class="ot">&lt;-</span> <span class="fu">dendlist</span>(Agg_hc_dend, Div_hc_dend)</span>
+<span id="cb93-2"><a href="cluster-analysis.html#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tanglegram</span>(Agg_hc_dend, Div_hc_dend,</span>
+<span id="cb93-3"><a href="cluster-analysis.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">highlight_distinct_edges =</span> <span class="cn">FALSE</span>, <span class="co"># Turn-off dashed lines</span></span>
+<span id="cb93-4"><a href="cluster-analysis.html#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">common_subtrees_color_lines =</span> <span class="cn">FALSE</span>, <span class="co"># Turn-off line colors</span></span>
+<span id="cb93-5"><a href="cluster-analysis.html#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">common_subtrees_color_branches =</span> <span class="cn">TRUE</span>, <span class="co"># Color common branches </span></span>
+<span id="cb93-6"><a href="cluster-analysis.html#cb93-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;entanglement =&quot;</span>, <span class="fu">round</span>(<span class="fu">entanglement</span>(dend_list), <span class="dv">2</span>)))</span></code></pre></div>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-25-1.png" width="768" /></p>
+</div>
+<div id="determining-optimal-clusters" class="section level3 hasAnchor" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Determining Optimal Clusters<a href="cluster-analysis.html#determining-optimal-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Elbow plot</li>
+</ul>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="cluster-analysis.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_nbclust</span>(Agg_hc_res<span class="sc">$</span>data, <span class="at">FUN =</span> hcut, <span class="at">method =</span> <span class="st">&quot;wss&quot;</span>)</span></code></pre></div>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-26-1.png" width="576" /></p>
+<ul>
+<li>Average Silhouette Method</li>
+</ul>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="cluster-analysis.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_nbclust</span>(Agg_hc_res<span class="sc">$</span>data, <span class="at">FUN =</span> hcut, <span class="at">method =</span> <span class="st">&quot;silhouette&quot;</span>)</span></code></pre></div>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-27-1.png" width="576" /></p>
+<ul>
+<li>Gap Statistic Method</li>
+</ul>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="cluster-analysis.html#cb96-1" aria-hidden="true" tabindex="-1"></a>gap_stat <span class="ot">&lt;-</span> <span class="fu">clusGap</span>(Agg_hc_res<span class="sc">$</span>data, <span class="at">FUN =</span> hcut, <span class="at">nstart =</span> <span class="dv">25</span>, <span class="at">K.max =</span> <span class="dv">10</span>, <span class="at">B =</span> <span class="dv">50</span>)</span></code></pre></div>
+<pre><code>## Clustering k = 1,2,..., K.max (= 10): .. done
+## Bootstrapping, b = 1,2,..., B (= 50)  [one &quot;.&quot; per sample]:
+## .................................................. 50</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="cluster-analysis.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_gap_stat</span>(gap_stat)</span></code></pre></div>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-28-1.png" width="576" /></p>
+</div>
+</div>
+<div id="partitional-clustering" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Partitional Clustering<a href="cluster-analysis.html#partitional-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>K-means clustering is the most commonly used unsupervised machine learning algorithm for partitioning a given data set into a set of k groups (i.e. k clusters), where k represents the number of groups pre-specified by the analyst.</p>
+</blockquote>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="cluster-analysis.html#cb99-1" aria-hidden="true" tabindex="-1"></a>PartCluster <span class="ot">&lt;-</span> <span class="cf">function</span>(object,</span>
+<span id="cb99-2"><a href="cluster-analysis.html#cb99-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">cluster_num =</span> <span class="dv">4</span>) {</span>
+<span id="cb99-3"><a href="cluster-analysis.html#cb99-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb99-4"><a href="cluster-analysis.html#cb99-4" aria-hidden="true" tabindex="-1"></a>  features_tab <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">assay</span>(object) </span>
+<span id="cb99-5"><a href="cluster-analysis.html#cb99-5" aria-hidden="true" tabindex="-1"></a>  metadata_tab <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">colData</span>(object)</span>
+<span id="cb99-6"><a href="cluster-analysis.html#cb99-6" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">t</span>(features_tab)</span>
+<span id="cb99-7"><a href="cluster-analysis.html#cb99-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb99-8"><a href="cluster-analysis.html#cb99-8" aria-hidden="true" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(df, <span class="at">centers =</span> cluster_num)  </span>
+<span id="cb99-9"><a href="cluster-analysis.html#cb99-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># show clusters</span></span>
+<span id="cb99-10"><a href="cluster-analysis.html#cb99-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">fviz_cluster</span>(<span class="fu">list</span>(<span class="at">data =</span> df, </span>
+<span id="cb99-11"><a href="cluster-analysis.html#cb99-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">cluster =</span> res<span class="sc">$</span>cluster))) </span>
+<span id="cb99-12"><a href="cluster-analysis.html#cb99-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb99-13"><a href="cluster-analysis.html#cb99-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb99-14"><a href="cluster-analysis.html#cb99-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb99-15"><a href="cluster-analysis.html#cb99-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-16"><a href="cluster-analysis.html#cb99-16" aria-hidden="true" tabindex="-1"></a>Kcluster_res <span class="ot">&lt;-</span> <span class="fu">PartCluster</span>(</span>
+<span id="cb99-17"><a href="cluster-analysis.html#cb99-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">object =</span> se_normalize,</span>
+<span id="cb99-18"><a href="cluster-analysis.html#cb99-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">cluster_num =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-29-1.png" width="768" /></p>
+</div>
+<div id="systematic-information-1" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Systematic Information<a href="cluster-analysis.html#systematic-information-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="cluster-analysis.html#cb100-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
+<pre><code>## ─ Session info ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  setting  value
+##  version  R version 4.1.2 (2021-11-01)
+##  os       macOS Monterey 12.2.1
+##  system   x86_64, darwin17.0
+##  ui       RStudio
+##  language (EN)
+##  collate  en_US.UTF-8
+##  ctype    en_US.UTF-8
+##  tz       Asia/Shanghai
+##  date     2022-08-09
+##  rstudio  2022.07.1+554 Spotted Wakerobin (desktop)
+##  pandoc   2.18 @ /Applications/RStudio.app/Contents/MacOS/quarto/bin/tools/ (via rmarkdown)
+## 
+## ─ Packages ─────────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  package              * version    date (UTC) lib source
+##  abind                  1.4-5      2016-07-21 [1] CRAN (R 4.1.0)
+##  assertthat             0.2.1      2019-03-21 [1] CRAN (R 4.1.0)
+##  backports              1.4.1      2021-12-13 [1] CRAN (R 4.1.0)
+##  Biobase              * 2.54.0     2021-10-26 [1] Bioconductor
+##  BiocGenerics         * 0.40.0     2021-10-26 [1] Bioconductor
+##  BiocParallel           1.28.3     2021-12-09 [1] Bioconductor
+##  bitops                 1.0-7      2021-04-24 [1] CRAN (R 4.1.0)
+##  bookdown               0.27       2022-06-14 [1] CRAN (R 4.1.2)
+##  brio                   1.1.3      2021-11-30 [1] CRAN (R 4.1.0)
+##  broom                  0.7.12     2022-01-28 [1] CRAN (R 4.1.2)
+##  bslib                  0.3.1      2021-10-06 [1] CRAN (R 4.1.0)
+##  cachem                 1.0.6      2021-08-19 [1] CRAN (R 4.1.0)
+##  callr                  3.7.0      2021-04-20 [1] CRAN (R 4.1.0)
+##  car                    3.0-12     2021-11-06 [1] CRAN (R 4.1.0)
+##  carData                3.0-5      2022-01-06 [1] CRAN (R 4.1.2)
+##  caret                  6.0-92     2022-04-19 [1] CRAN (R 4.1.2)
+##  cellranger             1.1.0      2016-07-27 [1] CRAN (R 4.1.0)
+##  circlize               0.4.14     2022-02-11 [1] CRAN (R 4.1.2)
+##  class                  7.3-20     2022-01-13 [1] CRAN (R 4.1.2)
+##  cli                    3.3.0      2022-04-25 [1] CRAN (R 4.1.2)
+##  clue                   0.3-60     2021-10-11 [1] CRAN (R 4.1.0)
+##  cluster              * 2.1.2      2021-04-17 [1] CRAN (R 4.1.2)
+##  codetools              0.2-18     2020-11-04 [1] CRAN (R 4.1.2)
+##  colorspace             2.0-3      2022-02-21 [1] CRAN (R 4.1.2)
+##  ComplexHeatmap         2.10.0     2021-10-26 [1] Bioconductor
+##  corpcor                1.6.10     2021-09-16 [1] CRAN (R 4.1.0)
+##  cowplot                1.1.1      2020-12-30 [1] CRAN (R 4.1.0)
+##  crayon                 1.5.0      2022-02-14 [1] CRAN (R 4.1.2)
+##  data.table             1.14.2     2021-09-27 [1] CRAN (R 4.1.0)
+##  DBI                    1.1.2      2021-12-20 [1] CRAN (R 4.1.0)
+##  DelayedArray           0.20.0     2021-10-26 [1] Bioconductor
+##  dendextend           * 1.15.2     2021-10-28 [1] CRAN (R 4.1.0)
+##  desc                   1.4.1      2022-03-06 [1] CRAN (R 4.1.2)
+##  devtools               2.4.3      2021-11-30 [1] CRAN (R 4.1.0)
+##  digest                 0.6.29     2021-12-01 [1] CRAN (R 4.1.0)
+##  doParallel             1.0.17     2022-02-07 [1] CRAN (R 4.1.2)
+##  dplyr                * 1.0.8      2022-02-08 [1] CRAN (R 4.1.2)
+##  e1071                  1.7-9      2021-09-16 [1] CRAN (R 4.1.0)
+##  ellipse                0.4.2      2020-05-27 [1] CRAN (R 4.1.0)
+##  ellipsis               0.3.2      2021-04-29 [1] CRAN (R 4.1.0)
+##  evaluate               0.15       2022-02-18 [1] CRAN (R 4.1.2)
+##  factoextra           * 1.0.7      2020-04-01 [1] CRAN (R 4.1.0)
+##  fansi                  1.0.2      2022-01-14 [1] CRAN (R 4.1.2)
+##  farver                 2.1.0      2021-02-28 [1] CRAN (R 4.1.0)
+##  fastmap                1.1.0      2021-01-25 [1] CRAN (R 4.1.0)
+##  foreach                1.5.2      2022-02-02 [1] CRAN (R 4.1.2)
+##  fs                     1.5.2      2021-12-08 [1] CRAN (R 4.1.0)
+##  future                 1.24.0     2022-02-19 [1] CRAN (R 4.1.2)
+##  future.apply           1.8.1      2021-08-10 [1] CRAN (R 4.1.0)
+##  generics               0.1.2      2022-01-31 [1] CRAN (R 4.1.2)
+##  GenomeInfoDb         * 1.30.1     2022-01-30 [1] Bioconductor
+##  GenomeInfoDbData       1.2.7      2022-03-09 [1] Bioconductor
+##  GenomicRanges        * 1.46.1     2021-11-18 [1] Bioconductor
+##  GetoptLong             1.0.5      2020-12-15 [1] CRAN (R 4.1.0)
+##  ggforce                0.3.3      2021-03-05 [1] CRAN (R 4.1.0)
+##  ggplot2              * 3.3.5      2021-06-25 [1] CRAN (R 4.1.0)
+##  ggpubr                 0.4.0      2020-06-27 [1] CRAN (R 4.1.0)
+##  ggraph               * 2.0.5      2021-02-23 [1] CRAN (R 4.1.0)
+##  ggrepel                0.9.1      2021-01-15 [1] CRAN (R 4.1.0)
+##  ggsignif               0.6.3      2021-09-09 [1] CRAN (R 4.1.0)
+##  glasso                 1.11       2019-10-01 [1] CRAN (R 4.1.0)
+##  glmnet                 4.1-3      2021-11-02 [1] CRAN (R 4.1.0)
+##  GlobalOptions          0.1.2      2020-06-10 [1] CRAN (R 4.1.0)
+##  globals                0.14.0     2020-11-22 [1] CRAN (R 4.1.0)
+##  glue                   1.6.2      2022-02-24 [1] CRAN (R 4.1.2)
+##  gmp                    0.6-5      2022-03-17 [1] CRAN (R 4.1.2)
+##  gower                  1.0.0      2022-02-03 [1] CRAN (R 4.1.2)
+##  graphlayouts           0.8.0      2022-01-03 [1] CRAN (R 4.1.2)
+##  gridExtra              2.3        2017-09-09 [1] CRAN (R 4.1.0)
+##  gtable                 0.3.0      2019-03-25 [1] CRAN (R 4.1.0)
+##  hardhat                0.2.0      2022-01-24 [1] CRAN (R 4.1.2)
+##  highr                  0.9        2021-04-16 [1] CRAN (R 4.1.0)
+##  htmltools              0.5.2      2021-08-25 [1] CRAN (R 4.1.0)
+##  htmlwidgets            1.5.4      2021-09-08 [1] CRAN (R 4.1.0)
+##  httr                   1.4.2      2020-07-20 [1] CRAN (R 4.1.0)
+##  igraph                 1.2.11     2022-01-04 [1] CRAN (R 4.1.2)
+##  impute                 1.68.0     2021-10-26 [1] Bioconductor
+##  ipred                  0.9-12     2021-09-15 [1] CRAN (R 4.1.0)
+##  IRanges              * 2.28.0     2021-10-26 [1] Bioconductor
+##  iterators              1.0.14     2022-02-05 [1] CRAN (R 4.1.2)
+##  jquerylib              0.1.4      2021-04-26 [1] CRAN (R 4.1.0)
+##  jsonlite               1.8.0      2022-02-22 [1] CRAN (R 4.1.2)
+##  knitr                  1.39       2022-04-26 [1] CRAN (R 4.1.2)
+##  labeling               0.4.2      2020-10-20 [1] CRAN (R 4.1.0)
+##  lattice                0.20-45    2021-09-22 [1] CRAN (R 4.1.2)
+##  lava                   1.6.10     2021-09-02 [1] CRAN (R 4.1.0)
+##  lazyeval               0.2.2      2019-03-15 [1] CRAN (R 4.1.0)
+##  lifecycle              1.0.1      2021-09-24 [1] CRAN (R 4.1.0)
+##  limma                  3.50.1     2022-02-17 [1] Bioconductor
+##  listenv                0.8.0      2019-12-05 [1] CRAN (R 4.1.0)
+##  lubridate              1.8.0      2021-10-07 [1] CRAN (R 4.1.0)
+##  magrittr               2.0.2      2022-01-26 [1] CRAN (R 4.1.2)
+##  MASS                   7.3-55     2022-01-13 [1] CRAN (R 4.1.2)
+##  Matrix                 1.4-0      2021-12-08 [1] CRAN (R 4.1.0)
+##  MatrixGenerics       * 1.6.0      2021-10-26 [1] Bioconductor
+##  matrixStats          * 0.61.0     2021-09-17 [1] CRAN (R 4.1.0)
+##  memoise                2.0.1      2021-11-26 [1] CRAN (R 4.1.0)
+##  mgcv                   1.8-39     2022-02-24 [1] CRAN (R 4.1.2)
+##  mixOmics               6.18.1     2021-11-18 [1] Bioconductor (R 4.1.2)
+##  ModelMetrics           1.2.2.2    2020-03-17 [1] CRAN (R 4.1.0)
+##  munsell                0.5.0      2018-06-12 [1] CRAN (R 4.1.0)
+##  nlme                   3.1-155    2022-01-13 [1] CRAN (R 4.1.2)
+##  nnet                   7.3-17     2022-01-13 [1] CRAN (R 4.1.2)
+##  parallelly             1.31.0     2022-04-07 [1] CRAN (R 4.1.2)
+##  permute                0.9-7      2022-01-27 [1] CRAN (R 4.1.2)
+##  pillar                 1.7.0      2022-02-01 [1] CRAN (R 4.1.2)
+##  pkgbuild               1.3.1      2021-12-20 [1] CRAN (R 4.1.0)
+##  pkgconfig              2.0.3      2019-09-22 [1] CRAN (R 4.1.0)
+##  pkgload                1.2.4      2021-11-30 [1] CRAN (R 4.1.0)
+##  plotly               * 4.10.0     2021-10-09 [1] CRAN (R 4.1.0)
+##  plyr                   1.8.6      2020-03-03 [1] CRAN (R 4.1.0)
+##  png                    0.1-7      2013-12-03 [1] CRAN (R 4.1.0)
+##  polyclip               1.10-0     2019-03-14 [1] CRAN (R 4.1.0)
+##  POMA                 * 1.7.2      2022-07-26 [1] Github (pcastellanoescuder/POMA@bc8a972)
+##  prettyunits            1.1.1      2020-01-24 [1] CRAN (R 4.1.0)
+##  pROC                   1.18.0     2021-09-03 [1] CRAN (R 4.1.0)
+##  processx               3.5.2      2021-04-30 [1] CRAN (R 4.1.0)
+##  prodlim                2019.11.13 2019-11-17 [1] CRAN (R 4.1.0)
+##  proxy                  0.4-26     2021-06-07 [1] CRAN (R 4.1.0)
+##  ps                     1.6.0      2021-02-28 [1] CRAN (R 4.1.0)
+##  purrr                  0.3.4      2020-04-17 [1] CRAN (R 4.1.0)
+##  R6                     2.5.1      2021-08-19 [1] CRAN (R 4.1.0)
+##  randomForest           4.7-1      2022-02-03 [1] CRAN (R 4.1.2)
+##  RankProd               3.20.0     2021-10-26 [1] Bioconductor
+##  rARPACK                0.11-0     2016-03-10 [1] CRAN (R 4.1.0)
+##  RColorBrewer           1.1-2      2014-12-07 [1] CRAN (R 4.1.0)
+##  Rcpp                   1.0.8.2    2022-03-11 [1] CRAN (R 4.1.2)
+##  RCurl                  1.98-1.6   2022-02-08 [1] CRAN (R 4.1.2)
+##  readxl               * 1.4.0      2022-03-28 [1] CRAN (R 4.1.2)
+##  recipes                0.2.0      2022-02-18 [1] CRAN (R 4.1.2)
+##  remotes                2.4.2      2021-11-30 [1] CRAN (R 4.1.0)
+##  reshape2               1.4.4      2020-04-09 [1] CRAN (R 4.1.0)
+##  rjson                  0.2.21     2022-01-09 [1] CRAN (R 4.1.2)
+##  rlang                  1.0.2      2022-03-04 [1] CRAN (R 4.1.2)
+##  rmarkdown              2.14       2022-04-25 [1] CRAN (R 4.1.2)
+##  Rmpfr                  0.8-9      2022-06-03 [1] CRAN (R 4.1.2)
+##  rpart                  4.1.16     2022-01-24 [1] CRAN (R 4.1.2)
+##  rprojroot              2.0.2      2020-11-15 [1] CRAN (R 4.1.0)
+##  RSpectra               0.16-0     2019-12-01 [1] CRAN (R 4.1.0)
+##  rstatix                0.7.0      2021-02-13 [1] CRAN (R 4.1.0)
+##  rstudioapi             0.13       2020-11-12 [1] CRAN (R 4.1.0)
+##  S4Vectors            * 0.32.3     2021-11-21 [1] Bioconductor
+##  sass                   0.4.0      2021-05-12 [1] CRAN (R 4.1.0)
+##  scales                 1.1.1      2020-05-11 [1] CRAN (R 4.1.0)
+##  sessioninfo            1.2.2      2021-12-06 [1] CRAN (R 4.1.0)
+##  shape                  1.4.6      2021-05-19 [1] CRAN (R 4.1.0)
+##  stringi                1.7.6      2021-11-29 [1] CRAN (R 4.1.0)
+##  stringr                1.4.0      2019-02-10 [1] CRAN (R 4.1.0)
+##  SummarizedExperiment * 1.24.0     2021-10-26 [1] Bioconductor
+##  survival               3.3-1      2022-03-03 [1] CRAN (R 4.1.2)
+##  testthat               3.1.2      2022-01-20 [1] CRAN (R 4.1.2)
+##  tibble               * 3.1.6      2021-11-07 [1] CRAN (R 4.1.0)
+##  tidygraph              1.2.1      2022-04-05 [1] CRAN (R 4.1.2)
+##  tidyr                  1.2.0      2022-02-01 [1] CRAN (R 4.1.2)
+##  tidyselect             1.1.2      2022-02-21 [1] CRAN (R 4.1.2)
+##  timeDate               3043.102   2018-02-21 [1] CRAN (R 4.1.0)
+##  tweenr                 1.0.2      2021-03-23 [1] CRAN (R 4.1.0)
+##  usethis                2.1.5      2021-12-09 [1] CRAN (R 4.1.0)
+##  utf8                   1.2.2      2021-07-24 [1] CRAN (R 4.1.0)
+##  vctrs                  0.3.8      2021-04-29 [1] CRAN (R 4.1.0)
+##  vegan                  2.5-7      2020-11-28 [1] CRAN (R 4.1.0)
+##  viridis                0.6.2      2021-10-13 [1] CRAN (R 4.1.0)
+##  viridisLite            0.4.0      2021-04-13 [1] CRAN (R 4.1.0)
+##  withr                  2.5.0      2022-03-03 [1] CRAN (R 4.1.2)
+##  xfun                   0.30       2022-03-02 [1] CRAN (R 4.1.2)
+##  XVector                0.34.0     2021-10-26 [1] Bioconductor
+##  yaml                   2.3.5      2022-02-21 [1] CRAN (R 4.1.2)
+##  zlibbioc               1.40.0     2021-10-26 [1] Bioconductor
+## 
+##  [1] /Library/Frameworks/R.framework/Versions/4.1/Resources/library
+## 
+## ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-processing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chemometrics-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/XbiomeAnalysis/Metabolomics_Aanlysis/blob/main/02-Cluster-Analysis.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true,
+"toc_depth": 3
+}
+});
+});
+</script>
+
+</body>
+
+</html>
