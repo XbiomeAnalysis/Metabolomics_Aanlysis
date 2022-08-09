@@ -1,0 +1,73 @@
+seq_id	SampleName	FMT_status	SampleType	Group	V1_outcome	GVHD_type	GVHD_type_phynotype	Donor	baseline_merge	baseline_aGVHD_sainai	baseline_aGVHD_sainai_detail	baseline_aGVHD_glucksberg	baseline_aGVHD_glucksberg_detail	baseline_cGVHD_NIH	baseline_cGVHD_NIH_detail	Baseline_infection	antibiotics_48h_pre_or_post_FMT	GVHDdrug_antiMicrobiomeDrug_2weeksPreV0	GVHDdrug_antiMicrobiomeDrug_V0toV1	FMT_method	gender	age	Diagnosis	HSCT_DLI_date	Pretreatment	Pretreatment_type	GVHD_prevention	death	relapse
+4371	CJY	V0	stool	kid	CR	cGVHD	diarrhea	DO1												nasojejunal tube	male	3	AML	2020/5/28	Ara-c+CY+IVBu+ATG+Flu+PTCy+PTCy（Ara+Cy+Bu+Flu+PTCy）	marrow cleansing	PTCY+PTFLU+MMF+FK506		
+4389	CJY	V1	stool	kid	CR	cGVHD	diarrhea	DO1												nasojejunal tube	male	3	AML	2020/5/28	Ara-c+CY+IVBu+ATG+Flu+PTCy+PTCy（Ara+Cy+Bu+Flu+PTCy）	marrow cleansing	PTCY+PTFLU+MMF+FK506		
+4426	CJY_WKM_LXH_FMTdonor		bacteria_solution	donor																									
+4375	DGL	V0	stool	adult	CR	cGVHD	bowel	DO2	medium					中度	肠道2级，皮肤1级			他克莫司、麦考酚酯、伊曲康唑	他克莫司、麦考酚酯、伊曲康唑	colonoscope	male	36	AML	2019/12/1	BUCY	marrow cleansing	CSA+MTX+MMF+ATG		
+4393	DGL	V1	stool	adult	CR	cGVHD	bowel	DO2										他克莫司、麦考酚酯、伊曲康唑	他克莫司、麦考酚酯、伊曲康唑	colonoscope	male	36	AML	2019/12/1	BUCY	marrow cleansing	CSA+MTX+MMF+ATG		
+4435	DGL_FMTdonor		bacteria_solution	donor																									
+4369	HXZ	V0	stool	kid	NR	cGVHD	bloating,constipation	DO2												colonoscope	male	5	Thalassemia major	2019/11/4	Cy+IVBu+ATG+Flu+TT	marrow cleansing	CSA+MMF+MTX		
+4387	HXZ	V1	stool	kid	NR	cGVHD	bloating,constipation	DO2												colonoscope	male	5	Thalassemia major	2019/11/4	Cy+IVBu+ATG+Flu+TT	marrow cleansing	CSA+MMF+MTX		
+4368	LBC	V0	stool	kid	PR	aGVHD	diarrhea	DO1												colonoscope	male	6	Neuroblastoma	2019/7/24	ATG+Cy+Flu+TT+Mel	marrow cleansing	PtCy+FK506+MMF		
+4410	LBC	V1	stool	kid	PR	aGVHD	diarrhea	DO1												colonoscope	male	6	Neuroblastoma	2019/7/24	ATG+Cy+Flu+TT+Mel	marrow cleansing	PtCy+FK506+MMF		
+4406	LHC	V1	bloody_stool	adult	NR	aGVHD	refractory bowel disease	DO2	level3	3度	皮肤1级，肠2级	3度	皮肤1级，肠2级			1.CMV(活检),2.EBV(活检)		舒普森、替考拉宁、阿昔洛韦、氟康唑、百炎净/甲泼尼龙、环孢素、麦考酚酯	膦甲酸钠、利妥昔单抗、西多福韦、舒普深、替加环素/芦可替尼、麦考酚酯、巴利昔单抗	colonoscope	male	40	MDS	2020/11/25	BUCY+MeCCNU		CsA+MMF+MTX	dead	
+4409	LHC	V0	watery_stool	adult	NR	aGVHD	refractory bowel disease	DO2	level3	3度	皮肤1级，肠2级	3度	皮肤1级，肠2级			1.CMV(活检),2.EBV(活检)		舒普森、替考拉宁、阿昔洛韦、氟康唑、百炎净/甲泼尼龙、环孢素、麦考酚酯	膦甲酸钠、利妥昔单抗、西多福韦、舒普深、替加环素/芦可替尼、麦考酚酯、巴利昔单抗	colonoscope	male	40	MDS	2020/11/25	BUCY+MeCCNU		CsA+MMF+MTX	dead	
+4434	LHC_FMTdonor		bacteria_solution	donor																									
+4382	LHR	V0	stool	adult	NR	aGVHD	refractory bowel disease	DO1	level2	2度	肠1级	2度	肠1级			1.CMV(便,血)2.肺炎支原体抗体及副流感病毒123型抗体弱阳性		百炎净、伏立康唑、阿昔洛韦、莫西沙星/美卓乐、环孢素、赛可平、芦可替尼	更昔洛韦、莫西沙星、美罗培南、膦甲酸钠、西多福韦/美卓乐、环孢素	colonoscope	female	56	AML	2020/10/8	BUCY+MeCCNU		CsA+MMF+MTX+ATG		
+4401	LHR	V1	stool	adult	NR	aGVHD	refractory bowel disease	DO1	level2	2度	肠1级	2度	肠1级			1.CMV(便,血)2.肺炎支原体抗体及副流感病毒123型抗体弱阳性		百炎净、伏立康唑、阿昔洛韦、莫西沙星/美卓乐、环孢素、赛可平、芦可替尼	更昔洛韦、莫西沙星、美罗培南、膦甲酸钠、西多福韦/美卓乐、环孢素	colonoscope	female	56	AML	2020/10/8	BUCY+MeCCNU	1900/1/0	CsA+MMF+MTX+ATG		
+4384	LJD	V0	stool	adult	NR	cGVHD	lung,skin	DO1	serious					重度	肺脏2级,皮肤3级,眼3级			/环孢素+芦可替尼	/环孢素+芦可替尼	colonoscope	female	60	ALL	2015/11/23	TBI+CY+VP-16	strengthen pretreatment	CsA+MTX+ATG		
+4403	LJD	V1	stool	adult	NR	cGVHD	lung,skin	DO1										/环孢素+芦可替尼	/环孢素+芦可替尼	colonoscope	female	60	ALL	2015/11/23	TBI+CY+VP-16	strengthen pretreatment	CsA+MTX+ATG		
+4370	LJY	V0	stool	kid	NR	cGVHD	stomach ache,bloating,constipation	DO1												colonoscope	female	11	Sideroblast anemia	2018/5/4	1900/1/0	marrow cleansing	1900/1/0		
+4388	LJY	V1	stool	kid	NR	cGVHD	stomach ache,bloating,constipation	DO1												colonoscope	female	11	Sideroblast anemia	2018/5/4	1900/1/0	marrow cleansing	1900/1/0		
+4425	LJY_LHR_FMTdonor		bacteria_solution	donor																									
+4381	LPQ	V0	stool	adult	NR	aGVHD	refractory bowel disease	DO1	level3	3度	皮肤1级,肠3级	3度	皮肤1级,肠3级			粪EB病毒	+1d替考拉宁	舒普深、卡泊芬净、阿昔洛韦、替考拉宁、俊特/甲泼尼龙、环孢素、芦可替尼、他克莫司、巴利昔单抗	美罗华、替考拉宁、俊特/甲泼尼龙、环孢素、芦可替尼、利妥昔单抗	colonoscope	male	58	ALL	2020-8-3（DLI输注）	TBI+CY	 	CsA+MMF+MTX+ATG		yes
+4400	LPQ	V1	stool	adult	NR	aGVHD	refractory bowel disease	DO1	level3	3度	皮肤1级,肠3级	3度	皮肤1级,肠3级			粪EB病毒	+1d替考拉宁	舒普深、卡泊芬净、阿昔洛韦、替考拉宁、俊特/甲泼尼龙、环孢素、芦可替尼、他克莫司、巴利昔单抗	美罗华、替考拉宁、俊特/甲泼尼龙、环孢素、芦可替尼、利妥昔单抗	colonoscope	male	58	ALL	2020-8-3（DLI输注）	TBI+CY	 	CsA+MMF+MTX+ATG		yes
+4433	LPQ_YF_FMTdonor		bacteria_solution	donor																									
+4412	LQB	V1	stool	kid	PR	cGVHD	diarrhea	DO2												gastroscopy	male	5	Thalassemia major	2019/10/29	Cy+IVBu+ATG+Flu+TT	marrow cleansing	FK506+MMF+MTX	dead	
+4415	LQB	V0	stool	kid	PR	cGVHD	diarrhea	DO2												gastroscopy	male	5	Thalassemia major	2019/10/29	Cy+IVBu+ATG+Flu+TT	marrow cleansing	FK506+MMF+MTX	dead	
+4436	LQB_XD_WL_FMTdonor		bacteria_solution	donor																									
+4379	LWJ2	V0	stool	adult	NR	cGVHD	BO	DO1	serious					重度	肺3级			/环孢素、甲泼尼龙、芦可替尼	/环孢素、甲泼尼龙、芦可替尼	colonoscope	female	26	AML	2016/11/15	BUCY	marrow cleansing	CSA+MTX		
+4397	LWJ2	V1	stool	adult	NR	cGVHD	BO	DO1										/环孢素、甲泼尼龙、芦可替尼	/环孢素、甲泼尼龙、芦可替尼	colonoscope	female	26	AML	2016/11/15	BUCY	marrow cleansing	CSA+MTX		
+4431	LWJ2_FMTdonor		bacteria_solution	donor																									
+4413	LWL	V1	stool	kid	PR	cGVHD	diarrhea	DO2												nasojejunal tube	male	2	AML	2020/2/12	Cy+IVBu+ATG+Flu+TT	marrow cleansing	PtCy+FK506+MMF		
+4416	LWL	V0	stool	kid	PR	cGVHD	diarrhea	DO2												nasojejunal tube	male	2	AML	2020/2/12	Cy+IVBu+ATG+Flu+TT	marrow cleansing	PtCy+FK506+MMF		
+4424	LWL_FMTdonor		bacteria_solution	donor																									
+4385	LXH	V0	stool	adult	CR	aGVHD	late onset bowel	DO1	level2	2度	肠1级	2度	肠1级					/环孢素	/环孢素	colonoscope	female	16	AML	2020/6/29	BUCY+MeCCNU		CsA+MMF+MTX+ATG		
+4404	LXH	V1	stool	adult	CR	aGVHD	late onset bowel	DO1	level2	2度	肠1级	2度	肠1级					/环孢素	/环孢素	colonoscope	female	16	AML	2020/6/29	BUCY+MeCCNU		CsA+MMF+MTX+ATG		
+4377	MZH	V0	stool	adult	CR	aGVHD	refractory bowel disease	DO1	level2	2度	肠1级	2度	肠1级			1.CMV血症 2.屎肠球菌(大便和痰) 3.肺部感染		替考拉宁、特治星、万古霉素、米卡芬净、CMV-CTL/芦可替尼、CSA、甲强龙	复方磺胺甲噁唑、米卡芬净/芦可替尼、CSA	colonoscope	male	40	AML	2020/4/28	BF	reduce dose	CSA+MTX+MMF		
+4395	MZH	V1	stool	adult	CR	aGVHD	refractory bowel disease	DO1	level2	2度	肠1级	2度	肠1级			1.CMV血症 2.屎肠球菌(大便和痰) 3.肺部感染		替考拉宁、特治星、万古霉素、米卡芬净、CMV-CTL/芦可替尼、CSA、甲强龙	复方磺胺甲噁唑、米卡芬净/芦可替尼、CSA	colonoscope	male	40	AML	2020/4/28	BF	reduce dose	CSA+MTX+MMF		
+4429	MZH_FMTdonor		bacteria_solution	donor																									
+4438	RefG		stool	qc																									
+4380	SZP	V0	stool	adult	NR	cGVHD	scleroderma	DO1	serious					重度	皮肤3级		+0d亚胺培南西司他丁、头孢呋辛（发热）	/芦可替尼、环孢素、美卓乐	/芦可替尼	colonoscope	male	34	NK/Tcell lymphoma	2017/6/16	TBI+CY+VP-16	strengthen pretreatment	CSA+MTX+ATG		yes
+4398	SZP	V1	stool	adult	NR	cGVHD	scleroderma	DO1									+0d亚胺培南西司他丁、头孢呋辛（发热）	/芦可替尼、环孢素、美卓乐	/芦可替尼	colonoscope	male	34	NK/Tcell lymphoma	2017/6/16	TBI+CY+VP-16	strengthen pretreatment	CSA+MTX+ATG		yes
+4432	SZP_FMTdonor		bacteria_solution	donor																									
+4367	TZW	V0	stool	kid	PR	aGVHD	diarrhea	DO1												colonoscope	male	7	Thalassemia major	2019/9/2	Cy+IVBu+ATG+Flu+TT	marrow cleansing	CSA+MMF+MTX		
+4386	TZW	V1	stool	kid	PR	aGVHD	diarrhea	DO1												colonoscope	male	7	Thalassemia major	2019/9/2	Cy+IVBu+ATG+Flu+TT	marrow cleansing	CSA+MMF+MTX		
+4437	TZW_LBC_FMTdonor		bacteria_solution	donor																									
+4373	WJH	V0	stool	kid	PR	cGVHD	diarrhea	DO1								UC？				gastroscopy	female	13	AML	2020/6/9	Ara-c+CY+IVBu+ATG+Flu+PTCy+PTCy	marrow cleansing	PTCY+PTFLU+MMF+FK506		
+4391	WJH	V1	stool	kid	PR	cGVHD	diarrhea	DO1								UC？				gastroscopy	female	13	AML	2020/6/9	Ara-c+CY+IVBu+ATG+Flu+PTCy+PTCy	marrow cleansing	PTCY+PTFLU+MMF+FK506		
+4427	WJH_ZJW_FMTdonor		bacteria_solution	donor																									
+4372	WKM	V0	stool	kid	PR	cGVHD	liver	DO1												nasojejunal tube	male	6	Aplastic anemia	2020/5/22	R+ATG+CY+Flu+IVBU+TT+R+PTCY	marrow cleansing	PtCY+CSA+MMF		
+4390	WKM	V1	stool	kid	PR	cGVHD	liver	DO1												nasojejunal tube	male	6	Aplastic anemia	2020/5/22	R+ATG+CY+Flu+IVBU+TT+R+PTCY	marrow cleansing	PtCY+CSA+MMF		
+4378	WL	V0	stool	adult	NR	cGVHD	bowel	DO2	medium					中度	胃肠2级					colonoscope	male	37	AML	2017/9/9	TBICY+VP-16	strengthen pretreatment	CSA+MTX+MMF		
+4396	WL	V1	stool	adult	NR	cGVHD	bowel	DO2												colonoscope	male	37	AML	2017/9/9	TBICY+VP-16	strengthen pretreatment	CSA+MTX+MMF		
+4417	XD	V0	stool	adult	PR	cGVHD	gastrointestinal,oral	DO2										/环孢素	/MSC、环孢素	colonoscope	male	61	MDS	2019/1/2	BUCY	marrow cleansing	CSA+MTX+MMF	否	
+4418	XD	V1	stool	adult	PR	cGVHD	gastrointestinal,oral	DO2										/环孢素	/MSC、环孢素	colonoscope	male	61	MDS	2019/1/2	BUCY	marrow cleansing	CSA+MTX+MMF	否	
+4383	XQ	V0	stool	adult	PR	cGVHD	lung	DO1	serious					重度	肺脏3级,皮肤1级,口腔1级,眼1级,生殖系统1级			/芦可替尼	/芦可替尼	colonoscope	female	46	AML	2017/10/2	BF	reduce dose	CsA+MMF+MTX		
+4402	XQ	V1	stool	adult	PR	cGVHD	lung	DO1										/芦可替尼	/芦可替尼	colonoscope	female	46	AML	2017/10/2	BF	reduce dose	CsA+MMF+MTX		
+4399	YF	V1	stool	adult	NR	cGVHD	skin,gastrointestinal	DO1										舒普深、阿奇霉素、奥司他韦/甲泼尼龙	甲泼尼龙	colonoscope	male	39	ALL	2017/5/15	TBI+CY+VP-16	strengthen pretreatment	CSA+MMF+MTX		
+4407	YF	V0	stool	adult	NR	cGVHD	skin,gastrointestinal	DO1	mind					轻度	胃肠道1分			舒普深、阿奇霉素、奥司他韦/甲泼尼龙	甲泼尼龙	colonoscope	male	39	ALL	2017/5/15	TBI+CY+VP-16	strengthen pretreatment	CSA+MMF+MTX		
+4414	ZCY	V1	stool	adult	PR	cGVHD	lung	DO1										/芦可替尼	 /芦可替尼	colonoscope	female	30	BLBL	2013/9/13	FA+TBI/Cy+VP16	strengthen pretreatment	CSA+MTX		
+4419	ZCY	V0	stool	adult	PR	cGVHD	lung	DO1										/芦可替尼	 /芦可替尼	colonoscope	female	30	BLBL	2013/9/13	FA+TBI/Cy+VP16	strengthen pretreatment	CSA+MTX	否	
+4376	ZHP	V0	stool	adult	CR	aGVHD	refractory bowel disease	DO2	level2	2度	肠1级	2度	肠1级			1.EBV(活检,便);2.CMV(活检,血)		膦甲酸钠、更昔洛韦、西多福韦/FK506、MMF、芦可替尼	利妥昔单抗、西多福韦/FK506、MMF、芦可替尼	colonoscope	male	59	MDS	2020/4/13	DAC+BUCY	marrow cleansing	CSA+MTX+MMF+ATG	dead	
+4394	ZHP	V1	stool	adult	CR	aGVHD	refractory bowel disease	DO2	level2	2度	肠1级	2度	肠1级			1.EBV(活检,便);2.CMV(活检,血)		膦甲酸钠、更昔洛韦、西多福韦/FK506、MMF、芦可替尼	利妥昔单抗、西多福韦/FK506、MMF、芦可替尼	colonoscope	male	59	MDS	2020/4/13	DAC+BUCY	marrow cleansing	CSA+MTX+MMF+ATG	dead	
+4405	ZJW	V1	stool	adult	NR	aGVHD	refractory bowel disease	DO1	level3	3度	肠2级	3度	肠2级					米卡芬净、舒普深、利妥昔单抗、膦甲酸钠/CD25单抗、TNF、舒莱	环孢素、芦可替尼、麦考酚酯、甲强龙、MTX	colonoscope	male	39	MDS	2020/8/7	BUCY+MeCCNU		CsA+MMF+MTX		
+4408	ZJW	V0	watery_stool	adult	NR	aGVHD	refractory bowel disease	DO1	level3	3度	肠2级	3度	肠2级					米卡芬净、舒普深、利妥昔单抗、膦甲酸钠/CD25单抗、TNF、舒莱	环孢素、芦可替尼、麦考酚酯、甲强龙、MTX	colonoscope	male	39	MDS	2020/8/7	BUCY+MeCCNU		CsA+MMF+MTX		
+4411	ZTX1	V1	stool	kid	PR	cGVHD	dysbacteriosis	DO1												colonoscope	male	2	WAS syndrome	2018/8/27	Cy+IVBu+ATG+Flu+PTCy	marrow cleansing	PtCy+FK506+MMF		
+4420	ZTX1	V0	stool	kid	PR	cGVHD	dysbacteriosis	DO1												colonoscope	male	2	WAS syndrome	2018/8/27	Cy+IVBu+ATG+Flu+PTCy	marrow cleansing	PtCy+FK506+MMF		
+4423	ZTX1_FMTdonor		bacteria_solution	donor																									
+4374	ZTX2	V0	bloody_stool	adult	PR	aGVHD	refractory bowel disease	DO2	level4	4度	肠4级	3度	肠4级			感染性腹泻(屎肠球菌),肺部感染(不明)		替加环素、美罗培南、复方磺胺甲恶唑、达托霉素、伏立康唑、地塞米松、丙球/MSC输注、CSA、MMF、TNFαR、布地奈德	思福妥、利奈唑胺、伏立康唑、特治星、利奈唑胺、莫西沙星/甲强龙、CSA、MMF	colonoscope	female	27	TLBL	2020/1/16	BUCY+VP-16	strengthen pretreatment	CSA+MTX+MMF		
+4392	ZTX2	V1	stool	adult	PR	aGVHD	refractory bowel disease	DO2	level4	4度	肠4级	3度	肠4级			感染性腹泻(屎肠球菌),肺部感染(不明)		替加环素、美罗培南、复方磺胺甲恶唑、达托霉素、伏立康唑、地塞米松、丙球/MSC输注、CSA、MMF、TNFαR、布地奈德	思福妥、利奈唑胺、伏立康唑、特治星、利奈唑胺、莫西沙星/甲强龙、CSA、MMF	colonoscope	female	27	TLBL	2020/1/16	BUCY+VP-16	strengthen pretreatment	CSA+MTX+MMF		
+4428	ZTX2_HXZ_FMTdonor		bacteria_solution	donor																									
+4421	ZZQ	V0	stool	adult	NR	aGVHD	refractory bowel disease	DO1	level4	4度	肠4级，皮肤1级	3度	肠4级，皮肤1级			1.HHV6肠炎,2.EB肠炎,3.肺部感染(不明)	+2d头孢哌酮钠舒巴坦、替加环素 （发热）	膦甲酸钠、更昔洛韦、美罗培南、米卡芬净、美罗华、西多福韦/巴利息单抗、环孢素、麦考酚酯	头孢哌酮钠舒巴坦、甲硝唑、替加环素/麦考酚酯	nasojejunal tube	male	49	MDS	2020/5/23	BF	reduce dose	CSA+MTX+MMF+ATG	否	
+4422	ZZQ	V1	stool	adult	NR	aGVHD	refractory bowel disease	DO1	level4	4度	肠4级，皮肤1级	3度	肠4级，皮肤1级			1.HHV6肠炎,2.EB肠炎,3.肺部感染(不明)	+2d头孢哌酮钠舒巴坦、替加环素 （发热）	膦甲酸钠、更昔洛韦、美罗培南、米卡芬净、美罗华、西多福韦/巴利息单抗、环孢素、麦考酚酯	头孢哌酮钠舒巴坦、甲硝唑、替加环素/麦考酚酯	nasojejunal tube	male	49	MDS	2020/5/23	BF	reduce dose	CSA+MTX+MMF+ATG	否	
+4430	ZZQ_ZCY_CDJ_FMTdonor		bacteria_solution	donor																									

@@ -1,0 +1,6 @@
+Package: Data Analysis in Metabolomics
+Type: Book
+Title: Data Analysis in Metabolomics
+Version: 0.0.1
+Imports: bookdown
+Remotes: HuaZou/Metabolomics_Aanlysis
