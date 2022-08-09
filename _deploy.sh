@@ -11,7 +11,7 @@ set -e
 #git clone -b gh-pages https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git book-output
 #cd book-output
 #cp -r ../_book/* ./
-git add --all *
+git add -A
 git commit -m "Update the code" || true
 #git push -q origin gh-pages
 git push origin main
