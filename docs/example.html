@@ -23,7 +23,7 @@
 <meta name="author" content="Hua Zou and Bangzhuo Tong" />
 
 
-<meta name="date" content="2022-08-11" />
+<meta name="date" content="2022-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -409,74 +409,60 @@ div.csl-indent {
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="example.html#cb176-1" aria-hidden="true" tabindex="-1"></a>profile <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&quot;./dataset/GvHD_stool_metabolites_TM.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
 <span id="cb176-2"><a href="example.html#cb176-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(profile)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 78
-##   Index  Compounds 物质  `Class I` 物质一级分类 `Class II` 物质二级分类 `Q1 (Da)` `Molecular Wei…`
-##   &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-## 1 MEDL0… 2-Hydrox… -     -         -            -          -                 117.             118.
-## 2 MEDL0… Phe-Asp   -     -         -            -          -                 245.             348.
-## 3 MEDL0… Glu-Phe   -     -         -            -          -                 293.             294.
-## 4 MEDL0… Glu-Trp   -     -         -            -          -                 334.             333.
-## 5 MEDL0… 1-Oleoyl… -     -         -            -          -                 525.             521.
-## 6 MEDL0… Conferti… -     -         -            -          -                 233.             234.
-## # … with 69 more variables: `Ionization model` &lt;chr&gt;, Formula &lt;chr&gt;, `KEGG ID` &lt;chr&gt;, HMDB &lt;chr&gt;,
-## #   `Pubchem CID` &lt;chr&gt;, CAS &lt;chr&gt;, ChEBI &lt;chr&gt;, Metlin &lt;chr&gt;, mix01 &lt;dbl&gt;, mix02 &lt;dbl&gt;,
-## #   mix03 &lt;dbl&gt;, mix04 &lt;dbl&gt;, mix05 &lt;dbl&gt;, mix06 &lt;dbl&gt;, mix07 &lt;dbl&gt;, `TZW-V0` &lt;dbl&gt;,
-## #   `LBC-V0` &lt;dbl&gt;, `HXZ-V0` &lt;dbl&gt;, `LJY-V0` &lt;dbl&gt;, `CJY-V0` &lt;dbl&gt;, `WKM-V0` &lt;dbl&gt;,
-## #   `WJH-V0` &lt;dbl&gt;, `ZTX2-V0` &lt;dbl&gt;, `DGL-V0` &lt;dbl&gt;, `ZHP-V0` &lt;dbl&gt;, `MZH-V0` &lt;dbl&gt;,
-## #   `WL-V0` &lt;dbl&gt;, `LWJ2-V0` &lt;dbl&gt;, `SZP-V0` &lt;dbl&gt;, `LPQ-V0` &lt;dbl&gt;, `LHR-V0` &lt;dbl&gt;,
-## #   `XQ-V0` &lt;dbl&gt;, `LJD-V0` &lt;dbl&gt;, `LXH-V0` &lt;dbl&gt;, `YF-V0` &lt;dbl&gt;, `ZJW-V0` &lt;dbl&gt;, …</code></pre>
+##   Index Compounds 物质  `Class I` 物质一级分类 `Class II` 物质二级分类 `Q1 (Da)` `Molecular Wei…` `Ionization mo…` Formula `KEGG ID`
+##   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;    
+## 1 MEDL… 2-Hydrox… -     -         -            -          -                 117.             118. [M-H]-           C5H10O3 -        
+## 2 MEDL… Phe-Asp   -     -         -            -          -                 245.             348. [M+H-2H2O]+      C13H16… -        
+## 3 MEDL… Glu-Phe   -     -         -            -          -                 293.             294. [M-H]-           C14H18… -        
+## 4 MEDL… Glu-Trp   -     -         -            -          -                 334.             333. [M+H]+           C16H19… -        
+## 5 MEDL… 1-Oleoyl… -     -         -            -          -                 525.             521. [M+H]+           C26H52… -        
+## 6 MEDL… Conferti… -     -         -            -          -                 233.             234. [M-H]-           C15H22… C09376   
+## # … with 66 more variables: HMDB &lt;chr&gt;, `Pubchem CID` &lt;chr&gt;, CAS &lt;chr&gt;, ChEBI &lt;chr&gt;, Metlin &lt;chr&gt;, mix01 &lt;dbl&gt;, mix02 &lt;dbl&gt;,
+## #   mix03 &lt;dbl&gt;, mix04 &lt;dbl&gt;, mix05 &lt;dbl&gt;, mix06 &lt;dbl&gt;, mix07 &lt;dbl&gt;, `TZW-V0` &lt;dbl&gt;, `LBC-V0` &lt;dbl&gt;, `HXZ-V0` &lt;dbl&gt;,
+## #   `LJY-V0` &lt;dbl&gt;, `CJY-V0` &lt;dbl&gt;, `WKM-V0` &lt;dbl&gt;, `WJH-V0` &lt;dbl&gt;, `ZTX2-V0` &lt;dbl&gt;, `DGL-V0` &lt;dbl&gt;, `ZHP-V0` &lt;dbl&gt;,
+## #   `MZH-V0` &lt;dbl&gt;, `WL-V0` &lt;dbl&gt;, `LWJ2-V0` &lt;dbl&gt;, `SZP-V0` &lt;dbl&gt;, `LPQ-V0` &lt;dbl&gt;, `LHR-V0` &lt;dbl&gt;, `XQ-V0` &lt;dbl&gt;, `LJD-V0` &lt;dbl&gt;,
+## #   `LXH-V0` &lt;dbl&gt;, `YF-V0` &lt;dbl&gt;, `ZJW-V0` &lt;dbl&gt;, `LHC-V0` &lt;dbl&gt;, `LQB-V0` &lt;dbl&gt;, `LWL-V0` &lt;dbl&gt;, `XD-V0` &lt;dbl&gt;, `ZCY-V0` &lt;dbl&gt;,
+## #   `ZTX1-V0` &lt;dbl&gt;, `TZW-V1` &lt;dbl&gt;, `HXZ-V1` &lt;dbl&gt;, `LJY-V1` &lt;dbl&gt;, `CJY-V1` &lt;dbl&gt;, `WKM-V1` &lt;dbl&gt;, `WJH-V1` &lt;dbl&gt;,
+## #   `ZTX2-V1` &lt;dbl&gt;, `DGL-V1` &lt;dbl&gt;, `ZHP-V1` &lt;dbl&gt;, `MZH-V1` &lt;dbl&gt;, `WL-V1` &lt;dbl&gt;, `LWJ2-V1` &lt;dbl&gt;, `SZP-V1` &lt;dbl&gt;, …</code></pre>
 <ul>
 <li>metadata table</li>
 </ul>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="example.html#cb178-1" aria-hidden="true" tabindex="-1"></a>metadata <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">&quot;./dataset/GvHD_metadata.txt&quot;</span>)</span>
 <span id="cb178-2"><a href="example.html#cb178-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(metadata)</span></code></pre></div>
-<pre><code>##    seq_id           SampleName FMT_status        SampleType Group V1_outcome GVHD_type
-## 1:   4371                  CJY         V0             stool   kid         CR     cGVHD
-## 2:   4389                  CJY         V1             stool   kid         CR     cGVHD
-## 3:   4426 CJY_WKM_LXH_FMTdonor            bacteria_solution donor                     
-## 4:   4375                  DGL         V0             stool adult         CR     cGVHD
-## 5:   4393                  DGL         V1             stool adult         CR     cGVHD
-## 6:   4435         DGL_FMTdonor            bacteria_solution donor                     
-##    GVHD_type_phynotype Donor baseline_merge baseline_aGVHD_sainai baseline_aGVHD_sainai_detail
-## 1:            diarrhea   DO1                                                                  
-## 2:            diarrhea   DO1                                                                  
-## 3:                                                                                            
-## 4:               bowel   DO2         medium                                                   
-## 5:               bowel   DO2                                                                  
-## 6:                                                                                            
-##    baseline_aGVHD_glucksberg baseline_aGVHD_glucksberg_detail baseline_cGVHD_NIH
-## 1:                                                                              
-## 2:                                                                              
-## 3:                                                                              
-## 4:                                                                          中度
-## 5:                                                                              
-## 6:                                                                              
-##    baseline_cGVHD_NIH_detail Baseline_infection antibiotics_48h_pre_or_post_FMT
-## 1:                                                                             
-## 2:                                                                             
-## 3:                                                                             
-## 4:          肠道2级，皮肤1级                                                   
-## 5:                                                                             
-## 6:                                                                             
-##    GVHDdrug_antiMicrobiomeDrug_2weeksPreV0 GVHDdrug_antiMicrobiomeDrug_V0toV1       FMT_method
-## 1:                                                                            nasojejunal tube
-## 2:                                                                            nasojejunal tube
-## 3:                                                                                            
-## 4:            他克莫司、麦考酚酯、伊曲康唑       他克莫司、麦考酚酯、伊曲康唑      colonoscope
-## 5:            他克莫司、麦考酚酯、伊曲康唑       他克莫司、麦考酚酯、伊曲康唑      colonoscope
-## 6:                                                                                            
-##    gender age Diagnosis HSCT_DLI_date                                          Pretreatment
-## 1:   male   3       AML     2020/5/28 Ara-c+CY+IVBu+ATG+Flu+PTCy+PTCy（Ara+Cy+Bu+Flu+PTCy）
-## 2:   male   3       AML     2020/5/28 Ara-c+CY+IVBu+ATG+Flu+PTCy+PTCy（Ara+Cy+Bu+Flu+PTCy）
-## 3:         NA                                                                              
-## 4:   male  36       AML     2019/12/1                                                  BUCY
-## 5:   male  36       AML     2019/12/1                                                  BUCY
-## 6:         NA                                                                              
-##    Pretreatment_type      GVHD_prevention death relapse
-## 1:  marrow cleansing PTCY+PTFLU+MMF+FK506              
-## 2:  marrow cleansing PTCY+PTFLU+MMF+FK506              
-## 3:                                                     
-## 4:  marrow cleansing      CSA+MTX+MMF+ATG              
-## 5:  marrow cleansing      CSA+MTX+MMF+ATG              
+<pre><code>##    seq_id           SampleName FMT_status        SampleType Group V1_outcome GVHD_type GVHD_type_phynotype Donor baseline_merge
+## 1:   4371                  CJY         V0             stool   kid         CR     cGVHD            diarrhea   DO1               
+## 2:   4389                  CJY         V1             stool   kid         CR     cGVHD            diarrhea   DO1               
+## 3:   4426 CJY_WKM_LXH_FMTdonor            bacteria_solution donor                                                              
+## 4:   4375                  DGL         V0             stool adult         CR     cGVHD               bowel   DO2         medium
+## 5:   4393                  DGL         V1             stool adult         CR     cGVHD               bowel   DO2               
+## 6:   4435         DGL_FMTdonor            bacteria_solution donor                                                              
+##    baseline_aGVHD_sainai baseline_aGVHD_sainai_detail baseline_aGVHD_glucksberg baseline_aGVHD_glucksberg_detail baseline_cGVHD_NIH
+## 1:                                                                                                                                 
+## 2:                                                                                                                                 
+## 3:                                                                                                                                 
+## 4:                                                                                                                             中度
+## 5:                                                                                                                                 
+## 6:                                                                                                                                 
+##    baseline_cGVHD_NIH_detail Baseline_infection antibiotics_48h_pre_or_post_FMT GVHDdrug_antiMicrobiomeDrug_2weeksPreV0
+## 1:                                                                                                                     
+## 2:                                                                                                                     
+## 3:                                                                                                                     
+## 4:          肠道2级，皮肤1级                                                               他克莫司、麦考酚酯、伊曲康唑
+## 5:                                                                                         他克莫司、麦考酚酯、伊曲康唑
+## 6:                                                                                                                     
+##    GVHDdrug_antiMicrobiomeDrug_V0toV1       FMT_method gender age Diagnosis HSCT_DLI_date
+## 1:                                    nasojejunal tube   male   3       AML     2020/5/28
+## 2:                                    nasojejunal tube   male   3       AML     2020/5/28
+## 3:                                                             NA                        
+## 4:       他克莫司、麦考酚酯、伊曲康唑      colonoscope   male  36       AML     2019/12/1
+## 5:       他克莫司、麦考酚酯、伊曲康唑      colonoscope   male  36       AML     2019/12/1
+## 6:                                                             NA                        
+##                                             Pretreatment Pretreatment_type      GVHD_prevention death relapse
+## 1: Ara-c+CY+IVBu+ATG+Flu+PTCy+PTCy（Ara+Cy+Bu+Flu+PTCy）  marrow cleansing PTCY+PTFLU+MMF+FK506              
+## 2: Ara-c+CY+IVBu+ATG+Flu+PTCy+PTCy（Ara+Cy+Bu+Flu+PTCy）  marrow cleansing PTCY+PTFLU+MMF+FK506              
+## 3:                                                                                                           
+## 4:                                                  BUCY  marrow cleansing      CSA+MTX+MMF+ATG              
+## 5:                                                  BUCY  marrow cleansing      CSA+MTX+MMF+ATG              
 ## 6:</code></pre>
 <ul>
 <li><p>Data Preparation: SummarizedExperiment object</p></li>
@@ -1322,20 +1308,13 @@ div.csl-indent {
 <span id="cb214-3"><a href="example.html#cb214-3" aria-hidden="true" tabindex="-1"></a>features_tab[<span class="fu">is.na</span>(features_tab)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb214-4"><a href="example.html#cb214-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb214-5"><a href="example.html#cb214-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(features_tab[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span></code></pre></div>
-<pre><code>##        MEDL00066 MEDL00375 MEDL00587 MEDL01799 MEDL01801 MEDL01844 MEDL01922 MEDL01994 MEDL02002
-## CJY_V0     10447     31087    618200         0         0    127250         0   2590400         0
-## CJY_V1   4011900     88306    563130     51267   1046200   4172100    107560   3772200    133920
-## DGL_V0    560560    449150   1079300    304040    147100  19462000     39149   2950700   3216700
-## DGL_V1    149120    263050   2047500     24342    357050  14373000    964600   3328000   2512900
-## HXZ_V0    442540    216830   1399700   1481800   1976000   7830000    269570   2588200   3719000
-## HXZ_V1    181010     37280   1171700         0         0   5171400    196770   3097700         0
-##        MEDL02018
-## CJY_V0    485040
-## CJY_V1   1400100
-## DGL_V0    684140
-## DGL_V1   1659500
-## HXZ_V0   3433700
-## HXZ_V1   3269900</code></pre>
+<pre><code>##        MEDL00066 MEDL00375 MEDL00587 MEDL01799 MEDL01801 MEDL01844 MEDL01922 MEDL01994 MEDL02002 MEDL02018
+## CJY_V0     10447     31087    618200         0         0    127250         0   2590400         0    485040
+## CJY_V1   4011900     88306    563130     51267   1046200   4172100    107560   3772200    133920   1400100
+## DGL_V0    560560    449150   1079300    304040    147100  19462000     39149   2950700   3216700    684140
+## DGL_V1    149120    263050   2047500     24342    357050  14373000    964600   3328000   2512900   1659500
+## HXZ_V0    442540    216830   1399700   1481800   1976000   7830000    269570   2588200   3719000   3433700
+## HXZ_V1    181010     37280   1171700         0         0   5171400    196770   3097700         0   3269900</code></pre>
 </div>
 <div id="building-network-model-4" class="section level3 hasAnchor" number="10.8.2">
 <h3><span class="header-section-number">10.8.2</span> Building network model<a href="example.html#building-network-model-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1402,20 +1381,20 @@ div.csl-indent {
 <span id="cb220-2"><a href="example.html#cb220-2" aria-hidden="true" tabindex="-1"></a>features_tab_norm <span class="ot">&lt;-</span> XMAS2<span class="sc">::</span><span class="fu">norm_tss</span>(phyloseq<span class="sc">::</span><span class="fu">otu_table</span>(features_tab, <span class="at">taxa_are_rows =</span> T)) <span class="sc">%&gt;%</span> </span>
 <span id="cb220-3"><a href="example.html#cb220-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> <span class="fu">t</span>()</span>
 <span id="cb220-4"><a href="example.html#cb220-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(features_tab_norm[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span></code></pre></div>
-<pre><code>##           MEDL00066    MEDL00375    MEDL00587    MEDL01844    MEDL01922    MEDL01994    MEDL02002
-## CJY_V0 7.266924e-06 2.162409e-05 0.0004300194 8.851499e-05 1.284758e-04 0.0018018800 9.688354e-04
-## CJY_V1 2.018886e-03 4.443774e-05 0.0002833808 2.099503e-03 5.412682e-05 0.0018982634 6.739182e-05
-## DGL_V0 1.534502e-04 1.229523e-04 0.0002954523 5.327614e-03 1.071682e-05 0.0008077376 8.805537e-04
-## DGL_V1 3.721535e-05 6.564846e-05 0.0005109874 3.587019e-03 2.407318e-04 0.0008305572 6.271356e-04
-## HXZ_V0 1.100101e-04 5.390131e-05 0.0003479485 1.946443e-03 6.701183e-05 0.0006433951 9.244983e-04
-## HXZ_V1 6.310899e-05 1.299764e-05 0.0004085122 1.803004e-03 6.860370e-05 0.0010800105 8.873314e-04
-##           MEDL02018    MEDL02174    MEDL02519
-## CJY_V0 0.0003373934 0.0008276238 5.364045e-04
-## CJY_V1 0.0007045646 0.0053125408 9.121950e-04
-## DGL_V0 0.0001872795 0.0013967809 6.574793e-04
-## DGL_V1 0.0004141556 0.0060542331 1.840278e-04
-## HXZ_V0 0.0008535762 0.0018885718 1.518648e-04
-## HXZ_V1 0.0011400479 0.0009249314 5.116427e-06</code></pre>
+<pre><code>##           MEDL00066    MEDL00375    MEDL00587    MEDL01844    MEDL01922    MEDL01994    MEDL02002    MEDL02018    MEDL02174
+## CJY_V0 7.266924e-06 2.162409e-05 0.0004300194 8.851499e-05 1.284758e-04 0.0018018800 9.688354e-04 0.0003373934 0.0008276238
+## CJY_V1 2.018886e-03 4.443774e-05 0.0002833808 2.099503e-03 5.412682e-05 0.0018982634 6.739182e-05 0.0007045646 0.0053125408
+## DGL_V0 1.534502e-04 1.229523e-04 0.0002954523 5.327614e-03 1.071682e-05 0.0008077376 8.805537e-04 0.0001872795 0.0013967809
+## DGL_V1 3.721535e-05 6.564846e-05 0.0005109874 3.587019e-03 2.407318e-04 0.0008305572 6.271356e-04 0.0004141556 0.0060542331
+## HXZ_V0 1.100101e-04 5.390131e-05 0.0003479485 1.946443e-03 6.701183e-05 0.0006433951 9.244983e-04 0.0008535762 0.0018885718
+## HXZ_V1 6.310899e-05 1.299764e-05 0.0004085122 1.803004e-03 6.860370e-05 0.0010800105 8.873314e-04 0.0011400479 0.0009249314
+##           MEDL02519
+## CJY_V0 5.364045e-04
+## CJY_V1 9.121950e-04
+## DGL_V0 6.574793e-04
+## DGL_V1 1.840278e-04
+## HXZ_V0 1.518648e-04
+## HXZ_V1 5.116427e-06</code></pre>
 <div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="example.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # CSS</span></span>
 <span id="cb222-2"><a href="example.html#cb222-2" aria-hidden="true" tabindex="-1"></a><span class="co"># features_tab_norm &lt;- XMAS2::norm_css(phyloseq::otu_table(features_tab, taxa_are_rows = T)) %&gt;% </span></span>
 <span id="cb222-3"><a href="example.html#cb222-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   data.frame() %&gt;% t()</span></span>
@@ -1737,17 +1716,17 @@ div.csl-indent {
 <span id="cb241-4"><a href="example.html#cb241-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb241-5"><a href="example.html#cb241-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">graph.adjacency</span>(TOM, <span class="at">mode=</span><span class="st">&quot;undirected&quot;</span>, <span class="at">weighted=</span> <span class="cn">TRUE</span>)</span>
 <span id="cb241-6"><a href="example.html#cb241-6" aria-hidden="true" tabindex="-1"></a><span class="fu">delete.edges</span>(g, <span class="fu">which</span>(<span class="fu">E</span>(g)<span class="sc">$</span>weight <span class="sc">&lt;</span><span class="dv">1</span>))</span></code></pre></div>
-<pre><code>## IGRAPH 08dd970 UNW- 540 540 -- 
+<pre><code>## IGRAPH 14da416 UNW- 540 540 -- 
 ## + attr: name (v/c), weight (e/n)
-## + edges from 08dd970 (vertex names):
-##  [1] MEDL00066--MEDL00066 MEDL00375--MEDL00375 MEDL00587--MEDL00587 MEDL01844--MEDL01844
-##  [5] MEDL01922--MEDL01922 MEDL01994--MEDL01994 MEDL02002--MEDL02002 MEDL02018--MEDL02018
-##  [9] MEDL02174--MEDL02174 MEDL02519--MEDL02519 MEDL02630--MEDL02630 MEDL02681--MEDL02681
-## [13] MEDN0005 --MEDN0005  MEDN0006 --MEDN0006  MEDN0007 --MEDN0007  MEDN0010 --MEDN0010 
-## [17] MEDN0015 --MEDN0015  MEDN0018 --MEDN0018  MEDN0025 --MEDN0025  MEDN0032 --MEDN0032 
-## [21] MEDN0036 --MEDN0036  MEDN0042 --MEDN0042  MEDN0046 --MEDN0046  MEDN0047 --MEDN0047 
-## [25] MEDN0049 --MEDN0049  MEDN0052 --MEDN0052  MEDN0053 --MEDN0053  MEDN0056 --MEDN0056 
-## [29] MEDN0059 --MEDN0059  MEDN0075 --MEDN0075  MEDN0089 --MEDN0089  MEDN0098 --MEDN0098 
+## + edges from 14da416 (vertex names):
+##  [1] MEDL00066--MEDL00066 MEDL00375--MEDL00375 MEDL00587--MEDL00587 MEDL01844--MEDL01844 MEDL01922--MEDL01922 MEDL01994--MEDL01994
+##  [7] MEDL02002--MEDL02002 MEDL02018--MEDL02018 MEDL02174--MEDL02174 MEDL02519--MEDL02519 MEDL02630--MEDL02630 MEDL02681--MEDL02681
+## [13] MEDN0005 --MEDN0005  MEDN0006 --MEDN0006  MEDN0007 --MEDN0007  MEDN0010 --MEDN0010  MEDN0015 --MEDN0015  MEDN0018 --MEDN0018 
+## [19] MEDN0025 --MEDN0025  MEDN0032 --MEDN0032  MEDN0036 --MEDN0036  MEDN0042 --MEDN0042  MEDN0046 --MEDN0046  MEDN0047 --MEDN0047 
+## [25] MEDN0049 --MEDN0049  MEDN0052 --MEDN0052  MEDN0053 --MEDN0053  MEDN0056 --MEDN0056  MEDN0059 --MEDN0059  MEDN0075 --MEDN0075 
+## [31] MEDN0089 --MEDN0089  MEDN0098 --MEDN0098  MEDN0100 --MEDN0100  MEDN0110 --MEDN0110  MEDN0113 --MEDN0113  MEDN0120 --MEDN0120 
+## [37] MEDN0140 --MEDN0140  MEDN0141 --MEDN0141  MEDN0144 --MEDN0144  MEDN0147 --MEDN0147  MEDN0149 --MEDN0149  MEDN0158 --MEDN0158 
+## [43] MEDN0160 --MEDN0160  MEDN0201 --MEDN0201  MEDN0206 --MEDN0206  MEDN0209 --MEDN0209  MEDN0211 --MEDN0211  MEDN0221 --MEDN0221 
 ## + ... omitted several edges</code></pre>
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="example.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(g)<span class="sc">$</span>width <span class="ot">&lt;-</span> <span class="fu">E</span>(g)<span class="sc">$</span>weight<span class="sc">*</span>strength_adjust <span class="sc">+</span> <span class="fu">min</span>(<span class="fu">E</span>(g)<span class="sc">$</span>weight)</span>
 <span id="cb243-2"><a href="example.html#cb243-2" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(g)<span class="sc">$</span>color <span class="ot">&lt;-</span> <span class="st">&quot;red&quot;</span></span>
@@ -1759,7 +1738,7 @@ div.csl-indent {
 <div id="systematic-information-8" class="section level2 hasAnchor" number="10.10">
 <h2><span class="header-section-number">10.10</span> Systematic Information<a href="example.html#systematic-information-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="example.html#cb244-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
-<pre><code>## ─ Session info ─────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
 ##  version  R version 4.1.2 (2021-11-01)
 ##  os       macOS Monterey 12.2.1
@@ -1769,20 +1748,23 @@ div.csl-indent {
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       Asia/Shanghai
-##  date     2022-08-11
+##  date     2022-08-16
 ##  rstudio  2022.07.1+554 Spotted Wakerobin (desktop)
 ##  pandoc   2.18 @ /Applications/RStudio.app/Contents/MacOS/quarto/bin/tools/ (via rmarkdown)
 ## 
-## ─ Packages ─────────────────────────────────────────────────────────────────────────────────────
+## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  package              * version    date (UTC) lib source
 ##  abind                  1.4-5      2016-07-21 [1] CRAN (R 4.1.0)
 ##  ade4                   1.7-18     2021-09-16 [1] CRAN (R 4.1.0)
+##  ALDEx2                 1.26.0     2021-10-26 [1] Bioconductor
 ##  annotate               1.72.0     2021-10-26 [1] Bioconductor
 ##  AnnotationDbi          1.56.2     2021-11-09 [1] Bioconductor
-##  ape                    5.6-2      2022-03-02 [1] CRAN (R 4.1.2)
+##  ape                  * 5.6-2      2022-03-02 [1] CRAN (R 4.1.2)
+##  askpass                1.1        2019-01-13 [1] CRAN (R 4.1.0)
 ##  assertthat             0.2.1      2019-03-21 [1] CRAN (R 4.1.0)
 ##  backports              1.4.1      2021-12-13 [1] CRAN (R 4.1.0)
 ##  base64enc              0.1-3      2015-07-28 [1] CRAN (R 4.1.0)
+##  bayesm                 3.1-4      2019-10-15 [1] CRAN (R 4.1.0)
 ##  Biobase              * 2.54.0     2021-10-26 [1] Bioconductor
 ##  BiocGenerics         * 0.40.0     2021-10-26 [1] Bioconductor
 ##  BiocParallel           1.28.3     2021-12-09 [1] Bioconductor
@@ -1807,6 +1789,7 @@ div.csl-indent {
 ##  checkmate              2.0.0      2020-02-06 [1] CRAN (R 4.1.0)
 ##  circlize               0.4.14     2022-02-11 [1] CRAN (R 4.1.2)
 ##  class                  7.3-20     2022-01-13 [1] CRAN (R 4.1.2)
+##  classInt               0.4-3      2020-04-07 [1] CRAN (R 4.1.0)
 ##  cli                    3.3.0      2022-04-25 [1] CRAN (R 4.1.2)
 ##  clue                   0.3-60     2021-10-11 [1] CRAN (R 4.1.0)
 ##  cluster              * 2.1.2      2021-04-17 [1] CRAN (R 4.1.2)
@@ -1814,22 +1797,28 @@ div.csl-indent {
 ##  coin                   1.4-2      2021-10-08 [1] CRAN (R 4.1.0)
 ##  colorspace             2.0-3      2022-02-21 [1] CRAN (R 4.1.2)
 ##  ComplexHeatmap         2.10.0     2021-10-26 [1] Bioconductor
+##  compositions           2.0-4      2022-01-05 [1] CRAN (R 4.1.2)
+##  conflicted           * 1.1.0      2021-11-26 [1] CRAN (R 4.1.0)
 ##  corpcor                1.6.10     2021-09-16 [1] CRAN (R 4.1.0)
+##  corrplot               0.92       2021-11-18 [1] CRAN (R 4.1.0)
 ##  cowplot                1.1.1      2020-12-30 [1] CRAN (R 4.1.0)
 ##  crayon                 1.5.0      2022-02-14 [1] CRAN (R 4.1.2)
 ##  crmn                   0.0.21     2020-02-10 [1] CRAN (R 4.1.0)
+##  crosstalk              1.2.0      2021-11-04 [1] CRAN (R 4.1.0)
 ##  curl                   4.3.2      2021-06-23 [1] CRAN (R 4.1.0)
 ##  data.table             1.14.2     2021-09-27 [1] CRAN (R 4.1.0)
 ##  DBI                    1.1.2      2021-12-20 [1] CRAN (R 4.1.0)
 ##  DelayedArray           0.20.0     2021-10-26 [1] Bioconductor
 ##  dendextend           * 1.15.2     2021-10-28 [1] CRAN (R 4.1.0)
+##  DEoptimR               1.0-10     2022-01-03 [1] CRAN (R 4.1.2)
 ##  desc                   1.4.1      2022-03-06 [1] CRAN (R 4.1.2)
 ##  DESeq2                 1.34.0     2021-10-26 [1] Bioconductor
-##  devtools               2.4.3      2021-11-30 [1] CRAN (R 4.1.0)
+##  devtools             * 2.4.3      2021-11-30 [1] CRAN (R 4.1.0)
 ##  digest                 0.6.29     2021-12-01 [1] CRAN (R 4.1.0)
 ##  doParallel             1.0.17     2022-02-07 [1] CRAN (R 4.1.2)
 ##  doSNOW                 1.0.20     2022-02-04 [1] CRAN (R 4.1.2)
 ##  dplyr                * 1.0.8      2022-02-08 [1] CRAN (R 4.1.2)
+##  DT                     0.21       2022-02-26 [1] CRAN (R 4.1.2)
 ##  dynamicTreeCut       * 1.63-1     2016-03-11 [1] CRAN (R 4.1.0)
 ##  e1071                  1.7-9      2021-09-16 [1] CRAN (R 4.1.0)
 ##  edgeR                  3.36.0     2021-10-26 [1] Bioconductor
@@ -1837,6 +1826,7 @@ div.csl-indent {
 ##  ellipsis               0.3.2      2021-04-29 [1] CRAN (R 4.1.0)
 ##  evaluate               0.15       2022-02-18 [1] CRAN (R 4.1.2)
 ##  factoextra           * 1.0.7      2020-04-01 [1] CRAN (R 4.1.0)
+##  FactoMineR             2.4        2020-12-11 [1] CRAN (R 4.1.0)
 ##  fansi                  1.0.2      2022-01-14 [1] CRAN (R 4.1.2)
 ##  farver                 2.1.0      2021-02-28 [1] CRAN (R 4.1.0)
 ##  fastcluster          * 1.2.3      2021-05-24 [1] CRAN (R 4.1.0)
@@ -1845,11 +1835,15 @@ div.csl-indent {
 ##  fdrtool                1.2.17     2021-11-13 [1] CRAN (R 4.1.0)
 ##  fgsea                  1.20.0     2021-10-26 [1] Bioconductor
 ##  filematrix             1.3        2018-02-27 [1] CRAN (R 4.1.0)
+##  flashClust             1.01-2     2012-08-21 [1] CRAN (R 4.1.0)
 ##  foreach                1.5.2      2022-02-02 [1] CRAN (R 4.1.2)
 ##  foreign                0.8-82     2022-01-13 [1] CRAN (R 4.1.2)
 ##  forestplot             2.0.1      2021-09-03 [1] CRAN (R 4.1.0)
+##  formatR                1.11       2021-06-01 [1] CRAN (R 4.1.0)
 ##  Formula                1.2-4      2020-10-16 [1] CRAN (R 4.1.0)
 ##  fs                     1.5.2      2021-12-08 [1] CRAN (R 4.1.0)
+##  futile.logger        * 1.4.3      2016-07-10 [1] CRAN (R 4.1.0)
+##  futile.options         1.0.1      2018-04-20 [1] CRAN (R 4.1.0)
 ##  future                 1.24.0     2022-02-19 [1] CRAN (R 4.1.2)
 ##  future.apply           1.8.1      2021-08-10 [1] CRAN (R 4.1.0)
 ##  genefilter             1.76.0     2021-10-26 [1] Bioconductor
@@ -1860,11 +1854,15 @@ div.csl-indent {
 ##  GenomicRanges        * 1.46.1     2021-11-18 [1] Bioconductor
 ##  GetoptLong             1.0.5      2020-12-15 [1] CRAN (R 4.1.0)
 ##  ggforce                0.3.3      2021-03-05 [1] CRAN (R 4.1.0)
+##  ggiraph                0.8.2      2022-02-22 [1] CRAN (R 4.1.2)
+##  ggiraphExtra           0.3.0      2020-10-06 [1] CRAN (R 4.1.2)
 ##  ggplot2              * 3.3.5      2021-06-25 [1] CRAN (R 4.1.0)
-##  ggpubr                 0.4.0      2020-06-27 [1] CRAN (R 4.1.0)
+##  ggpubr               * 0.4.0      2020-06-27 [1] CRAN (R 4.1.0)
 ##  ggraph               * 2.0.5      2021-02-23 [1] CRAN (R 4.1.0)
 ##  ggrepel                0.9.1      2021-01-15 [1] CRAN (R 4.1.0)
+##  ggsci                  2.9        2018-05-14 [1] CRAN (R 4.1.0)
 ##  ggsignif               0.6.3      2021-09-09 [1] CRAN (R 4.1.0)
+##  ggVennDiagram          1.2.1      2022-04-13 [1] Github (gaospecial/ggVennDiagram@db6742d)
 ##  glasso                 1.11       2019-10-01 [1] CRAN (R 4.1.0)
 ##  glmnet               * 4.1-3      2021-11-02 [1] CRAN (R 4.1.0)
 ##  GlobalOptions          0.1.2      2020-06-10 [1] CRAN (R 4.1.0)
@@ -1883,6 +1881,7 @@ div.csl-indent {
 ##  hardhat                0.2.0      2022-01-24 [1] CRAN (R 4.1.2)
 ##  highr                  0.9        2021-04-16 [1] CRAN (R 4.1.0)
 ##  Hmisc                  4.6-0      2021-10-07 [1] CRAN (R 4.1.0)
+##  hms                    1.1.1      2021-09-26 [1] CRAN (R 4.1.0)
 ##  htmlTable            * 2.4.0      2022-01-04 [1] CRAN (R 4.1.2)
 ##  htmltools              0.5.2      2021-08-25 [1] CRAN (R 4.1.0)
 ##  htmlwidgets            1.5.4      2021-09-08 [1] CRAN (R 4.1.0)
@@ -1890,6 +1889,7 @@ div.csl-indent {
 ##  huge                   1.3.5      2021-06-30 [1] CRAN (R 4.1.0)
 ##  igraph               * 1.2.11     2022-01-04 [1] CRAN (R 4.1.2)
 ##  impute                 1.68.0     2021-10-26 [1] Bioconductor
+##  insight                0.17.0     2022-03-29 [1] CRAN (R 4.1.2)
 ##  ipred                  0.9-12     2021-09-15 [1] CRAN (R 4.1.0)
 ##  IRanges              * 2.28.0     2021-10-26 [1] Bioconductor
 ##  irlba                  2.3.5      2021-12-06 [1] CRAN (R 4.1.0)
@@ -1897,30 +1897,36 @@ div.csl-indent {
 ##  jpeg                   0.1-9      2021-07-24 [1] CRAN (R 4.1.0)
 ##  jquerylib              0.1.4      2021-04-26 [1] CRAN (R 4.1.0)
 ##  jsonlite               1.8.0      2022-02-22 [1] CRAN (R 4.1.2)
+##  kableExtra             1.3.4      2021-02-20 [1] CRAN (R 4.1.2)
 ##  KEGGREST               1.34.0     2021-10-26 [1] Bioconductor
 ##  KernSmooth             2.23-20    2021-05-03 [1] CRAN (R 4.1.2)
 ##  knitr                  1.39       2022-04-26 [1] CRAN (R 4.1.2)
 ##  labeling               0.4.2      2020-10-20 [1] CRAN (R 4.1.0)
-##  lattice                0.20-45    2021-09-22 [1] CRAN (R 4.1.2)
+##  lambda.r               1.2.4      2019-09-18 [1] CRAN (R 4.1.0)
+##  lattice              * 0.20-45    2021-09-22 [1] CRAN (R 4.1.2)
 ##  latticeExtra           0.6-29     2019-12-19 [1] CRAN (R 4.1.0)
 ##  lava                   1.6.10     2021-09-02 [1] CRAN (R 4.1.0)
 ##  lavaan                 0.6-11     2022-03-31 [1] CRAN (R 4.1.2)
 ##  lazyeval               0.2.2      2019-03-15 [1] CRAN (R 4.1.0)
+##  leaps                  3.1        2020-01-16 [1] CRAN (R 4.1.0)
 ##  libcoin                1.0-9      2021-09-27 [1] CRAN (R 4.1.0)
 ##  lifecycle              1.0.1      2021-09-24 [1] CRAN (R 4.1.0)
 ##  limma                  3.50.1     2022-02-17 [1] Bioconductor
 ##  listenv                0.8.0      2019-12-05 [1] CRAN (R 4.1.0)
 ##  locfit                 1.5-9.5    2022-03-03 [1] CRAN (R 4.1.2)
+##  LOCOM                  1.1        2022-08-05 [1] Github (yijuanhu/LOCOM@c181e0f)
 ##  lubridate              1.8.0      2021-10-07 [1] CRAN (R 4.1.0)
 ##  magrittr             * 2.0.2      2022-01-26 [1] CRAN (R 4.1.2)
 ##  MASS                   7.3-55     2022-01-13 [1] CRAN (R 4.1.2)
 ##  Matrix               * 1.4-0      2021-12-08 [1] CRAN (R 4.1.0)
 ##  MatrixGenerics       * 1.6.0      2021-10-26 [1] Bioconductor
 ##  matrixStats          * 0.61.0     2021-09-17 [1] CRAN (R 4.1.0)
+##  mbzinb                 0.2        2022-03-16 [1] local
 ##  memoise                2.0.1      2021-11-26 [1] CRAN (R 4.1.0)
 ##  MetaboAnalystR       * 3.2.0      2022-06-28 [1] Github (xia-lab/MetaboAnalystR@892a31b)
 ##  metagenomeSeq          1.36.0     2021-10-26 [1] Bioconductor
 ##  mgcv                   1.8-39     2022-02-24 [1] CRAN (R 4.1.2)
+##  microbiome             1.16.0     2021-10-26 [1] Bioconductor
 ##  mixedCCA               1.5.2      2022-07-14 [1] Github (irinagain/mixedCCA@c6d41a3)
 ##  mixOmics               6.18.1     2021-11-18 [1] Bioconductor (R 4.1.2)
 ##  mnormt                 2.0.2      2020-09-01 [1] CRAN (R 4.1.0)
@@ -1930,18 +1936,21 @@ div.csl-indent {
 ##  multtest               2.50.0     2021-10-26 [1] Bioconductor
 ##  munsell                0.5.0      2018-06-12 [1] CRAN (R 4.1.0)
 ##  mvtnorm                1.1-3      2021-10-08 [1] CRAN (R 4.1.0)
+##  mycor                  0.1.1      2018-04-10 [1] CRAN (R 4.1.0)
 ##  NADA                   1.6-1.1    2020-03-22 [1] CRAN (R 4.1.0)
 ##  NetCoMi              * 1.0.3      2022-07-14 [1] Github (stefpeschel/NetCoMi@d4d80d3)
-##  nlme                   3.1-155    2022-01-13 [1] CRAN (R 4.1.2)
+##  nlme                 * 3.1-155    2022-01-13 [1] CRAN (R 4.1.2)
 ##  nnet                   7.3-17     2022-01-13 [1] CRAN (R 4.1.2)
+##  openssl                2.0.0      2022-03-02 [1] CRAN (R 4.1.2)
 ##  parallelly             1.31.0     2022-04-07 [1] CRAN (R 4.1.2)
 ##  pbapply                1.5-0      2021-09-16 [1] CRAN (R 4.1.0)
 ##  pbivnorm               0.6.0      2015-01-23 [1] CRAN (R 4.1.0)
 ##  pcaMethods             1.86.0     2021-10-26 [1] Bioconductor
 ##  pcaPP                  1.9-74     2021-04-23 [1] CRAN (R 4.1.0)
-##  permute                0.9-7      2022-01-27 [1] CRAN (R 4.1.2)
-##  pheatmap               1.0.12     2019-01-04 [1] CRAN (R 4.1.0)
-##  phyloseq               1.38.0     2021-10-26 [1] Bioconductor
+##  permute              * 0.9-7      2022-01-27 [1] CRAN (R 4.1.2)
+##  pheatmap             * 1.0.12     2019-01-04 [1] CRAN (R 4.1.0)
+##  phyloseq             * 1.38.0     2021-10-26 [1] Bioconductor
+##  picante              * 1.8.2      2020-06-10 [1] CRAN (R 4.1.0)
 ##  pillar                 1.7.0      2022-02-01 [1] CRAN (R 4.1.2)
 ##  pkgbuild               1.3.1      2021-12-20 [1] CRAN (R 4.1.0)
 ##  pkgconfig              2.0.3      2019-09-22 [1] CRAN (R 4.1.0)
@@ -1951,34 +1960,43 @@ div.csl-indent {
 ##  png                    0.1-7      2013-12-03 [1] CRAN (R 4.1.0)
 ##  polyclip               1.10-0     2019-03-14 [1] CRAN (R 4.1.0)
 ##  POMA                 * 1.7.2      2022-07-26 [1] Github (pcastellanoescuder/POMA@bc8a972)
+##  ppcor                  1.1        2015-12-03 [1] CRAN (R 4.1.0)
 ##  preprocessCore         1.56.0     2021-10-26 [1] Bioconductor
 ##  prettyunits            1.1.1      2020-01-24 [1] CRAN (R 4.1.0)
 ##  pROC                   1.18.0     2021-09-03 [1] CRAN (R 4.1.0)
 ##  processx               3.5.2      2021-04-30 [1] CRAN (R 4.1.0)
 ##  prodlim                2019.11.13 2019-11-17 [1] CRAN (R 4.1.0)
+##  protoclust             1.6.3      2019-01-31 [1] CRAN (R 4.1.0)
 ##  proxy                  0.4-26     2021-06-07 [1] CRAN (R 4.1.0)
 ##  ps                     1.6.0      2021-02-28 [1] CRAN (R 4.1.0)
+##  pscl                   1.5.5      2020-03-07 [1] CRAN (R 4.1.0)
 ##  psych                  2.2.5      2022-05-10 [1] CRAN (R 4.1.2)
 ##  pulsar                 0.3.7      2020-08-07 [1] CRAN (R 4.1.0)
-##  purrr                  0.3.4      2020-04-17 [1] CRAN (R 4.1.0)
+##  purrr                * 0.3.4      2020-04-17 [1] CRAN (R 4.1.0)
 ##  qgraph                 1.9.2      2022-03-04 [1] CRAN (R 4.1.2)
 ##  qs                     0.25.3     2022-02-22 [1] CRAN (R 4.1.2)
+##  qvalue                 2.26.0     2021-10-26 [1] Bioconductor
 ##  R6                     2.5.1      2021-08-19 [1] CRAN (R 4.1.0)
 ##  ragg                   1.2.2      2022-02-21 [1] CRAN (R 4.1.2)
+##  RAIDA                  1.0        2022-03-14 [1] local
 ##  randomForest           4.7-1      2022-02-03 [1] CRAN (R 4.1.2)
 ##  RankProd               3.20.0     2021-10-26 [1] Bioconductor
 ##  RApiSerialize          0.1.0      2014-04-19 [1] CRAN (R 4.1.0)
 ##  rARPACK                0.11-0     2016-03-10 [1] CRAN (R 4.1.0)
 ##  rbibutils              2.2.7      2021-12-07 [1] CRAN (R 4.1.0)
-##  RColorBrewer           1.1-2      2014-12-07 [1] CRAN (R 4.1.0)
+##  RColorBrewer         * 1.1-2      2014-12-07 [1] CRAN (R 4.1.0)
 ##  Rcpp                 * 1.0.8.2    2022-03-11 [1] CRAN (R 4.1.2)
 ##  RcppParallel           5.1.5      2022-01-05 [1] CRAN (R 4.1.2)
+##  RcppZiggurat           0.1.6      2020-10-20 [1] CRAN (R 4.1.0)
 ##  RCurl                  1.98-1.6   2022-02-08 [1] CRAN (R 4.1.2)
 ##  Rdpack                 2.2        2022-03-19 [1] CRAN (R 4.1.2)
+##  readr                * 2.1.2      2022-01-30 [1] CRAN (R 4.1.2)
 ##  readxl               * 1.4.0      2022-03-28 [1] CRAN (R 4.1.2)
 ##  recipes                0.2.0      2022-02-18 [1] CRAN (R 4.1.2)
 ##  remotes                2.4.2      2021-11-30 [1] CRAN (R 4.1.0)
 ##  reshape2               1.4.4      2020-04-09 [1] CRAN (R 4.1.0)
+##  reticulate             1.24       2022-01-26 [1] CRAN (R 4.1.2)
+##  Rfast                  2.0.6      2022-02-16 [1] CRAN (R 4.1.2)
 ##  rhdf5                  2.38.1     2022-03-10 [1] Bioconductor
 ##  rhdf5filters           1.6.0      2021-10-26 [1] Bioconductor
 ##  Rhdf5lib               1.16.0     2021-10-26 [1] Bioconductor
@@ -1986,6 +2004,7 @@ div.csl-indent {
 ##  rlang                  1.0.2      2022-03-04 [1] CRAN (R 4.1.2)
 ##  rmarkdown              2.14       2022-04-25 [1] CRAN (R 4.1.2)
 ##  Rmpfr                  0.8-9      2022-06-03 [1] CRAN (R 4.1.2)
+##  robustbase             0.93-9     2021-09-27 [1] CRAN (R 4.1.0)
 ##  rootSolve              1.8.2.3    2021-09-29 [1] CRAN (R 4.1.0)
 ##  rpart                  4.1.16     2022-01-24 [1] CRAN (R 4.1.2)
 ##  rprojroot              2.0.2      2020-11-15 [1] CRAN (R 4.1.0)
@@ -1994,14 +2013,21 @@ div.csl-indent {
 ##  RSQLite                2.2.10     2022-02-17 [1] CRAN (R 4.1.2)
 ##  rstatix                0.7.0      2021-02-13 [1] CRAN (R 4.1.0)
 ##  rstudioapi             0.13       2020-11-12 [1] CRAN (R 4.1.0)
+##  Rtsne                  0.15       2018-11-10 [1] CRAN (R 4.1.0)
+##  RVenn                  1.1.0      2019-07-18 [1] CRAN (R 4.1.0)
+##  rvest                  1.0.2      2021-10-16 [1] CRAN (R 4.1.0)
 ##  S4Vectors            * 0.32.3     2021-11-21 [1] Bioconductor
 ##  sandwich               3.0-1      2021-05-18 [1] CRAN (R 4.1.0)
 ##  sass                   0.4.0      2021-05-12 [1] CRAN (R 4.1.0)
 ##  scales                 1.1.1      2020-05-11 [1] CRAN (R 4.1.0)
+##  scatterplot3d          0.3-41     2018-03-14 [1] CRAN (R 4.1.0)
 ##  scrime                 1.3.5      2018-12-01 [1] CRAN (R 4.1.0)
 ##  sessioninfo            1.2.2      2021-12-06 [1] CRAN (R 4.1.0)
+##  sf                     1.0-7      2022-03-07 [1] CRAN (R 4.1.2)
 ##  shape                  1.4.6      2021-05-19 [1] CRAN (R 4.1.0)
 ##  siggenes               1.68.0     2021-10-26 [1] Bioconductor
+##  sjlabelled             1.2.0      2022-04-10 [1] CRAN (R 4.1.2)
+##  sjmisc                 2.8.9      2021-12-03 [1] CRAN (R 4.1.0)
 ##  snow                   0.4-4      2021-10-27 [1] CRAN (R 4.1.0)
 ##  SpiecEasi            * 1.1.2      2022-07-14 [1] Github (zdk123/SpiecEasi@c463727)
 ##  SPRING               * 1.0.4      2022-08-03 [1] Github (GraceYoon/SPRING@3d641a4)
@@ -2010,31 +2036,41 @@ div.csl-indent {
 ##  stringr                1.4.0      2019-02-10 [1] CRAN (R 4.1.0)
 ##  SummarizedExperiment * 1.24.0     2021-10-26 [1] Bioconductor
 ##  survival               3.3-1      2022-03-03 [1] CRAN (R 4.1.2)
+##  svglite                2.1.0      2022-02-03 [1] CRAN (R 4.1.2)
 ##  systemfonts            1.0.4      2022-02-11 [1] CRAN (R 4.1.2)
+##  tensorA                0.36.2     2020-11-19 [1] CRAN (R 4.1.0)
 ##  testthat               3.1.2      2022-01-20 [1] CRAN (R 4.1.2)
 ##  textshaping            0.3.6      2021-10-13 [1] CRAN (R 4.1.0)
 ##  TH.data                1.1-0      2021-09-27 [1] CRAN (R 4.1.0)
 ##  tibble               * 3.1.6      2021-11-07 [1] CRAN (R 4.1.0)
 ##  tidygraph              1.2.1      2022-04-05 [1] CRAN (R 4.1.2)
-##  tidyr                  1.2.0      2022-02-01 [1] CRAN (R 4.1.2)
+##  tidyr                * 1.2.0      2022-02-01 [1] CRAN (R 4.1.2)
 ##  tidyselect             1.1.2      2022-02-21 [1] CRAN (R 4.1.2)
 ##  timeDate               3043.102   2018-02-21 [1] CRAN (R 4.1.0)
 ##  tmvnsim                1.0-2      2016-12-15 [1] CRAN (R 4.1.0)
 ##  truncnorm              1.0-8      2018-02-27 [1] CRAN (R 4.1.0)
 ##  tweenr                 1.0.2      2021-03-23 [1] CRAN (R 4.1.0)
-##  usethis                2.1.5      2021-12-09 [1] CRAN (R 4.1.0)
+##  tzdb                   0.2.0      2021-10-27 [1] CRAN (R 4.1.0)
+##  umap                   0.2.8.0    2022-03-23 [1] CRAN (R 4.1.2)
+##  units                  0.8-0      2022-02-05 [1] CRAN (R 4.1.2)
+##  usethis              * 2.1.5      2021-12-09 [1] CRAN (R 4.1.0)
 ##  utf8                   1.2.2      2021-07-24 [1] CRAN (R 4.1.0)
+##  uuid                   1.0-3      2021-11-01 [1] CRAN (R 4.1.0)
 ##  vctrs                  0.3.8      2021-04-29 [1] CRAN (R 4.1.0)
-##  vegan                  2.5-7      2020-11-28 [1] CRAN (R 4.1.0)
+##  vegan                * 2.5-7      2020-11-28 [1] CRAN (R 4.1.0)
+##  VennDiagram          * 1.7.3      2022-04-12 [1] CRAN (R 4.1.2)
 ##  VGAM                   1.1-6      2022-02-14 [1] CRAN (R 4.1.2)
-##  viridis                0.6.2      2021-10-13 [1] CRAN (R 4.1.0)
-##  viridisLite            0.4.0      2021-04-13 [1] CRAN (R 4.1.0)
+##  viridis              * 0.6.2      2021-10-13 [1] CRAN (R 4.1.0)
+##  viridisLite          * 0.4.0      2021-04-13 [1] CRAN (R 4.1.0)
+##  vroom                  1.5.7      2021-11-30 [1] CRAN (R 4.1.0)
+##  webshot                0.5.3      2022-04-14 [1] CRAN (R 4.1.2)
 ##  WGCNA                * 1.71       2022-04-22 [1] CRAN (R 4.1.2)
 ##  withr                  2.5.0      2022-03-03 [1] CRAN (R 4.1.2)
 ##  Wrench                 1.12.0     2021-10-26 [1] Bioconductor
 ##  xfun                   0.30       2022-03-02 [1] CRAN (R 4.1.2)
-##  XMAS2                  2.1.7.4    2022-08-09 [1] local
+##  XMAS2                * 2.1.7.5    2022-08-16 [1] local
 ##  XML                    3.99-0.9   2022-02-24 [1] CRAN (R 4.1.2)
+##  xml2                   1.3.3      2021-11-30 [1] CRAN (R 4.1.0)
 ##  xtable                 1.8-4      2019-04-21 [1] CRAN (R 4.1.0)
 ##  XVector                0.34.0     2021-10-26 [1] Bioconductor
 ##  yaml                   2.3.5      2022-02-21 [1] CRAN (R 4.1.2)
@@ -2044,7 +2080,7 @@ div.csl-indent {
 ## 
 ##  [1] /Library/Frameworks/R.framework/Versions/4.1/Resources/library
 ## 
-## ────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
 
 </div>
 </div>

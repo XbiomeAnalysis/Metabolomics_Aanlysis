@@ -23,7 +23,7 @@
 <meta name="author" content="Hua Zou and Bangzhuo Tong" />
 
 
-<meta name="date" content="2022-08-11" />
+<meta name="date" content="2022-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -392,13 +392,11 @@ ORA is performed when the user provides only a list of compound names.</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="enrichment-analysis.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example compound name map</span></span>
 <span id="cb125-2"><a href="enrichment-analysis.html#cb125-2" aria-hidden="true" tabindex="-1"></a>mSet<span class="sc">$</span>name.map</span></code></pre></div>
 <p>$query.vec
-[1] “Acetic acid” “Propionic acid” “Isobutyric acid” “Butyric acid” “Isovaleric acid”
-[6] “Valeric acid” “Hexanoic acid”</p>
+[1] “Acetic acid” “Propionic acid” “Isobutyric acid” “Butyric acid” “Isovaleric acid” “Valeric acid” “Hexanoic acid”</p>
 <p>$hit.inx
 [1] 29 158 1241 28 566 708 409</p>
 <p>$hit.values
-[1] “Acetic acid” “Propionic acid” “Isobutyric acid” “Butyric acid” “Isovaleric acid”
-[6] “Valeric acid” “Caproic acid”</p>
+[1] “Acetic acid” “Propionic acid” “Isobutyric acid” “Butyric acid” “Isovaleric acid” “Valeric acid” “Caproic acid”</p>
 <p>$match.state
 [1] 1 1 1 1 1 1 1</p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="enrichment-analysis.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Create the mapping results table</span></span>
@@ -416,81 +414,169 @@ ORA is performed when the user provides only a list of compound names.</p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="enrichment-analysis.html#cb128-1" aria-hidden="true" tabindex="-1"></a>ora_res <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;./msea_ora_result.csv&#39;</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb128-2"><a href="enrichment-analysis.html#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Enrichment Ratio is computed by Hits / Expected, where hits = observed hits expected = expected hits (see the Table below)</span></span>
 <span id="cb128-3"><a href="enrichment-analysis.html#cb128-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(ora_res))</span></code></pre></div>
-<table style="width:100%;">
-<colgroup>
-<col width="60%" />
-<col width="6%" />
-<col width="9%" />
-<col width="5%" />
-<col width="6%" />
-<col width="7%" />
-<col width="4%" />
-</colgroup>
+<table>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">total</th>
-<th align="right">expected</th>
-<th align="right">hits</th>
-<th align="right">Raw p</th>
-<th align="right">Holm p</th>
-<th align="right">FDR</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+total
+</th>
+<th style="text-align:right;">
+expected
+</th>
+<th style="text-align:right;">
+hits
+</th>
+<th style="text-align:right;">
+Raw p
+</th>
+<th style="text-align:right;">
+Holm p
+</th>
+<th style="text-align:right;">
+FDR
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Autism</td>
-<td align="right">204</td>
-<td align="right">1.130</td>
-<td align="right">12</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
+<tr>
+<td style="text-align:left;">
+Autism
+</td>
+<td style="text-align:right;">
+204
+</td>
+<td style="text-align:right;">
+1.130
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
 </tr>
-<tr class="even">
-<td align="left">Crohn’s Disease</td>
-<td align="right">522</td>
-<td align="right">2.880</td>
-<td align="right">22</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
+<tr>
+<td style="text-align:left;">
+Crohn’s Disease
+</td>
+<td style="text-align:right;">
+522
+</td>
+<td style="text-align:right;">
+2.880
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Irritable Bowel Syndrome</td>
-<td align="right">186</td>
-<td align="right">1.030</td>
-<td align="right">14</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
+<tr>
+<td style="text-align:left;">
+Irritable Bowel Syndrome
+</td>
+<td style="text-align:right;">
+186
+</td>
+<td style="text-align:right;">
+1.030
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
 </tr>
-<tr class="even">
-<td align="left">Nonalcoholic Fatty Liver Disease</td>
-<td align="right">344</td>
-<td align="right">1.900</td>
-<td align="right">14</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
+<tr>
+<td style="text-align:left;">
+Nonalcoholic Fatty Liver Disease
+</td>
+<td style="text-align:right;">
+344
+</td>
+<td style="text-align:right;">
+1.900
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Pervasive Developmental Disorder Not Otherwise Specified</td>
-<td align="right">157</td>
-<td align="right">0.867</td>
-<td align="right">12</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
+<tr>
+<td style="text-align:left;">
+Pervasive Developmental Disorder Not Otherwise Specified
+</td>
+<td style="text-align:right;">
+157
+</td>
+<td style="text-align:right;">
+0.867
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
 </tr>
-<tr class="even">
-<td align="left">Ulcerative Colitis</td>
-<td align="right">609</td>
-<td align="right">3.360</td>
-<td align="right">14</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
+<tr>
+<td style="text-align:left;">
+Ulcerative Colitis
+</td>
+<td style="text-align:right;">
+609
+</td>
+<td style="text-align:right;">
+3.360
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
 </tr>
 </tbody>
 </table>
@@ -562,80 +648,168 @@ ORA is performed when the user provides only a list of compound names.</p>
 <span id="cb137-2"><a href="enrichment-analysis.html#cb137-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb137-3"><a href="enrichment-analysis.html#cb137-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(ora_res))</span></code></pre></div>
 <table>
-<colgroup>
-<col width="61%" />
-<col width="5%" />
-<col width="8%" />
-<col width="4%" />
-<col width="7%" />
-<col width="6%" />
-<col width="5%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">total</th>
-<th align="right">expected</th>
-<th align="right">hits</th>
-<th align="right">Raw p</th>
-<th align="right">Holm p</th>
-<th align="right">FDR</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+total
+</th>
+<th style="text-align:right;">
+expected
+</th>
+<th style="text-align:right;">
+hits
+</th>
+<th style="text-align:right;">
+Raw p
+</th>
+<th style="text-align:right;">
+Holm p
+</th>
+<th style="text-align:right;">
+FDR
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Fatty Acid Biosynthesis</td>
-<td align="right">35</td>
-<td align="right">0.2390</td>
-<td align="right">3</td>
-<td align="right">0.00117</td>
-<td align="right">0.114</td>
-<td align="right">0.114</td>
+<tr>
+<td style="text-align:left;">
+Fatty Acid Biosynthesis
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+0.2390
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0.00117
+</td>
+<td style="text-align:right;">
+0.114
+</td>
+<td style="text-align:right;">
+0.114
+</td>
 </tr>
-<tr class="even">
-<td align="left">Vitamin K Metabolism</td>
-<td align="right">14</td>
-<td align="right">0.0957</td>
-<td align="right">1</td>
-<td align="right">0.09210</td>
-<td align="right">1.000</td>
-<td align="right">1.000</td>
+<tr>
+<td style="text-align:left;">
+Vitamin K Metabolism
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+0.0957
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.09210
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+<td style="text-align:right;">
+1.000
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Beta Oxidation of Very Long Chain Fatty Acids</td>
-<td align="right">17</td>
-<td align="right">0.1160</td>
-<td align="right">1</td>
-<td align="right">0.11100</td>
-<td align="right">1.000</td>
-<td align="right">1.000</td>
+<tr>
+<td style="text-align:left;">
+Beta Oxidation of Very Long Chain Fatty Acids
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+0.1160
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.11100
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+<td style="text-align:right;">
+1.000
+</td>
 </tr>
-<tr class="even">
-<td align="left">Butyrate Metabolism</td>
-<td align="right">19</td>
-<td align="right">0.1300</td>
-<td align="right">1</td>
-<td align="right">0.12300</td>
-<td align="right">1.000</td>
-<td align="right">1.000</td>
+<tr>
+<td style="text-align:left;">
+Butyrate Metabolism
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+0.1300
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.12300
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+<td style="text-align:right;">
+1.000
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Ethanol Degradation</td>
-<td align="right">19</td>
-<td align="right">0.1300</td>
-<td align="right">1</td>
-<td align="right">0.12300</td>
-<td align="right">1.000</td>
-<td align="right">1.000</td>
+<tr>
+<td style="text-align:left;">
+Ethanol Degradation
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+0.1300
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.12300
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+<td style="text-align:right;">
+1.000
+</td>
 </tr>
-<tr class="even">
-<td align="left">Mitochondrial Beta-Oxidation of Short Chain Saturated Fatty Acids</td>
-<td align="right">27</td>
-<td align="right">0.1850</td>
-<td align="right">1</td>
-<td align="right">0.17100</td>
-<td align="right">1.000</td>
-<td align="right">1.000</td>
+<tr>
+<td style="text-align:left;">
+Mitochondrial Beta-Oxidation of Short Chain Saturated Fatty Acids
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+0.1850
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.17100
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+<td style="text-align:right;">
+1.000
+</td>
 </tr>
 </tbody>
 </table>
@@ -744,88 +918,190 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 <span id="cb148-2"><a href="enrichment-analysis.html#cb148-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb148-3"><a href="enrichment-analysis.html#cb148-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(msea_qea_res))</span></code></pre></div>
 <table>
-<colgroup>
-<col width="51%" />
-<col width="8%" />
-<col width="3%" />
-<col width="9%" />
-<col width="8%" />
-<col width="6%" />
-<col width="5%" />
-<col width="6%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th align="left">X</th>
-<th align="right">Total.Cmpd</th>
-<th align="right">Hits</th>
-<th align="right">Statistic.Q</th>
-<th align="right">Expected.Q</th>
-<th align="right">Raw.p</th>
-<th align="right">Holm.p</th>
-<th align="right">FDR</th>
+<tr>
+<th style="text-align:left;">
+X
+</th>
+<th style="text-align:right;">
+Total.Cmpd
+</th>
+<th style="text-align:right;">
+Hits
+</th>
+<th style="text-align:right;">
+Statistic.Q
+</th>
+<th style="text-align:right;">
+Expected.Q
+</th>
+<th style="text-align:right;">
+Raw.p
+</th>
+<th style="text-align:right;">
+Holm.p
+</th>
+<th style="text-align:right;">
+FDR
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Propanoate Metabolism</td>
-<td align="right">42</td>
-<td align="right">1</td>
-<td align="right">4.3168</td>
-<td align="right">1.8182</td>
-<td align="right">0.12440</td>
-<td align="right">1</td>
-<td align="right">0.62002</td>
+<tr>
+<td style="text-align:left;">
+Propanoate Metabolism
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4.3168
+</td>
+<td style="text-align:right;">
+1.8182
+</td>
+<td style="text-align:right;">
+0.12440
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.62002
+</td>
 </tr>
-<tr class="even">
-<td align="left">Vitamin K Metabolism</td>
-<td align="right">14</td>
-<td align="right">1</td>
-<td align="right">4.3168</td>
-<td align="right">1.8182</td>
-<td align="right">0.12440</td>
-<td align="right">1</td>
-<td align="right">0.62002</td>
+<tr>
+<td style="text-align:left;">
+Vitamin K Metabolism
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4.3168
+</td>
+<td style="text-align:right;">
+1.8182
+</td>
+<td style="text-align:right;">
+0.12440
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.62002
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Butyrate Metabolism</td>
-<td align="right">19</td>
-<td align="right">1</td>
-<td align="right">2.1853</td>
-<td align="right">1.8182</td>
-<td align="right">0.27692</td>
-<td align="right">1</td>
-<td align="right">0.62002</td>
+<tr>
+<td style="text-align:left;">
+Butyrate Metabolism
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2.1853
+</td>
+<td style="text-align:right;">
+1.8182
+</td>
+<td style="text-align:right;">
+0.27692
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.62002
+</td>
 </tr>
-<tr class="even">
-<td align="left">Fatty Acid Biosynthesis</td>
-<td align="right">35</td>
-<td align="right">3</td>
-<td align="right">1.7437</td>
-<td align="right">1.8182</td>
-<td align="right">0.37316</td>
-<td align="right">1</td>
-<td align="right">0.62002</td>
+<tr>
+<td style="text-align:left;">
+Fatty Acid Biosynthesis
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1.7437
+</td>
+<td style="text-align:right;">
+1.8182
+</td>
+<td style="text-align:right;">
+0.37316
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.62002
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Beta Oxidation of Very Long Chain Fatty Acids</td>
-<td align="right">17</td>
-<td align="right">1</td>
-<td align="right">1.4123</td>
-<td align="right">1.8182</td>
-<td align="right">0.38302</td>
-<td align="right">1</td>
-<td align="right">0.62002</td>
+<tr>
+<td style="text-align:left;">
+Beta Oxidation of Very Long Chain Fatty Acids
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.4123
+</td>
+<td style="text-align:right;">
+1.8182
+</td>
+<td style="text-align:right;">
+0.38302
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.62002
+</td>
 </tr>
-<tr class="even">
-<td align="left">Mitochondrial Beta-Oxidation of Short Chain Saturated Fatty Acids</td>
-<td align="right">27</td>
-<td align="right">1</td>
-<td align="right">1.4123</td>
-<td align="right">1.8182</td>
-<td align="right">0.38302</td>
-<td align="right">1</td>
-<td align="right">0.62002</td>
+<tr>
+<td style="text-align:left;">
+Mitochondrial Beta-Oxidation of Short Chain Saturated Fatty Acids
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.4123
+</td>
+<td style="text-align:right;">
+1.8182
+</td>
+<td style="text-align:right;">
+0.38302
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.62002
+</td>
 </tr>
 </tbody>
 </table>
@@ -842,7 +1118,7 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 <div id="systematic-information-6" class="section level2 hasAnchor" number="8.7">
 <h2><span class="header-section-number">8.7</span> Systematic Information<a href="enrichment-analysis.html#systematic-information-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="enrichment-analysis.html#cb151-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
-<pre><code>## ─ Session info ─────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
 ##  version  R version 4.1.2 (2021-11-01)
 ##  os       macOS Monterey 12.2.1
@@ -852,20 +1128,23 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       Asia/Shanghai
-##  date     2022-08-11
+##  date     2022-08-16
 ##  rstudio  2022.07.1+554 Spotted Wakerobin (desktop)
 ##  pandoc   2.18 @ /Applications/RStudio.app/Contents/MacOS/quarto/bin/tools/ (via rmarkdown)
 ## 
-## ─ Packages ─────────────────────────────────────────────────────────────────────────────────────
+## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  package              * version    date (UTC) lib source
 ##  abind                  1.4-5      2016-07-21 [1] CRAN (R 4.1.0)
 ##  ade4                   1.7-18     2021-09-16 [1] CRAN (R 4.1.0)
+##  ALDEx2                 1.26.0     2021-10-26 [1] Bioconductor
 ##  annotate               1.72.0     2021-10-26 [1] Bioconductor
 ##  AnnotationDbi          1.56.2     2021-11-09 [1] Bioconductor
-##  ape                    5.6-2      2022-03-02 [1] CRAN (R 4.1.2)
+##  ape                  * 5.6-2      2022-03-02 [1] CRAN (R 4.1.2)
+##  askpass                1.1        2019-01-13 [1] CRAN (R 4.1.0)
 ##  assertthat             0.2.1      2019-03-21 [1] CRAN (R 4.1.0)
 ##  backports              1.4.1      2021-12-13 [1] CRAN (R 4.1.0)
 ##  base64enc              0.1-3      2015-07-28 [1] CRAN (R 4.1.0)
+##  bayesm                 3.1-4      2019-10-15 [1] CRAN (R 4.1.0)
 ##  Biobase              * 2.54.0     2021-10-26 [1] Bioconductor
 ##  BiocGenerics         * 0.40.0     2021-10-26 [1] Bioconductor
 ##  BiocParallel           1.28.3     2021-12-09 [1] Bioconductor
@@ -890,6 +1169,7 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ##  checkmate              2.0.0      2020-02-06 [1] CRAN (R 4.1.0)
 ##  circlize               0.4.14     2022-02-11 [1] CRAN (R 4.1.2)
 ##  class                  7.3-20     2022-01-13 [1] CRAN (R 4.1.2)
+##  classInt               0.4-3      2020-04-07 [1] CRAN (R 4.1.0)
 ##  cli                    3.3.0      2022-04-25 [1] CRAN (R 4.1.2)
 ##  clue                   0.3-60     2021-10-11 [1] CRAN (R 4.1.0)
 ##  cluster              * 2.1.2      2021-04-17 [1] CRAN (R 4.1.2)
@@ -897,42 +1177,53 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ##  coin                   1.4-2      2021-10-08 [1] CRAN (R 4.1.0)
 ##  colorspace             2.0-3      2022-02-21 [1] CRAN (R 4.1.2)
 ##  ComplexHeatmap         2.10.0     2021-10-26 [1] Bioconductor
+##  compositions           2.0-4      2022-01-05 [1] CRAN (R 4.1.2)
+##  conflicted           * 1.1.0      2021-11-26 [1] CRAN (R 4.1.0)
 ##  corpcor                1.6.10     2021-09-16 [1] CRAN (R 4.1.0)
+##  corrplot               0.92       2021-11-18 [1] CRAN (R 4.1.0)
 ##  cowplot                1.1.1      2020-12-30 [1] CRAN (R 4.1.0)
 ##  crayon                 1.5.0      2022-02-14 [1] CRAN (R 4.1.2)
 ##  crmn                   0.0.21     2020-02-10 [1] CRAN (R 4.1.0)
+##  crosstalk              1.2.0      2021-11-04 [1] CRAN (R 4.1.0)
 ##  curl                   4.3.2      2021-06-23 [1] CRAN (R 4.1.0)
 ##  data.table             1.14.2     2021-09-27 [1] CRAN (R 4.1.0)
 ##  DBI                    1.1.2      2021-12-20 [1] CRAN (R 4.1.0)
 ##  DelayedArray           0.20.0     2021-10-26 [1] Bioconductor
 ##  dendextend           * 1.15.2     2021-10-28 [1] CRAN (R 4.1.0)
+##  DEoptimR               1.0-10     2022-01-03 [1] CRAN (R 4.1.2)
 ##  desc                   1.4.1      2022-03-06 [1] CRAN (R 4.1.2)
 ##  DESeq2                 1.34.0     2021-10-26 [1] Bioconductor
-##  devtools               2.4.3      2021-11-30 [1] CRAN (R 4.1.0)
+##  devtools             * 2.4.3      2021-11-30 [1] CRAN (R 4.1.0)
 ##  digest                 0.6.29     2021-12-01 [1] CRAN (R 4.1.0)
 ##  doParallel             1.0.17     2022-02-07 [1] CRAN (R 4.1.2)
 ##  doSNOW                 1.0.20     2022-02-04 [1] CRAN (R 4.1.2)
 ##  dplyr                * 1.0.8      2022-02-08 [1] CRAN (R 4.1.2)
-##  dynamicTreeCut       * 1.63-1     2016-03-11 [1] CRAN (R 4.1.0)
+##  DT                     0.21       2022-02-26 [1] CRAN (R 4.1.2)
+##  dynamicTreeCut         1.63-1     2016-03-11 [1] CRAN (R 4.1.0)
 ##  e1071                  1.7-9      2021-09-16 [1] CRAN (R 4.1.0)
 ##  edgeR                  3.36.0     2021-10-26 [1] Bioconductor
 ##  ellipse                0.4.2      2020-05-27 [1] CRAN (R 4.1.0)
 ##  ellipsis               0.3.2      2021-04-29 [1] CRAN (R 4.1.0)
 ##  evaluate               0.15       2022-02-18 [1] CRAN (R 4.1.2)
 ##  factoextra           * 1.0.7      2020-04-01 [1] CRAN (R 4.1.0)
+##  FactoMineR             2.4        2020-12-11 [1] CRAN (R 4.1.0)
 ##  fansi                  1.0.2      2022-01-14 [1] CRAN (R 4.1.2)
 ##  farver                 2.1.0      2021-02-28 [1] CRAN (R 4.1.0)
-##  fastcluster          * 1.2.3      2021-05-24 [1] CRAN (R 4.1.0)
+##  fastcluster            1.2.3      2021-05-24 [1] CRAN (R 4.1.0)
 ##  fastmap                1.1.0      2021-01-25 [1] CRAN (R 4.1.0)
 ##  fastmatch              1.1-3      2021-07-23 [1] CRAN (R 4.1.0)
 ##  fdrtool                1.2.17     2021-11-13 [1] CRAN (R 4.1.0)
 ##  fgsea                  1.20.0     2021-10-26 [1] Bioconductor
 ##  filematrix             1.3        2018-02-27 [1] CRAN (R 4.1.0)
+##  flashClust             1.01-2     2012-08-21 [1] CRAN (R 4.1.0)
 ##  foreach                1.5.2      2022-02-02 [1] CRAN (R 4.1.2)
 ##  foreign                0.8-82     2022-01-13 [1] CRAN (R 4.1.2)
 ##  forestplot             2.0.1      2021-09-03 [1] CRAN (R 4.1.0)
+##  formatR                1.11       2021-06-01 [1] CRAN (R 4.1.0)
 ##  Formula                1.2-4      2020-10-16 [1] CRAN (R 4.1.0)
 ##  fs                     1.5.2      2021-12-08 [1] CRAN (R 4.1.0)
+##  futile.logger        * 1.4.3      2016-07-10 [1] CRAN (R 4.1.0)
+##  futile.options         1.0.1      2018-04-20 [1] CRAN (R 4.1.0)
 ##  future                 1.24.0     2022-02-19 [1] CRAN (R 4.1.2)
 ##  future.apply           1.8.1      2021-08-10 [1] CRAN (R 4.1.0)
 ##  genefilter             1.76.0     2021-10-26 [1] Bioconductor
@@ -943,11 +1234,15 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ##  GenomicRanges        * 1.46.1     2021-11-18 [1] Bioconductor
 ##  GetoptLong             1.0.5      2020-12-15 [1] CRAN (R 4.1.0)
 ##  ggforce                0.3.3      2021-03-05 [1] CRAN (R 4.1.0)
+##  ggiraph                0.8.2      2022-02-22 [1] CRAN (R 4.1.2)
+##  ggiraphExtra           0.3.0      2020-10-06 [1] CRAN (R 4.1.2)
 ##  ggplot2              * 3.3.5      2021-06-25 [1] CRAN (R 4.1.0)
-##  ggpubr                 0.4.0      2020-06-27 [1] CRAN (R 4.1.0)
+##  ggpubr               * 0.4.0      2020-06-27 [1] CRAN (R 4.1.0)
 ##  ggraph               * 2.0.5      2021-02-23 [1] CRAN (R 4.1.0)
 ##  ggrepel                0.9.1      2021-01-15 [1] CRAN (R 4.1.0)
+##  ggsci                  2.9        2018-05-14 [1] CRAN (R 4.1.0)
 ##  ggsignif               0.6.3      2021-09-09 [1] CRAN (R 4.1.0)
+##  ggVennDiagram          1.2.1      2022-04-13 [1] Github (gaospecial/ggVennDiagram@db6742d)
 ##  glasso                 1.11       2019-10-01 [1] CRAN (R 4.1.0)
 ##  glmnet               * 4.1-3      2021-11-02 [1] CRAN (R 4.1.0)
 ##  GlobalOptions          0.1.2      2020-06-10 [1] CRAN (R 4.1.0)
@@ -966,13 +1261,15 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ##  hardhat                0.2.0      2022-01-24 [1] CRAN (R 4.1.2)
 ##  highr                  0.9        2021-04-16 [1] CRAN (R 4.1.0)
 ##  Hmisc                  4.6-0      2021-10-07 [1] CRAN (R 4.1.0)
+##  hms                    1.1.1      2021-09-26 [1] CRAN (R 4.1.0)
 ##  htmlTable            * 2.4.0      2022-01-04 [1] CRAN (R 4.1.2)
 ##  htmltools              0.5.2      2021-08-25 [1] CRAN (R 4.1.0)
 ##  htmlwidgets            1.5.4      2021-09-08 [1] CRAN (R 4.1.0)
-##  httr                 * 1.4.2      2020-07-20 [1] CRAN (R 4.1.0)
+##  httr                   1.4.2      2020-07-20 [1] CRAN (R 4.1.0)
 ##  huge                   1.3.5      2021-06-30 [1] CRAN (R 4.1.0)
-##  igraph               * 1.2.11     2022-01-04 [1] CRAN (R 4.1.2)
+##  igraph                 1.2.11     2022-01-04 [1] CRAN (R 4.1.2)
 ##  impute                 1.68.0     2021-10-26 [1] Bioconductor
+##  insight                0.17.0     2022-03-29 [1] CRAN (R 4.1.2)
 ##  ipred                  0.9-12     2021-09-15 [1] CRAN (R 4.1.0)
 ##  IRanges              * 2.28.0     2021-10-26 [1] Bioconductor
 ##  irlba                  2.3.5      2021-12-06 [1] CRAN (R 4.1.0)
@@ -980,30 +1277,36 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ##  jpeg                   0.1-9      2021-07-24 [1] CRAN (R 4.1.0)
 ##  jquerylib              0.1.4      2021-04-26 [1] CRAN (R 4.1.0)
 ##  jsonlite               1.8.0      2022-02-22 [1] CRAN (R 4.1.2)
+##  kableExtra             1.3.4      2021-02-20 [1] CRAN (R 4.1.2)
 ##  KEGGREST               1.34.0     2021-10-26 [1] Bioconductor
 ##  KernSmooth             2.23-20    2021-05-03 [1] CRAN (R 4.1.2)
 ##  knitr                  1.39       2022-04-26 [1] CRAN (R 4.1.2)
 ##  labeling               0.4.2      2020-10-20 [1] CRAN (R 4.1.0)
-##  lattice                0.20-45    2021-09-22 [1] CRAN (R 4.1.2)
+##  lambda.r               1.2.4      2019-09-18 [1] CRAN (R 4.1.0)
+##  lattice              * 0.20-45    2021-09-22 [1] CRAN (R 4.1.2)
 ##  latticeExtra           0.6-29     2019-12-19 [1] CRAN (R 4.1.0)
 ##  lava                   1.6.10     2021-09-02 [1] CRAN (R 4.1.0)
 ##  lavaan                 0.6-11     2022-03-31 [1] CRAN (R 4.1.2)
 ##  lazyeval               0.2.2      2019-03-15 [1] CRAN (R 4.1.0)
+##  leaps                  3.1        2020-01-16 [1] CRAN (R 4.1.0)
 ##  libcoin                1.0-9      2021-09-27 [1] CRAN (R 4.1.0)
 ##  lifecycle              1.0.1      2021-09-24 [1] CRAN (R 4.1.0)
 ##  limma                  3.50.1     2022-02-17 [1] Bioconductor
 ##  listenv                0.8.0      2019-12-05 [1] CRAN (R 4.1.0)
 ##  locfit                 1.5-9.5    2022-03-03 [1] CRAN (R 4.1.2)
+##  LOCOM                  1.1        2022-08-05 [1] Github (yijuanhu/LOCOM@c181e0f)
 ##  lubridate              1.8.0      2021-10-07 [1] CRAN (R 4.1.0)
 ##  magrittr             * 2.0.2      2022-01-26 [1] CRAN (R 4.1.2)
 ##  MASS                   7.3-55     2022-01-13 [1] CRAN (R 4.1.2)
 ##  Matrix               * 1.4-0      2021-12-08 [1] CRAN (R 4.1.0)
 ##  MatrixGenerics       * 1.6.0      2021-10-26 [1] Bioconductor
 ##  matrixStats          * 0.61.0     2021-09-17 [1] CRAN (R 4.1.0)
+##  mbzinb                 0.2        2022-03-16 [1] local
 ##  memoise                2.0.1      2021-11-26 [1] CRAN (R 4.1.0)
 ##  MetaboAnalystR       * 3.2.0      2022-06-28 [1] Github (xia-lab/MetaboAnalystR@892a31b)
 ##  metagenomeSeq          1.36.0     2021-10-26 [1] Bioconductor
 ##  mgcv                   1.8-39     2022-02-24 [1] CRAN (R 4.1.2)
+##  microbiome             1.16.0     2021-10-26 [1] Bioconductor
 ##  mixedCCA               1.5.2      2022-07-14 [1] Github (irinagain/mixedCCA@c6d41a3)
 ##  mixOmics               6.18.1     2021-11-18 [1] Bioconductor (R 4.1.2)
 ##  mnormt                 2.0.2      2020-09-01 [1] CRAN (R 4.1.0)
@@ -1013,18 +1316,21 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ##  multtest               2.50.0     2021-10-26 [1] Bioconductor
 ##  munsell                0.5.0      2018-06-12 [1] CRAN (R 4.1.0)
 ##  mvtnorm                1.1-3      2021-10-08 [1] CRAN (R 4.1.0)
+##  mycor                  0.1.1      2018-04-10 [1] CRAN (R 4.1.0)
 ##  NADA                   1.6-1.1    2020-03-22 [1] CRAN (R 4.1.0)
 ##  NetCoMi              * 1.0.3      2022-07-14 [1] Github (stefpeschel/NetCoMi@d4d80d3)
-##  nlme                   3.1-155    2022-01-13 [1] CRAN (R 4.1.2)
+##  nlme                 * 3.1-155    2022-01-13 [1] CRAN (R 4.1.2)
 ##  nnet                   7.3-17     2022-01-13 [1] CRAN (R 4.1.2)
+##  openssl                2.0.0      2022-03-02 [1] CRAN (R 4.1.2)
 ##  parallelly             1.31.0     2022-04-07 [1] CRAN (R 4.1.2)
 ##  pbapply                1.5-0      2021-09-16 [1] CRAN (R 4.1.0)
 ##  pbivnorm               0.6.0      2015-01-23 [1] CRAN (R 4.1.0)
 ##  pcaMethods             1.86.0     2021-10-26 [1] Bioconductor
 ##  pcaPP                  1.9-74     2021-04-23 [1] CRAN (R 4.1.0)
-##  permute                0.9-7      2022-01-27 [1] CRAN (R 4.1.2)
-##  pheatmap               1.0.12     2019-01-04 [1] CRAN (R 4.1.0)
-##  phyloseq               1.38.0     2021-10-26 [1] Bioconductor
+##  permute              * 0.9-7      2022-01-27 [1] CRAN (R 4.1.2)
+##  pheatmap             * 1.0.12     2019-01-04 [1] CRAN (R 4.1.0)
+##  phyloseq             * 1.38.0     2021-10-26 [1] Bioconductor
+##  picante              * 1.8.2      2020-06-10 [1] CRAN (R 4.1.0)
 ##  pillar                 1.7.0      2022-02-01 [1] CRAN (R 4.1.2)
 ##  pkgbuild               1.3.1      2021-12-20 [1] CRAN (R 4.1.0)
 ##  pkgconfig              2.0.3      2019-09-22 [1] CRAN (R 4.1.0)
@@ -1034,34 +1340,43 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ##  png                    0.1-7      2013-12-03 [1] CRAN (R 4.1.0)
 ##  polyclip               1.10-0     2019-03-14 [1] CRAN (R 4.1.0)
 ##  POMA                 * 1.7.2      2022-07-26 [1] Github (pcastellanoescuder/POMA@bc8a972)
+##  ppcor                  1.1        2015-12-03 [1] CRAN (R 4.1.0)
 ##  preprocessCore         1.56.0     2021-10-26 [1] Bioconductor
 ##  prettyunits            1.1.1      2020-01-24 [1] CRAN (R 4.1.0)
 ##  pROC                   1.18.0     2021-09-03 [1] CRAN (R 4.1.0)
 ##  processx               3.5.2      2021-04-30 [1] CRAN (R 4.1.0)
 ##  prodlim                2019.11.13 2019-11-17 [1] CRAN (R 4.1.0)
+##  protoclust             1.6.3      2019-01-31 [1] CRAN (R 4.1.0)
 ##  proxy                  0.4-26     2021-06-07 [1] CRAN (R 4.1.0)
 ##  ps                     1.6.0      2021-02-28 [1] CRAN (R 4.1.0)
+##  pscl                   1.5.5      2020-03-07 [1] CRAN (R 4.1.0)
 ##  psych                  2.2.5      2022-05-10 [1] CRAN (R 4.1.2)
 ##  pulsar                 0.3.7      2020-08-07 [1] CRAN (R 4.1.0)
-##  purrr                  0.3.4      2020-04-17 [1] CRAN (R 4.1.0)
+##  purrr                * 0.3.4      2020-04-17 [1] CRAN (R 4.1.0)
 ##  qgraph                 1.9.2      2022-03-04 [1] CRAN (R 4.1.2)
 ##  qs                     0.25.3     2022-02-22 [1] CRAN (R 4.1.2)
+##  qvalue                 2.26.0     2021-10-26 [1] Bioconductor
 ##  R6                     2.5.1      2021-08-19 [1] CRAN (R 4.1.0)
 ##  ragg                   1.2.2      2022-02-21 [1] CRAN (R 4.1.2)
+##  RAIDA                  1.0        2022-03-14 [1] local
 ##  randomForest           4.7-1      2022-02-03 [1] CRAN (R 4.1.2)
 ##  RankProd               3.20.0     2021-10-26 [1] Bioconductor
 ##  RApiSerialize          0.1.0      2014-04-19 [1] CRAN (R 4.1.0)
 ##  rARPACK                0.11-0     2016-03-10 [1] CRAN (R 4.1.0)
 ##  rbibutils              2.2.7      2021-12-07 [1] CRAN (R 4.1.0)
-##  RColorBrewer           1.1-2      2014-12-07 [1] CRAN (R 4.1.0)
+##  RColorBrewer         * 1.1-2      2014-12-07 [1] CRAN (R 4.1.0)
 ##  Rcpp                 * 1.0.8.2    2022-03-11 [1] CRAN (R 4.1.2)
 ##  RcppParallel           5.1.5      2022-01-05 [1] CRAN (R 4.1.2)
+##  RcppZiggurat           0.1.6      2020-10-20 [1] CRAN (R 4.1.0)
 ##  RCurl                  1.98-1.6   2022-02-08 [1] CRAN (R 4.1.2)
 ##  Rdpack                 2.2        2022-03-19 [1] CRAN (R 4.1.2)
+##  readr                * 2.1.2      2022-01-30 [1] CRAN (R 4.1.2)
 ##  readxl               * 1.4.0      2022-03-28 [1] CRAN (R 4.1.2)
 ##  recipes                0.2.0      2022-02-18 [1] CRAN (R 4.1.2)
 ##  remotes                2.4.2      2021-11-30 [1] CRAN (R 4.1.0)
 ##  reshape2               1.4.4      2020-04-09 [1] CRAN (R 4.1.0)
+##  reticulate             1.24       2022-01-26 [1] CRAN (R 4.1.2)
+##  Rfast                  2.0.6      2022-02-16 [1] CRAN (R 4.1.2)
 ##  rhdf5                  2.38.1     2022-03-10 [1] Bioconductor
 ##  rhdf5filters           1.6.0      2021-10-26 [1] Bioconductor
 ##  Rhdf5lib               1.16.0     2021-10-26 [1] Bioconductor
@@ -1069,6 +1384,7 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ##  rlang                  1.0.2      2022-03-04 [1] CRAN (R 4.1.2)
 ##  rmarkdown              2.14       2022-04-25 [1] CRAN (R 4.1.2)
 ##  Rmpfr                  0.8-9      2022-06-03 [1] CRAN (R 4.1.2)
+##  robustbase             0.93-9     2021-09-27 [1] CRAN (R 4.1.0)
 ##  rootSolve              1.8.2.3    2021-09-29 [1] CRAN (R 4.1.0)
 ##  rpart                  4.1.16     2022-01-24 [1] CRAN (R 4.1.2)
 ##  rprojroot              2.0.2      2020-11-15 [1] CRAN (R 4.1.0)
@@ -1077,14 +1393,21 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ##  RSQLite                2.2.10     2022-02-17 [1] CRAN (R 4.1.2)
 ##  rstatix                0.7.0      2021-02-13 [1] CRAN (R 4.1.0)
 ##  rstudioapi             0.13       2020-11-12 [1] CRAN (R 4.1.0)
+##  Rtsne                  0.15       2018-11-10 [1] CRAN (R 4.1.0)
+##  RVenn                  1.1.0      2019-07-18 [1] CRAN (R 4.1.0)
+##  rvest                  1.0.2      2021-10-16 [1] CRAN (R 4.1.0)
 ##  S4Vectors            * 0.32.3     2021-11-21 [1] Bioconductor
 ##  sandwich               3.0-1      2021-05-18 [1] CRAN (R 4.1.0)
 ##  sass                   0.4.0      2021-05-12 [1] CRAN (R 4.1.0)
 ##  scales                 1.1.1      2020-05-11 [1] CRAN (R 4.1.0)
+##  scatterplot3d          0.3-41     2018-03-14 [1] CRAN (R 4.1.0)
 ##  scrime                 1.3.5      2018-12-01 [1] CRAN (R 4.1.0)
 ##  sessioninfo            1.2.2      2021-12-06 [1] CRAN (R 4.1.0)
+##  sf                     1.0-7      2022-03-07 [1] CRAN (R 4.1.2)
 ##  shape                  1.4.6      2021-05-19 [1] CRAN (R 4.1.0)
 ##  siggenes               1.68.0     2021-10-26 [1] Bioconductor
+##  sjlabelled             1.2.0      2022-04-10 [1] CRAN (R 4.1.2)
+##  sjmisc                 2.8.9      2021-12-03 [1] CRAN (R 4.1.0)
 ##  snow                   0.4-4      2021-10-27 [1] CRAN (R 4.1.0)
 ##  SpiecEasi            * 1.1.2      2022-07-14 [1] Github (zdk123/SpiecEasi@c463727)
 ##  SPRING               * 1.0.4      2022-08-03 [1] Github (GraceYoon/SPRING@3d641a4)
@@ -1093,31 +1416,41 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ##  stringr                1.4.0      2019-02-10 [1] CRAN (R 4.1.0)
 ##  SummarizedExperiment * 1.24.0     2021-10-26 [1] Bioconductor
 ##  survival               3.3-1      2022-03-03 [1] CRAN (R 4.1.2)
+##  svglite                2.1.0      2022-02-03 [1] CRAN (R 4.1.2)
 ##  systemfonts            1.0.4      2022-02-11 [1] CRAN (R 4.1.2)
+##  tensorA                0.36.2     2020-11-19 [1] CRAN (R 4.1.0)
 ##  testthat               3.1.2      2022-01-20 [1] CRAN (R 4.1.2)
 ##  textshaping            0.3.6      2021-10-13 [1] CRAN (R 4.1.0)
 ##  TH.data                1.1-0      2021-09-27 [1] CRAN (R 4.1.0)
 ##  tibble               * 3.1.6      2021-11-07 [1] CRAN (R 4.1.0)
 ##  tidygraph              1.2.1      2022-04-05 [1] CRAN (R 4.1.2)
-##  tidyr                  1.2.0      2022-02-01 [1] CRAN (R 4.1.2)
+##  tidyr                * 1.2.0      2022-02-01 [1] CRAN (R 4.1.2)
 ##  tidyselect             1.1.2      2022-02-21 [1] CRAN (R 4.1.2)
 ##  timeDate               3043.102   2018-02-21 [1] CRAN (R 4.1.0)
 ##  tmvnsim                1.0-2      2016-12-15 [1] CRAN (R 4.1.0)
 ##  truncnorm              1.0-8      2018-02-27 [1] CRAN (R 4.1.0)
 ##  tweenr                 1.0.2      2021-03-23 [1] CRAN (R 4.1.0)
-##  usethis                2.1.5      2021-12-09 [1] CRAN (R 4.1.0)
+##  tzdb                   0.2.0      2021-10-27 [1] CRAN (R 4.1.0)
+##  umap                   0.2.8.0    2022-03-23 [1] CRAN (R 4.1.2)
+##  units                  0.8-0      2022-02-05 [1] CRAN (R 4.1.2)
+##  usethis              * 2.1.5      2021-12-09 [1] CRAN (R 4.1.0)
 ##  utf8                   1.2.2      2021-07-24 [1] CRAN (R 4.1.0)
+##  uuid                   1.0-3      2021-11-01 [1] CRAN (R 4.1.0)
 ##  vctrs                  0.3.8      2021-04-29 [1] CRAN (R 4.1.0)
-##  vegan                  2.5-7      2020-11-28 [1] CRAN (R 4.1.0)
+##  vegan                * 2.5-7      2020-11-28 [1] CRAN (R 4.1.0)
+##  VennDiagram          * 1.7.3      2022-04-12 [1] CRAN (R 4.1.2)
 ##  VGAM                   1.1-6      2022-02-14 [1] CRAN (R 4.1.2)
-##  viridis                0.6.2      2021-10-13 [1] CRAN (R 4.1.0)
-##  viridisLite            0.4.0      2021-04-13 [1] CRAN (R 4.1.0)
-##  WGCNA                * 1.71       2022-04-22 [1] CRAN (R 4.1.2)
+##  viridis              * 0.6.2      2021-10-13 [1] CRAN (R 4.1.0)
+##  viridisLite          * 0.4.0      2021-04-13 [1] CRAN (R 4.1.0)
+##  vroom                  1.5.7      2021-11-30 [1] CRAN (R 4.1.0)
+##  webshot                0.5.3      2022-04-14 [1] CRAN (R 4.1.2)
+##  WGCNA                  1.71       2022-04-22 [1] CRAN (R 4.1.2)
 ##  withr                  2.5.0      2022-03-03 [1] CRAN (R 4.1.2)
 ##  Wrench                 1.12.0     2021-10-26 [1] Bioconductor
 ##  xfun                   0.30       2022-03-02 [1] CRAN (R 4.1.2)
-##  XMAS2                  2.1.7.4    2022-08-09 [1] local
+##  XMAS2                * 2.1.7.5    2022-08-16 [1] local
 ##  XML                    3.99-0.9   2022-02-24 [1] CRAN (R 4.1.2)
+##  xml2                   1.3.3      2021-11-30 [1] CRAN (R 4.1.0)
 ##  xtable                 1.8-4      2019-04-21 [1] CRAN (R 4.1.0)
 ##  XVector                0.34.0     2021-10-26 [1] Bioconductor
 ##  yaml                   2.3.5      2022-02-21 [1] CRAN (R 4.1.2)
@@ -1127,7 +1460,7 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ## 
 ##  [1] /Library/Frameworks/R.framework/Versions/4.1/Resources/library
 ## 
-## ────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
 
 </div>
 </div>
@@ -1168,7 +1501,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/XbiomeAnalysis/Metabolomics_Aanlysis/blob/main/07-Enrichment_Analysis.Rmd",
+"link": "https://github.com/XbiomeAnalysis/Metabolomics_Aanlysis/blob/main/07-Enrichment-Analysis.Rmd",
 "text": "Edit"
 },
 "history": {
