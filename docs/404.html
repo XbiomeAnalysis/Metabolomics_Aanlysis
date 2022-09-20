@@ -4,26 +4,25 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Data Analysis in Metabolomics</title>
+  <title>Page not found | Functional Analysis</title>
   <meta name="description" content="A template for Data Analysis in Metabolomics" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Data Analysis in Metabolomics" />
+  <meta property="og:title" content="Page not found | Functional Analysis" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A template for Data Analysis in Metabolomics" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Data Analysis in Metabolomics" />
+  <meta name="twitter:title" content="Page not found | Functional Analysis" />
   
   <meta name="twitter:description" content="A template for Data Analysis in Metabolomics" />
   
 
-<meta name="author" content="Hua Zou and Bangzhuo Tong" />
+<meta name="author" content="BangzhuoTong" />
 
 
-<meta name="date" content="2022-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -161,7 +160,7 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-is-metabolomics"><i class="fa fa-check"></i><b>1.1</b> What is metabolomics?</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-are-the-procedures-in-this-template"><i class="fa fa-check"></i><b>1.2</b> What are the procedures in this template?</a>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#workflow-of-metabolomics-data-analysis"><i class="fa fa-check"></i><b>1.2</b> Workflow of metabolomics data analysis</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#statistical-analysis"><i class="fa fa-check"></i><b>1.2.1</b> Statistical Analysis</a></li>
 <li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#functional-analysis"><i class="fa fa-check"></i><b>1.2.2</b> Functional Analysis</a></li>
@@ -169,168 +168,136 @@ div.csl-indent {
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#software"><i class="fa fa-check"></i><b>1.3</b> Software</a></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#reference"><i class="fa fa-check"></i><b>1.4</b> Reference</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data Processing</a>
+<li class="chapter" data-level="2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html"><i class="fa fa-check"></i><b>2</b> Statistical Analysis</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#loading-packages"><i class="fa fa-check"></i><b>2.1</b> Loading packages</a></li>
-<li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#importing-data"><i class="fa fa-check"></i><b>2.2</b> Importing data</a></li>
-<li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#data-checking"><i class="fa fa-check"></i><b>2.3</b> Data Checking</a></li>
-<li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#data-filtering"><i class="fa fa-check"></i><b>2.4</b> Data Filtering</a></li>
-<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#missing-value-imputation"><i class="fa fa-check"></i><b>2.5</b> Missing Value Imputation</a></li>
-<li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#data-normalization"><i class="fa fa-check"></i><b>2.6</b> Data Normalization</a>
+<li class="chapter" data-level="2.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-preprocessing"><i class="fa fa-check"></i><b>2.1</b> Data Preprocessing</a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="data-processing.html"><a href="data-processing.html#normalization-by-normalizedata-function"><i class="fa fa-check"></i><b>2.6.1</b> Normalization by <strong>NormalizeData</strong> function</a></li>
-<li class="chapter" data-level="2.6.2" data-path="data-processing.html"><a href="data-processing.html#normalization-by-poma-r-package"><i class="fa fa-check"></i><b>2.6.2</b> Normalization by <strong>POMA</strong> R package</a></li>
-<li class="chapter" data-level="2.6.3" data-path="data-processing.html"><a href="data-processing.html#comparison-of-unnormalized-and-normalized-dataset"><i class="fa fa-check"></i><b>2.6.3</b> Comparison of unnormalized and normalized dataset</a></li>
+<li class="chapter" data-level="2.1.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#environment-setup"><i class="fa fa-check"></i><b>2.1.1</b> Environment setup</a></li>
+<li class="chapter" data-level="2.1.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-data"><i class="fa fa-check"></i><b>2.1.2</b> Loading data</a></li>
+<li class="chapter" data-level="2.1.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-checking"><i class="fa fa-check"></i><b>2.1.3</b> Data Checking</a></li>
+<li class="chapter" data-level="2.1.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-filtering"><i class="fa fa-check"></i><b>2.1.4</b> Data Filtering</a></li>
+<li class="chapter" data-level="2.1.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#missing-value-imputation"><i class="fa fa-check"></i><b>2.1.5</b> Missing Value Imputation</a></li>
+<li class="chapter" data-level="2.1.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-normalization"><i class="fa fa-check"></i><b>2.1.6</b> Data Normalization</a></li>
+<li class="chapter" data-level="2.1.7" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#removing-outliers"><i class="fa fa-check"></i><b>2.1.7</b> Removing outliers</a></li>
+<li class="chapter" data-level="2.1.8" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#saving-datasets-into-rds-files"><i class="fa fa-check"></i><b>2.1.8</b> Saving datasets into RDS files</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="data-processing.html"><a href="data-processing.html#removing-outliers"><i class="fa fa-check"></i><b>2.7</b> Removing outliers</a></li>
-<li class="chapter" data-level="2.8" data-path="data-processing.html"><a href="data-processing.html#saving-datasets-into-rds-files"><i class="fa fa-check"></i><b>2.8</b> Saving datasets into RDS files</a></li>
-<li class="chapter" data-level="2.9" data-path="data-processing.html"><a href="data-processing.html#systematic-information"><i class="fa fa-check"></i><b>2.9</b> Systematic Information</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="cluster-analysis.html"><a href="cluster-analysis.html"><i class="fa fa-check"></i><b>3</b> Cluster Analysis</a>
+<li class="chapter" data-level="2.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#cluster-analysis"><i class="fa fa-check"></i><b>2.2</b> Cluster Analysis</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html#loading-packages-1"><i class="fa fa-check"></i><b>3.1</b> Loading packages</a></li>
-<li class="chapter" data-level="3.2" data-path="cluster-analysis.html"><a href="cluster-analysis.html#importing-data-1"><i class="fa fa-check"></i><b>3.2</b> Importing data</a></li>
-<li class="chapter" data-level="3.3" data-path="cluster-analysis.html"><a href="cluster-analysis.html#hierarchical-clustering"><i class="fa fa-check"></i><b>3.3</b> Hierarchical Clustering</a>
-<ul>
-<li class="chapter" data-level="3.3.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html#agglomerative-hierarchical-clustering"><i class="fa fa-check"></i><b>3.3.1</b> Agglomerative Hierarchical Clustering</a></li>
-<li class="chapter" data-level="3.3.2" data-path="cluster-analysis.html"><a href="cluster-analysis.html#divisive-hierarchical-clustering"><i class="fa fa-check"></i><b>3.3.2</b> Divisive Hierarchical Clustering</a></li>
-<li class="chapter" data-level="3.3.3" data-path="cluster-analysis.html"><a href="cluster-analysis.html#comparison"><i class="fa fa-check"></i><b>3.3.3</b> Comparison</a></li>
-<li class="chapter" data-level="3.3.4" data-path="cluster-analysis.html"><a href="cluster-analysis.html#determining-optimal-clusters"><i class="fa fa-check"></i><b>3.3.4</b> Determining Optimal Clusters</a></li>
+<li class="chapter" data-level="2.2.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages"><i class="fa fa-check"></i><b>2.2.1</b> Loading packages</a></li>
+<li class="chapter" data-level="2.2.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data"><i class="fa fa-check"></i><b>2.2.2</b> Importing data</a></li>
+<li class="chapter" data-level="2.2.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#hierarchical-clustering"><i class="fa fa-check"></i><b>2.2.3</b> Hierarchical Clustering</a></li>
+<li class="chapter" data-level="2.2.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#partitional-clustering"><i class="fa fa-check"></i><b>2.2.4</b> Partitional Clustering</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="cluster-analysis.html"><a href="cluster-analysis.html#partitional-clustering"><i class="fa fa-check"></i><b>3.4</b> Partitional Clustering</a></li>
-<li class="chapter" data-level="3.5" data-path="cluster-analysis.html"><a href="cluster-analysis.html#systematic-information-1"><i class="fa fa-check"></i><b>3.5</b> Systematic Information</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html"><i class="fa fa-check"></i><b>4</b> Chemometrics Analysis</a>
+<li class="chapter" data-level="2.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#chemometrics-analysis"><i class="fa fa-check"></i><b>2.3</b> Chemometrics Analysis</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#loading-packages-2"><i class="fa fa-check"></i><b>4.1</b> Loading packages</a></li>
-<li class="chapter" data-level="4.2" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#importing-data-2"><i class="fa fa-check"></i><b>4.2</b> Importing data</a></li>
-<li class="chapter" data-level="4.3" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>4.3</b> Principal Component Analysis (PCA)</a></li>
-<li class="chapter" data-level="4.4" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#partial-least-squares-discriminant-analysis-pls-da"><i class="fa fa-check"></i><b>4.4</b> Partial Least Squares-Discriminant Analysis (PLS-DA)</a></li>
-<li class="chapter" data-level="4.5" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#sparse-partial-least-squares-discriminant-analysis-spls-da"><i class="fa fa-check"></i><b>4.5</b> Sparse Partial Least Squares-Discriminant Analysis (sPLS-DA)</a></li>
-<li class="chapter" data-level="4.6" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#orthogonal-partial-least-squares-discriminant-analysis-orthopls-da"><i class="fa fa-check"></i><b>4.6</b> Orthogonal Partial Least Squares-Discriminant Analysis (orthoPLS-DA)</a></li>
-<li class="chapter" data-level="4.7" data-path="chemometrics-analysis.html"><a href="chemometrics-analysis.html#systematic-information-2"><i class="fa fa-check"></i><b>4.7</b> Systematic Information</a></li>
+<li class="chapter" data-level="2.3.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages-1"><i class="fa fa-check"></i><b>2.3.1</b> Loading packages</a></li>
+<li class="chapter" data-level="2.3.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-1"><i class="fa fa-check"></i><b>2.3.2</b> Importing data</a></li>
+<li class="chapter" data-level="2.3.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>2.3.3</b> Principal Component Analysis (PCA)</a></li>
+<li class="chapter" data-level="2.3.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#partial-least-squares-discriminant-analysis-pls-da"><i class="fa fa-check"></i><b>2.3.4</b> Partial Least Squares-Discriminant Analysis (PLS-DA)</a></li>
+<li class="chapter" data-level="2.3.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#sparse-partial-least-squares-discriminant-analysis-spls-da"><i class="fa fa-check"></i><b>2.3.5</b> Sparse Partial Least Squares-Discriminant Analysis (sPLS-DA)</a></li>
+<li class="chapter" data-level="2.3.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#orthogonal-partial-least-squares-discriminant-analysis-orthopls-da"><i class="fa fa-check"></i><b>2.3.6</b> Orthogonal Partial Least Squares-Discriminant Analysis (orthoPLS-DA)</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="univariate-analysis.html"><a href="univariate-analysis.html"><i class="fa fa-check"></i><b>5</b> Univariate Analysis</a>
+<li class="chapter" data-level="2.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#univariate-analysis"><i class="fa fa-check"></i><b>2.4</b> Univariate Analysis</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="univariate-analysis.html"><a href="univariate-analysis.html#loading-packages-3"><i class="fa fa-check"></i><b>5.1</b> Loading packages</a></li>
-<li class="chapter" data-level="5.2" data-path="univariate-analysis.html"><a href="univariate-analysis.html#importing-data-3"><i class="fa fa-check"></i><b>5.2</b> Importing data</a></li>
-<li class="chapter" data-level="5.3" data-path="univariate-analysis.html"><a href="univariate-analysis.html#fold-change-analysis"><i class="fa fa-check"></i><b>5.3</b> Fold Change Analysis</a></li>
-<li class="chapter" data-level="5.4" data-path="univariate-analysis.html"><a href="univariate-analysis.html#t-test"><i class="fa fa-check"></i><b>5.4</b> T Test</a></li>
-<li class="chapter" data-level="5.5" data-path="univariate-analysis.html"><a href="univariate-analysis.html#wilcoxon-test"><i class="fa fa-check"></i><b>5.5</b> Wilcoxon Test</a></li>
-<li class="chapter" data-level="5.6" data-path="univariate-analysis.html"><a href="univariate-analysis.html#limma-test"><i class="fa fa-check"></i><b>5.6</b> Limma Test</a></li>
-<li class="chapter" data-level="5.7" data-path="univariate-analysis.html"><a href="univariate-analysis.html#volcano-plot"><i class="fa fa-check"></i><b>5.7</b> Volcano plot</a></li>
-<li class="chapter" data-level="5.8" data-path="univariate-analysis.html"><a href="univariate-analysis.html#correlation-heatmaps"><i class="fa fa-check"></i><b>5.8</b> Correlation Heatmaps</a></li>
-<li class="chapter" data-level="5.9" data-path="univariate-analysis.html"><a href="univariate-analysis.html#glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package"><i class="fa fa-check"></i><b>5.9</b> glasso: this function will compute a Gaussian Graphical Model using the glmnet package</a></li>
-<li class="chapter" data-level="5.10" data-path="univariate-analysis.html"><a href="univariate-analysis.html#systematic-information-3"><i class="fa fa-check"></i><b>5.10</b> Systematic Information</a></li>
+<li class="chapter" data-level="2.4.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages-2"><i class="fa fa-check"></i><b>2.4.1</b> Loading packages</a></li>
+<li class="chapter" data-level="2.4.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-2"><i class="fa fa-check"></i><b>2.4.2</b> Importing data</a></li>
+<li class="chapter" data-level="2.4.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#fold-change-analysis"><i class="fa fa-check"></i><b>2.4.3</b> Fold Change Analysis</a></li>
+<li class="chapter" data-level="2.4.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#t-test"><i class="fa fa-check"></i><b>2.4.4</b> T Test</a></li>
+<li class="chapter" data-level="2.4.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#wilcoxon-test"><i class="fa fa-check"></i><b>2.4.5</b> Wilcoxon Test</a></li>
+<li class="chapter" data-level="2.4.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#limma-test"><i class="fa fa-check"></i><b>2.4.6</b> Limma Test</a></li>
+<li class="chapter" data-level="2.4.7" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#volcano-plot"><i class="fa fa-check"></i><b>2.4.7</b> Volcano plot</a></li>
+<li class="chapter" data-level="2.4.8" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#correlation-heatmaps"><i class="fa fa-check"></i><b>2.4.8</b> Correlation Heatmaps</a></li>
+<li class="chapter" data-level="2.4.9" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package"><i class="fa fa-check"></i><b>2.4.9</b> glasso: this function will compute a Gaussian Graphical Model using the glmnet package</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html"><i class="fa fa-check"></i><b>6</b> Multivariate analysis</a>
+<li class="chapter" data-level="2.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#multivariate-analysis"><i class="fa fa-check"></i><b>2.5</b> Multivariate analysis</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#loading-packages-4"><i class="fa fa-check"></i><b>6.1</b> Loading packages</a></li>
-<li class="chapter" data-level="6.2" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#importing-data-4"><i class="fa fa-check"></i><b>6.2</b> Importing data</a></li>
-<li class="chapter" data-level="6.3" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#data-curation"><i class="fa fa-check"></i><b>6.3</b> Data curation</a></li>
-<li class="chapter" data-level="6.4" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#regularized-generalized-linear-models"><i class="fa fa-check"></i><b>6.4</b> Regularized Generalized Linear Models</a>
-<ul>
-<li class="chapter" data-level="6.4.1" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#lasso-alpha-1"><i class="fa fa-check"></i><b>6.4.1</b> Lasso: alpha = 1</a></li>
-<li class="chapter" data-level="6.4.2" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#ridge-alpha-0"><i class="fa fa-check"></i><b>6.4.2</b> Ridge: alpha = 0</a></li>
-<li class="chapter" data-level="6.4.3" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#elasticnet-0-alpha-1"><i class="fa fa-check"></i><b>6.4.3</b> Elasticnet: 0 &lt; alpha &lt; 1</a></li>
+<li class="chapter" data-level="2.5.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages-3"><i class="fa fa-check"></i><b>2.5.1</b> Loading packages</a></li>
+<li class="chapter" data-level="2.5.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-3"><i class="fa fa-check"></i><b>2.5.2</b> Importing data</a></li>
+<li class="chapter" data-level="2.5.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-curation"><i class="fa fa-check"></i><b>2.5.3</b> Data curation</a></li>
+<li class="chapter" data-level="2.5.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#regularized-generalized-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Regularized Generalized Linear Models</a></li>
+<li class="chapter" data-level="2.5.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#classification"><i class="fa fa-check"></i><b>2.5.5</b> Classification</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#classification"><i class="fa fa-check"></i><b>6.5</b> Classification</a>
+<li class="chapter" data-level="2.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#network-analysis"><i class="fa fa-check"></i><b>2.6</b> Network Analysis</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#random-forest"><i class="fa fa-check"></i><b>6.5.1</b> Random Forest</a></li>
-<li class="chapter" data-level="6.5.2" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#support-vector-machine-svm"><i class="fa fa-check"></i><b>6.5.2</b> Support Vector Machine (SVM)</a></li>
+<li class="chapter" data-level="2.6.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#introduction-1"><i class="fa fa-check"></i><b>2.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.6.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages-4"><i class="fa fa-check"></i><b>2.6.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.6.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-4"><i class="fa fa-check"></i><b>2.6.3</b> Importing data</a></li>
+<li class="chapter" data-level="2.6.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-curation-1"><i class="fa fa-check"></i><b>2.6.4</b> Data curation</a></li>
+<li class="chapter" data-level="2.6.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#associations-among-features"><i class="fa fa-check"></i><b>2.6.5</b> Associations Among Features</a></li>
+<li class="chapter" data-level="2.6.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#network-comparison"><i class="fa fa-check"></i><b>2.6.6</b> Network comparison</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#systematic-information-4"><i class="fa fa-check"></i><b>6.6</b> Systematic Information</a></li>
+<li class="chapter" data-level="2.7" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#systematic-information"><i class="fa fa-check"></i><b>2.7</b> Systematic Information</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="network-analysis.html"><a href="network-analysis.html"><i class="fa fa-check"></i><b>7</b> Network Analysis</a>
+<li class="chapter" data-level="3" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html"><i class="fa fa-check"></i><b>3</b> Functional Analysis</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="network-analysis.html"><a href="network-analysis.html#introduction-1"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
-<li class="chapter" data-level="7.2" data-path="network-analysis.html"><a href="network-analysis.html#loading-packages-5"><i class="fa fa-check"></i><b>7.2</b> Loading packages</a></li>
-<li class="chapter" data-level="7.3" data-path="network-analysis.html"><a href="network-analysis.html#importing-data-5"><i class="fa fa-check"></i><b>7.3</b> Importing data</a></li>
-<li class="chapter" data-level="7.4" data-path="network-analysis.html"><a href="network-analysis.html#data-curation-1"><i class="fa fa-check"></i><b>7.4</b> Data curation</a></li>
-<li class="chapter" data-level="7.5" data-path="network-analysis.html"><a href="network-analysis.html#associations-among-features"><i class="fa fa-check"></i><b>7.5</b> Associations Among Features</a>
+<li class="chapter" data-level="3.1" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#enrichment-analysis"><i class="fa fa-check"></i><b>3.1</b> Enrichment Analysis</a>
 <ul>
-<li class="chapter" data-level="7.5.1" data-path="network-analysis.html"><a href="network-analysis.html#single-network-with-pearson-correlation-as-association-measure"><i class="fa fa-check"></i><b>7.5.1</b> Single network with Pearson correlation as association measure</a></li>
-<li class="chapter" data-level="7.5.2" data-path="network-analysis.html"><a href="network-analysis.html#single-network-with-spearman-correlation-as-association-measure"><i class="fa fa-check"></i><b>7.5.2</b> Single network with spearman correlation as association measure</a></li>
-<li class="chapter" data-level="7.5.3" data-path="network-analysis.html"><a href="network-analysis.html#single-network-with-wgcna-bicor-as-association-measure"><i class="fa fa-check"></i><b>7.5.3</b> Single network with WGCNA (bicor) as association measure</a></li>
+<li class="chapter" data-level="3.1.1" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#enviroment-setup"><i class="fa fa-check"></i><b>3.1.1</b> Enviroment Setup</a></li>
+<li class="chapter" data-level="3.1.2" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#over-representation-analysis-ora"><i class="fa fa-check"></i><b>3.1.2</b> Over representation analysis (ORA)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#clean-environment-1"><i class="fa fa-check"></i><b>3.1.3</b> Clean environment 1</a></li>
+<li class="chapter" data-level="3.1.4" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#single-sample-profiling"><i class="fa fa-check"></i><b>3.1.4</b> Single Sample Profiling</a></li>
+<li class="chapter" data-level="3.1.5" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#clean-environment-2"><i class="fa fa-check"></i><b>3.1.5</b> Clean environment 2</a></li>
+<li class="chapter" data-level="3.1.6" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#quantitative-enrichment-analysis-qea"><i class="fa fa-check"></i><b>3.1.6</b> Quantitative Enrichment Analysis (QEA)</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="network-analysis.html"><a href="network-analysis.html#network-comparison"><i class="fa fa-check"></i><b>7.6</b> Network comparison</a>
+<li class="chapter" data-level="3.2" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#pathway-analysis"><i class="fa fa-check"></i><b>3.2</b> Pathway Analysis</a>
 <ul>
-<li class="chapter" data-level="7.6.1" data-path="network-analysis.html"><a href="network-analysis.html#data-preparing"><i class="fa fa-check"></i><b>7.6.1</b> Data preparing</a></li>
-<li class="chapter" data-level="7.6.2" data-path="network-analysis.html"><a href="network-analysis.html#building-network-model-3"><i class="fa fa-check"></i><b>7.6.2</b> Building network model</a></li>
-<li class="chapter" data-level="7.6.3" data-path="network-analysis.html"><a href="network-analysis.html#network-analysis-1"><i class="fa fa-check"></i><b>7.6.3</b> Network analysis</a></li>
-<li class="chapter" data-level="7.6.4" data-path="network-analysis.html"><a href="network-analysis.html#visualizing-the-network-3"><i class="fa fa-check"></i><b>7.6.4</b> Visualizing the network</a></li>
-<li class="chapter" data-level="7.6.5" data-path="network-analysis.html"><a href="network-analysis.html#quantitative-network-comparison"><i class="fa fa-check"></i><b>7.6.5</b> Quantitative network comparison</a></li>
+<li class="chapter" data-level="3.2.1" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#enviroment-set-up"><i class="fa fa-check"></i><b>3.2.1</b> Enviroment Set up</a></li>
+<li class="chapter" data-level="3.2.2" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#over-representation-analysis"><i class="fa fa-check"></i><b>3.2.2</b> Over representation analysis</a></li>
+<li class="chapter" data-level="3.2.3" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#clean-environment-3"><i class="fa fa-check"></i><b>3.2.3</b> Clean environment 3</a></li>
+<li class="chapter" data-level="3.2.4" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#concentration-table-qea"><i class="fa fa-check"></i><b>3.2.4</b> Concentration Table (QEA)</a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="network-analysis.html"><a href="network-analysis.html#systematic-information-5"><i class="fa fa-check"></i><b>7.7</b> Systematic Information</a></li>
+<li class="chapter" data-level="3.3" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#session-info"><i class="fa fa-check"></i><b>3.3</b> Session info</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html"><i class="fa fa-check"></i><b>8</b> Enrichment Analysis</a>
+<li class="chapter" data-level="4" data-path="example.html"><a href="example.html"><i class="fa fa-check"></i><b>4</b> Example</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#enviroment-set-up"><i class="fa fa-check"></i><b>8.1</b> Enviroment Set up</a></li>
-<li class="chapter" data-level="8.2" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#over-representation-analysis-ora"><i class="fa fa-check"></i><b>8.2</b> Over representation analysis (ORA)</a></li>
-<li class="chapter" data-level="8.3" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#clean-environment-1"><i class="fa fa-check"></i><b>8.3</b> Clean environment 1</a></li>
-<li class="chapter" data-level="8.4" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#single-sample-profiling"><i class="fa fa-check"></i><b>8.4</b> Single Sample Profiling</a></li>
-<li class="chapter" data-level="8.5" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#clean-environment-2"><i class="fa fa-check"></i><b>8.5</b> Clean environment 2</a></li>
-<li class="chapter" data-level="8.6" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#quantitative-enrichment-analysis-qea"><i class="fa fa-check"></i><b>8.6</b> Quantitative Enrichment Analysis (QEA)</a></li>
-<li class="chapter" data-level="8.7" data-path="enrichment-analysis.html"><a href="enrichment-analysis.html#systematic-information-6"><i class="fa fa-check"></i><b>8.7</b> Systematic Information</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="pathway-analysis.html"><a href="pathway-analysis.html"><i class="fa fa-check"></i><b>9</b> Pathway Analysis</a>
+<li class="chapter" data-level="4.1" data-path="example.html"><a href="example.html#loading-packages-5"><i class="fa fa-check"></i><b>4.1</b> Loading packages</a></li>
+<li class="chapter" data-level="4.2" data-path="example.html"><a href="example.html#importing-data-5"><i class="fa fa-check"></i><b>4.2</b> Importing data</a></li>
+<li class="chapter" data-level="4.3" data-path="example.html"><a href="example.html#data-processing"><i class="fa fa-check"></i><b>4.3</b> Data Processing</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="pathway-analysis.html"><a href="pathway-analysis.html#enviroment-set-up-1"><i class="fa fa-check"></i><b>9.1</b> Enviroment Set up</a></li>
-<li class="chapter" data-level="9.2" data-path="pathway-analysis.html"><a href="pathway-analysis.html#over-representation-analysis"><i class="fa fa-check"></i><b>9.2</b> Over representation analysis</a></li>
-<li class="chapter" data-level="9.3" data-path="pathway-analysis.html"><a href="pathway-analysis.html#clean-environment-1-1"><i class="fa fa-check"></i><b>9.3</b> Clean environment 1</a></li>
-<li class="chapter" data-level="9.4" data-path="pathway-analysis.html"><a href="pathway-analysis.html#concentration-table-qea"><i class="fa fa-check"></i><b>9.4</b> Concentration Table (QEA)</a></li>
-<li class="chapter" data-level="9.5" data-path="pathway-analysis.html"><a href="pathway-analysis.html#systematic-information-7"><i class="fa fa-check"></i><b>9.5</b> Systematic Information</a></li>
+<li class="chapter" data-level="4.3.1" data-path="example.html"><a href="example.html#data-checking-1"><i class="fa fa-check"></i><b>4.3.1</b> Data Checking</a></li>
+<li class="chapter" data-level="4.3.2" data-path="example.html"><a href="example.html#data-filtering-1"><i class="fa fa-check"></i><b>4.3.2</b> Data Filtering</a></li>
+<li class="chapter" data-level="4.3.3" data-path="example.html"><a href="example.html#missing-value-imputation-1"><i class="fa fa-check"></i><b>4.3.3</b> Missing Value Imputation</a></li>
+<li class="chapter" data-level="4.3.4" data-path="example.html"><a href="example.html#data-normalization-1"><i class="fa fa-check"></i><b>4.3.4</b> Data Normalization</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="example.html"><a href="example.html"><i class="fa fa-check"></i><b>10</b> Example</a>
+<li class="chapter" data-level="4.4" data-path="example.html"><a href="example.html#cluster-analysis-1"><i class="fa fa-check"></i><b>4.4</b> Cluster Analysis</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="example.html"><a href="example.html#loading-packages-6"><i class="fa fa-check"></i><b>10.1</b> Loading packages</a></li>
-<li class="chapter" data-level="10.2" data-path="example.html"><a href="example.html#importing-data-6"><i class="fa fa-check"></i><b>10.2</b> Importing data</a></li>
-<li class="chapter" data-level="10.3" data-path="example.html"><a href="example.html#data-processing-1"><i class="fa fa-check"></i><b>10.3</b> Data Processing</a>
-<ul>
-<li class="chapter" data-level="10.3.1" data-path="example.html"><a href="example.html#data-checking-1"><i class="fa fa-check"></i><b>10.3.1</b> Data Checking</a></li>
-<li class="chapter" data-level="10.3.2" data-path="example.html"><a href="example.html#data-filtering-1"><i class="fa fa-check"></i><b>10.3.2</b> Data Filtering</a></li>
-<li class="chapter" data-level="10.3.3" data-path="example.html"><a href="example.html#missing-value-imputation-1"><i class="fa fa-check"></i><b>10.3.3</b> Missing Value Imputation</a></li>
-<li class="chapter" data-level="10.3.4" data-path="example.html"><a href="example.html#data-normalization-1"><i class="fa fa-check"></i><b>10.3.4</b> Data Normalization</a></li>
+<li class="chapter" data-level="4.4.1" data-path="example.html"><a href="example.html#hierarchical-clustering-1"><i class="fa fa-check"></i><b>4.4.1</b> Hierarchical Clustering</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="example.html"><a href="example.html#cluster-analysis-1"><i class="fa fa-check"></i><b>10.4</b> Cluster Analysis</a>
+<li class="chapter" data-level="4.5" data-path="example.html"><a href="example.html#chemometrics-analysis-1"><i class="fa fa-check"></i><b>4.5</b> Chemometrics Analysis</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="example.html"><a href="example.html#hierarchical-clustering-1"><i class="fa fa-check"></i><b>10.4.1</b> Hierarchical Clustering</a></li>
+<li class="chapter" data-level="4.5.1" data-path="example.html"><a href="example.html#partial-least-squares-discriminant-analysis-pls-da-1"><i class="fa fa-check"></i><b>4.5.1</b> Partial Least Squares-Discriminant Analysis (PLS-DA)</a></li>
+<li class="chapter" data-level="4.5.2" data-path="example.html"><a href="example.html#sparse-partial-least-squares-discriminant-analysis-spls-da-1"><i class="fa fa-check"></i><b>4.5.2</b> Sparse Partial Least Squares-Discriminant Analysis (sPLS-DA)</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="example.html"><a href="example.html#chemometrics-analysis-1"><i class="fa fa-check"></i><b>10.5</b> Chemometrics Analysis</a>
+<li class="chapter" data-level="4.6" data-path="example.html"><a href="example.html#univariate-analysis-1"><i class="fa fa-check"></i><b>4.6</b> Univariate Analysis</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="example.html"><a href="example.html#partial-least-squares-discriminant-analysis-pls-da-1"><i class="fa fa-check"></i><b>10.5.1</b> Partial Least Squares-Discriminant Analysis (PLS-DA)</a></li>
-<li class="chapter" data-level="10.5.2" data-path="example.html"><a href="example.html#sparse-partial-least-squares-discriminant-analysis-spls-da-1"><i class="fa fa-check"></i><b>10.5.2</b> Sparse Partial Least Squares-Discriminant Analysis (sPLS-DA)</a></li>
+<li class="chapter" data-level="4.6.1" data-path="example.html"><a href="example.html#fold-change-analysis-1"><i class="fa fa-check"></i><b>4.6.1</b> Fold Change Analysis</a></li>
+<li class="chapter" data-level="4.6.2" data-path="example.html"><a href="example.html#t-test-1"><i class="fa fa-check"></i><b>4.6.2</b> T Test</a></li>
+<li class="chapter" data-level="4.6.3" data-path="example.html"><a href="example.html#volcano-plot-1"><i class="fa fa-check"></i><b>4.6.3</b> Volcano plot</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="example.html"><a href="example.html#univariate-analysis-1"><i class="fa fa-check"></i><b>10.6</b> Univariate Analysis</a>
+<li class="chapter" data-level="4.7" data-path="example.html"><a href="example.html#feature-selection"><i class="fa fa-check"></i><b>4.7</b> Feature Selection</a>
 <ul>
-<li class="chapter" data-level="10.6.1" data-path="example.html"><a href="example.html#fold-change-analysis-1"><i class="fa fa-check"></i><b>10.6.1</b> Fold Change Analysis</a></li>
-<li class="chapter" data-level="10.6.2" data-path="example.html"><a href="example.html#t-test-1"><i class="fa fa-check"></i><b>10.6.2</b> T Test</a></li>
-<li class="chapter" data-level="10.6.3" data-path="example.html"><a href="example.html#volcano-plot-1"><i class="fa fa-check"></i><b>10.6.3</b> Volcano plot</a></li>
+<li class="chapter" data-level="4.7.1" data-path="example.html"><a href="example.html#regularized-generalized-linear-models-lasso-alpha-1"><i class="fa fa-check"></i><b>4.7.1</b> Regularized Generalized Linear Models (Lasso: alpha = 1)</a></li>
+<li class="chapter" data-level="4.7.2" data-path="example.html"><a href="example.html#classification-random-forest"><i class="fa fa-check"></i><b>4.7.2</b> Classification (Random Forest)</a></li>
 </ul></li>
-<li class="chapter" data-level="10.7" data-path="example.html"><a href="example.html#feature-selection"><i class="fa fa-check"></i><b>10.7</b> Feature Selection</a>
+<li class="chapter" data-level="4.8" data-path="example.html"><a href="example.html#network-analysis-2"><i class="fa fa-check"></i><b>4.8</b> Network Analysis</a>
 <ul>
-<li class="chapter" data-level="10.7.1" data-path="example.html"><a href="example.html#regularized-generalized-linear-models-lasso-alpha-1"><i class="fa fa-check"></i><b>10.7.1</b> Regularized Generalized Linear Models (Lasso: alpha = 1)</a></li>
-<li class="chapter" data-level="10.7.2" data-path="example.html"><a href="example.html#classification-random-forest"><i class="fa fa-check"></i><b>10.7.2</b> Classification (Random Forest)</a></li>
+<li class="chapter" data-level="4.8.1" data-path="example.html"><a href="example.html#data-curation-2"><i class="fa fa-check"></i><b>4.8.1</b> Data curation</a></li>
+<li class="chapter" data-level="4.8.2" data-path="example.html"><a href="example.html#building-network-model-4"><i class="fa fa-check"></i><b>4.8.2</b> Building network model</a></li>
+<li class="chapter" data-level="4.8.3" data-path="example.html"><a href="example.html#visualizing-the-network-4"><i class="fa fa-check"></i><b>4.8.3</b> Visualizing the network</a></li>
 </ul></li>
-<li class="chapter" data-level="10.8" data-path="example.html"><a href="example.html#network-analysis-2"><i class="fa fa-check"></i><b>10.8</b> Network Analysis</a>
+<li class="chapter" data-level="4.9" data-path="example.html"><a href="example.html#network-analysis-by-wgcna"><i class="fa fa-check"></i><b>4.9</b> Network Analysis by WGCNA</a>
 <ul>
-<li class="chapter" data-level="10.8.1" data-path="example.html"><a href="example.html#data-curation-2"><i class="fa fa-check"></i><b>10.8.1</b> Data curation</a></li>
-<li class="chapter" data-level="10.8.2" data-path="example.html"><a href="example.html#building-network-model-4"><i class="fa fa-check"></i><b>10.8.2</b> Building network model</a></li>
-<li class="chapter" data-level="10.8.3" data-path="example.html"><a href="example.html#visualizing-the-network-4"><i class="fa fa-check"></i><b>10.8.3</b> Visualizing the network</a></li>
+<li class="chapter" data-level="4.9.1" data-path="example.html"><a href="example.html#data-curation-3"><i class="fa fa-check"></i><b>4.9.1</b> Data curation</a></li>
+<li class="chapter" data-level="4.9.2" data-path="example.html"><a href="example.html#tuning-soft-thresholds"><i class="fa fa-check"></i><b>4.9.2</b> Tuning soft thresholds</a></li>
+<li class="chapter" data-level="4.9.3" data-path="example.html"><a href="example.html#create-the-network-using-the-blockwisemodules"><i class="fa fa-check"></i><b>4.9.3</b> Create the network using the <code>blockwiseModules</code></a></li>
+<li class="chapter" data-level="4.9.4" data-path="example.html"><a href="example.html#plot-modules"><i class="fa fa-check"></i><b>4.9.4</b> plot modules</a></li>
+<li class="chapter" data-level="4.9.5" data-path="example.html"><a href="example.html#relationships-among-modules"><i class="fa fa-check"></i><b>4.9.5</b> Relationships among modules</a></li>
+<li class="chapter" data-level="4.9.6" data-path="example.html"><a href="example.html#module-eigengene-correlation"><i class="fa fa-check"></i><b>4.9.6</b> Module (Eigengene) correlation</a></li>
+<li class="chapter" data-level="4.9.7" data-path="example.html"><a href="example.html#relate-module-cluster-assignments-to-groups"><i class="fa fa-check"></i><b>4.9.7</b> Relate Module (cluster) Assignments to Groups</a></li>
+<li class="chapter" data-level="4.9.8" data-path="example.html"><a href="example.html#generate-and-export-networks"><i class="fa fa-check"></i><b>4.9.8</b> Generate and Export Networks</a></li>
+<li class="chapter" data-level="4.9.9" data-path="example.html"><a href="example.html#network-visualization"><i class="fa fa-check"></i><b>4.9.9</b> Network visualization</a></li>
 </ul></li>
-<li class="chapter" data-level="10.9" data-path="example.html"><a href="example.html#network-analysis-by-wgcna"><i class="fa fa-check"></i><b>10.9</b> Network Analysis by WGCNA</a>
-<ul>
-<li class="chapter" data-level="10.9.1" data-path="example.html"><a href="example.html#data-curation-3"><i class="fa fa-check"></i><b>10.9.1</b> Data curation</a></li>
-<li class="chapter" data-level="10.9.2" data-path="example.html"><a href="example.html#tuning-soft-thresholds"><i class="fa fa-check"></i><b>10.9.2</b> Tuning soft thresholds</a></li>
-<li class="chapter" data-level="10.9.3" data-path="example.html"><a href="example.html#create-the-network-using-the-blockwisemodules"><i class="fa fa-check"></i><b>10.9.3</b> Create the network using the <code>blockwiseModules</code></a></li>
-<li class="chapter" data-level="10.9.4" data-path="example.html"><a href="example.html#plot-modules"><i class="fa fa-check"></i><b>10.9.4</b> plot modules</a></li>
-<li class="chapter" data-level="10.9.5" data-path="example.html"><a href="example.html#relationships-among-modules"><i class="fa fa-check"></i><b>10.9.5</b> Relationships among modules</a></li>
-<li class="chapter" data-level="10.9.6" data-path="example.html"><a href="example.html#module-eigengene-correlation"><i class="fa fa-check"></i><b>10.9.6</b> Module (Eigengene) correlation</a></li>
-<li class="chapter" data-level="10.9.7" data-path="example.html"><a href="example.html#relate-module-cluster-assignments-to-groups"><i class="fa fa-check"></i><b>10.9.7</b> Relate Module (cluster) Assignments to Groups</a></li>
-<li class="chapter" data-level="10.9.8" data-path="example.html"><a href="example.html#generate-and-export-networks"><i class="fa fa-check"></i><b>10.9.8</b> Generate and Export Networks</a></li>
-<li class="chapter" data-level="10.9.9" data-path="example.html"><a href="example.html#network-visualization"><i class="fa fa-check"></i><b>10.9.9</b> Network visualization</a></li>
-</ul></li>
-<li class="chapter" data-level="10.10" data-path="example.html"><a href="example.html#systematic-information-8"><i class="fa fa-check"></i><b>10.10</b> Systematic Information</a></li>
+<li class="chapter" data-level="4.10" data-path="example.html"><a href="example.html#systematic-information-1"><i class="fa fa-check"></i><b>4.10</b> Systematic Information</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -345,7 +312,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analysis in Metabolomics</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Functional Analysis</a>
           </h1>
         </div>
 

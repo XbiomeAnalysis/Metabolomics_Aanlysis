@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Functional Analysis | Functional Analysis</title>
+  <meta name="description" content="A template for Data Analysis in Metabolomics" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Functional Analysis | Functional Analysis" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A template for Data Analysis in Metabolomics" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Functional Analysis | Functional Analysis" />
+  
+  <meta name="twitter:description" content="A template for Data Analysis in Metabolomics" />
+  
+
+<meta name="author" content="BangzhuoTong" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="statistical-analysis-1.html"/>
+<link rel="next" href="example.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Analysis in Metabolomics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-is-metabolomics"><i class="fa fa-check"></i><b>1.1</b> What is metabolomics?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#workflow-of-metabolomics-data-analysis"><i class="fa fa-check"></i><b>1.2</b> Workflow of metabolomics data analysis</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#statistical-analysis"><i class="fa fa-check"></i><b>1.2.1</b> Statistical Analysis</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#functional-analysis"><i class="fa fa-check"></i><b>1.2.2</b> Functional Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#software"><i class="fa fa-check"></i><b>1.3</b> Software</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#reference"><i class="fa fa-check"></i><b>1.4</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html"><i class="fa fa-check"></i><b>2</b> Statistical Analysis</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-preprocessing"><i class="fa fa-check"></i><b>2.1</b> Data Preprocessing</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#environment-setup"><i class="fa fa-check"></i><b>2.1.1</b> Environment setup</a></li>
+<li class="chapter" data-level="2.1.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-data"><i class="fa fa-check"></i><b>2.1.2</b> Loading data</a></li>
+<li class="chapter" data-level="2.1.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-checking"><i class="fa fa-check"></i><b>2.1.3</b> Data Checking</a></li>
+<li class="chapter" data-level="2.1.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-filtering"><i class="fa fa-check"></i><b>2.1.4</b> Data Filtering</a></li>
+<li class="chapter" data-level="2.1.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#missing-value-imputation"><i class="fa fa-check"></i><b>2.1.5</b> Missing Value Imputation</a></li>
+<li class="chapter" data-level="2.1.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-normalization"><i class="fa fa-check"></i><b>2.1.6</b> Data Normalization</a></li>
+<li class="chapter" data-level="2.1.7" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#removing-outliers"><i class="fa fa-check"></i><b>2.1.7</b> Removing outliers</a></li>
+<li class="chapter" data-level="2.1.8" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#saving-datasets-into-rds-files"><i class="fa fa-check"></i><b>2.1.8</b> Saving datasets into RDS files</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#cluster-analysis"><i class="fa fa-check"></i><b>2.2</b> Cluster Analysis</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages"><i class="fa fa-check"></i><b>2.2.1</b> Loading packages</a></li>
+<li class="chapter" data-level="2.2.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data"><i class="fa fa-check"></i><b>2.2.2</b> Importing data</a></li>
+<li class="chapter" data-level="2.2.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#hierarchical-clustering"><i class="fa fa-check"></i><b>2.2.3</b> Hierarchical Clustering</a></li>
+<li class="chapter" data-level="2.2.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#partitional-clustering"><i class="fa fa-check"></i><b>2.2.4</b> Partitional Clustering</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#chemometrics-analysis"><i class="fa fa-check"></i><b>2.3</b> Chemometrics Analysis</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages-1"><i class="fa fa-check"></i><b>2.3.1</b> Loading packages</a></li>
+<li class="chapter" data-level="2.3.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-1"><i class="fa fa-check"></i><b>2.3.2</b> Importing data</a></li>
+<li class="chapter" data-level="2.3.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>2.3.3</b> Principal Component Analysis (PCA)</a></li>
+<li class="chapter" data-level="2.3.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#partial-least-squares-discriminant-analysis-pls-da"><i class="fa fa-check"></i><b>2.3.4</b> Partial Least Squares-Discriminant Analysis (PLS-DA)</a></li>
+<li class="chapter" data-level="2.3.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#sparse-partial-least-squares-discriminant-analysis-spls-da"><i class="fa fa-check"></i><b>2.3.5</b> Sparse Partial Least Squares-Discriminant Analysis (sPLS-DA)</a></li>
+<li class="chapter" data-level="2.3.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#orthogonal-partial-least-squares-discriminant-analysis-orthopls-da"><i class="fa fa-check"></i><b>2.3.6</b> Orthogonal Partial Least Squares-Discriminant Analysis (orthoPLS-DA)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#univariate-analysis"><i class="fa fa-check"></i><b>2.4</b> Univariate Analysis</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages-2"><i class="fa fa-check"></i><b>2.4.1</b> Loading packages</a></li>
+<li class="chapter" data-level="2.4.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-2"><i class="fa fa-check"></i><b>2.4.2</b> Importing data</a></li>
+<li class="chapter" data-level="2.4.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#fold-change-analysis"><i class="fa fa-check"></i><b>2.4.3</b> Fold Change Analysis</a></li>
+<li class="chapter" data-level="2.4.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#t-test"><i class="fa fa-check"></i><b>2.4.4</b> T Test</a></li>
+<li class="chapter" data-level="2.4.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#wilcoxon-test"><i class="fa fa-check"></i><b>2.4.5</b> Wilcoxon Test</a></li>
+<li class="chapter" data-level="2.4.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#limma-test"><i class="fa fa-check"></i><b>2.4.6</b> Limma Test</a></li>
+<li class="chapter" data-level="2.4.7" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#volcano-plot"><i class="fa fa-check"></i><b>2.4.7</b> Volcano plot</a></li>
+<li class="chapter" data-level="2.4.8" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#correlation-heatmaps"><i class="fa fa-check"></i><b>2.4.8</b> Correlation Heatmaps</a></li>
+<li class="chapter" data-level="2.4.9" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package"><i class="fa fa-check"></i><b>2.4.9</b> glasso: this function will compute a Gaussian Graphical Model using the glmnet package</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#multivariate-analysis"><i class="fa fa-check"></i><b>2.5</b> Multivariate analysis</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages-3"><i class="fa fa-check"></i><b>2.5.1</b> Loading packages</a></li>
+<li class="chapter" data-level="2.5.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-3"><i class="fa fa-check"></i><b>2.5.2</b> Importing data</a></li>
+<li class="chapter" data-level="2.5.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-curation"><i class="fa fa-check"></i><b>2.5.3</b> Data curation</a></li>
+<li class="chapter" data-level="2.5.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#regularized-generalized-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Regularized Generalized Linear Models</a></li>
+<li class="chapter" data-level="2.5.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#classification"><i class="fa fa-check"></i><b>2.5.5</b> Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#network-analysis"><i class="fa fa-check"></i><b>2.6</b> Network Analysis</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#introduction-1"><i class="fa fa-check"></i><b>2.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.6.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages-4"><i class="fa fa-check"></i><b>2.6.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.6.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-4"><i class="fa fa-check"></i><b>2.6.3</b> Importing data</a></li>
+<li class="chapter" data-level="2.6.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-curation-1"><i class="fa fa-check"></i><b>2.6.4</b> Data curation</a></li>
+<li class="chapter" data-level="2.6.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#associations-among-features"><i class="fa fa-check"></i><b>2.6.5</b> Associations Among Features</a></li>
+<li class="chapter" data-level="2.6.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#network-comparison"><i class="fa fa-check"></i><b>2.6.6</b> Network comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#systematic-information"><i class="fa fa-check"></i><b>2.7</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html"><i class="fa fa-check"></i><b>3</b> Functional Analysis</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#enrichment-analysis"><i class="fa fa-check"></i><b>3.1</b> Enrichment Analysis</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#enviroment-setup"><i class="fa fa-check"></i><b>3.1.1</b> Enviroment Setup</a></li>
+<li class="chapter" data-level="3.1.2" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#over-representation-analysis-ora"><i class="fa fa-check"></i><b>3.1.2</b> Over representation analysis (ORA)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#clean-environment-1"><i class="fa fa-check"></i><b>3.1.3</b> Clean environment 1</a></li>
+<li class="chapter" data-level="3.1.4" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#single-sample-profiling"><i class="fa fa-check"></i><b>3.1.4</b> Single Sample Profiling</a></li>
+<li class="chapter" data-level="3.1.5" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#clean-environment-2"><i class="fa fa-check"></i><b>3.1.5</b> Clean environment 2</a></li>
+<li class="chapter" data-level="3.1.6" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#quantitative-enrichment-analysis-qea"><i class="fa fa-check"></i><b>3.1.6</b> Quantitative Enrichment Analysis (QEA)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#pathway-analysis"><i class="fa fa-check"></i><b>3.2</b> Pathway Analysis</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#enviroment-set-up"><i class="fa fa-check"></i><b>3.2.1</b> Enviroment Set up</a></li>
+<li class="chapter" data-level="3.2.2" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#over-representation-analysis"><i class="fa fa-check"></i><b>3.2.2</b> Over representation analysis</a></li>
+<li class="chapter" data-level="3.2.3" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#clean-environment-3"><i class="fa fa-check"></i><b>3.2.3</b> Clean environment 3</a></li>
+<li class="chapter" data-level="3.2.4" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#concentration-table-qea"><i class="fa fa-check"></i><b>3.2.4</b> Concentration Table (QEA)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#session-info"><i class="fa fa-check"></i><b>3.3</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="example.html"><a href="example.html"><i class="fa fa-check"></i><b>4</b> Example</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="example.html"><a href="example.html#loading-packages-5"><i class="fa fa-check"></i><b>4.1</b> Loading packages</a></li>
+<li class="chapter" data-level="4.2" data-path="example.html"><a href="example.html#importing-data-5"><i class="fa fa-check"></i><b>4.2</b> Importing data</a></li>
+<li class="chapter" data-level="4.3" data-path="example.html"><a href="example.html#data-processing"><i class="fa fa-check"></i><b>4.3</b> Data Processing</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="example.html"><a href="example.html#data-checking-1"><i class="fa fa-check"></i><b>4.3.1</b> Data Checking</a></li>
+<li class="chapter" data-level="4.3.2" data-path="example.html"><a href="example.html#data-filtering-1"><i class="fa fa-check"></i><b>4.3.2</b> Data Filtering</a></li>
+<li class="chapter" data-level="4.3.3" data-path="example.html"><a href="example.html#missing-value-imputation-1"><i class="fa fa-check"></i><b>4.3.3</b> Missing Value Imputation</a></li>
+<li class="chapter" data-level="4.3.4" data-path="example.html"><a href="example.html#data-normalization-1"><i class="fa fa-check"></i><b>4.3.4</b> Data Normalization</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="example.html"><a href="example.html#cluster-analysis-1"><i class="fa fa-check"></i><b>4.4</b> Cluster Analysis</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="example.html"><a href="example.html#hierarchical-clustering-1"><i class="fa fa-check"></i><b>4.4.1</b> Hierarchical Clustering</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="example.html"><a href="example.html#chemometrics-analysis-1"><i class="fa fa-check"></i><b>4.5</b> Chemometrics Analysis</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="example.html"><a href="example.html#partial-least-squares-discriminant-analysis-pls-da-1"><i class="fa fa-check"></i><b>4.5.1</b> Partial Least Squares-Discriminant Analysis (PLS-DA)</a></li>
+<li class="chapter" data-level="4.5.2" data-path="example.html"><a href="example.html#sparse-partial-least-squares-discriminant-analysis-spls-da-1"><i class="fa fa-check"></i><b>4.5.2</b> Sparse Partial Least Squares-Discriminant Analysis (sPLS-DA)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="example.html"><a href="example.html#univariate-analysis-1"><i class="fa fa-check"></i><b>4.6</b> Univariate Analysis</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="example.html"><a href="example.html#fold-change-analysis-1"><i class="fa fa-check"></i><b>4.6.1</b> Fold Change Analysis</a></li>
+<li class="chapter" data-level="4.6.2" data-path="example.html"><a href="example.html#t-test-1"><i class="fa fa-check"></i><b>4.6.2</b> T Test</a></li>
+<li class="chapter" data-level="4.6.3" data-path="example.html"><a href="example.html#volcano-plot-1"><i class="fa fa-check"></i><b>4.6.3</b> Volcano plot</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="example.html"><a href="example.html#feature-selection"><i class="fa fa-check"></i><b>4.7</b> Feature Selection</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="example.html"><a href="example.html#regularized-generalized-linear-models-lasso-alpha-1"><i class="fa fa-check"></i><b>4.7.1</b> Regularized Generalized Linear Models (Lasso: alpha = 1)</a></li>
+<li class="chapter" data-level="4.7.2" data-path="example.html"><a href="example.html#classification-random-forest"><i class="fa fa-check"></i><b>4.7.2</b> Classification (Random Forest)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="example.html"><a href="example.html#network-analysis-2"><i class="fa fa-check"></i><b>4.8</b> Network Analysis</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="example.html"><a href="example.html#data-curation-2"><i class="fa fa-check"></i><b>4.8.1</b> Data curation</a></li>
+<li class="chapter" data-level="4.8.2" data-path="example.html"><a href="example.html#building-network-model-4"><i class="fa fa-check"></i><b>4.8.2</b> Building network model</a></li>
+<li class="chapter" data-level="4.8.3" data-path="example.html"><a href="example.html#visualizing-the-network-4"><i class="fa fa-check"></i><b>4.8.3</b> Visualizing the network</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="example.html"><a href="example.html#network-analysis-by-wgcna"><i class="fa fa-check"></i><b>4.9</b> Network Analysis by WGCNA</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="example.html"><a href="example.html#data-curation-3"><i class="fa fa-check"></i><b>4.9.1</b> Data curation</a></li>
+<li class="chapter" data-level="4.9.2" data-path="example.html"><a href="example.html#tuning-soft-thresholds"><i class="fa fa-check"></i><b>4.9.2</b> Tuning soft thresholds</a></li>
+<li class="chapter" data-level="4.9.3" data-path="example.html"><a href="example.html#create-the-network-using-the-blockwisemodules"><i class="fa fa-check"></i><b>4.9.3</b> Create the network using the <code>blockwiseModules</code></a></li>
+<li class="chapter" data-level="4.9.4" data-path="example.html"><a href="example.html#plot-modules"><i class="fa fa-check"></i><b>4.9.4</b> plot modules</a></li>
+<li class="chapter" data-level="4.9.5" data-path="example.html"><a href="example.html#relationships-among-modules"><i class="fa fa-check"></i><b>4.9.5</b> Relationships among modules</a></li>
+<li class="chapter" data-level="4.9.6" data-path="example.html"><a href="example.html#module-eigengene-correlation"><i class="fa fa-check"></i><b>4.9.6</b> Module (Eigengene) correlation</a></li>
+<li class="chapter" data-level="4.9.7" data-path="example.html"><a href="example.html#relate-module-cluster-assignments-to-groups"><i class="fa fa-check"></i><b>4.9.7</b> Relate Module (cluster) Assignments to Groups</a></li>
+<li class="chapter" data-level="4.9.8" data-path="example.html"><a href="example.html#generate-and-export-networks"><i class="fa fa-check"></i><b>4.9.8</b> Generate and Export Networks</a></li>
+<li class="chapter" data-level="4.9.9" data-path="example.html"><a href="example.html#network-visualization"><i class="fa fa-check"></i><b>4.9.9</b> Network visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="4.10" data-path="example.html"><a href="example.html#systematic-information-1"><i class="fa fa-check"></i><b>4.10</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Functional Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="functional-analysis-1" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Functional Analysis<a href="functional-analysis-1.html#functional-analysis-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>Following two chapters would focus on the Enrichment Analysis and Pathway Analysis of metabolomic data. Enrichment Analysis includes three sections (i.e., ORA, SSP and QEA) and Pathway Analysis only includes ORA and QEA.</strong></p>
+<p><strong>The main difference between Enrichment Analysis and Pathway Analysis are the data set that input metabolites are enriched to. In Enrichment Analysis, input metabolites are enriched to pre-defined metabolite sets while in Pathway Analysis, metabolites are enriched to pathways in KEGG.</strong></p>
+<p>Workflow of Enrichment analysis and Pathway analysis is attached below. Users can choose analysis module according to their data type or interest.<br />
+<img src="figures/FlowChart_Chap7-8.jpg" alt="Flowchart" /></p>
+<hr />
+<div id="enrichment-analysis" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Enrichment Analysis<a href="functional-analysis-1.html#enrichment-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this tutorial, we aim to help you to walk through the enrichment analysis in Metaboanalyst5.</p>
+<p>This module performs metabolite set enrichment analysis (MSEA) for human and mammalian species based on several libraries containing ~9000 groups of metabolite sets. Users can upload either:</p>
+<p><strong>1) a list of compounds</strong></p>
+<p><strong>2) a list of compounds with concentrations</strong></p>
+<p><strong>3) a concentration table</strong></p>
+<p>Before carrying out the analysis, you are advised to acquire a list of metabolites in your interest (e.g., Statistical Analysis), then apply them to different modules in this tutorial according to the input file format.</p>
+<p><strong>Here, we apply SCFA sequencing data of stool samples in GvHD project as demo data.</strong></p>
+<div id="enviroment-setup" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Enviroment Setup<a href="functional-analysis-1.html#enviroment-setup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="functional-analysis-1.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MetaboAnalystR)</span>
+<span id="cb112-2"><a href="functional-analysis-1.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb112-3"><a href="functional-analysis-1.html#cb112-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb112-4"><a href="functional-analysis-1.html#cb112-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb112-5"><a href="functional-analysis-1.html#cb112-5" aria-hidden="true" tabindex="-1"></a><span class="co">#library(googledrive)</span></span></code></pre></div>
+<hr />
+</div>
+<div id="over-representation-analysis-ora" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Over representation analysis (ORA)<a href="functional-analysis-1.html#over-representation-analysis-ora" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>ORA is used to evaluate whether a particular set of metabolites is represented more than expected by chance within a given compound list.<br />
+ORA is performed when the user provides only a list of compound names.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="functional-analysis-1.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Read input from the SCFA data of GvHD project.</span></span>
+<span id="cb113-2"><a href="functional-analysis-1.html#cb113-2" aria-hidden="true" tabindex="-1"></a>SCFA_tbl <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&#39;./dataset/InputFiles/GvHD_stool_metabolites_SCFA.xlsx&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb113-3"><a href="functional-analysis-1.html#cb113-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb113-4"><a href="functional-analysis-1.html#cb113-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-5"><a href="functional-analysis-1.html#cb113-5" aria-hidden="true" tabindex="-1"></a>metabolite_lst <span class="ot">&lt;-</span> SCFA_tbl<span class="sc">$</span>Compounds</span>
+<span id="cb113-6"><a href="functional-analysis-1.html#cb113-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-7"><a href="functional-analysis-1.html#cb113-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Create mSetObj, always initiate your mSet at the beginning.</span></span>
+<span id="cb113-8"><a href="functional-analysis-1.html#cb113-8" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">InitDataObjects</span>(<span class="st">&quot;conc&quot;</span>, <span class="st">&quot;msetora&quot;</span>, <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>[1] “MetaboAnalyst R objects initialized …”</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="functional-analysis-1.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Set up mSetObj with the list of compounds</span></span>
+<span id="cb114-2"><a href="functional-analysis-1.html#cb114-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">Setup.MapData</span>(mSet, metabolite_lst)</span>
+<span id="cb114-3"><a href="functional-analysis-1.html#cb114-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-4"><a href="functional-analysis-1.html#cb114-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Cross reference list of compounds against libraries (hmdb, pubchem, chebi, kegg, metlin)</span></span>
+<span id="cb114-5"><a href="functional-analysis-1.html#cb114-5" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CrossReferencing</span>(mSet, <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “1” “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="functional-analysis-1.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example compound name map</span></span>
+<span id="cb115-2"><a href="functional-analysis-1.html#cb115-2" aria-hidden="true" tabindex="-1"></a>mSet<span class="sc">$</span>name.map</span></code></pre></div>
+<p>$query.vec
+[1] “Acetic acid” “Propionic acid” “Isobutyric acid” “Butyric acid” “Isovaleric acid” “Valeric acid” “Hexanoic acid”</p>
+<p>$hit.inx
+[1] 29 158 1241 28 566 708 409</p>
+<p>$hit.values
+[1] “Acetic acid” “Propionic acid” “Isobutyric acid” “Butyric acid” “Isovaleric acid” “Valeric acid” “Caproic acid”</p>
+<p>$match.state
+[1] 1 1 1 1 1 1 1</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="functional-analysis-1.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Create the mapping results table</span></span>
+<span id="cb116-2"><a href="functional-analysis-1.html#cb116-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CreateMappingResultTable</span>(mSet)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="functional-analysis-1.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Set the metabolite filter</span></span>
+<span id="cb117-2"><a href="functional-analysis-1.html#cb117-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">SetMetabolomeFilter</span>(mSet, F)</span>
+<span id="cb117-3"><a href="functional-analysis-1.html#cb117-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-4"><a href="functional-analysis-1.html#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Select metabolite set library, we use fecal in this example, you can also choose &quot;kegg_pathway&quot;, &quot;smpdb_pathway&quot;, &quot;blood&quot;, &quot;urine&quot;, &quot;csf&quot;, &quot;snp&quot;, &quot;predicted&quot;, &quot;location&quot;, &quot;drug, etc,.</span></span>
+<span id="cb117-5"><a href="functional-analysis-1.html#cb117-5" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">SetCurrentMsetLib</span>(mSet, <span class="st">&quot;fecal&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb117-6"><a href="functional-analysis-1.html#cb117-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-7"><a href="functional-analysis-1.html#cb117-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculate hypergeometric score, results table generated in your working directory</span></span>
+<span id="cb117-8"><a href="functional-analysis-1.html#cb117-8" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CalculateHyperScore</span>(mSet)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="functional-analysis-1.html#cb118-1" aria-hidden="true" tabindex="-1"></a>ora_res <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;./msea_ora_result.csv&#39;</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb118-2"><a href="functional-analysis-1.html#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Enrichment Ratio is computed by Hits / Expected, where hits = observed hits expected = expected hits (see the Table below)</span></span>
+<span id="cb118-3"><a href="functional-analysis-1.html#cb118-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(ora_res))</span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="60%" />
+<col width="6%" />
+<col width="9%" />
+<col width="5%" />
+<col width="6%" />
+<col width="7%" />
+<col width="4%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">total</th>
+<th align="right">expected</th>
+<th align="right">hits</th>
+<th align="right">Raw p</th>
+<th align="right">Holm p</th>
+<th align="right">FDR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Autism</td>
+<td align="right">204</td>
+<td align="right">1.130</td>
+<td align="right">12</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">Crohn’s Disease</td>
+<td align="right">522</td>
+<td align="right">2.880</td>
+<td align="right">22</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">Irritable Bowel Syndrome</td>
+<td align="right">186</td>
+<td align="right">1.030</td>
+<td align="right">14</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">Nonalcoholic Fatty Liver Disease</td>
+<td align="right">344</td>
+<td align="right">1.900</td>
+<td align="right">14</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">Pervasive Developmental Disorder Not Otherwise Specified</td>
+<td align="right">157</td>
+<td align="right">0.867</td>
+<td align="right">12</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">Ulcerative Colitis</td>
+<td align="right">609</td>
+<td align="right">3.360</td>
+<td align="right">14</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="functional-analysis-1.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot the ORA, bar-graph</span></span>
+<span id="cb119-2"><a href="functional-analysis-1.html#cb119-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PlotORA</span>(mSet, <span class="st">&quot;./dataset/OutputFiles/ora_0_&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="dv">250</span>, <span class="at">width=</span><span class="cn">NA</span>)</span>
+<span id="cb119-3"><a href="functional-analysis-1.html#cb119-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-4"><a href="functional-analysis-1.html#cb119-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;./dataset/OutputFiles/ora_0_dpi250.png&#39;</span>)</span></code></pre></div>
+<p><img src="dataset/OutputFiles/ora_0_dpi250.png" width="1125" /></p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="functional-analysis-1.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot DotPlot</span></span>
+<span id="cb120-2"><a href="functional-analysis-1.html#cb120-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PlotEnrichDotPlot</span>(mSet, <span class="st">&quot;ora&quot;</span>, <span class="st">&quot;./dataset/OutputFiles/ora_dot_0_&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="dv">250</span>, <span class="at">width=</span><span class="cn">NA</span>)</span>
+<span id="cb120-3"><a href="functional-analysis-1.html#cb120-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-4"><a href="functional-analysis-1.html#cb120-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;./dataset/OutputFiles/ora_dot_0_dpi250.png&#39;</span>)</span></code></pre></div>
+<p><img src="dataset/OutputFiles/ora_dot_0_dpi250.png" width="1500" /></p>
+</div>
+<div id="clean-environment-1" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Clean environment 1<a href="functional-analysis-1.html#clean-environment-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Remove all variables in env because a new mSet object needs to be created for the following analysis.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="functional-analysis-1.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div>
+<hr />
+</div>
+<div id="single-sample-profiling" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Single Sample Profiling<a href="functional-analysis-1.html#single-sample-profiling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For common human biofluids such as blood, urine, or CSF, normal concentration ranges are known for many metabolites.</p>
+<p>In clinical metabolomic studies, it is often desirable to know whether certain metabolite concentrations in a given sample are significantly higher or lower than their normal ranges. MSEA’s SSP module is designed to provide this kind of analysis.</p>
+<p>In particular, SSP is performed when the user provides a two-column list of both compounds and concentrations. When called, the SSP module will compare the measured concentration values of each compound to its recorded normal reference ranges of the corresponding biofluid.</p>
+<p>Input for this module should be a list of metabolites and their concentrations (could be one column (1 x N) from a N * M abundance table with M samples/columns with N metabolites/rows).</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="functional-analysis-1.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Read input from the SCFA data of GvHD project.</span></span>
+<span id="cb122-2"><a href="functional-analysis-1.html#cb122-2" aria-hidden="true" tabindex="-1"></a>SCFA_tbl <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&#39;./dataset/InputFiles/GvHD_stool_metabolites_SCFA.xlsx&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb122-3"><a href="functional-analysis-1.html#cb122-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb122-4"><a href="functional-analysis-1.html#cb122-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-5"><a href="functional-analysis-1.html#cb122-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Initialize mSet object</span></span>
+<span id="cb122-6"><a href="functional-analysis-1.html#cb122-6" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">InitDataObjects</span>(<span class="st">&quot;conc&quot;</span>, <span class="st">&quot;msetssp&quot;</span>, <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>[1] “MetaboAnalyst R objects initialized …”</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="functional-analysis-1.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in metabolites names from SCFA_tbl</span></span>
+<span id="cb123-2"><a href="functional-analysis-1.html#cb123-2" aria-hidden="true" tabindex="-1"></a>cmpd.vec <span class="ot">&lt;-</span> SCFA_tbl<span class="sc">$</span>Compounds</span>
+<span id="cb123-3"><a href="functional-analysis-1.html#cb123-3" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">Setup.MapData</span>(mSet, cmpd.vec)</span>
+<span id="cb123-4"><a href="functional-analysis-1.html#cb123-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-5"><a href="functional-analysis-1.html#cb123-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in concentration of sample CJY-V0 from SCFA_tbl</span></span>
+<span id="cb123-6"><a href="functional-analysis-1.html#cb123-6" aria-hidden="true" tabindex="-1"></a>conc.vec <span class="ot">&lt;-</span> SCFA_tbl<span class="sc">$</span><span class="st">`</span><span class="at">CJY-V0</span><span class="st">`</span></span>
+<span id="cb123-7"><a href="functional-analysis-1.html#cb123-7" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">Setup.ConcData</span>(mSet, conc.vec)</span>
+<span id="cb123-8"><a href="functional-analysis-1.html#cb123-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-9"><a href="functional-analysis-1.html#cb123-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Set unit of metabolites&#39; concentration</span></span>
+<span id="cb123-10"><a href="functional-analysis-1.html#cb123-10" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">Setup.BiofluidType</span>(mSet, <span class="st">&quot;urine&quot;</span>)</span>
+<span id="cb123-11"><a href="functional-analysis-1.html#cb123-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-12"><a href="functional-analysis-1.html#cb123-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Check names</span></span>
+<span id="cb123-13"><a href="functional-analysis-1.html#cb123-13" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CrossReferencing</span>(mSet, <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “1” “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="functional-analysis-1.html#cb124-1" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CreateMappingResultTable</span>(mSet)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="functional-analysis-1.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculate SSP</span></span>
+<span id="cb125-2"><a href="functional-analysis-1.html#cb125-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CalculateSSP</span>(<span class="at">mSetObj =</span> mSet)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “Loaded files from MetaboAnalyst web-server.”</p>
+<pre><code>## Error in if (is.na(hits)) {: the condition has length &gt; 1</code></pre>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="functional-analysis-1.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Select all metabolites in our interests and do ORA.</span></span>
+<span id="cb127-2"><a href="functional-analysis-1.html#cb127-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">Setup.MapData</span>(mSet, cmpd.vec)</span>
+<span id="cb127-3"><a href="functional-analysis-1.html#cb127-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-4"><a href="functional-analysis-1.html#cb127-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Filter</span></span>
+<span id="cb127-5"><a href="functional-analysis-1.html#cb127-5" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">SetMetabolomeFilter</span>(mSet, F)</span>
+<span id="cb127-6"><a href="functional-analysis-1.html#cb127-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-7"><a href="functional-analysis-1.html#cb127-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Setup library</span></span>
+<span id="cb127-8"><a href="functional-analysis-1.html#cb127-8" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">SetCurrentMsetLib</span>(mSet, <span class="st">&quot;smpdb_pathway&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb127-9"><a href="functional-analysis-1.html#cb127-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-10"><a href="functional-analysis-1.html#cb127-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculate hyperscore</span></span>
+<span id="cb127-11"><a href="functional-analysis-1.html#cb127-11" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CalculateHyperScore</span>(mSet)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="functional-analysis-1.html#cb128-1" aria-hidden="true" tabindex="-1"></a>ora_res <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;./msea_ora_result.csv&#39;</span>,<span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb128-2"><a href="functional-analysis-1.html#cb128-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-3"><a href="functional-analysis-1.html#cb128-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(ora_res))</span></code></pre></div>
+<table>
+<colgroup>
+<col width="61%" />
+<col width="5%" />
+<col width="8%" />
+<col width="4%" />
+<col width="7%" />
+<col width="6%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">total</th>
+<th align="right">expected</th>
+<th align="right">hits</th>
+<th align="right">Raw p</th>
+<th align="right">Holm p</th>
+<th align="right">FDR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Fatty Acid Biosynthesis</td>
+<td align="right">35</td>
+<td align="right">0.2390</td>
+<td align="right">3</td>
+<td align="right">0.00117</td>
+<td align="right">0.114</td>
+<td align="right">0.114</td>
+</tr>
+<tr class="even">
+<td align="left">Vitamin K Metabolism</td>
+<td align="right">14</td>
+<td align="right">0.0957</td>
+<td align="right">1</td>
+<td align="right">0.09210</td>
+<td align="right">1.000</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="odd">
+<td align="left">Beta Oxidation of Very Long Chain Fatty Acids</td>
+<td align="right">17</td>
+<td align="right">0.1160</td>
+<td align="right">1</td>
+<td align="right">0.11100</td>
+<td align="right">1.000</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="even">
+<td align="left">Butyrate Metabolism</td>
+<td align="right">19</td>
+<td align="right">0.1300</td>
+<td align="right">1</td>
+<td align="right">0.12300</td>
+<td align="right">1.000</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="odd">
+<td align="left">Ethanol Degradation</td>
+<td align="right">19</td>
+<td align="right">0.1300</td>
+<td align="right">1</td>
+<td align="right">0.12300</td>
+<td align="right">1.000</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="even">
+<td align="left">Mitochondrial Beta-Oxidation of Short Chain Saturated Fatty Acids</td>
+<td align="right">27</td>
+<td align="right">0.1850</td>
+<td align="right">1</td>
+<td align="right">0.17100</td>
+<td align="right">1.000</td>
+<td align="right">1.000</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="functional-analysis-1.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot</span></span>
+<span id="cb129-2"><a href="functional-analysis-1.html#cb129-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PlotORA</span>(<span class="at">mSetObj =</span> mSet, <span class="at">imgName =</span> <span class="st">&quot;./dataset/OutputFiles/SSP_ora_0_&quot;</span>,</span>
+<span id="cb129-3"><a href="functional-analysis-1.html#cb129-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">imgOpt =</span>  <span class="st">&quot;net&quot;</span>, <span class="at">format =</span> <span class="st">&quot;png&quot;</span>, <span class="at">dpi =</span> <span class="dv">250</span>, <span class="at">width=</span><span class="cn">NA</span>)</span>
+<span id="cb129-4"><a href="functional-analysis-1.html#cb129-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-5"><a href="functional-analysis-1.html#cb129-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;./dataset/OutputFiles/SSP_ora_0_dpi250.png&#39;</span>)</span></code></pre></div>
+<p><img src="dataset/OutputFiles/SSP_ora_0_dpi250.png" width="1125" /></p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="functional-analysis-1.html#cb130-1" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PlotEnrichDotPlot</span>(<span class="at">mSetObj =</span> mSet, <span class="at">enrichType =</span> <span class="st">&quot;ora&quot;</span>, </span>
+<span id="cb130-2"><a href="functional-analysis-1.html#cb130-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">imgName =</span> <span class="st">&quot;./dataset/OutputFiles/SSP_ora_dot_0_&quot;</span>, </span>
+<span id="cb130-3"><a href="functional-analysis-1.html#cb130-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">format =</span> <span class="st">&quot;png&quot;</span>, <span class="at">dpi =</span> <span class="dv">250</span>, <span class="at">width=</span><span class="cn">NA</span>)</span>
+<span id="cb130-4"><a href="functional-analysis-1.html#cb130-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-5"><a href="functional-analysis-1.html#cb130-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;./dataset/OutputFiles/SSP_ora_dot_0_dpi250.png&#39;</span>)</span></code></pre></div>
+<p><img src="dataset/OutputFiles/SSP_ora_dot_0_dpi250.png" width="1500" /></p>
+</div>
+<div id="clean-environment-2" class="section level3 hasAnchor" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> Clean environment 2<a href="functional-analysis-1.html#clean-environment-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Remove all variables in env because a new mSet object needs to be created for the following analysis.</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="functional-analysis-1.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div>
+<hr />
+</div>
+<div id="quantitative-enrichment-analysis-qea" class="section level3 hasAnchor" number="3.1.6">
+<h3><span class="header-section-number">3.1.6</span> Quantitative Enrichment Analysis (QEA)<a href="functional-analysis-1.html#quantitative-enrichment-analysis-qea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>QEA is performed when the user uploads a concentration table containing metabolite concentration data from multiple samples.</p>
+<p>QEA is based on the <em>globaltest</em> algorithm to perform enrichment analysis directly from raw concentration data and does not require a list of significantly changed compounds.</p>
+<p>Especially, QEA adopted <em>globaltest</em> as the backend. Please find <em><a href="https://academic.oup.com/bioinformatics/article/20/1/93/229017">citation</a></em> for detailed introduction.<br />
+In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-statistic can be obtained from the original publication by (Goeman JJ, et al). Q-statistic can be intuitively interpreted as an aggregate of squared covariance between concentration changes and the phenotypes - compounds with large variance have much more influence on the Q than compound with small variance.</p>
+<p>And the null hypothesis in QEA to be tested are made to be whether two groups of samples <strong>are not different</strong> with respect to their overall metabolites’ abundance pattern. Under this hypothesis, expectation and standard deviation can be calculated and p value can be estimated. If p &lt; 0.05, it means that two groups of samples <strong>are different</strong> with respect to their overall metabolites’ abundance pattern.</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="functional-analysis-1.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Create mSetObj</span></span>
+<span id="cb132-2"><a href="functional-analysis-1.html#cb132-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">InitDataObjects</span>(<span class="st">&quot;conc&quot;</span>, <span class="st">&quot;msetqea&quot;</span>, <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Starting Rserve:
+/Library/Frameworks/R.framework/Resources/bin/R CMD /Library/Frameworks/R.framework/Versions/4.2/Resources/library/Rserve/libs//Rserve –no-save</p>
+<p>[1] “MetaboAnalyst R objects initialized …”</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="functional-analysis-1.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in data table</span></span>
+<span id="cb133-2"><a href="functional-analysis-1.html#cb133-2" aria-hidden="true" tabindex="-1"></a>SCFA_tbl <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&#39;./dataset/InputFiles/GvHD_stool_metabolites_SCFA.xlsx&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb133-3"><a href="functional-analysis-1.html#cb133-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb133-4"><a href="functional-analysis-1.html#cb133-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb133-5"><a href="functional-analysis-1.html#cb133-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Replace N/A with NA</span></span>
+<span id="cb133-6"><a href="functional-analysis-1.html#cb133-6" aria-hidden="true" tabindex="-1"></a>SCFA_tbl[SCFA_tbl <span class="sc">==</span> <span class="st">&quot;N/A&quot;</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb133-7"><a href="functional-analysis-1.html#cb133-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb133-8"><a href="functional-analysis-1.html#cb133-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Select columns from input data table</span></span>
+<span id="cb133-9"><a href="functional-analysis-1.html#cb133-9" aria-hidden="true" tabindex="-1"></a>SCFA_tbl <span class="ot">&lt;-</span> SCFA_tbl[,<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">5</span><span class="sc">:</span><span class="fu">ncol</span>(SCFA_tbl))] <span class="sc">%&gt;%</span> <span class="fu">column_to_rownames</span>(<span class="st">&#39;Compounds&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb133-10"><a href="functional-analysis-1.html#cb133-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb133-11"><a href="functional-analysis-1.html#cb133-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb133-12"><a href="functional-analysis-1.html#cb133-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Create Group Info</span></span>
+<span id="cb133-13"><a href="functional-analysis-1.html#cb133-13" aria-hidden="true" tabindex="-1"></a>SCFA_tbl <span class="sc">%&lt;&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Group =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&#39;A&#39;</span>,<span class="dv">25</span>), <span class="fu">rep</span>(<span class="st">&#39;B&#39;</span>,<span class="dv">31</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb133-14"><a href="functional-analysis-1.html#cb133-14" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&#39;Group&#39;</span>, <span class="fu">colnames</span>(.)[<span class="fu">colnames</span>(.) <span class="sc">!=</span> <span class="st">&#39;Group&#39;</span>])) <span class="sc">%&gt;%</span> </span>
+<span id="cb133-15"><a href="functional-analysis-1.html#cb133-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">&#39;Samples&#39;</span>)</span>
+<span id="cb133-16"><a href="functional-analysis-1.html#cb133-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb133-17"><a href="functional-analysis-1.html#cb133-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Write data table in csv file</span></span>
+<span id="cb133-18"><a href="functional-analysis-1.html#cb133-18" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(SCFA_tbl, <span class="st">&#39;./dataset/OutputFiles/GvHD_stool_metabolites_SCFA.csv&#39;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb133-19"><a href="functional-analysis-1.html#cb133-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb133-20"><a href="functional-analysis-1.html#cb133-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in data table</span></span>
+<span id="cb133-21"><a href="functional-analysis-1.html#cb133-21" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">Read.TextData</span>(mSet, <span class="st">&quot;./dataset/OutputFiles/GvHD_stool_metabolites_SCFA.csv&quot;</span>, <span class="st">&quot;rowu&quot;</span>, <span class="st">&quot;disc&quot;</span>)</span>
+<span id="cb133-22"><a href="functional-analysis-1.html#cb133-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb133-23"><a href="functional-analysis-1.html#cb133-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform cross-referencing of compound names</span></span>
+<span id="cb133-24"><a href="functional-analysis-1.html#cb133-24" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CrossReferencing</span>(mSet, <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “1” “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="functional-analysis-1.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create mapping results table</span></span>
+<span id="cb134-2"><a href="functional-analysis-1.html#cb134-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CreateMappingResultTable</span>(mSet)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="functional-analysis-1.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mandatory check of data</span></span>
+<span id="cb135-2"><a href="functional-analysis-1.html#cb135-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">SanityCheckData</span>(mSet)</span></code></pre></div>
+<p>[1] “Successfully passed sanity check!”<br />
+[2] “Samples are not paired.”<br />
+[3] “2 groups were detected in samples.”<br />
+[4] “Only English letters, numbers, underscore, hyphen and forward slash (/) are allowed.”<br />
+[5] “<font color=\"orange\">Other special characters or punctuations (if any) will be stripped off.</font>”<br />
+[6] “All data values are numeric.”<br />
+[7] “A total of 26 (6.6%) missing values were detected.”<br />
+[8] “<u>By default, missing values will be replaced by 1/5 of min positive values of their corresponding variables</u>”
+[9] “Click the <b>Proceed</b> button if you accept the default practice;”<br />
+[10] “Or click the <b>Missing Values</b> button to use other methods.”</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="functional-analysis-1.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace missing values with minimum concentration levels</span></span>
+<span id="cb136-2"><a href="functional-analysis-1.html#cb136-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">ReplaceMin</span>(mSet)</span>
+<span id="cb136-3"><a href="functional-analysis-1.html#cb136-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-4"><a href="functional-analysis-1.html#cb136-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform no normalization</span></span>
+<span id="cb136-5"><a href="functional-analysis-1.html#cb136-5" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PreparePrenormData</span>(mSet)</span>
+<span id="cb136-6"><a href="functional-analysis-1.html#cb136-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-7"><a href="functional-analysis-1.html#cb136-7" aria-hidden="true" tabindex="-1"></a><span class="co">#mSet &lt;- Normalization(mSet, rowNorm = &quot;SumNorm&quot;, transNorm = &quot;LogNorm&quot;, scaleNorm = &quot;ParetoNorm&quot;, ref = &quot;PIF_178&quot;, ratio=FALSE, ratioNum=20)</span></span>
+<span id="cb136-8"><a href="functional-analysis-1.html#cb136-8" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">Normalization</span>(mSet, <span class="at">rowNorm =</span> <span class="st">&quot;SumNorm&quot;</span>, <span class="at">transNorm =</span> <span class="st">&quot;LogNorm&quot;</span>, <span class="at">scaleNorm =</span> <span class="st">&quot;ParetoNorm&quot;</span>)</span>
+<span id="cb136-9"><a href="functional-analysis-1.html#cb136-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-10"><a href="functional-analysis-1.html#cb136-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot normalization</span></span>
+<span id="cb136-11"><a href="functional-analysis-1.html#cb136-11" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PlotNormSummary</span>(mSet, <span class="st">&quot;./dataset/OutputFiles/norm_0_&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="dv">250</span>, <span class="at">width=</span><span class="cn">NA</span>)</span>
+<span id="cb136-12"><a href="functional-analysis-1.html#cb136-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-13"><a href="functional-analysis-1.html#cb136-13" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;./dataset/OutputFiles/norm_0_dpi250.png&#39;</span>)</span></code></pre></div>
+<p><img src="dataset/OutputFiles/norm_0_dpi250.png" width="1312" /></p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="functional-analysis-1.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot sample-wise normalization</span></span>
+<span id="cb137-2"><a href="functional-analysis-1.html#cb137-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PlotSampleNormSummary</span>(mSet, <span class="st">&quot;./dataset/OutputFiles/snorm_0_&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="dv">250</span>, <span class="at">width=</span><span class="cn">NA</span>)</span>
+<span id="cb137-3"><a href="functional-analysis-1.html#cb137-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-4"><a href="functional-analysis-1.html#cb137-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;./dataset/OutputFiles/snorm_0_dpi250.png&#39;</span>)</span></code></pre></div>
+<p><img src="dataset/OutputFiles/snorm_0_dpi250.png" width="1312" /></p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="functional-analysis-1.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the metabolome filter</span></span>
+<span id="cb138-2"><a href="functional-analysis-1.html#cb138-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">SetMetabolomeFilter</span>(mSet, F)</span>
+<span id="cb138-3"><a href="functional-analysis-1.html#cb138-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-4"><a href="functional-analysis-1.html#cb138-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the metabolite set library to pathway</span></span>
+<span id="cb138-5"><a href="functional-analysis-1.html#cb138-5" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">SetCurrentMsetLib</span>(mSet, <span class="st">&quot;smpdb_pathway&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb138-6"><a href="functional-analysis-1.html#cb138-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-7"><a href="functional-analysis-1.html#cb138-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the global test score</span></span>
+<span id="cb138-8"><a href="functional-analysis-1.html#cb138-8" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CalculateGlobalTestScore</span>(mSet)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="functional-analysis-1.html#cb139-1" aria-hidden="true" tabindex="-1"></a>msea_qea_res <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;./msea_qea_result.csv&#39;</span>)</span>
+<span id="cb139-2"><a href="functional-analysis-1.html#cb139-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-3"><a href="functional-analysis-1.html#cb139-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(msea_qea_res))</span></code></pre></div>
+<table>
+<colgroup>
+<col width="51%" />
+<col width="8%" />
+<col width="3%" />
+<col width="9%" />
+<col width="8%" />
+<col width="6%" />
+<col width="5%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">X</th>
+<th align="right">Total.Cmpd</th>
+<th align="right">Hits</th>
+<th align="right">Statistic.Q</th>
+<th align="right">Expected.Q</th>
+<th align="right">Raw.p</th>
+<th align="right">Holm.p</th>
+<th align="right">FDR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Propanoate Metabolism</td>
+<td align="right">42</td>
+<td align="right">1</td>
+<td align="right">4.3168</td>
+<td align="right">1.8182</td>
+<td align="right">0.12440</td>
+<td align="right">1</td>
+<td align="right">0.62002</td>
+</tr>
+<tr class="even">
+<td align="left">Vitamin K Metabolism</td>
+<td align="right">14</td>
+<td align="right">1</td>
+<td align="right">4.3168</td>
+<td align="right">1.8182</td>
+<td align="right">0.12440</td>
+<td align="right">1</td>
+<td align="right">0.62002</td>
+</tr>
+<tr class="odd">
+<td align="left">Butyrate Metabolism</td>
+<td align="right">19</td>
+<td align="right">1</td>
+<td align="right">2.1853</td>
+<td align="right">1.8182</td>
+<td align="right">0.27692</td>
+<td align="right">1</td>
+<td align="right">0.62002</td>
+</tr>
+<tr class="even">
+<td align="left">Fatty Acid Biosynthesis</td>
+<td align="right">35</td>
+<td align="right">3</td>
+<td align="right">1.7437</td>
+<td align="right">1.8182</td>
+<td align="right">0.37316</td>
+<td align="right">1</td>
+<td align="right">0.62002</td>
+</tr>
+<tr class="odd">
+<td align="left">Beta Oxidation of Very Long Chain Fatty Acids</td>
+<td align="right">17</td>
+<td align="right">1</td>
+<td align="right">1.4123</td>
+<td align="right">1.8182</td>
+<td align="right">0.38302</td>
+<td align="right">1</td>
+<td align="right">0.62002</td>
+</tr>
+<tr class="even">
+<td align="left">Mitochondrial Beta-Oxidation of Short Chain Saturated Fatty Acids</td>
+<td align="right">27</td>
+<td align="right">1</td>
+<td align="right">1.4123</td>
+<td align="right">1.8182</td>
+<td align="right">0.38302</td>
+<td align="right">1</td>
+<td align="right">0.62002</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="functional-analysis-1.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the QEA</span></span>
+<span id="cb140-2"><a href="functional-analysis-1.html#cb140-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PlotQEA.Overview</span>(mSet, <span class="st">&quot;./dataset/OutputFiles/qea_0_&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="dv">250</span>, <span class="at">width=</span><span class="cn">NA</span>)</span>
+<span id="cb140-3"><a href="functional-analysis-1.html#cb140-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-4"><a href="functional-analysis-1.html#cb140-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;./dataset/OutputFiles/qea_0_dpi250.png&#39;</span>)</span></code></pre></div>
+<p><img src="dataset/OutputFiles/qea_0_dpi250.png" width="1125" /></p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="functional-analysis-1.html#cb141-1" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PlotEnrichDotPlot</span>(mSet, <span class="st">&quot;qea&quot;</span>, <span class="st">&quot;./dataset/OutputFiles/qea_dot_0_&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="dv">250</span>, <span class="at">width=</span><span class="cn">NA</span>)</span>
+<span id="cb141-2"><a href="functional-analysis-1.html#cb141-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-3"><a href="functional-analysis-1.html#cb141-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;./dataset/OutputFiles/qea_dot_0_dpi250.png&#39;</span>)</span></code></pre></div>
+<p><img src="dataset/OutputFiles/qea_dot_0_dpi250.png" width="1500" /></p>
+<hr />
+</div>
+</div>
+<div id="pathway-analysis" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Pathway Analysis<a href="functional-analysis-1.html#pathway-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this tutorial, we aim to help you to walk through the pathway analysis in Metaboanalyst5.</p>
+<p>This module supports pathway analysis (integrating enrichment analysis and pathway topology analysis) and visualization for 26 model organisms, including Human, Mouse, Rat, Cow, Chicken, Zebrafish, Arabidopsis thaliana, Rice, Drosophila, Malaria, S. cerevisae, E.coli, and others species.</p>
+<p>Here, we apply TM metabolites sequencing data of stool samples in GvHD project as demo data. Moreover, to reduce data noise, we selected differentially abundant metabolites in aGVHD patients from the differential analysis result in Xu XiaoMin’s analysis.</p>
+<div id="enviroment-set-up" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Enviroment Set up<a href="functional-analysis-1.html#enviroment-set-up" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+</div>
+<div id="over-representation-analysis" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Over representation analysis<a href="functional-analysis-1.html#over-representation-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Similar to ORA in Enrichment analysis.</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="functional-analysis-1.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in differentially abundant TM metanolites data from GVHD project</span></span>
+<span id="cb142-2"><a href="functional-analysis-1.html#cb142-2" aria-hidden="true" tabindex="-1"></a>DA_metabolites <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&#39;./dataset/InputFiles/DA_metabolites_agvhd_adult_result.xlsx&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb142-3"><a href="functional-analysis-1.html#cb142-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb142-4"><a href="functional-analysis-1.html#cb142-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-5"><a href="functional-analysis-1.html#cb142-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Create vector consisting of compounds for enrichment analysis</span></span>
+<span id="cb142-6"><a href="functional-analysis-1.html#cb142-6" aria-hidden="true" tabindex="-1"></a>tmp.vec <span class="ot">&lt;-</span> DA_metabolites<span class="sc">$</span>Compounds</span>
+<span id="cb142-7"><a href="functional-analysis-1.html#cb142-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-8"><a href="functional-analysis-1.html#cb142-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Create mSetObj for storing objects created during your analysis</span></span>
+<span id="cb142-9"><a href="functional-analysis-1.html#cb142-9" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">InitDataObjects</span>(<span class="st">&quot;conc&quot;</span>, <span class="st">&quot;pathora&quot;</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb142-10"><a href="functional-analysis-1.html#cb142-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-11"><a href="functional-analysis-1.html#cb142-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Set up mSetObj with the list of compounds</span></span>
+<span id="cb142-12"><a href="functional-analysis-1.html#cb142-12" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">Setup.MapData</span>(mSet, tmp.vec)</span>
+<span id="cb142-13"><a href="functional-analysis-1.html#cb142-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-14"><a href="functional-analysis-1.html#cb142-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Cross reference list of compounds against libraries (hmdb, pubchem, chebi, kegg, metlin). This step is to make sure that all metabolites names provided match the metabolites&#39; names in KEGG database.</span></span>
+<span id="cb142-15"><a href="functional-analysis-1.html#cb142-15" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CrossReferencing</span>(mSet, <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “0”<br />
+[2] “Over half of the compound IDs could not be matched to our database. Please make sure that correct compound IDs or common compound names are used.”</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="functional-analysis-1.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove metabolites failed to match the metabolites&#39; names in KEGG database.</span></span>
+<span id="cb143-2"><a href="functional-analysis-1.html#cb143-2" aria-hidden="true" tabindex="-1"></a>tmp.vec <span class="ot">&lt;-</span> tmp.vec[mSet<span class="sc">$</span>name.map<span class="sc">$</span>match.state <span class="sc">==</span> <span class="dv">1</span>]</span>
+<span id="cb143-3"><a href="functional-analysis-1.html#cb143-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-4"><a href="functional-analysis-1.html#cb143-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Re-initialize mSet object</span></span>
+<span id="cb143-5"><a href="functional-analysis-1.html#cb143-5" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">InitDataObjects</span>(<span class="st">&quot;conc&quot;</span>, <span class="st">&quot;pathora&quot;</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb143-6"><a href="functional-analysis-1.html#cb143-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-7"><a href="functional-analysis-1.html#cb143-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Set up mSetObj with the matched list of compounds</span></span>
+<span id="cb143-8"><a href="functional-analysis-1.html#cb143-8" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">Setup.MapData</span>(mSet, tmp.vec)</span>
+<span id="cb143-9"><a href="functional-analysis-1.html#cb143-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-10"><a href="functional-analysis-1.html#cb143-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Cross reference list of compounds against libraries (hmdb, pubchem, chebi, kegg, metlin). Check again if all metabolites&#39; names have their matches in KEGG database</span></span>
+<span id="cb143-11"><a href="functional-analysis-1.html#cb143-11" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CrossReferencing</span>(mSet, <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “1” “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="functional-analysis-1.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Creates a mapping result table shows HMDB, KEGG, PubChem, etc. IDs. Saved as &quot;name_map.csv&quot; or can be found in mSet$dataSet$map.table. Compounds with no hits will contain NAs across the columns.</span></span>
+<span id="cb144-2"><a href="functional-analysis-1.html#cb144-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CreateMappingResultTable</span>(mSet)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="functional-analysis-1.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Select the pathway library, ranging from mammals to prokaryotes</span></span>
+<span id="cb145-2"><a href="functional-analysis-1.html#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Note the third parameter, where users need to input the KEGG pathway version.</span></span>
+<span id="cb145-3"><a href="functional-analysis-1.html#cb145-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Use &quot;current&quot; for the latest KEGG pathway library or &quot;v2018&quot; for the KEGG pathway library version prior to November 2019.</span></span>
+<span id="cb145-4"><a href="functional-analysis-1.html#cb145-4" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">SetKEGG.PathLib</span>(mSet, <span class="st">&quot;hsa&quot;</span>, <span class="st">&quot;current&quot;</span>)</span>
+<span id="cb145-5"><a href="functional-analysis-1.html#cb145-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-6"><a href="functional-analysis-1.html#cb145-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Set the metabolite filter. Default set to false</span></span>
+<span id="cb145-7"><a href="functional-analysis-1.html#cb145-7" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">SetMetabolomeFilter</span>(mSet, F)</span>
+<span id="cb145-8"><a href="functional-analysis-1.html#cb145-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-9"><a href="functional-analysis-1.html#cb145-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculate the over representation analysis score, here we selected to use the hypergeometric test (alternative is Fisher&#39;s exact test)</span></span>
+<span id="cb145-10"><a href="functional-analysis-1.html#cb145-10" aria-hidden="true" tabindex="-1"></a><span class="do">## A results table &quot;pathway_results.csv&quot; will be created and found within your working directory</span></span>
+<span id="cb145-11"><a href="functional-analysis-1.html#cb145-11" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CalculateOraScore</span>(mSet, <span class="st">&quot;rbc&quot;</span>, <span class="st">&quot;hyperg&quot;</span>)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “<a href="http://api.xialab.ca/pathwayora" class="uri">http://api.xialab.ca/pathwayora</a>”</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="functional-analysis-1.html#cb146-1" aria-hidden="true" tabindex="-1"></a>pathway_res <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;./pathway_results.csv&#39;</span>)</span>
+<span id="cb146-2"><a href="functional-analysis-1.html#cb146-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-3"><a href="functional-analysis-1.html#cb146-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(pathway_res))</span></code></pre></div>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="8%" />
+<col width="12%" />
+<col width="7%" />
+<col width="11%" />
+<col width="12%" />
+<col width="17%" />
+<col width="5%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">X</th>
+<th align="right">Total</th>
+<th align="right">Expected</th>
+<th align="right">Hits</th>
+<th align="right">Raw.p</th>
+<th align="right">X.log.p.</th>
+<th align="right">Holm.adjust</th>
+<th align="right">FDR</th>
+<th align="right">Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">hsa00130</td>
+<td align="right">9</td>
+<td align="right">0.046452</td>
+<td align="right">1</td>
+<td align="right">0.04562</td>
+<td align="right">3.0874</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0.00000</td>
+</tr>
+<tr class="even">
+<td align="left">hsa00030</td>
+<td align="right">22</td>
+<td align="right">0.113550</td>
+<td align="right">1</td>
+<td align="right">0.10830</td>
+<td align="right">2.2229</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0.04712</td>
+</tr>
+<tr class="odd">
+<td align="left">hsa00564</td>
+<td align="right">36</td>
+<td align="right">0.185810</td>
+<td align="right">1</td>
+<td align="right">0.17174</td>
+<td align="right">1.7618</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0.00000</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="functional-analysis-1.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot of the Pathway Analysis Overview</span></span>
+<span id="cb147-2"><a href="functional-analysis-1.html#cb147-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PlotPathSummary</span>(mSet,<span class="at">show.grid=</span><span class="cn">FALSE</span>, <span class="st">&quot;./dataset/OutputFiles/path_view_0_&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="at">dpi =</span><span class="dv">250</span>, <span class="at">width=</span><span class="cn">NA</span>)</span>
+<span id="cb147-3"><a href="functional-analysis-1.html#cb147-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-4"><a href="functional-analysis-1.html#cb147-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;./dataset/OutputFiles/path_view_0_dpi250.png&#39;</span>)</span></code></pre></div>
+<p><img src="dataset/OutputFiles/path_view_0_dpi250.png" width="875" /></p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="functional-analysis-1.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot a specific metabolic pathway, in this case &quot;Glycine, serine and threonine metabolism&quot;</span></span>
+<span id="cb148-2"><a href="functional-analysis-1.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mSet &lt;- PlotKEGGPath(mSetObj = mSet, pathName = &quot;Glycine, serine and threonine metabolism&quot;, 528, 480, &quot;png&quot;, dpi=72)</span></span></code></pre></div>
+</div>
+<div id="clean-environment-3" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Clean environment 3<a href="functional-analysis-1.html#clean-environment-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="functional-analysis-1.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div>
+<hr />
+</div>
+<div id="concentration-table-qea" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Concentration Table (QEA)<a href="functional-analysis-1.html#concentration-table-qea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Similar to QEA in Enrichment analysis.</p>
+<p>KO enrichment is calculated via the global test algorithm when abundance of metabolites are provided.</p>
+<p>Global test evaluates whether a set of genes (i.e. KEGG pathways) is significantly associated with a variable of interest. Compared to ORA, which uses only the total number of KO hits in a pathway, global test considers the gene abundance values and is considered to be more sensitive than ORA. <strong>It assumes that if a gene set can be used to predict an outcome of interest, the gene expression patterns per outcome must be different</strong>.</p>
+<p>The global test algorithm is implemented in MicrobiomeAnalyst using the globaltest R package. P-values for both methods are corrected for multiple-testing using the Benjamini and Hochberg’s False-Discovery Rate (FDR).</p>
+<p>In this module, we use differentially abundant metabolites in aGVHD patients from the differential analysis result in Xu XiaoMin’s analysis and their abundance as input.</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="functional-analysis-1.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in differentially abundant TM metanolites data from GVHD project</span></span>
+<span id="cb150-2"><a href="functional-analysis-1.html#cb150-2" aria-hidden="true" tabindex="-1"></a>DA_metabolites <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&#39;./dataset/InputFiles/DA_metabolites_agvhd_adult_result.xlsx&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb150-3"><a href="functional-analysis-1.html#cb150-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb150-4"><a href="functional-analysis-1.html#cb150-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-5"><a href="functional-analysis-1.html#cb150-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Initialize data object</span></span>
+<span id="cb150-6"><a href="functional-analysis-1.html#cb150-6" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">InitDataObjects</span>(<span class="st">&quot;conc&quot;</span>, <span class="st">&quot;pathqea&quot;</span>, <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Starting Rserve:
+/Library/Frameworks/R.framework/Resources/bin/R CMD /Library/Frameworks/R.framework/Versions/4.2/Resources/library/Rserve/libs//Rserve –no-save</p>
+<p>[1] “MetaboAnalyst R objects initialized …”</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="functional-analysis-1.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in data table</span></span>
+<span id="cb151-2"><a href="functional-analysis-1.html#cb151-2" aria-hidden="true" tabindex="-1"></a>input_df <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&#39;./dataset/InputFiles/GvHD_stool_metabolites_TM.xlsx&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb151-3"><a href="functional-analysis-1.html#cb151-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb151-4"><a href="functional-analysis-1.html#cb151-4" aria-hidden="true" tabindex="-1"></a>  .[,<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">25</span><span class="sc">:</span><span class="fu">ncol</span>(.))] <span class="sc">%&gt;%</span> </span>
+<span id="cb151-5"><a href="functional-analysis-1.html#cb151-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="st">&#39;Compounds&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb151-6"><a href="functional-analysis-1.html#cb151-6" aria-hidden="true" tabindex="-1"></a>  .[DA_metabolites<span class="sc">$</span>Compounds,] <span class="sc">%&gt;%</span> </span>
+<span id="cb151-7"><a href="functional-analysis-1.html#cb151-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb151-8"><a href="functional-analysis-1.html#cb151-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb151-9"><a href="functional-analysis-1.html#cb151-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-10"><a href="functional-analysis-1.html#cb151-10" aria-hidden="true" tabindex="-1"></a>Groupinfo <span class="ot">&lt;-</span> <span class="fu">rownames</span>(input_df) <span class="sc">%&gt;%</span> </span>
+<span id="cb151-11"><a href="functional-analysis-1.html#cb151-11" aria-hidden="true" tabindex="-1"></a>  stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="st">&#39;-&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb151-12"><a href="functional-analysis-1.html#cb151-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb151-13"><a href="functional-analysis-1.html#cb151-13" aria-hidden="true" tabindex="-1"></a>  .[<span class="dv">2</span>,] <span class="sc">%&gt;%</span> </span>
+<span id="cb151-14"><a href="functional-analysis-1.html#cb151-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb151-15"><a href="functional-analysis-1.html#cb151-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.vector</span>()</span>
+<span id="cb151-16"><a href="functional-analysis-1.html#cb151-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-17"><a href="functional-analysis-1.html#cb151-17" aria-hidden="true" tabindex="-1"></a>input_df <span class="sc">%&lt;&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Group =</span> Groupinfo) <span class="sc">%&gt;%</span> </span>
+<span id="cb151-18"><a href="functional-analysis-1.html#cb151-18" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&#39;Group&#39;</span>, <span class="fu">colnames</span>(.)[<span class="fu">colnames</span>(.) <span class="sc">!=</span> <span class="st">&#39;Group&#39;</span>])) <span class="sc">%&gt;%</span> </span>
+<span id="cb151-19"><a href="functional-analysis-1.html#cb151-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">&#39;Sample&#39;</span>)</span>
+<span id="cb151-20"><a href="functional-analysis-1.html#cb151-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-21"><a href="functional-analysis-1.html#cb151-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Write reformed metabolites abundance table into csv file</span></span>
+<span id="cb151-22"><a href="functional-analysis-1.html#cb151-22" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(input_df, <span class="st">&#39;./dataset/OutputFiles/GvHD_stool_metabolites_TM.csv&#39;</span>,<span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb151-23"><a href="functional-analysis-1.html#cb151-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-24"><a href="functional-analysis-1.html#cb151-24" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">Read.TextData</span>(mSet, <span class="st">&#39;./dataset/OutputFiles/GvHD_stool_metabolites_TM.csv&#39;</span>, <span class="st">&quot;rowu&quot;</span>, <span class="st">&quot;disc&quot;</span>)</span>
+<span id="cb151-25"><a href="functional-analysis-1.html#cb151-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-26"><a href="functional-analysis-1.html#cb151-26" aria-hidden="true" tabindex="-1"></a><span class="do">## Show first few rows in data table</span></span>
+<span id="cb151-27"><a href="functional-analysis-1.html#cb151-27" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(input_df))</span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="0%" />
+<col width="0%" />
+<col width="1%" />
+<col width="2%" />
+<col width="2%" />
+<col width="1%" />
+<col width="4%" />
+<col width="2%" />
+<col width="5%" />
+<col width="1%" />
+<col width="3%" />
+<col width="2%" />
+<col width="1%" />
+<col width="1%" />
+<col width="2%" />
+<col width="4%" />
+<col width="1%" />
+<col width="3%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="2%" />
+<col width="2%" />
+<col width="1%" />
+<col width="9%" />
+<col width="14%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="2%" />
+<col width="1%" />
+<col width="1%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Sample</th>
+<th align="left">Group</th>
+<th align="right">Erucic acid</th>
+<th align="right">5-Methylcytosine</th>
+<th align="right">D-Gluconic Acid</th>
+<th align="right">LPE(14:0/0:0)</th>
+<th align="right">N-Acetylglucosamine 1-Phosphate</th>
+<th align="right">7-ketodeoxycholic acid</th>
+<th align="right">Bis(1-inositol) -3,1’-phosphate 1-phosphate</th>
+<th align="right">Asp-phe</th>
+<th align="right">Phenylacetyl-L-Glutamine</th>
+<th align="right">N-Acetylglycine</th>
+<th align="right">Carnitine C2:0</th>
+<th align="right">Acetylcholine</th>
+<th align="right">Lithocholic acid</th>
+<th align="right">3-Carboxypropyltrimethylammonium</th>
+<th align="right">Biotinamide</th>
+<th align="right">5’-deoxy-5’-fluoroadenosine</th>
+<th align="right">Carnitine C5:1</th>
+<th align="right">Val-Val</th>
+<th align="right">Gly Leu Tyr</th>
+<th align="right">Ile-Thr</th>
+<th align="right">Isoleucyl-Serine</th>
+<th align="right">Isoleucyl-Tyrosine</th>
+<th align="right">Phe Val Ala</th>
+<th align="right">Phosphonic acid, P-[(3R)-3-amino-4-[(3-hexylphenyl)amino]-4-oxobutyl]-</th>
+<th align="right">2-[2,4-dihydroxy-3-(3-methylbut-2-en-1-yl)phenyl]-1-[2,4,6-trihydroxy-3-(3-methylbut-2-en-1-yl)phenyl]propan-1-one</th>
+<th align="right">Asp Ile Ile</th>
+<th align="right">Gly Leu Val</th>
+<th align="right">Ile Glu Leu</th>
+<th align="right">Ile Ile Asn</th>
+<th align="right">Lys Pro Ile</th>
+<th align="right">Phylloquinone oxide</th>
+<th align="right">Thr Val Met</th>
+<th align="right">Val Leu Thr</th>
+<th align="right">(2R,3S,4R,5R)-2,3,4,5,6-pentahydroxyhexanoate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">TZW-V0</td>
+<td align="left">V0</td>
+<td align="right">1629500</td>
+<td align="right">630750</td>
+<td align="right">11598000</td>
+<td align="right">1900000</td>
+<td align="right">1048900</td>
+<td align="right">142580.0</td>
+<td align="right">4516900</td>
+<td align="right">1896000</td>
+<td align="right">483960</td>
+<td align="right">75306000</td>
+<td align="right">35820000</td>
+<td align="right">169220</td>
+<td align="right">30462</td>
+<td align="right">169220</td>
+<td align="right">72050</td>
+<td align="right">52622</td>
+<td align="right">48756</td>
+<td align="right">6690500</td>
+<td align="right">382840</td>
+<td align="right">151620</td>
+<td align="right">863010</td>
+<td align="right">3696700</td>
+<td align="right">371890</td>
+<td align="right">419900</td>
+<td align="right">376300</td>
+<td align="right">1992200</td>
+<td align="right">304420</td>
+<td align="right">321110</td>
+<td align="right">243390</td>
+<td align="right">17617</td>
+<td align="right">3885</td>
+<td align="right">1950000</td>
+<td align="right">582200</td>
+<td align="right">208490000</td>
+</tr>
+<tr class="even">
+<td align="left">LBC-V0</td>
+<td align="left">V0</td>
+<td align="right">17057</td>
+<td align="right">220290</td>
+<td align="right">8239500</td>
+<td align="right">68958</td>
+<td align="right">9880900</td>
+<td align="right">6446.1</td>
+<td align="right">313960</td>
+<td align="right">19488000</td>
+<td align="right">569570</td>
+<td align="right">11310000</td>
+<td align="right">81713000</td>
+<td align="right">90812</td>
+<td align="right">9</td>
+<td align="right">90812</td>
+<td align="right">533990</td>
+<td align="right">9</td>
+<td align="right">338900</td>
+<td align="right">1044600</td>
+<td align="right">9</td>
+<td align="right">99102</td>
+<td align="right">468170</td>
+<td align="right">7789300</td>
+<td align="right">46193</td>
+<td align="right">88988</td>
+<td align="right">14154</td>
+<td align="right">463070</td>
+<td align="right">10903</td>
+<td align="right">32430</td>
+<td align="right">29187</td>
+<td align="right">12902000</td>
+<td align="right">9</td>
+<td align="right">333220</td>
+<td align="right">210680</td>
+<td align="right">166450000</td>
+</tr>
+<tr class="odd">
+<td align="left">HXZ-V0</td>
+<td align="left">V0</td>
+<td align="right">3719000</td>
+<td align="right">316360</td>
+<td align="right">91189</td>
+<td align="right">14390000</td>
+<td align="right">37784000</td>
+<td align="right">21965000.0</td>
+<td align="right">459320</td>
+<td align="right">5671200</td>
+<td align="right">8502200</td>
+<td align="right">6758300</td>
+<td align="right">71495000</td>
+<td align="right">518950</td>
+<td align="right">438800</td>
+<td align="right">518950</td>
+<td align="right">1222000</td>
+<td align="right">36295</td>
+<td align="right">953350</td>
+<td align="right">8538900</td>
+<td align="right">88531</td>
+<td align="right">454250</td>
+<td align="right">952750</td>
+<td align="right">56697</td>
+<td align="right">45953</td>
+<td align="right">115110</td>
+<td align="right">2798900</td>
+<td align="right">348560</td>
+<td align="right">79613</td>
+<td align="right">134400</td>
+<td align="right">438750</td>
+<td align="right">7569200</td>
+<td align="right">24432</td>
+<td align="right">747830</td>
+<td align="right">86317</td>
+<td align="right">2163600</td>
+</tr>
+<tr class="even">
+<td align="left">LJY-V0</td>
+<td align="left">V0</td>
+<td align="right">1641600</td>
+<td align="right">285270</td>
+<td align="right">72194</td>
+<td align="right">7366800</td>
+<td align="right">9557700</td>
+<td align="right">3289400.0</td>
+<td align="right">71782</td>
+<td align="right">756830</td>
+<td align="right">30602</td>
+<td align="right">531930</td>
+<td align="right">387590</td>
+<td align="right">1345400</td>
+<td align="right">6488400</td>
+<td align="right">1345400</td>
+<td align="right">544550</td>
+<td align="right">27188</td>
+<td align="right">295820</td>
+<td align="right">3163500</td>
+<td align="right">136380</td>
+<td align="right">180510</td>
+<td align="right">819430</td>
+<td align="right">21168</td>
+<td align="right">171330</td>
+<td align="right">159850</td>
+<td align="right">1478200</td>
+<td align="right">804870</td>
+<td align="right">128420</td>
+<td align="right">910850</td>
+<td align="right">379890</td>
+<td align="right">78433</td>
+<td align="right">459240</td>
+<td align="right">576110</td>
+<td align="right">123100</td>
+<td align="right">1502600</td>
+</tr>
+<tr class="odd">
+<td align="left">CJY-V0</td>
+<td align="left">V0</td>
+<td align="right">9</td>
+<td align="right">45013</td>
+<td align="right">25589</td>
+<td align="right">882500</td>
+<td align="right">561320</td>
+<td align="right">1603.1</td>
+<td align="right">9</td>
+<td align="right">7463500</td>
+<td align="right">556470</td>
+<td align="right">5814900</td>
+<td align="right">13723000</td>
+<td align="right">26319</td>
+<td align="right">9</td>
+<td align="right">26319</td>
+<td align="right">182350</td>
+<td align="right">18175</td>
+<td align="right">135980</td>
+<td align="right">1555700</td>
+<td align="right">38015</td>
+<td align="right">130400</td>
+<td align="right">441760</td>
+<td align="right">3275600</td>
+<td align="right">235320</td>
+<td align="right">154660</td>
+<td align="right">169880</td>
+<td align="right">568150</td>
+<td align="right">35916</td>
+<td align="right">48067</td>
+<td align="right">215340</td>
+<td align="right">328930</td>
+<td align="right">9</td>
+<td align="right">763870</td>
+<td align="right">97575</td>
+<td align="right">900440</td>
+</tr>
+<tr class="even">
+<td align="left">WKM-V0</td>
+<td align="left">V0</td>
+<td align="right">3079600</td>
+<td align="right">228130</td>
+<td align="right">396980</td>
+<td align="right">8410000</td>
+<td align="right">12296000</td>
+<td align="right">7266400.0</td>
+<td align="right">42405</td>
+<td align="right">13785000</td>
+<td align="right">4553400</td>
+<td align="right">9620400</td>
+<td align="right">1311800</td>
+<td align="right">4392400</td>
+<td align="right">9</td>
+<td align="right">4392400</td>
+<td align="right">74831</td>
+<td align="right">79472</td>
+<td align="right">48558</td>
+<td align="right">5309200</td>
+<td align="right">88741</td>
+<td align="right">221440</td>
+<td align="right">593130</td>
+<td align="right">44678</td>
+<td align="right">250550</td>
+<td align="right">140720</td>
+<td align="right">1660200</td>
+<td align="right">522490</td>
+<td align="right">234090</td>
+<td align="right">263740</td>
+<td align="right">415690</td>
+<td align="right">9312900</td>
+<td align="right">586940</td>
+<td align="right">619550</td>
+<td align="right">136990</td>
+<td align="right">8894600</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="functional-analysis-1.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Check metabolites Names of input table. Found &gt;15 compounds without matches.</span></span>
+<span id="cb152-2"><a href="functional-analysis-1.html#cb152-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CrossReferencing</span>(mSet, <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “0”<br />
+[2] “Over half of the compound IDs could not be matched to our database. Please make sure that correct compound IDs or common compound names are used.”</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="functional-analysis-1.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Keep matched metabolites</span></span>
+<span id="cb153-2"><a href="functional-analysis-1.html#cb153-2" aria-hidden="true" tabindex="-1"></a>metabolites_keep <span class="ot">&lt;-</span> mSet<span class="sc">$</span>name.map<span class="sc">$</span>query.vec[mSet<span class="sc">$</span>name.map<span class="sc">$</span>match.state <span class="sc">==</span> <span class="dv">1</span>]</span>
+<span id="cb153-3"><a href="functional-analysis-1.html#cb153-3" aria-hidden="true" tabindex="-1"></a>input_df <span class="ot">&lt;-</span> input_df[<span class="fu">c</span>(<span class="st">&#39;Sample&#39;</span>,<span class="st">&#39;Group&#39;</span>, metabolites_keep)]</span>
+<span id="cb153-4"><a href="functional-analysis-1.html#cb153-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-5"><a href="functional-analysis-1.html#cb153-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Overwrite previously generated abundance csv file with matched metabolites</span></span>
+<span id="cb153-6"><a href="functional-analysis-1.html#cb153-6" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(input_df, <span class="st">&#39;./dataset/OutputFiles/GvHD_stool_metabolites_TM.csv&#39;</span>,<span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb153-7"><a href="functional-analysis-1.html#cb153-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-8"><a href="functional-analysis-1.html#cb153-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Initialize data object again</span></span>
+<span id="cb153-9"><a href="functional-analysis-1.html#cb153-9" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">InitDataObjects</span>(<span class="st">&quot;conc&quot;</span>, <span class="st">&quot;pathqea&quot;</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb153-10"><a href="functional-analysis-1.html#cb153-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-11"><a href="functional-analysis-1.html#cb153-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in updated metabolites abundance table</span></span>
+<span id="cb153-12"><a href="functional-analysis-1.html#cb153-12" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">Read.TextData</span>(mSet, <span class="st">&#39;./dataset/OutputFiles/GvHD_stool_metabolites_TM.csv&#39;</span>, <span class="st">&quot;rowu&quot;</span>, <span class="st">&quot;disc&quot;</span>)</span>
+<span id="cb153-13"><a href="functional-analysis-1.html#cb153-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-14"><a href="functional-analysis-1.html#cb153-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Check Sanity and replace 0</span></span>
+<span id="cb153-15"><a href="functional-analysis-1.html#cb153-15" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">SanityCheckData</span>(mSet)</span></code></pre></div>
+<p>[1] “Successfully passed sanity check!”<br />
+[2] “Samples are not paired.”<br />
+[3] “2 groups were detected in samples.”<br />
+[4] “Only English letters, numbers, underscore, hyphen and forward slash (/) are allowed.”<br />
+[5] “<font color=\"orange\">Other special characters or punctuations (if any) will be stripped off.</font>”<br />
+[6] “All data values are numeric.”<br />
+[7] “A total of 0 (0%) missing values were detected.”<br />
+[8] “<u>By default, missing values will be replaced by 1/5 of min positive values of their corresponding variables</u>”
+[9] “Click the <b>Proceed</b> button if you accept the default practice;”<br />
+[10] “Or click the <b>Missing Values</b> button to use other methods.”</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="functional-analysis-1.html#cb154-1" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">ReplaceMin</span>(mSet)</span>
+<span id="cb154-2"><a href="functional-analysis-1.html#cb154-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-3"><a href="functional-analysis-1.html#cb154-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Check metabolites Names of input table again</span></span>
+<span id="cb154-4"><a href="functional-analysis-1.html#cb154-4" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CrossReferencing</span>(mSet, <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “1” “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="functional-analysis-1.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Creates a mapping result table shows HMDB, KEGG, PubChem, etc. IDs. Saved as &quot;name_map.csv&quot; or can be found in mSet$dataSet$map.table. Compounds with no hits will contain NAs across the columns.</span></span>
+<span id="cb155-2"><a href="functional-analysis-1.html#cb155-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CreateMappingResultTable</span>(mSet)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="functional-analysis-1.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Normalize</span></span>
+<span id="cb156-2"><a href="functional-analysis-1.html#cb156-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PreparePrenormData</span>(mSet)</span>
+<span id="cb156-3"><a href="functional-analysis-1.html#cb156-3" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">Normalization</span>(mSet, <span class="at">rowNorm =</span> <span class="st">&quot;SumNorm&quot;</span>, <span class="at">transNorm =</span> <span class="st">&quot;LogNorm&quot;</span>, <span class="at">scaleNorm =</span> <span class="st">&quot;ParetoNorm&quot;</span>)</span>
+<span id="cb156-4"><a href="functional-analysis-1.html#cb156-4" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PlotNormSummary</span>(mSet, </span>
+<span id="cb156-5"><a href="functional-analysis-1.html#cb156-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">imgName =</span> <span class="st">&quot;./dataset/OutputFiles/kegg_pathnorm_0_&quot;</span>, </span>
+<span id="cb156-6"><a href="functional-analysis-1.html#cb156-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">format =</span> <span class="st">&quot;png&quot;</span>, <span class="at">dpi =</span> <span class="dv">250</span>, <span class="at">width=</span><span class="cn">NA</span>)</span>
+<span id="cb156-7"><a href="functional-analysis-1.html#cb156-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-8"><a href="functional-analysis-1.html#cb156-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;./dataset/OutputFiles/kegg_pathnorm_0_dpi250.png&#39;</span>)</span></code></pre></div>
+<p><img src="dataset/OutputFiles/kegg_pathnorm_0_dpi250.png" width="1312" /></p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="functional-analysis-1.html#cb157-1" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PlotSampleNormSummary</span>(mSet, <span class="st">&quot;./dataset/OutputFiles/kegg_pathsnorm_0_&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="dv">250</span>, <span class="at">width=</span><span class="cn">NA</span>)</span>
+<span id="cb157-2"><a href="functional-analysis-1.html#cb157-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-3"><a href="functional-analysis-1.html#cb157-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;./dataset/OutputFiles/kegg_pathsnorm_0_dpi250.png&#39;</span>)</span></code></pre></div>
+<p><img src="dataset/OutputFiles/kegg_pathsnorm_0_dpi250.png" width="1312" /></p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="functional-analysis-1.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Enrich to KEGG</span></span>
+<span id="cb158-2"><a href="functional-analysis-1.html#cb158-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">SetKEGG.PathLib</span>(mSet, <span class="st">&quot;hsa&quot;</span>, <span class="st">&quot;current&quot;</span>)</span>
+<span id="cb158-3"><a href="functional-analysis-1.html#cb158-3" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">SetMetabolomeFilter</span>(mSet, F)</span>
+<span id="cb158-4"><a href="functional-analysis-1.html#cb158-4" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CalculateQeaScore</span>(mSet, <span class="st">&quot;rbc&quot;</span>, <span class="st">&quot;gt&quot;</span>)</span></code></pre></div>
+<p>[1] “Loaded files from MetaboAnalyst web-server.”
+[1] “<a href="http://api.xialab.ca/pathwayqea" class="uri">http://api.xialab.ca/pathwayqea</a>”
+[1] “Pathway QEA via api.metaboanalyst.ca successful!”</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="functional-analysis-1.html#cb159-1" aria-hidden="true" tabindex="-1"></a>pathway_res <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;./pathway_results.csv&#39;</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb159-2"><a href="functional-analysis-1.html#cb159-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-3"><a href="functional-analysis-1.html#cb159-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(pathway_res))</span></code></pre></div>
+<table>
+<colgroup>
+<col width="44%" />
+<col width="9%" />
+<col width="4%" />
+<col width="8%" />
+<col width="6%" />
+<col width="10%" />
+<col width="8%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Total Cmpd</th>
+<th align="right">Hits</th>
+<th align="right">Raw p</th>
+<th align="right">-log(p)</th>
+<th align="right">Holm adjust</th>
+<th align="right">FDR</th>
+<th align="right">Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Pentose phosphate pathway</td>
+<td align="right">22</td>
+<td align="right">1</td>
+<td align="right">0.0024452</td>
+<td align="right">6.0136</td>
+<td align="right">0.0073355</td>
+<td align="right">0.0073355</td>
+<td align="right">0.04712</td>
+</tr>
+<tr class="even">
+<td align="left">Glycerophospholipid metabolism</td>
+<td align="right">36</td>
+<td align="right">1</td>
+<td align="right">0.0206320</td>
+<td align="right">3.8809</td>
+<td align="right">0.0412630</td>
+<td align="right">0.0267100</td>
+<td align="right">0.00000</td>
+</tr>
+<tr class="odd">
+<td align="left">Ubiquinone and other terpenoid-quinone biosynthesis</td>
+<td align="right">9</td>
+<td align="right">1</td>
+<td align="right">0.0267100</td>
+<td align="right">3.6227</td>
+<td align="right">0.0412630</td>
+<td align="right">0.0267100</td>
+<td align="right">0.00000</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="functional-analysis-1.html#cb160-1" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">PlotPathSummary</span>(mSet, F, <span class="st">&quot;./dataset/OutputFiles/kegg_path_view_0_&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="dv">250</span>, <span class="at">width=</span><span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span> )</span>
+<span id="cb160-2"><a href="functional-analysis-1.html#cb160-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-3"><a href="functional-analysis-1.html#cb160-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;./dataset/OutputFiles/kegg_path_view_0_dpi250.png&#39;</span>)</span></code></pre></div>
+<p><img src="dataset/OutputFiles/kegg_path_view_0_dpi250.png" width="875" /></p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="functional-analysis-1.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot specified pathway map</span></span>
+<span id="cb161-2"><a href="functional-analysis-1.html#cb161-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mSet &lt;- PlotKEGGPath(mSet, &quot;Phenylalanine, tyrosine and tryptophan biosynthesis&quot;,576, 480, &quot;png&quot;, NULL)</span></span>
+<span id="cb161-3"><a href="functional-analysis-1.html#cb161-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mSet &lt;- RerenderMetPAGraph(mSet, &quot;zoom1658398230135.png&quot;,576.0, 480.0, 100.0)</span></span>
+<span id="cb161-4"><a href="functional-analysis-1.html#cb161-4" aria-hidden="true" tabindex="-1"></a><span class="co"># mSet &lt;- PlotKEGGPath(mSet, &quot;Glycine, serine and threonine metabolism&quot;,576, 480, &quot;png&quot;, NULL)</span></span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="session-info" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Session info<a href="functional-analysis-1.html#session-info" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="functional-analysis-1.html#cb162-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
+<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  setting  value
+##  version  R version 4.2.0 (2022-04-22)
+##  os       macOS Monterey 12.5
+##  system   x86_64, darwin17.0
+##  ui       RStudio
+##  language (EN)
+##  collate  zh_CN.UTF-8
+##  ctype    zh_CN.UTF-8
+##  tz       Asia/Shanghai
+##  date     2022-09-19
+##  rstudio  2021.09.1+372 Ghost Orchid (desktop)
+##  pandoc   2.18 @ /usr/local/bin/ (via rmarkdown)
+## 
+## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  package              * version    date (UTC) lib source
+##  abind                  1.4-5      2016-07-21 [1] CRAN (R 4.2.0)
+##  ade4                   1.7-19     2022-04-19 [1] CRAN (R 4.2.0)
+##  annotate               1.74.0     2022-04-26 [1] Bioconductor
+##  AnnotationDbi          1.58.0     2022-04-26 [1] Bioconductor
+##  ape                    5.6-2      2022-03-02 [1] CRAN (R 4.2.0)
+##  assertthat             0.2.1      2019-03-21 [1] CRAN (R 4.2.0)
+##  backports              1.4.1      2021-12-13 [1] CRAN (R 4.2.0)
+##  base64enc              0.1-3      2015-07-28 [1] CRAN (R 4.2.0)
+##  Biobase              * 2.56.0     2022-04-26 [1] Bioconductor
+##  BiocGenerics         * 0.42.0     2022-04-26 [1] Bioconductor
+##  BiocParallel           1.30.3     2022-06-05 [1] Bioconductor
+##  biomformat             1.24.0     2022-04-26 [1] Bioconductor
+##  Biostrings             2.64.0     2022-04-26 [1] Bioconductor
+##  bit                    4.0.4      2020-08-04 [1] CRAN (R 4.2.0)
+##  bit64                  4.0.5      2020-08-30 [1] CRAN (R 4.2.0)
+##  bitops                 1.0-7      2021-04-24 [1] CRAN (R 4.2.0)
+##  blob                   1.2.3      2022-04-10 [1] CRAN (R 4.2.0)
+##  bookdown               0.27       2022-06-14 [1] CRAN (R 4.2.0)
+##  brio                   1.1.3      2021-11-30 [1] CRAN (R 4.2.0)
+##  broom                  0.8.0      2022-04-13 [1] CRAN (R 4.2.0)
+##  bslib                  0.3.1      2021-10-06 [1] CRAN (R 4.2.0)
+##  cachem                 1.0.6      2021-08-19 [1] CRAN (R 4.2.0)
+##  Cairo                  1.5-15     2022-03-16 [1] CRAN (R 4.2.0)
+##  callr                  3.7.0      2021-04-20 [1] CRAN (R 4.2.0)
+##  car                    3.0-13     2022-05-02 [1] CRAN (R 4.2.0)
+##  carData                3.0-5      2022-01-06 [1] CRAN (R 4.2.0)
+##  caret                  6.0-92     2022-04-19 [1] CRAN (R 4.2.0)
+##  caTools                1.18.2     2021-03-28 [1] CRAN (R 4.2.0)
+##  cellranger             1.1.0      2016-07-27 [1] CRAN (R 4.2.0)
+##  checkmate              2.1.0      2022-04-21 [1] CRAN (R 4.2.0)
+##  circlize               0.4.15     2022-05-10 [1] CRAN (R 4.2.0)
+##  class                  7.3-20     2022-01-16 [1] CRAN (R 4.2.0)
+##  cli                    3.3.0      2022-04-25 [1] CRAN (R 4.2.0)
+##  clue                   0.3-61     2022-05-30 [1] CRAN (R 4.2.0)
+##  cluster              * 2.1.3      2022-03-28 [1] CRAN (R 4.2.0)
+##  codetools              0.2-18     2020-11-04 [1] CRAN (R 4.2.0)
+##  colorspace             2.0-3      2022-02-21 [1] CRAN (R 4.2.0)
+##  ComplexHeatmap         2.12.0     2022-04-26 [1] Bioconductor
+##  corpcor                1.6.10     2021-09-16 [1] CRAN (R 4.2.0)
+##  cowplot                1.1.1      2020-12-30 [1] CRAN (R 4.2.0)
+##  crayon                 1.5.1      2022-03-26 [1] CRAN (R 4.2.0)
+##  crmn                   0.0.21     2020-02-10 [1] CRAN (R 4.2.0)
+##  curl                   4.3.2      2021-06-23 [1] CRAN (R 4.2.0)
+##  data.table             1.14.2     2021-09-27 [1] CRAN (R 4.2.0)
+##  DBI                    1.1.2      2021-12-20 [1] CRAN (R 4.2.0)
+##  DelayedArray           0.22.0     2022-04-26 [1] Bioconductor
+##  deldir                 1.0-6      2021-10-23 [1] CRAN (R 4.2.0)
+##  dendextend           * 1.15.2     2021-10-28 [1] CRAN (R 4.2.0)
+##  desc                   1.4.1      2022-03-06 [1] CRAN (R 4.2.0)
+##  devtools               2.4.3      2021-11-30 [1] CRAN (R 4.2.0)
+##  digest                 0.6.29     2021-12-01 [1] CRAN (R 4.2.0)
+##  doParallel             1.0.17     2022-02-07 [1] CRAN (R 4.2.0)
+##  doSNOW                 1.0.20     2022-02-04 [1] CRAN (R 4.2.0)
+##  dplyr                * 1.0.9      2022-04-28 [1] CRAN (R 4.2.0)
+##  dynamicTreeCut         1.63-1     2016-03-11 [1] CRAN (R 4.2.0)
+##  e1071                  1.7-11     2022-06-07 [1] CRAN (R 4.2.0)
+##  edgeR                  3.38.1     2022-05-15 [1] Bioconductor
+##  ellipse                0.4.3      2022-05-31 [1] CRAN (R 4.2.0)
+##  ellipsis               0.3.2      2021-04-29 [1] CRAN (R 4.2.0)
+##  evaluate               0.15       2022-02-18 [1] CRAN (R 4.2.0)
+##  factoextra           * 1.0.7      2020-04-01 [1] CRAN (R 4.2.0)
+##  fansi                  1.0.3      2022-03-24 [1] CRAN (R 4.2.0)
+##  farver                 2.1.0      2021-02-28 [1] CRAN (R 4.2.0)
+##  fastcluster            1.2.3      2021-05-24 [1] CRAN (R 4.2.0)
+##  fastmap                1.1.0      2021-01-25 [1] CRAN (R 4.2.0)
+##  fastmatch              1.1-3      2021-07-23 [1] CRAN (R 4.2.0)
+##  fdrtool                1.2.17     2021-11-13 [1] CRAN (R 4.2.0)
+##  fgsea                  1.22.0     2022-04-26 [1] Bioconductor
+##  filematrix             1.3        2018-02-27 [1] CRAN (R 4.2.0)
+##  foreach                1.5.2      2022-02-02 [1] CRAN (R 4.2.0)
+##  foreign                0.8-82     2022-01-16 [1] CRAN (R 4.2.0)
+##  forestplot             2.0.1      2021-09-03 [1] CRAN (R 4.2.0)
+##  Formula                1.2-4      2020-10-16 [1] CRAN (R 4.2.0)
+##  fs                     1.5.2      2021-12-08 [1] CRAN (R 4.2.0)
+##  future                 1.26.1     2022-05-27 [1] CRAN (R 4.2.0)
+##  future.apply           1.9.0      2022-04-25 [1] CRAN (R 4.2.0)
+##  generics               0.1.2      2022-01-31 [1] CRAN (R 4.2.0)
+##  GenomeInfoDb         * 1.32.1     2022-04-28 [1] Bioconductor
+##  GenomeInfoDbData       1.2.8      2022-05-16 [1] Bioconductor
+##  GenomicRanges        * 1.48.0     2022-04-26 [1] Bioconductor
+##  GetoptLong             1.0.5      2020-12-15 [1] CRAN (R 4.2.0)
+##  ggforce                0.3.4      2022-08-18 [1] CRAN (R 4.2.0)
+##  ggplot2              * 3.3.6      2022-05-03 [1] CRAN (R 4.2.0)
+##  ggpubr                 0.4.0      2020-06-27 [1] CRAN (R 4.2.0)
+##  ggraph               * 2.0.6      2022-08-08 [1] CRAN (R 4.2.0)
+##  ggrepel                0.9.1      2021-01-15 [1] CRAN (R 4.2.0)
+##  ggsignif               0.6.3      2021-09-09 [1] CRAN (R 4.2.0)
+##  glasso                 1.11       2019-10-01 [1] CRAN (R 4.2.0)
+##  glmnet               * 4.1-4      2022-04-15 [1] CRAN (R 4.2.0)
+##  GlobalOptions          0.1.2      2020-06-10 [1] CRAN (R 4.2.0)
+##  globals                0.15.1     2022-06-24 [1] CRAN (R 4.2.0)
+##  globaltest             5.50.0     2022-04-26 [1] Bioconductor
+##  glue                 * 1.6.2      2022-02-24 [1] CRAN (R 4.2.0)
+##  Gmisc                * 3.0.0      2022-01-03 [1] CRAN (R 4.2.0)
+##  gmp                    0.6-5      2022-03-17 [1] CRAN (R 4.2.0)
+##  GO.db                  3.15.0     2022-09-14 [1] Bioconductor
+##  gower                  1.0.0      2022-02-03 [1] CRAN (R 4.2.0)
+##  gplots                 3.1.3      2022-04-25 [1] CRAN (R 4.2.0)
+##  graphlayouts           0.8.1      2022-08-11 [1] CRAN (R 4.2.0)
+##  gridExtra              2.3        2017-09-09 [1] CRAN (R 4.2.0)
+##  gtable                 0.3.0      2019-03-25 [1] CRAN (R 4.2.0)
+##  gtools                 3.9.2.2    2022-06-13 [1] CRAN (R 4.2.0)
+##  hardhat                1.1.0      2022-06-10 [1] CRAN (R 4.2.0)
+##  highr                  0.9        2021-04-16 [1] CRAN (R 4.2.0)
+##  Hmisc                  4.7-1      2022-08-15 [1] CRAN (R 4.2.0)
+##  htmlTable            * 2.4.1      2022-07-07 [1] CRAN (R 4.2.0)
+##  htmltools              0.5.2      2021-08-25 [1] CRAN (R 4.2.0)
+##  htmlwidgets            1.5.4      2021-09-08 [1] CRAN (R 4.2.0)
+##  httr                 * 1.4.3      2022-05-04 [1] CRAN (R 4.2.0)
+##  huge                   1.3.5      2021-06-30 [1] CRAN (R 4.2.0)
+##  igraph                 1.3.1      2022-04-20 [1] CRAN (R 4.2.0)
+##  impute                 1.70.0     2022-04-26 [1] Bioconductor
+##  interp                 1.1-3      2022-07-13 [1] CRAN (R 4.2.0)
+##  ipred                  0.9-13     2022-06-02 [1] CRAN (R 4.2.0)
+##  IRanges              * 2.30.0     2022-04-26 [1] Bioconductor
+##  irlba                  2.3.5      2021-12-06 [1] CRAN (R 4.2.0)
+##  iterators              1.0.14     2022-02-05 [1] CRAN (R 4.2.0)
+##  jpeg                   0.1-9      2021-07-24 [1] CRAN (R 4.2.0)
+##  jquerylib              0.1.4      2021-04-26 [1] CRAN (R 4.2.0)
+##  jsonlite               1.8.0      2022-02-22 [1] CRAN (R 4.2.0)
+##  KEGGREST               1.36.2     2022-06-09 [1] Bioconductor
+##  KernSmooth             2.23-20    2021-05-03 [1] CRAN (R 4.2.0)
+##  knitr                  1.39       2022-04-26 [1] CRAN (R 4.2.0)
+##  labeling               0.4.2      2020-10-20 [1] CRAN (R 4.2.0)
+##  lattice                0.20-45    2021-09-22 [1] CRAN (R 4.2.0)
+##  latticeExtra           0.6-30     2022-07-04 [1] CRAN (R 4.2.0)
+##  lava                   1.6.10     2021-09-02 [1] CRAN (R 4.2.0)
+##  lavaan                 0.6-12     2022-07-04 [1] CRAN (R 4.2.0)
+##  lazyeval               0.2.2      2019-03-15 [1] CRAN (R 4.2.0)
+##  lifecycle              1.0.1      2021-09-24 [1] CRAN (R 4.2.0)
+##  limma                  3.52.2     2022-06-21 [1] Bioconductor
+##  listenv                0.8.0      2019-12-05 [1] CRAN (R 4.2.0)
+##  locfit                 1.5-9.5    2022-03-03 [1] CRAN (R 4.2.0)
+##  lubridate              1.8.0      2021-10-07 [1] CRAN (R 4.2.0)
+##  magrittr             * 2.0.3      2022-03-30 [1] CRAN (R 4.2.0)
+##  MASS                   7.3-56     2022-03-23 [1] CRAN (R 4.2.0)
+##  Matrix               * 1.4-1      2022-03-23 [1] CRAN (R 4.2.0)
+##  MatrixGenerics       * 1.8.1      2022-06-30 [1] Bioconductor
+##  matrixStats          * 0.62.0     2022-04-19 [1] CRAN (R 4.2.0)
+##  memoise                2.0.1      2021-11-26 [1] CRAN (R 4.2.0)
+##  MetaboAnalystR       * 3.2.0      2022-07-01 [1] local
+##  mgcv                   1.8-40     2022-03-29 [1] CRAN (R 4.2.0)
+##  mixedCCA               1.6.2      2022-09-19 [1] Github (irinagain/mixedCCA@4c2b63f)
+##  mixOmics               6.20.0     2022-04-26 [1] Bioconductor (R 4.2.0)
+##  mnormt                 2.1.0      2022-06-07 [1] CRAN (R 4.2.0)
+##  ModelMetrics           1.2.2.2    2020-03-17 [1] CRAN (R 4.2.0)
+##  multtest               2.52.0     2022-04-26 [1] Bioconductor
+##  munsell                0.5.0      2018-06-12 [1] CRAN (R 4.2.0)
+##  mvtnorm                1.1-3      2021-10-08 [1] CRAN (R 4.2.0)
+##  NADA                   1.6-1.1    2020-03-22 [1] CRAN (R 4.2.0)
+##  NetCoMi              * 1.0.3      2022-09-19 [1] Github (stefpeschel/NetCoMi@1260971)
+##  nlme                   3.1-157    2022-03-25 [1] CRAN (R 4.2.0)
+##  nnet                   7.3-17     2022-01-16 [1] CRAN (R 4.2.0)
+##  parallelly             1.32.0     2022-06-07 [1] CRAN (R 4.2.0)
+##  pbapply                1.5-0      2021-09-16 [1] CRAN (R 4.2.0)
+##  pbivnorm               0.6.0      2015-01-23 [1] CRAN (R 4.2.0)
+##  pcaMethods             1.88.0     2022-04-26 [1] Bioconductor
+##  pcaPP                  2.0-2      2022-07-08 [1] CRAN (R 4.2.0)
+##  permute                0.9-7      2022-01-27 [1] CRAN (R 4.2.0)
+##  phyloseq               1.40.0     2022-04-26 [1] Bioconductor
+##  pillar                 1.7.0      2022-02-01 [1] CRAN (R 4.2.0)
+##  pkgbuild               1.3.1      2021-12-20 [1] CRAN (R 4.2.0)
+##  pkgconfig              2.0.3      2019-09-22 [1] CRAN (R 4.2.0)
+##  pkgload                1.2.4      2021-11-30 [1] CRAN (R 4.2.0)
+##  plotly               * 4.10.0     2021-10-09 [1] CRAN (R 4.2.0)
+##  plyr                   1.8.7      2022-03-24 [1] CRAN (R 4.2.0)
+##  png                    0.1-7      2013-12-03 [1] CRAN (R 4.2.0)
+##  polyclip               1.10-0     2019-03-14 [1] CRAN (R 4.2.0)
+##  POMA                 * 1.6.0      2022-04-26 [1] Bioconductor
+##  preprocessCore         1.58.0     2022-04-26 [1] Bioconductor
+##  prettyunits            1.1.1      2020-01-24 [1] CRAN (R 4.2.0)
+##  pROC                   1.18.0     2021-09-03 [1] CRAN (R 4.2.0)
+##  processx               3.5.3      2022-03-25 [1] CRAN (R 4.2.0)
+##  prodlim                2019.11.13 2019-11-17 [1] CRAN (R 4.2.0)
+##  proxy                  0.4-27     2022-06-09 [1] CRAN (R 4.2.0)
+##  ps                     1.7.0      2022-04-23 [1] CRAN (R 4.2.0)
+##  psych                  2.2.5      2022-05-10 [1] CRAN (R 4.2.0)
+##  pulsar                 0.3.8      2022-08-27 [1] CRAN (R 4.2.0)
+##  purrr                  0.3.4      2020-04-17 [1] CRAN (R 4.2.0)
+##  qgraph                 1.9.2      2022-03-04 [1] CRAN (R 4.2.0)
+##  qs                     0.25.3     2022-02-22 [1] CRAN (R 4.2.0)
+##  R6                     2.5.1      2021-08-19 [1] CRAN (R 4.2.0)
+##  randomForest           4.7-1.1    2022-05-23 [1] CRAN (R 4.2.0)
+##  RankProd               3.22.0     2022-04-26 [1] Bioconductor
+##  RApiSerialize          0.1.0      2014-04-19 [1] CRAN (R 4.2.0)
+##  rARPACK                0.11-0     2016-03-10 [1] CRAN (R 4.2.0)
+##  rbibutils              2.2.9      2022-08-15 [1] CRAN (R 4.2.0)
+##  RColorBrewer           1.1-3      2022-04-03 [1] CRAN (R 4.2.0)
+##  Rcpp                 * 1.0.8.3    2022-03-17 [1] CRAN (R 4.2.0)
+##  RcppParallel           5.1.5      2022-01-05 [1] CRAN (R 4.2.0)
+##  RCurl                  1.98-1.6   2022-02-08 [1] CRAN (R 4.2.0)
+##  Rdpack                 2.4        2022-07-20 [1] CRAN (R 4.2.0)
+##  readxl               * 1.4.0      2022-03-28 [1] CRAN (R 4.2.0)
+##  recipes                0.2.0      2022-02-18 [1] CRAN (R 4.2.0)
+##  remotes                2.4.2      2021-11-30 [1] CRAN (R 4.2.0)
+##  reshape2               1.4.4      2020-04-09 [1] CRAN (R 4.2.0)
+##  rhdf5                  2.40.0     2022-04-26 [1] Bioconductor
+##  rhdf5filters           1.8.0      2022-04-26 [1] Bioconductor
+##  Rhdf5lib               1.18.0     2022-04-26 [1] Bioconductor
+##  rjson                  0.2.21     2022-01-09 [1] CRAN (R 4.2.0)
+##  rlang                  1.0.2      2022-03-04 [1] CRAN (R 4.2.0)
+##  rmarkdown              2.14       2022-04-25 [1] CRAN (R 4.2.0)
+##  Rmpfr                  0.8-9      2022-06-03 [1] CRAN (R 4.2.0)
+##  rootSolve              1.8.2.3    2021-09-29 [1] CRAN (R 4.2.0)
+##  rpart                  4.1.16     2022-01-24 [1] CRAN (R 4.2.0)
+##  rprojroot              2.0.3      2022-04-02 [1] CRAN (R 4.2.0)
+##  Rserve               * 1.8-10     2021-11-25 [1] CRAN (R 4.2.0)
+##  RSpectra               0.16-1     2022-04-24 [1] CRAN (R 4.2.0)
+##  RSQLite                2.2.14     2022-05-07 [1] CRAN (R 4.2.0)
+##  rstatix                0.7.0      2021-02-13 [1] CRAN (R 4.2.0)
+##  rstudioapi             0.13       2020-11-12 [1] CRAN (R 4.2.0)
+##  S4Vectors            * 0.34.0     2022-04-26 [1] Bioconductor
+##  sass                   0.4.1      2022-03-23 [1] CRAN (R 4.2.0)
+##  scales                 1.2.0      2022-04-13 [1] CRAN (R 4.2.0)
+##  scrime                 1.3.5      2018-12-01 [1] CRAN (R 4.2.0)
+##  sessioninfo            1.2.2      2021-12-06 [1] CRAN (R 4.2.0)
+##  shape                  1.4.6      2021-05-19 [1] CRAN (R 4.2.0)
+##  siggenes               1.70.0     2022-04-26 [1] Bioconductor
+##  snow                   0.4-4      2021-10-27 [1] CRAN (R 4.2.0)
+##  SpiecEasi            * 1.1.2      2022-09-19 [1] Github (zdk123/SpiecEasi@c463727)
+##  SPRING               * 1.0.4      2022-09-19 [1] Github (GraceYoon/SPRING@3d641a4)
+##  stringfish             0.15.7     2022-04-13 [1] CRAN (R 4.2.0)
+##  stringi                1.7.6      2021-11-29 [1] CRAN (R 4.2.0)
+##  stringr                1.4.0      2019-02-10 [1] CRAN (R 4.2.0)
+##  SummarizedExperiment * 1.26.1     2022-05-01 [1] Bioconductor
+##  survival               3.3-1      2022-03-03 [1] CRAN (R 4.2.0)
+##  testthat               3.1.4      2022-04-26 [1] CRAN (R 4.2.0)
+##  tibble               * 3.1.7      2022-05-03 [1] CRAN (R 4.2.0)
+##  tidygraph              1.2.2      2022-08-22 [1] CRAN (R 4.2.0)
+##  tidyr                  1.2.0      2022-02-01 [1] CRAN (R 4.2.0)
+##  tidyselect             1.1.2      2022-02-21 [1] CRAN (R 4.2.0)
+##  timeDate               3043.102   2018-02-21 [1] CRAN (R 4.2.0)
+##  truncnorm              1.0-8      2018-02-27 [1] CRAN (R 4.2.0)
+##  tweenr                 2.0.2      2022-09-06 [1] CRAN (R 4.2.0)
+##  usethis                2.1.6      2022-05-25 [1] CRAN (R 4.2.0)
+##  utf8                   1.2.2      2021-07-24 [1] CRAN (R 4.2.0)
+##  vctrs                  0.4.1      2022-04-13 [1] CRAN (R 4.2.0)
+##  vegan                  2.6-2      2022-04-17 [1] CRAN (R 4.2.0)
+##  VGAM                   1.1-6      2022-02-14 [1] CRAN (R 4.2.0)
+##  viridis                0.6.2      2021-10-13 [1] CRAN (R 4.2.0)
+##  viridisLite            0.4.0      2021-04-13 [1] CRAN (R 4.2.0)
+##  WGCNA                  1.71       2022-04-22 [1] CRAN (R 4.2.0)
+##  withr                  2.5.0      2022-03-03 [1] CRAN (R 4.2.0)
+##  xfun                   0.31       2022-05-10 [1] CRAN (R 4.2.0)
+##  XML                    3.99-0.10  2022-06-09 [1] CRAN (R 4.2.0)
+##  xtable                 1.8-4      2019-04-21 [1] CRAN (R 4.2.0)
+##  XVector                0.36.0     2022-04-26 [1] Bioconductor
+##  yaml                   2.3.5      2022-02-21 [1] CRAN (R 4.2.0)
+##  zCompositions          1.4.0-1    2022-03-26 [1] CRAN (R 4.2.0)
+##  zlibbioc               1.42.0     2022-04-26 [1] Bioconductor
+## 
+##  [1] /Library/Frameworks/R.framework/Versions/4.2/Resources/library
+## 
+## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="statistical-analysis-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="example.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/XbiomeAnalysis/Metabolomics_Aanlysis/blob/main/02-Functional-Analysis.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true,
+"toc_depth": 3
+}
+});
+});
+</script>
+
+</body>
+
+</html>
