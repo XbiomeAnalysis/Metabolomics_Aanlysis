@@ -4,25 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Statistical Analysis | Functional Analysis</title>
+  <title>Chapter 2 Statistical Analysis | Data Analysis in Metabolomics</title>
   <meta name="description" content="A template for Data Analysis in Metabolomics" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Statistical Analysis | Functional Analysis" />
+  <meta property="og:title" content="Chapter 2 Statistical Analysis | Data Analysis in Metabolomics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A template for Data Analysis in Metabolomics" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Statistical Analysis | Functional Analysis" />
+  <meta name="twitter:title" content="Chapter 2 Statistical Analysis | Data Analysis in Metabolomics" />
   
   <meta name="twitter:description" content="A template for Data Analysis in Metabolomics" />
   
 
-<meta name="author" content="BangzhuoTong" />
+<meta name="author" content="Hua Zou and Bangzhuo Tong" />
 
 
+<meta name="date" content="2022-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -312,7 +313,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Functional Analysis</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analysis in Metabolomics</a>
           </h1>
         </div>
 
@@ -355,18 +356,20 @@ div.csl-indent {
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="statistical-analysis-1.html#cb2-1" aria-hidden="true" tabindex="-1"></a>profile <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&quot;./dataset/OmicsDataSet-Zeybel-2022.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="dv">6</span>)</span>
 <span id="cb2-2"><a href="statistical-analysis-1.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(profile)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 67
-##   BIOCHEMICAL        `SUPER PATHWAY` `SUB PATHWAY` `COMP ID` PLATFORM `CHEMICAL ID`    RI  MASS PUBCHEM CAS   KEGG  `SampleID HMDB…` P101001 P101012 P101030 P101031 P101050 P101059 P101071 P101072 P101084
-##   &lt;chr&gt;              &lt;chr&gt;           &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-## 1 (14 or 15)-methyl… Lipid           Fatty Acid, …     38768 LC/MS N…     100002945  5695  269. 8181;1… &lt;NA&gt;  C169… HMDB0061859       5.11e7  5.12e7  3.84e7  5.91e7  2.20e7  2.26e7  3.24e7  3.42e7  2.91e7
-## 2 (16 or 17)-methyl… Lipid           Fatty Acid, …     38296 LC/MS N…     100002356  5993  297. 3083779 2724… &lt;NA&gt;  HMDB0037397       5.11e6  6.00e6  2.86e6  4.72e6  2.90e6  2.20e6  3.00e6  4.68e6  3.65e6
-## 3 (2 or 3)-decenoat… Lipid           Medium Chain…     63436 LC/MS N…     100021502  4990  169. &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;              7.57e5  5.98e5  3.67e5  5.12e5  3.17e5  7.35e5  5.97e5  3.17e5  4.97e5
-## 4 (2,4 or 2,5)-dime… Xenobiotics     Food Compone…     62533 LC/MS N…     100020519  3474  201. &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;             NA      NA       5.64e5  7.38e4  1.14e5 NA      NA       6.80e5 NA     
-## 5 (N(1) + N(8))-ace… Amino Acid      Polyamine Me…     57814 LC/MS P…     100016038  3080  188. 123689… &lt;NA&gt;  C006… HMDB0001276,HMD…  2.82e5  2.49e5  2.31e5  3.15e5  2.54e5  1.82e5  4.12e5  3.36e5  2.28e5
-## 6 (R)-3-hydroxybuty… Lipid           Fatty Acid M…     43264 LC/MS P…     100003926  2400  248. 534816… &lt;NA&gt;  &lt;NA&gt;  HMDB0013127      NA      NA      NA      NA       1.27e5 NA      NA       1.23e5  2.01e5
-## # … with 46 more variables: P101003 &lt;dbl&gt;, P101004 &lt;dbl&gt;, P101013 &lt;dbl&gt;, P101016 &lt;dbl&gt;, P101017 &lt;dbl&gt;, P101038 &lt;dbl&gt;, P101051 &lt;dbl&gt;, P101061 &lt;dbl&gt;, P101062 &lt;dbl&gt;, P101074 &lt;dbl&gt;, P101075 &lt;dbl&gt;,
-## #   P101076 &lt;dbl&gt;, P101085 &lt;dbl&gt;, P101088 &lt;dbl&gt;, P101007 &lt;dbl&gt;, P101018 &lt;dbl&gt;, P101019 &lt;dbl&gt;, P101041 &lt;dbl&gt;, P101052 &lt;dbl&gt;, P101064 &lt;dbl&gt;, P101065 &lt;dbl&gt;, P101077 &lt;dbl&gt;, P101090 &lt;dbl&gt;, P101094 &lt;dbl&gt;,
-## #   P101009 &lt;dbl&gt;, P101010 &lt;dbl&gt;, P101021 &lt;dbl&gt;, P101022 &lt;dbl&gt;, P101042 &lt;dbl&gt;, P101054 &lt;dbl&gt;, P101056 &lt;dbl&gt;, P101067 &lt;dbl&gt;, P101068 &lt;dbl&gt;, P101079 &lt;dbl&gt;, P101095 &lt;dbl&gt;, P101096 &lt;dbl&gt;, P101011 &lt;dbl&gt;,
-## #   P101024 &lt;dbl&gt;, P101025 &lt;dbl&gt;, P101027 &lt;dbl&gt;, P101047 &lt;dbl&gt;, P101057 &lt;dbl&gt;, P101069 &lt;dbl&gt;, P101080 &lt;dbl&gt;, P101081 &lt;dbl&gt;, P101082 &lt;dbl&gt;</code></pre>
+##   BIOCHEMICAL    `SUPER PATHWAY` `SUB PATHWAY` `COMP ID` PLATFORM `CHEMICAL ID`    RI  MASS PUBCHEM CAS   KEGG  `SampleID HMDB…` P101001 P101012 P101030
+##   &lt;chr&gt;          &lt;chr&gt;           &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (14 or 15)-me… Lipid           Fatty Acid, …     38768 LC/MS N…     100002945  5695  269. 8181;1… &lt;NA&gt;  C169… HMDB0061859       5.11e7  5.12e7  3.84e7
+## 2 (16 or 17)-me… Lipid           Fatty Acid, …     38296 LC/MS N…     100002356  5993  297. 3083779 2724… &lt;NA&gt;  HMDB0037397       5.11e6  6.00e6  2.86e6
+## 3 (2 or 3)-dece… Lipid           Medium Chain…     63436 LC/MS N…     100021502  4990  169. &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;              7.57e5  5.98e5  3.67e5
+## 4 (2,4 or 2,5)-… Xenobiotics     Food Compone…     62533 LC/MS N…     100020519  3474  201. &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;             NA      NA       5.64e5
+## 5 (N(1) + N(8))… Amino Acid      Polyamine Me…     57814 LC/MS P…     100016038  3080  188. 123689… &lt;NA&gt;  C006… HMDB0001276,HMD…  2.82e5  2.49e5  2.31e5
+## 6 (R)-3-hydroxy… Lipid           Fatty Acid M…     43264 LC/MS P…     100003926  2400  248. 534816… &lt;NA&gt;  &lt;NA&gt;  HMDB0013127      NA      NA      NA     
+## # … with 52 more variables: P101031 &lt;dbl&gt;, P101050 &lt;dbl&gt;, P101059 &lt;dbl&gt;, P101071 &lt;dbl&gt;, P101072 &lt;dbl&gt;, P101084 &lt;dbl&gt;, P101003 &lt;dbl&gt;, P101004 &lt;dbl&gt;,
+## #   P101013 &lt;dbl&gt;, P101016 &lt;dbl&gt;, P101017 &lt;dbl&gt;, P101038 &lt;dbl&gt;, P101051 &lt;dbl&gt;, P101061 &lt;dbl&gt;, P101062 &lt;dbl&gt;, P101074 &lt;dbl&gt;, P101075 &lt;dbl&gt;,
+## #   P101076 &lt;dbl&gt;, P101085 &lt;dbl&gt;, P101088 &lt;dbl&gt;, P101007 &lt;dbl&gt;, P101018 &lt;dbl&gt;, P101019 &lt;dbl&gt;, P101041 &lt;dbl&gt;, P101052 &lt;dbl&gt;, P101064 &lt;dbl&gt;,
+## #   P101065 &lt;dbl&gt;, P101077 &lt;dbl&gt;, P101090 &lt;dbl&gt;, P101094 &lt;dbl&gt;, P101009 &lt;dbl&gt;, P101010 &lt;dbl&gt;, P101021 &lt;dbl&gt;, P101022 &lt;dbl&gt;, P101042 &lt;dbl&gt;,
+## #   P101054 &lt;dbl&gt;, P101056 &lt;dbl&gt;, P101067 &lt;dbl&gt;, P101068 &lt;dbl&gt;, P101079 &lt;dbl&gt;, P101095 &lt;dbl&gt;, P101096 &lt;dbl&gt;, P101011 &lt;dbl&gt;, P101024 &lt;dbl&gt;,
+## #   P101025 &lt;dbl&gt;, P101027 &lt;dbl&gt;, P101047 &lt;dbl&gt;, P101057 &lt;dbl&gt;, P101069 &lt;dbl&gt;, P101080 &lt;dbl&gt;, P101081 &lt;dbl&gt;, P101082 &lt;dbl&gt;</code></pre>
 <ul>
 <li>metadata table</li>
 </ul>
@@ -1735,27 +1738,34 @@ from <code>SpiecEasi</code> package))</p></li>
 <span id="cb93-3"><a href="statistical-analysis-1.html#cb93-3" aria-hidden="true" tabindex="-1"></a>features_tab[<span class="fu">is.na</span>(features_tab)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb93-4"><a href="statistical-analysis-1.html#cb93-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb93-5"><a href="statistical-analysis-1.html#cb93-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(features_tab)</span></code></pre></div>
-<pre><code>##           M_52603  M_19130   M_39270 M_35186 M_34214  M_49617  M_52710  M_53189   M_34419  M_36600  M_54885  M_32350 M_55041   M_48258 M_35628  M_33230   M_52462  M_52464   M_52454   M_52610   M_42446
-## P101001  94392176 25632184  959249.2 8141286 8284910 381540.1 47739292 392911.0 306346432  9887348 298886.1 627613.7 3655240 181136336 6548460 19098412 486910976  6794782 274026048 206279104 712253440
-## P101004 115155104 25106562  785895.0 4303854 7923489 588488.2 43678784 300383.9 263333424  9703074 356274.3 339586.8 1637351 115752200 3455001 10641834 380887616  4090405 282066016 253920496 807180352
-## P101007  79582632 31371314 1903592.4 7129884 9211485 464548.8 53975068 539361.5 191261648  6431966 393623.0 662555.6 7284474 102036920 3640571 14977371 515795264 13183206 309709728 316142400 715500800
-## P101009 118408760 27787270  863701.9 5394354 8559147 497342.0 47619564 487186.2 232171184 11914472 599783.6 492430.9 3065707 118663320 5087503 13575508 390977568  7596680 325723168 232534688 742576768
-## P101010  92508664 26685844 1177860.8 6270727 7623603 457409.1 61906028 236719.5 183104336  9366287 280123.8 373484.2 2493687 154183360 5244878 19464998 478479936  5395172 382690720 262177072 642967424
-## P101011  94076424 27780988  638271.3 4292087 6074633 238781.8 40534280 279118.7 164623888  6003700 349482.3 608671.7 2653816  76137216 2238570  8797510 420938976  4854076 261022832 264648720 728199680
-##           M_52461  M_52616   M_33955 M_35631   M_42450  M_52447  M_52449   M_52452   M_52438   M_33961 M_42398  M_47403  M_57547   M_19266   M_63739  M_57663 M_42489  M_37253  M_45095   M_53229   M_55072
-## P101001 486655872 12365879 448634784 4035864 358896736 30252208 43173148 510461472 181406848 191147264 6137137 209255.5 169297.7 176944.80  761146.2 719237.9 2865827 411578.0 751527.3  768160.4  488544.9
-## P101004 439253152 10655923 413690720 3446139 282910752 19424238 30030992 573170816 122556968 166379712 5143481 220424.3 426227.5      0.00  549097.4 364556.1 1546570 425030.0 378033.7  953194.9  653107.0
-## P101007 448578400 14010174 368849632 3764448 404918560 57376512 50766284 588643712 181572112 189915296 7412535 369675.0 561078.5 385203.22  792883.2 500680.8 1403190 742298.0 589506.3 1619436.8  522721.5
-## P101009 473622240 14814230 365712768 3444159 298822048 26429340 43420376 631965888 208484000 186599152 5421984 172995.7 457043.3      0.00  727360.0 523549.1 1653830 466825.0 503910.2  877530.2  873616.8
-## P101010 647036736 12873290 376101984 3276579 373251712 21732290 43622724 590247424 306379392 217632736 5767624 168503.4 602024.4      0.00  913964.4 455201.1 1007203 232876.0 489013.9  993923.4  864624.8
-## P101011 378921056 13152187 348108832 2364665 335196864 21960100 39447380 560182336 136970272 170865408 3588338 375137.6 304329.9  90888.59 1609550.0 449288.0 1818438 651777.4 785751.6 1092817.9 1360312.8
-##          M_47118  M_35253   M_46115 M_62952  M_63681 M_63361
-## P101001 281162.7 27446600 1578011.4 5104806 434480.3 2540280
-## P101004 362380.0 28088842  440408.7 3084011 373229.5 2165454
-## P101007 482046.2 21613430  794592.2 4728273 400386.6 2231037
-## P101009 619943.9 28872470  671497.6 4140767 301840.8       0
-## P101010 677774.7 25375946 1133763.9 2434359 548330.4 1125607
-## P101011 208040.6 17388928 1635119.5 5722723 344799.8       0</code></pre>
+<pre><code>##           M_52603  M_19130   M_39270 M_35186 M_34214  M_49617  M_52710  M_53189   M_34419  M_36600  M_54885  M_32350 M_55041   M_48258 M_35628  M_33230
+## P101001  94392176 25632184  959249.2 8141286 8284910 381540.1 47739292 392911.0 306346432  9887348 298886.1 627613.7 3655240 181136336 6548460 19098412
+## P101004 115155104 25106562  785895.0 4303854 7923489 588488.2 43678784 300383.9 263333424  9703074 356274.3 339586.8 1637351 115752200 3455001 10641834
+## P101007  79582632 31371314 1903592.4 7129884 9211485 464548.8 53975068 539361.5 191261648  6431966 393623.0 662555.6 7284474 102036920 3640571 14977371
+## P101009 118408760 27787270  863701.9 5394354 8559147 497342.0 47619564 487186.2 232171184 11914472 599783.6 492430.9 3065707 118663320 5087503 13575508
+## P101010  92508664 26685844 1177860.8 6270727 7623603 457409.1 61906028 236719.5 183104336  9366287 280123.8 373484.2 2493687 154183360 5244878 19464998
+## P101011  94076424 27780988  638271.3 4292087 6074633 238781.8 40534280 279118.7 164623888  6003700 349482.3 608671.7 2653816  76137216 2238570  8797510
+##           M_52462  M_52464   M_52454   M_52610   M_42446   M_52461  M_52616   M_33955 M_35631   M_42450  M_52447  M_52449   M_52452   M_52438   M_33961
+## P101001 486910976  6794782 274026048 206279104 712253440 486655872 12365879 448634784 4035864 358896736 30252208 43173148 510461472 181406848 191147264
+## P101004 380887616  4090405 282066016 253920496 807180352 439253152 10655923 413690720 3446139 282910752 19424238 30030992 573170816 122556968 166379712
+## P101007 515795264 13183206 309709728 316142400 715500800 448578400 14010174 368849632 3764448 404918560 57376512 50766284 588643712 181572112 189915296
+## P101009 390977568  7596680 325723168 232534688 742576768 473622240 14814230 365712768 3444159 298822048 26429340 43420376 631965888 208484000 186599152
+## P101010 478479936  5395172 382690720 262177072 642967424 647036736 12873290 376101984 3276579 373251712 21732290 43622724 590247424 306379392 217632736
+## P101011 420938976  4854076 261022832 264648720 728199680 378921056 13152187 348108832 2364665 335196864 21960100 39447380 560182336 136970272 170865408
+##         M_42398  M_47403  M_57547   M_19266   M_63739  M_57663 M_42489  M_37253  M_45095   M_53229   M_55072  M_47118  M_35253   M_46115 M_62952
+## P101001 6137137 209255.5 169297.7 176944.80  761146.2 719237.9 2865827 411578.0 751527.3  768160.4  488544.9 281162.7 27446600 1578011.4 5104806
+## P101004 5143481 220424.3 426227.5      0.00  549097.4 364556.1 1546570 425030.0 378033.7  953194.9  653107.0 362380.0 28088842  440408.7 3084011
+## P101007 7412535 369675.0 561078.5 385203.22  792883.2 500680.8 1403190 742298.0 589506.3 1619436.8  522721.5 482046.2 21613430  794592.2 4728273
+## P101009 5421984 172995.7 457043.3      0.00  727360.0 523549.1 1653830 466825.0 503910.2  877530.2  873616.8 619943.9 28872470  671497.6 4140767
+## P101010 5767624 168503.4 602024.4      0.00  913964.4 455201.1 1007203 232876.0 489013.9  993923.4  864624.8 677774.7 25375946 1133763.9 2434359
+## P101011 3588338 375137.6 304329.9  90888.59 1609550.0 449288.0 1818438 651777.4 785751.6 1092817.9 1360312.8 208040.6 17388928 1635119.5 5722723
+##          M_63681 M_63361
+## P101001 434480.3 2540280
+## P101004 373229.5 2165454
+## P101007 400386.6 2231037
+## P101009 301840.8       0
+## P101010 548330.4 1125607
+## P101011 344799.8       0</code></pre>
 </div>
 <div id="associations-among-features" class="section level3 hasAnchor" number="2.6.5">
 <h3><span class="header-section-number">2.6.5</span> Associations Among Features<a href="statistical-analysis-1.html#associations-among-features" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -2172,7 +2182,7 @@ from <code>SpiecEasi</code> package))</p></li>
 <div id="systematic-information" class="section level2 hasAnchor" number="2.7">
 <h2><span class="header-section-number">2.7</span> Systematic Information<a href="statistical-analysis-1.html#systematic-information" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="statistical-analysis-1.html#cb110-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
-<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
 ##  version  R version 4.2.0 (2022-04-22)
 ##  os       macOS Monterey 12.5
@@ -2182,11 +2192,11 @@ from <code>SpiecEasi</code> package))</p></li>
 ##  collate  zh_CN.UTF-8
 ##  ctype    zh_CN.UTF-8
 ##  tz       Asia/Shanghai
-##  date     2022-09-19
+##  date     2022-09-20
 ##  rstudio  2021.09.1+372 Ghost Orchid (desktop)
 ##  pandoc   2.18 @ /usr/local/bin/ (via rmarkdown)
 ## 
-## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  package              * version    date (UTC) lib source
 ##  abind                  1.4-5      2016-07-21 [1] CRAN (R 4.2.0)
 ##  ade4                   1.7-19     2022-04-19 [1] CRAN (R 4.2.0)
@@ -2419,7 +2429,7 @@ from <code>SpiecEasi</code> package))</p></li>
 ## 
 ##  [1] /Library/Frameworks/R.framework/Versions/4.2/Resources/library
 ## 
-## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
 
 </div>
 </div>

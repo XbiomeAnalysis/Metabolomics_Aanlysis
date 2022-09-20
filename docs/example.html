@@ -4,25 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Example | Functional Analysis</title>
+  <title>Chapter 4 Example | Data Analysis in Metabolomics</title>
   <meta name="description" content="A template for Data Analysis in Metabolomics" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Example | Functional Analysis" />
+  <meta property="og:title" content="Chapter 4 Example | Data Analysis in Metabolomics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A template for Data Analysis in Metabolomics" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Example | Functional Analysis" />
+  <meta name="twitter:title" content="Chapter 4 Example | Data Analysis in Metabolomics" />
   
   <meta name="twitter:description" content="A template for Data Analysis in Metabolomics" />
   
 
-<meta name="author" content="BangzhuoTong" />
+<meta name="author" content="Hua Zou and Bangzhuo Tong" />
 
 
+<meta name="date" content="2022-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -312,7 +313,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Functional Analysis</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analysis in Metabolomics</a>
           </h1>
         </div>
 
@@ -376,45 +377,54 @@ div.csl-indent {
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="example.html#cb165-1" aria-hidden="true" tabindex="-1"></a>profile <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&quot;./dataset/GvHD_stool_metabolites_TM.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
 <span id="cb165-2"><a href="example.html#cb165-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(profile)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 78
-##   Index     Compounds  物质  `Class I` 物质一级分类 `Class II` 物质二级分类 `Q1 (Da)` `Molecular Wei…` `Ionization mo…` Formula `KEGG ID` HMDB  `Pubchem CID` CAS   ChEBI Metlin  mix01  mix02  mix03  mix04
-##   &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-## 1 MEDL00066 2-Hydroxy… -     -         -            -          -                 117.             118. [M-H]-           C5H10O3 -         HMDB… 95433         3739… 68454 6416   1.04e6 1.16e6 1.17e6 981970
-## 2 MEDL00356 Phe-Asp    -     -         -            -          -                 245.             348. [M+H-2H2O]+      C13H16… -         HMDB… 6992643       2282… -     -      3.14e5 2.88e5 2.80e5 265550
-## 3 MEDL00369 Glu-Phe    -     -         -            -          -                 293.             294. [M-H]-           C14H18… -         HMDB… 18653118      -     -     -      3.30e4 3.76e4 2.95e4  36386
-## 4 MEDL00375 Glu-Trp    -     -         -            -          -                 334.             333. [M+H]+           C16H19… -         HMDB… 100094        -     73512 -      4.36e5 4.28e5 4.53e5 490780
-## 5 MEDL00392 1-Oleoyl-… -     -         -            -          -                 525.             521. [M+H]+           C26H52… -         HMDB… 16081932      1942… 28610 184    1.83e5 1.96e5 2.06e5 195750
-## 6 MEDL00401 Confertif… -     -         -            -          -                 233.             234. [M-H]-           C15H22… C09376    -     435751        1811… -     -      1.11e4 1.11e4 1.11e4  11020
-## # … with 57 more variables: mix05 &lt;dbl&gt;, mix06 &lt;dbl&gt;, mix07 &lt;dbl&gt;, `TZW-V0` &lt;dbl&gt;, `LBC-V0` &lt;dbl&gt;, `HXZ-V0` &lt;dbl&gt;, `LJY-V0` &lt;dbl&gt;, `CJY-V0` &lt;dbl&gt;, `WKM-V0` &lt;dbl&gt;, `WJH-V0` &lt;dbl&gt;, `ZTX2-V0` &lt;dbl&gt;,
-## #   `DGL-V0` &lt;dbl&gt;, `ZHP-V0` &lt;dbl&gt;, `MZH-V0` &lt;dbl&gt;, `WL-V0` &lt;dbl&gt;, `LWJ2-V0` &lt;dbl&gt;, `SZP-V0` &lt;dbl&gt;, `LPQ-V0` &lt;dbl&gt;, `LHR-V0` &lt;dbl&gt;, `XQ-V0` &lt;dbl&gt;, `LJD-V0` &lt;dbl&gt;, `LXH-V0` &lt;dbl&gt;, `YF-V0` &lt;dbl&gt;,
-## #   `ZJW-V0` &lt;dbl&gt;, `LHC-V0` &lt;dbl&gt;, `LQB-V0` &lt;dbl&gt;, `LWL-V0` &lt;dbl&gt;, `XD-V0` &lt;dbl&gt;, `ZCY-V0` &lt;dbl&gt;, `ZTX1-V0` &lt;dbl&gt;, `TZW-V1` &lt;dbl&gt;, `HXZ-V1` &lt;dbl&gt;, `LJY-V1` &lt;dbl&gt;, `CJY-V1` &lt;dbl&gt;, `WKM-V1` &lt;dbl&gt;,
-## #   `WJH-V1` &lt;dbl&gt;, `ZTX2-V1` &lt;dbl&gt;, `DGL-V1` &lt;dbl&gt;, `ZHP-V1` &lt;dbl&gt;, `MZH-V1` &lt;dbl&gt;, `WL-V1` &lt;dbl&gt;, `LWJ2-V1` &lt;dbl&gt;, `SZP-V1` &lt;dbl&gt;, `YF-V1` &lt;dbl&gt;, `LPQ-V1` &lt;dbl&gt;, `LHR-V1` &lt;dbl&gt;, `XQ-V1` &lt;dbl&gt;,
-## #   `LJD-V1` &lt;dbl&gt;, `LXH-V1` &lt;dbl&gt;, `ZJW-V1` &lt;dbl&gt;, `LHC-V1` &lt;dbl&gt;, `LBC-V1` &lt;dbl&gt;, `ZTX1-V1` &lt;dbl&gt;, `LQB-V1` &lt;dbl&gt;, `LWL-V1` &lt;dbl&gt;, `ZCY-V1` &lt;dbl&gt;, `XD-V1` &lt;dbl&gt;</code></pre>
+##   Index Compounds 物质  `Class I` 物质一级分类 `Class II` 物质二级分类 `Q1 (Da)` `Molecular Wei…` `Ionization mo…` Formula `KEGG ID` HMDB  `Pubchem CID`
+##   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;        
+## 1 MEDL… 2-Hydrox… -     -         -            -          -                 117.             118. [M-H]-           C5H10O3 -         HMDB… 95433        
+## 2 MEDL… Phe-Asp   -     -         -            -          -                 245.             348. [M+H-2H2O]+      C13H16… -         HMDB… 6992643      
+## 3 MEDL… Glu-Phe   -     -         -            -          -                 293.             294. [M-H]-           C14H18… -         HMDB… 18653118     
+## 4 MEDL… Glu-Trp   -     -         -            -          -                 334.             333. [M+H]+           C16H19… -         HMDB… 100094       
+## 5 MEDL… 1-Oleoyl… -     -         -            -          -                 525.             521. [M+H]+           C26H52… -         HMDB… 16081932     
+## 6 MEDL… Conferti… -     -         -            -          -                 233.             234. [M-H]-           C15H22… C09376    -     435751       
+## # … with 64 more variables: CAS &lt;chr&gt;, ChEBI &lt;chr&gt;, Metlin &lt;chr&gt;, mix01 &lt;dbl&gt;, mix02 &lt;dbl&gt;, mix03 &lt;dbl&gt;, mix04 &lt;dbl&gt;, mix05 &lt;dbl&gt;, mix06 &lt;dbl&gt;,
+## #   mix07 &lt;dbl&gt;, `TZW-V0` &lt;dbl&gt;, `LBC-V0` &lt;dbl&gt;, `HXZ-V0` &lt;dbl&gt;, `LJY-V0` &lt;dbl&gt;, `CJY-V0` &lt;dbl&gt;, `WKM-V0` &lt;dbl&gt;, `WJH-V0` &lt;dbl&gt;, `ZTX2-V0` &lt;dbl&gt;,
+## #   `DGL-V0` &lt;dbl&gt;, `ZHP-V0` &lt;dbl&gt;, `MZH-V0` &lt;dbl&gt;, `WL-V0` &lt;dbl&gt;, `LWJ2-V0` &lt;dbl&gt;, `SZP-V0` &lt;dbl&gt;, `LPQ-V0` &lt;dbl&gt;, `LHR-V0` &lt;dbl&gt;, `XQ-V0` &lt;dbl&gt;,
+## #   `LJD-V0` &lt;dbl&gt;, `LXH-V0` &lt;dbl&gt;, `YF-V0` &lt;dbl&gt;, `ZJW-V0` &lt;dbl&gt;, `LHC-V0` &lt;dbl&gt;, `LQB-V0` &lt;dbl&gt;, `LWL-V0` &lt;dbl&gt;, `XD-V0` &lt;dbl&gt;, `ZCY-V0` &lt;dbl&gt;,
+## #   `ZTX1-V0` &lt;dbl&gt;, `TZW-V1` &lt;dbl&gt;, `HXZ-V1` &lt;dbl&gt;, `LJY-V1` &lt;dbl&gt;, `CJY-V1` &lt;dbl&gt;, `WKM-V1` &lt;dbl&gt;, `WJH-V1` &lt;dbl&gt;, `ZTX2-V1` &lt;dbl&gt;, `DGL-V1` &lt;dbl&gt;,
+## #   `ZHP-V1` &lt;dbl&gt;, `MZH-V1` &lt;dbl&gt;, `WL-V1` &lt;dbl&gt;, `LWJ2-V1` &lt;dbl&gt;, `SZP-V1` &lt;dbl&gt;, `YF-V1` &lt;dbl&gt;, `LPQ-V1` &lt;dbl&gt;, `LHR-V1` &lt;dbl&gt;, `XQ-V1` &lt;dbl&gt;,
+## #   `LJD-V1` &lt;dbl&gt;, `LXH-V1` &lt;dbl&gt;, `ZJW-V1` &lt;dbl&gt;, `LHC-V1` &lt;dbl&gt;, `LBC-V1` &lt;dbl&gt;, `ZTX1-V1` &lt;dbl&gt;, `LQB-V1` &lt;dbl&gt;, `LWL-V1` &lt;dbl&gt;, `ZCY-V1` &lt;dbl&gt;, …</code></pre>
 <ul>
 <li>metadata table</li>
 </ul>
 <div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="example.html#cb167-1" aria-hidden="true" tabindex="-1"></a>metadata <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">&quot;./dataset/GvHD_metadata.txt&quot;</span>)</span>
 <span id="cb167-2"><a href="example.html#cb167-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(metadata)</span></code></pre></div>
-<pre><code>##    seq_id           SampleName FMT_status        SampleType Group V1_outcome GVHD_type GVHD_type_phynotype Donor baseline_merge baseline_aGVHD_sainai baseline_aGVHD_sainai_detail
-## 1:   4371                  CJY         V0             stool   kid         CR     cGVHD            diarrhea   DO1                                                                  
-## 2:   4389                  CJY         V1             stool   kid         CR     cGVHD            diarrhea   DO1                                                                  
-## 3:   4426 CJY_WKM_LXH_FMTdonor            bacteria_solution donor                                                                                                                 
-## 4:   4375                  DGL         V0             stool adult         CR     cGVHD               bowel   DO2         medium                                                   
-## 5:   4393                  DGL         V1             stool adult         CR     cGVHD               bowel   DO2                                                                  
-## 6:   4435         DGL_FMTdonor            bacteria_solution donor                                                                                                                 
-##    baseline_aGVHD_glucksberg baseline_aGVHD_glucksberg_detail baseline_cGVHD_NIH baseline_cGVHD_NIH_detail Baseline_infection antibiotics_48h_pre_or_post_FMT GVHDdrug_antiMicrobiomeDrug_2weeksPreV0
-## 1:                                                                                                                                                                                                   
-## 2:                                                                                                                                                                                                   
-## 3:                                                                                                                                                                                                   
-## 4:                                                                          中度          肠道2级，皮肤1级                                                               他克莫司、麦考酚酯、伊曲康唑
-## 5:                                                                                                                                                                       他克莫司、麦考酚酯、伊曲康唑
-## 6:                                                                                                                                                                                                   
-##    GVHDdrug_antiMicrobiomeDrug_V0toV1       FMT_method gender age Diagnosis HSCT_DLI_date                                          Pretreatment Pretreatment_type      GVHD_prevention death relapse
-## 1:                                    nasojejunal tube   male   3       AML     2020/5/28 Ara-c+CY+IVBu+ATG+Flu+PTCy+PTCy（Ara+Cy+Bu+Flu+PTCy）  marrow cleansing PTCY+PTFLU+MMF+FK506              
-## 2:                                    nasojejunal tube   male   3       AML     2020/5/28 Ara-c+CY+IVBu+ATG+Flu+PTCy+PTCy（Ara+Cy+Bu+Flu+PTCy）  marrow cleansing PTCY+PTFLU+MMF+FK506              
-## 3:                                                             NA                                                                                                                                   
-## 4:       他克莫司、麦考酚酯、伊曲康唑      colonoscope   male  36       AML     2019/12/1                                                  BUCY  marrow cleansing      CSA+MTX+MMF+ATG              
-## 5:       他克莫司、麦考酚酯、伊曲康唑      colonoscope   male  36       AML     2019/12/1                                                  BUCY  marrow cleansing      CSA+MTX+MMF+ATG              
-## 6:                                                             NA</code></pre>
+<pre><code>##    seq_id           SampleName FMT_status        SampleType Group V1_outcome GVHD_type GVHD_type_phynotype Donor baseline_merge baseline_aGVHD_sainai
+## 1:   4371                  CJY         V0             stool   kid         CR     cGVHD            diarrhea   DO1                                     
+## 2:   4389                  CJY         V1             stool   kid         CR     cGVHD            diarrhea   DO1                                     
+## 3:   4426 CJY_WKM_LXH_FMTdonor            bacteria_solution donor                                                                                    
+## 4:   4375                  DGL         V0             stool adult         CR     cGVHD               bowel   DO2         medium                      
+## 5:   4393                  DGL         V1             stool adult         CR     cGVHD               bowel   DO2                                     
+## 6:   4435         DGL_FMTdonor            bacteria_solution donor                                                                                    
+##    baseline_aGVHD_sainai_detail baseline_aGVHD_glucksberg baseline_aGVHD_glucksberg_detail baseline_cGVHD_NIH baseline_cGVHD_NIH_detail
+## 1:                                                                                                                                     
+## 2:                                                                                                                                     
+## 3:                                                                                                                                     
+## 4:                                                                                                       中度          肠道2级，皮肤1级
+## 5:                                                                                                                                     
+## 6:                                                                                                                                     
+##    Baseline_infection antibiotics_48h_pre_or_post_FMT GVHDdrug_antiMicrobiomeDrug_2weeksPreV0 GVHDdrug_antiMicrobiomeDrug_V0toV1       FMT_method
+## 1:                                                                                                                               nasojejunal tube
+## 2:                                                                                                                               nasojejunal tube
+## 3:                                                                                                                                               
+## 4:                                                               他克莫司、麦考酚酯、伊曲康唑       他克莫司、麦考酚酯、伊曲康唑      colonoscope
+## 5:                                                               他克莫司、麦考酚酯、伊曲康唑       他克莫司、麦考酚酯、伊曲康唑      colonoscope
+## 6:                                                                                                                                               
+##    gender age Diagnosis HSCT_DLI_date                                          Pretreatment Pretreatment_type      GVHD_prevention death relapse
+## 1:   male   3       AML     2020/5/28 Ara-c+CY+IVBu+ATG+Flu+PTCy+PTCy（Ara+Cy+Bu+Flu+PTCy）  marrow cleansing PTCY+PTFLU+MMF+FK506              
+## 2:   male   3       AML     2020/5/28 Ara-c+CY+IVBu+ATG+Flu+PTCy+PTCy（Ara+Cy+Bu+Flu+PTCy）  marrow cleansing PTCY+PTFLU+MMF+FK506              
+## 3:         NA                                                                                                                                   
+## 4:   male  36       AML     2019/12/1                                                  BUCY  marrow cleansing      CSA+MTX+MMF+ATG              
+## 5:   male  36       AML     2019/12/1                                                  BUCY  marrow cleansing      CSA+MTX+MMF+ATG              
+## 6:         NA</code></pre>
 <ul>
 <li><p>Data Preparation: SummarizedExperiment object</p></li>
 <li><p>Renaming column</p></li>
@@ -1660,17 +1670,17 @@ div.csl-indent {
 <span id="cb230-4"><a href="example.html#cb230-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb230-5"><a href="example.html#cb230-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">graph.adjacency</span>(TOM, <span class="at">mode=</span><span class="st">&quot;undirected&quot;</span>, <span class="at">weighted=</span> <span class="cn">TRUE</span>)</span>
 <span id="cb230-6"><a href="example.html#cb230-6" aria-hidden="true" tabindex="-1"></a><span class="fu">delete.edges</span>(g, <span class="fu">which</span>(<span class="fu">E</span>(g)<span class="sc">$</span>weight <span class="sc">&lt;</span><span class="dv">1</span>))</span></code></pre></div>
-<pre><code>## IGRAPH a75161d UNW- 540 540 -- 
+<pre><code>## IGRAPH 476f081 UNW- 540 540 -- 
 ## + attr: name (v/c), weight (e/n)
-## + edges from a75161d (vertex names):
-##  [1] MEDL00066--MEDL00066 MEDL00375--MEDL00375 MEDL00587--MEDL00587 MEDL01844--MEDL01844 MEDL01922--MEDL01922 MEDL01994--MEDL01994 MEDL02002--MEDL02002 MEDL02018--MEDL02018 MEDL02174--MEDL02174
-## [10] MEDL02519--MEDL02519 MEDL02630--MEDL02630 MEDL02681--MEDL02681 MEDN0005 --MEDN0005  MEDN0006 --MEDN0006  MEDN0007 --MEDN0007  MEDN0010 --MEDN0010  MEDN0015 --MEDN0015  MEDN0018 --MEDN0018 
-## [19] MEDN0025 --MEDN0025  MEDN0032 --MEDN0032  MEDN0036 --MEDN0036  MEDN0042 --MEDN0042  MEDN0046 --MEDN0046  MEDN0047 --MEDN0047  MEDN0049 --MEDN0049  MEDN0052 --MEDN0052  MEDN0053 --MEDN0053 
-## [28] MEDN0056 --MEDN0056  MEDN0059 --MEDN0059  MEDN0075 --MEDN0075  MEDN0089 --MEDN0089  MEDN0098 --MEDN0098  MEDN0100 --MEDN0100  MEDN0110 --MEDN0110  MEDN0113 --MEDN0113  MEDN0120 --MEDN0120 
-## [37] MEDN0140 --MEDN0140  MEDN0141 --MEDN0141  MEDN0144 --MEDN0144  MEDN0147 --MEDN0147  MEDN0149 --MEDN0149  MEDN0158 --MEDN0158  MEDN0160 --MEDN0160  MEDN0201 --MEDN0201  MEDN0206 --MEDN0206 
-## [46] MEDN0209 --MEDN0209  MEDN0211 --MEDN0211  MEDN0221 --MEDN0221  MEDN0224 --MEDN0224  MEDN0229 --MEDN0229  MEDN0230 --MEDN0230  MEDN0233 --MEDN0233  MEDN0239 --MEDN0239  MEDN0244 --MEDN0244 
-## [55] MEDN0245 --MEDN0245  MEDN0250 --MEDN0250  MEDN0280 --MEDN0280  MEDN0284 --MEDN0284  MEDN0285 --MEDN0285  MEDN0296 --MEDN0296  MEDN0299 --MEDN0299  MEDN0300 --MEDN0300  MEDN0314 --MEDN0314 
-## [64] MEDN0316 --MEDN0316  MEDN0323 --MEDN0323  MEDN0326 --MEDN0326  MEDN0328 --MEDN0328  MEDN0334 --MEDN0334  MEDN0335 --MEDN0335  MEDN0338 --MEDN0338  MEDN0362 --MEDN0362  MEDN0364 --MEDN0364 
+## + edges from 476f081 (vertex names):
+##  [1] MEDL00066--MEDL00066 MEDL00375--MEDL00375 MEDL00587--MEDL00587 MEDL01844--MEDL01844 MEDL01922--MEDL01922 MEDL01994--MEDL01994 MEDL02002--MEDL02002
+##  [8] MEDL02018--MEDL02018 MEDL02174--MEDL02174 MEDL02519--MEDL02519 MEDL02630--MEDL02630 MEDL02681--MEDL02681 MEDN0005 --MEDN0005  MEDN0006 --MEDN0006 
+## [15] MEDN0007 --MEDN0007  MEDN0010 --MEDN0010  MEDN0015 --MEDN0015  MEDN0018 --MEDN0018  MEDN0025 --MEDN0025  MEDN0032 --MEDN0032  MEDN0036 --MEDN0036 
+## [22] MEDN0042 --MEDN0042  MEDN0046 --MEDN0046  MEDN0047 --MEDN0047  MEDN0049 --MEDN0049  MEDN0052 --MEDN0052  MEDN0053 --MEDN0053  MEDN0056 --MEDN0056 
+## [29] MEDN0059 --MEDN0059  MEDN0075 --MEDN0075  MEDN0089 --MEDN0089  MEDN0098 --MEDN0098  MEDN0100 --MEDN0100  MEDN0110 --MEDN0110  MEDN0113 --MEDN0113 
+## [36] MEDN0120 --MEDN0120  MEDN0140 --MEDN0140  MEDN0141 --MEDN0141  MEDN0144 --MEDN0144  MEDN0147 --MEDN0147  MEDN0149 --MEDN0149  MEDN0158 --MEDN0158 
+## [43] MEDN0160 --MEDN0160  MEDN0201 --MEDN0201  MEDN0206 --MEDN0206  MEDN0209 --MEDN0209  MEDN0211 --MEDN0211  MEDN0221 --MEDN0221  MEDN0224 --MEDN0224 
+## [50] MEDN0229 --MEDN0229  MEDN0230 --MEDN0230  MEDN0233 --MEDN0233  MEDN0239 --MEDN0239  MEDN0244 --MEDN0244  MEDN0245 --MEDN0245  MEDN0250 --MEDN0250 
 ## + ... omitted several edges</code></pre>
 <div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="example.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(g)<span class="sc">$</span>width <span class="ot">&lt;-</span> <span class="fu">E</span>(g)<span class="sc">$</span>weight<span class="sc">*</span>strength_adjust <span class="sc">+</span> <span class="fu">min</span>(<span class="fu">E</span>(g)<span class="sc">$</span>weight)</span>
 <span id="cb232-2"><a href="example.html#cb232-2" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(g)<span class="sc">$</span>color <span class="ot">&lt;-</span> <span class="st">&quot;red&quot;</span></span>
@@ -1682,7 +1692,7 @@ div.csl-indent {
 <div id="systematic-information-1" class="section level2 hasAnchor" number="4.10">
 <h2><span class="header-section-number">4.10</span> Systematic Information<a href="example.html#systematic-information-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="example.html#cb233-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
-<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
 ##  version  R version 4.2.0 (2022-04-22)
 ##  os       macOS Monterey 12.5
@@ -1692,11 +1702,11 @@ div.csl-indent {
 ##  collate  zh_CN.UTF-8
 ##  ctype    zh_CN.UTF-8
 ##  tz       Asia/Shanghai
-##  date     2022-09-19
+##  date     2022-09-20
 ##  rstudio  2021.09.1+372 Ghost Orchid (desktop)
 ##  pandoc   2.18 @ /usr/local/bin/ (via rmarkdown)
 ## 
-## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  package              * version    date (UTC) lib source
 ##  abind                  1.4-5      2016-07-21 [1] CRAN (R 4.2.0)
 ##  ade4                   1.7-19     2022-04-19 [1] CRAN (R 4.2.0)
@@ -1965,7 +1975,7 @@ div.csl-indent {
 ## 
 ##  [1] /Library/Frameworks/R.framework/Versions/4.2/Resources/library
 ## 
-## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
 
 </div>
 </div>

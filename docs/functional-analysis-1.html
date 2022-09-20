@@ -4,25 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Functional Analysis | Functional Analysis</title>
+  <title>Chapter 3 Functional Analysis | Data Analysis in Metabolomics</title>
   <meta name="description" content="A template for Data Analysis in Metabolomics" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Functional Analysis | Functional Analysis" />
+  <meta property="og:title" content="Chapter 3 Functional Analysis | Data Analysis in Metabolomics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A template for Data Analysis in Metabolomics" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Functional Analysis | Functional Analysis" />
+  <meta name="twitter:title" content="Chapter 3 Functional Analysis | Data Analysis in Metabolomics" />
   
   <meta name="twitter:description" content="A template for Data Analysis in Metabolomics" />
   
 
-<meta name="author" content="BangzhuoTong" />
+<meta name="author" content="Hua Zou and Bangzhuo Tong" />
 
 
+<meta name="date" content="2022-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -312,7 +313,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Functional Analysis</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analysis in Metabolomics</a>
           </h1>
         </div>
 
@@ -365,7 +366,8 @@ ORA is performed when the user provides only a list of compound names.</p>
 <span id="cb114-5"><a href="functional-analysis-1.html#cb114-5" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CrossReferencing</span>(mSet, <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
 <p>[1] “Loaded files from MetaboAnalyst web-server.”
 [1] “Loaded files from MetaboAnalyst web-server.”
-[1] “1” “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
+[1] “1”<br />
+[2] “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="functional-analysis-1.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example compound name map</span></span>
 <span id="cb115-2"><a href="functional-analysis-1.html#cb115-2" aria-hidden="true" tabindex="-1"></a>mSet<span class="sc">$</span>name.map</span></code></pre></div>
 <p>$query.vec
@@ -514,7 +516,8 @@ ORA is performed when the user provides only a list of compound names.</p>
 <span id="cb123-13"><a href="functional-analysis-1.html#cb123-13" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CrossReferencing</span>(mSet, <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
 <p>[1] “Loaded files from MetaboAnalyst web-server.”
 [1] “Loaded files from MetaboAnalyst web-server.”
-[1] “1” “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
+[1] “1”<br />
+[2] “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="functional-analysis-1.html#cb124-1" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CreateMappingResultTable</span>(mSet)</span></code></pre></div>
 <p>[1] “Loaded files from MetaboAnalyst web-server.”</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="functional-analysis-1.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculate SSP</span></span>
@@ -672,7 +675,8 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 <span id="cb133-24"><a href="functional-analysis-1.html#cb133-24" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CrossReferencing</span>(mSet, <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
 <p>[1] “Loaded files from MetaboAnalyst web-server.”
 [1] “Loaded files from MetaboAnalyst web-server.”
-[1] “1” “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
+[1] “1”<br />
+[2] “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="functional-analysis-1.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create mapping results table</span></span>
 <span id="cb134-2"><a href="functional-analysis-1.html#cb134-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CreateMappingResultTable</span>(mSet)</span></code></pre></div>
 <p>[1] “Loaded files from MetaboAnalyst web-server.”</p>
@@ -861,7 +865,8 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 <span id="cb143-11"><a href="functional-analysis-1.html#cb143-11" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CrossReferencing</span>(mSet, <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
 <p>[1] “Loaded files from MetaboAnalyst web-server.”
 [1] “Loaded files from MetaboAnalyst web-server.”
-[1] “1” “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
+[1] “1”<br />
+[2] “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="functional-analysis-1.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Creates a mapping result table shows HMDB, KEGG, PubChem, etc. IDs. Saved as &quot;name_map.csv&quot; or can be found in mSet$dataSet$map.table. Compounds with no hits will contain NAs across the columns.</span></span>
 <span id="cb144-2"><a href="functional-analysis-1.html#cb144-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CreateMappingResultTable</span>(mSet)</span></code></pre></div>
 <p>[1] “Loaded files from MetaboAnalyst web-server.”</p>
@@ -1345,7 +1350,8 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 <span id="cb154-4"><a href="functional-analysis-1.html#cb154-4" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CrossReferencing</span>(mSet, <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
 <p>[1] “Loaded files from MetaboAnalyst web-server.”
 [1] “Loaded files from MetaboAnalyst web-server.”
-[1] “1” “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
+[1] “1”<br />
+[2] “Name matching OK, please inspect (and manual correct) the results then proceed.”</p>
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="functional-analysis-1.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Creates a mapping result table shows HMDB, KEGG, PubChem, etc. IDs. Saved as &quot;name_map.csv&quot; or can be found in mSet$dataSet$map.table. Compounds with no hits will contain NAs across the columns.</span></span>
 <span id="cb155-2"><a href="functional-analysis-1.html#cb155-2" aria-hidden="true" tabindex="-1"></a>mSet <span class="ot">&lt;-</span> <span class="fu">CreateMappingResultTable</span>(mSet)</span></code></pre></div>
 <p>[1] “Loaded files from MetaboAnalyst web-server.”</p>
@@ -1442,7 +1448,7 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 <div id="session-info" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Session info<a href="functional-analysis-1.html#session-info" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="functional-analysis-1.html#cb162-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
-<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
 ##  version  R version 4.2.0 (2022-04-22)
 ##  os       macOS Monterey 12.5
@@ -1452,11 +1458,11 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ##  collate  zh_CN.UTF-8
 ##  ctype    zh_CN.UTF-8
 ##  tz       Asia/Shanghai
-##  date     2022-09-19
+##  date     2022-09-20
 ##  rstudio  2021.09.1+372 Ghost Orchid (desktop)
 ##  pandoc   2.18 @ /usr/local/bin/ (via rmarkdown)
 ## 
-## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  package              * version    date (UTC) lib source
 ##  abind                  1.4-5      2016-07-21 [1] CRAN (R 4.2.0)
 ##  ade4                   1.7-19     2022-04-19 [1] CRAN (R 4.2.0)
@@ -1711,7 +1717,7 @@ In short, <em>globaltest</em> calculates Q values, the formula to calculate Q-st
 ## 
 ##  [1] /Library/Frameworks/R.framework/Versions/4.2/Resources/library
 ## 
-## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
 
 </div>
 </div>
