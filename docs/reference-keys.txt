@@ -1,5 +1,5 @@
-fig:unnamed-chunk-22
-fig:unnamed-chunk-23
+fig:unnamed-chunk-40
+fig:unnamed-chunk-41
 introduction
 what-is-metabolomics
 workflow-of-metabolomics-data-analysis
@@ -25,6 +25,7 @@ statistical-analysis-1
 data-preprocessing
 environment-setup
 loading-data
+object-preparation
 data-checking-1
 missing-value-imputation-1
 data-filtering-1
@@ -50,6 +51,7 @@ principal-component-analysis-pca
 partial-least-squares-discriminant-analysis-pls-da
 sparse-partial-least-squares-discriminant-analysis-spls-da
 orthogonal-partial-least-squares-discriminant-analysis-orthopls-da
+chemometrics-analysis-by-own-scripts
 univariate-analysis
 loading-packages-3
 importing-data-3
