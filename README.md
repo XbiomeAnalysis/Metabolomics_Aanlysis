@@ -14,67 +14,67 @@ Here, the template comprises the following procedures:
 
 1.  Data Processing
 
-    -   Data Checking
+    - Data Checking
 
-    -   Data Filtering
+    - Data Filtering
 
-    -   Missing Value Imputation
+    - Missing Value Imputation
 
-    -   Data Normalization
+    - Data Normalization
 
 2.  Cluster Analysis
 
-    -   Hierarchical Clustering
+    - Hierarchical Clustering
 
-    -   Partitional Clustering
+    - Partitional Clustering
 
 3.  Chemometrics Analysis
 
-    -   Principal Component Analysis (PCA)
+    - Principal Component Analysis (PCA)
 
-    -   Partial Least Squares-Discriminant Analysis (PLS-DA)
+    - Partial Least Squares-Discriminant Analysis (PLS-DA)
 
-    -   Sparse Partial Least Squares-Discriminant Analysis (sPLS-DA)
+    - Sparse Partial Least Squares-Discriminant Analysis (sPLS-DA)
 
 4.  Univariate Analysis
 
-    -   Fold Change Analysis
+    - Fold Change Analysis
 
-    -   T Tests
+    - T Tests
 
-    -   Wilcoxon Test
+    - Wilcoxon Test
 
-    -   Limma Test
+    - Limma Test
 
-    -   Wilcoxon Test
+    - Wilcoxon Test
 
-    -   Volcano plot
+    - Volcano plot
 
-    -   Correlation Heatmaps
+    - Correlation Heatmaps
 
-    -   glasso
+    - glasso
 
 5.  Feature selection
 
-    -   Lasso
+    - Lasso
 
-    -   Ridge
+    - Ridge
 
-    -   Elasticnet
+    - Elasticnet
 
 6.  Classification
 
-    -   Random Forest
+    - Random Forest
 
 7.  Network Analysis
 
-    -   SPRING
+    - SPRING
 
-    -   Spearman
+    - Spearman
 
-    -   SparCC
+    - SparCC
 
-    -   Network comparison
+    - Network comparison
 
 ### Functional Analysis
 
@@ -91,17 +91,26 @@ KEGG.**
 
 1.  Enrichment Analysis
 
-    -   Single Sample Profiling
+    - Single Sample Profiling
 
-    -   Over representation analysis
+    - Over representation analysis
 
-    -   Quantitative Enrichment Analysis
+    - Quantitative Enrichment Analysis
 
 2.  Pathway Analysis
 
-    -   Over representation analysis
+    - Over representation analysis
 
-    -   Quantitative Enrichment Analysis
+    - Quantitative Enrichment Analysis
+
+### MetOrigin Analysis
+
+**Microbiome and its metabolites are closely associated with human
+health and diseases. However, it is challenging to understand the
+complex interplay between microbiome and metabolites. MetOrigin is a
+bioinformatics tool, aiming to identify which bacteria and how they
+participate in certain metabolic reactions, helping us to understand
+where metabolites come from: host, bacteria, or both?**
 
 ## :writing_hand: Authors
 
@@ -113,8 +122,10 @@ Xbiome company
 
 ## :wrench: Change log
 
--   Submitted to gitlab. (2022-06-28)
--   add `test.Rmd`. (2022-07-05)
--   add `template.Rmd`. (2022-07-08)
--   add *README.Rmd*. (2022-07-12)
--   add *building bookdwon*. (2022-08-04)
+- Submitted to gitlab. (2022-06-28)
+- add `test.Rmd`. (2022-07-05)
+- add `template.Rmd`. (2022-07-08)
+- add *README.Rmd*. (2022-07-12)
+- add *building bookdwon*. (2022-08-04)
+- add *MetOrigin Analysis*. (2023-11-22)
+- update *Data Processing*. (2023-11-22)
