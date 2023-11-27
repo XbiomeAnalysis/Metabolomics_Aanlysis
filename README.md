@@ -129,3 +129,5 @@ Xbiome company
 - add *building bookdwon*. (2022-08-04)
 - add *MetOrigin Analysis*. (2023-11-22)
 - update *Data Processing*. (2023-11-22)
+- add *Tutorial of Function Analysis and MetOrigin Analysis*.
+  (2023-11-27)

@@ -1,5 +1,5 @@
-fig:unnamed-chunk-40
-fig:unnamed-chunk-41
+fig:unnamed-chunk-1
+fig:unnamed-chunk-2
 introduction
 what-is-metabolomics
 workflow-of-metabolomics-data-analysis
@@ -129,6 +129,7 @@ differential-analysis-1
 de-metabolites
 obtain-inputs-for-metorigin
 save-result
+metorigin-user-tutorial
 session-info-1
 example
 loading-packages-7

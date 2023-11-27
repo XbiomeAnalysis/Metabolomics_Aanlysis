@@ -23,7 +23,7 @@
 <meta name="author" content="Hua Zou and Bangzhuo Tong" />
 
 
-<meta name="date" content="2023-11-23" />
+<meta name="date" content="2023-11-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -294,7 +294,8 @@ div.csl-indent {
 <li class="chapter" data-level="5.4" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#de-metabolites"><i class="fa fa-check"></i><b>5.4</b> DE metabolites</a></li>
 <li class="chapter" data-level="5.5" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#obtain-inputs-for-metorigin"><i class="fa fa-check"></i><b>5.5</b> Obtain inputs for Metorigin</a></li>
 <li class="chapter" data-level="5.6" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#save-result"><i class="fa fa-check"></i><b>5.6</b> Save result</a></li>
-<li class="chapter" data-level="5.7" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#session-info-1"><i class="fa fa-check"></i><b>5.7</b> Session info</a></li>
+<li class="chapter" data-level="5.7" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#metorigin-user-tutorial"><i class="fa fa-check"></i><b>5.7</b> MetOrigin User Tutorial</a></li>
+<li class="chapter" data-level="5.8" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#session-info-1"><i class="fa fa-check"></i><b>5.8</b> Session info</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="example.html"><a href="example.html"><i class="fa fa-check"></i><b>6</b> Example</a>
 <ul>
@@ -380,26 +381,26 @@ div.csl-indent {
 <p>The tutorial was from <a href="https://metorigin.met-bioinformatics.cn/home/" class="uri">https://metorigin.met-bioinformatics.cn/home/</a>. Here, we gave example for how to prepare inputs to MetOrigin website.</p>
 <div id="loading-packages-6" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Loading packages<a href="metorigin-analysis.html#loading-packages-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="metorigin-analysis.html#cb219-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">warning =</span> F)</span>
-<span id="cb219-2"><a href="metorigin-analysis.html#cb219-2" tabindex="-1"></a></span>
-<span id="cb219-3"><a href="metorigin-analysis.html#cb219-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb219-4"><a href="metorigin-analysis.html#cb219-4" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb219-5"><a href="metorigin-analysis.html#cb219-5" tabindex="-1"></a><span class="fu">library</span>(Biobase)</span>
-<span id="cb219-6"><a href="metorigin-analysis.html#cb219-6" tabindex="-1"></a><span class="fu">library</span>(POMA)</span>
-<span id="cb219-7"><a href="metorigin-analysis.html#cb219-7" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb219-8"><a href="metorigin-analysis.html#cb219-8" tabindex="-1"></a><span class="fu">library</span>(ropls)</span>
-<span id="cb219-9"><a href="metorigin-analysis.html#cb219-9" tabindex="-1"></a><span class="fu">library</span>(SummarizedExperiment)</span>
-<span id="cb219-10"><a href="metorigin-analysis.html#cb219-10" tabindex="-1"></a></span>
-<span id="cb219-11"><a href="metorigin-analysis.html#cb219-11" tabindex="-1"></a><span class="co"># rm(list = ls())</span></span>
-<span id="cb219-12"><a href="metorigin-analysis.html#cb219-12" tabindex="-1"></a><span class="fu">options</span>(<span class="at">stringsAsFactors =</span> F)</span>
-<span id="cb219-13"><a href="metorigin-analysis.html#cb219-13" tabindex="-1"></a><span class="fu">options</span>(<span class="at">future.globals.maxSize =</span> <span class="dv">1000</span> <span class="sc">*</span> <span class="dv">1024</span><span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="metorigin-analysis.html#cb239-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">warning =</span> F)</span>
+<span id="cb239-2"><a href="metorigin-analysis.html#cb239-2" tabindex="-1"></a></span>
+<span id="cb239-3"><a href="metorigin-analysis.html#cb239-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb239-4"><a href="metorigin-analysis.html#cb239-4" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb239-5"><a href="metorigin-analysis.html#cb239-5" tabindex="-1"></a><span class="fu">library</span>(Biobase)</span>
+<span id="cb239-6"><a href="metorigin-analysis.html#cb239-6" tabindex="-1"></a><span class="fu">library</span>(POMA)</span>
+<span id="cb239-7"><a href="metorigin-analysis.html#cb239-7" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb239-8"><a href="metorigin-analysis.html#cb239-8" tabindex="-1"></a><span class="fu">library</span>(ropls)</span>
+<span id="cb239-9"><a href="metorigin-analysis.html#cb239-9" tabindex="-1"></a><span class="fu">library</span>(SummarizedExperiment)</span>
+<span id="cb239-10"><a href="metorigin-analysis.html#cb239-10" tabindex="-1"></a></span>
+<span id="cb239-11"><a href="metorigin-analysis.html#cb239-11" tabindex="-1"></a><span class="co"># rm(list = ls())</span></span>
+<span id="cb239-12"><a href="metorigin-analysis.html#cb239-12" tabindex="-1"></a><span class="fu">options</span>(<span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb239-13"><a href="metorigin-analysis.html#cb239-13" tabindex="-1"></a><span class="fu">options</span>(<span class="at">future.globals.maxSize =</span> <span class="dv">1000</span> <span class="sc">*</span> <span class="dv">1024</span><span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 </div>
 <div id="importing-data-7" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Importing data<a href="metorigin-analysis.html#importing-data-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The dataset is from the Zeybel-2022 published paper <span class="citation">(<a href="#ref-zeybel2022multiomics">Zeybel et al. 2022</a>)</span>.</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="metorigin-analysis.html#cb220-1" tabindex="-1"></a>ExprSet <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;./dataset/POMA/ExprSet_raw.RDS&quot;</span>)</span>
-<span id="cb220-2"><a href="metorigin-analysis.html#cb220-2" tabindex="-1"></a>se_impute <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;./dataset/POMA/se_impute.RDS&quot;</span>)</span>
-<span id="cb220-3"><a href="metorigin-analysis.html#cb220-3" tabindex="-1"></a>se_norm <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;./dataset/POMA/se_normalize.RDS&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="metorigin-analysis.html#cb240-1" tabindex="-1"></a>ExprSet <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;./dataset/POMA/ExprSet_raw.RDS&quot;</span>)</span>
+<span id="cb240-2"><a href="metorigin-analysis.html#cb240-2" tabindex="-1"></a>se_impute <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;./dataset/POMA/se_impute.RDS&quot;</span>)</span>
+<span id="cb240-3"><a href="metorigin-analysis.html#cb240-3" tabindex="-1"></a>se_norm <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;./dataset/POMA/se_normalize.RDS&quot;</span>)</span></code></pre></div>
 </div>
 <div id="differential-analysis-1" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Differential Analysis<a href="metorigin-analysis.html#differential-analysis-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -424,330 +425,330 @@ div.csl-indent {
 <li><p>test Pvalue by Normalized Data</p></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="metorigin-analysis.html#cb221-1" tabindex="-1"></a>FoldChange <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
-<span id="cb221-2"><a href="metorigin-analysis.html#cb221-2" tabindex="-1"></a>    x,</span>
-<span id="cb221-3"><a href="metorigin-analysis.html#cb221-3" tabindex="-1"></a>    group,</span>
-<span id="cb221-4"><a href="metorigin-analysis.html#cb221-4" tabindex="-1"></a>    group_names) {</span>
-<span id="cb221-5"><a href="metorigin-analysis.html#cb221-5" tabindex="-1"></a>  </span>
-<span id="cb221-6"><a href="metorigin-analysis.html#cb221-6" tabindex="-1"></a>  <span class="co"># dataseat</span></span>
-<span id="cb221-7"><a href="metorigin-analysis.html#cb221-7" tabindex="-1"></a>  metadata <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">colData</span>(x) <span class="sc">%&gt;%</span></span>
-<span id="cb221-8"><a href="metorigin-analysis.html#cb221-8" tabindex="-1"></a>      <span class="fu">as.data.frame</span>()</span>
-<span id="cb221-9"><a href="metorigin-analysis.html#cb221-9" tabindex="-1"></a>  profile <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">assay</span>(x) <span class="sc">%&gt;%</span></span>
-<span id="cb221-10"><a href="metorigin-analysis.html#cb221-10" tabindex="-1"></a>      <span class="fu">as.data.frame</span>()</span>
-<span id="cb221-11"><a href="metorigin-analysis.html#cb221-11" tabindex="-1"></a></span>
-<span id="cb221-12"><a href="metorigin-analysis.html#cb221-12" tabindex="-1"></a>  <span class="fu">colnames</span>(metadata)[<span class="fu">which</span>(<span class="fu">colnames</span>(metadata) <span class="sc">==</span> group)] <span class="ot">&lt;-</span> <span class="st">&quot;CompVar&quot;</span></span>
-<span id="cb221-13"><a href="metorigin-analysis.html#cb221-13" tabindex="-1"></a>  phenotype <span class="ot">&lt;-</span> metadata <span class="sc">%&gt;%</span></span>
-<span id="cb221-14"><a href="metorigin-analysis.html#cb221-14" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(CompVar <span class="sc">%in%</span> group_names) <span class="sc">%&gt;%</span></span>
-<span id="cb221-15"><a href="metorigin-analysis.html#cb221-15" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">CompVar =</span> <span class="fu">as.character</span>(CompVar)) <span class="sc">%&gt;%</span></span>
-<span id="cb221-16"><a href="metorigin-analysis.html#cb221-16" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">CompVar =</span> <span class="fu">factor</span>(CompVar, <span class="at">levels =</span> group_names))</span>
-<span id="cb221-17"><a href="metorigin-analysis.html#cb221-17" tabindex="-1"></a>  </span>
-<span id="cb221-18"><a href="metorigin-analysis.html#cb221-18" tabindex="-1"></a>  sid <span class="ot">&lt;-</span> <span class="fu">intersect</span>(<span class="fu">rownames</span>(phenotype), <span class="fu">colnames</span>(profile))</span>
-<span id="cb221-19"><a href="metorigin-analysis.html#cb221-19" tabindex="-1"></a>  phen <span class="ot">&lt;-</span> phenotype[<span class="fu">pmatch</span>(sid, <span class="fu">rownames</span>(phenotype)), , ]</span>
-<span id="cb221-20"><a href="metorigin-analysis.html#cb221-20" tabindex="-1"></a>  prof <span class="ot">&lt;-</span> profile <span class="sc">%&gt;%</span></span>
-<span id="cb221-21"><a href="metorigin-analysis.html#cb221-21" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">all_of</span>(sid))</span>
-<span id="cb221-22"><a href="metorigin-analysis.html#cb221-22" tabindex="-1"></a>  </span>
-<span id="cb221-23"><a href="metorigin-analysis.html#cb221-23" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">all</span>(<span class="fu">colnames</span>(prof) <span class="sc">==</span> <span class="fu">rownames</span>(phen))) {</span>
-<span id="cb221-24"><a href="metorigin-analysis.html#cb221-24" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Wrong Order&quot;</span>)</span>
-<span id="cb221-25"><a href="metorigin-analysis.html#cb221-25" tabindex="-1"></a>  }</span>
-<span id="cb221-26"><a href="metorigin-analysis.html#cb221-26" tabindex="-1"></a>  </span>
-<span id="cb221-27"><a href="metorigin-analysis.html#cb221-27" tabindex="-1"></a>  fc_res <span class="ot">&lt;-</span> <span class="fu">apply</span>(prof, <span class="dv">1</span>, <span class="cf">function</span>(x1, y1) {</span>
-<span id="cb221-28"><a href="metorigin-analysis.html#cb221-28" tabindex="-1"></a>    dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">value =</span> <span class="fu">as.numeric</span>(x1), <span class="at">group =</span> y1)</span>
-<span id="cb221-29"><a href="metorigin-analysis.html#cb221-29" tabindex="-1"></a>    mn <span class="ot">&lt;-</span> <span class="fu">tapply</span>(dat<span class="sc">$</span>value, dat<span class="sc">$</span>group, <span class="cf">function</span>(x){</span>
-<span id="cb221-30"><a href="metorigin-analysis.html#cb221-30" tabindex="-1"></a>      <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb221-31"><a href="metorigin-analysis.html#cb221-31" tabindex="-1"></a>    }) <span class="sc">%&gt;%</span></span>
-<span id="cb221-32"><a href="metorigin-analysis.html#cb221-32" tabindex="-1"></a>      <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb221-33"><a href="metorigin-analysis.html#cb221-33" tabindex="-1"></a>      stats<span class="sc">::</span><span class="fu">setNames</span>(<span class="st">&quot;value&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb221-34"><a href="metorigin-analysis.html#cb221-34" tabindex="-1"></a>      tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="st">&quot;Group&quot;</span>)</span>
-<span id="cb221-35"><a href="metorigin-analysis.html#cb221-35" tabindex="-1"></a></span>
-<span id="cb221-36"><a href="metorigin-analysis.html#cb221-36" tabindex="-1"></a>    mn1 <span class="ot">&lt;-</span> <span class="fu">with</span>(mn, mn[Group <span class="sc">%in%</span> group_names[<span class="dv">1</span>], <span class="st">&quot;value&quot;</span>])</span>
-<span id="cb221-37"><a href="metorigin-analysis.html#cb221-37" tabindex="-1"></a>    mn2 <span class="ot">&lt;-</span> <span class="fu">with</span>(mn, mn[Group <span class="sc">%in%</span> group_names[<span class="dv">2</span>], <span class="st">&quot;value&quot;</span>])</span>
-<span id="cb221-38"><a href="metorigin-analysis.html#cb221-38" tabindex="-1"></a>    mnall <span class="ot">&lt;-</span> <span class="fu">mean</span>(dat<span class="sc">$</span>value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb221-39"><a href="metorigin-analysis.html#cb221-39" tabindex="-1"></a>    </span>
-<span id="cb221-40"><a href="metorigin-analysis.html#cb221-40" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">all</span>(mn1 <span class="sc">!=</span> <span class="dv">0</span>, mn2 <span class="sc">!=</span> <span class="dv">0</span>)) {</span>
-<span id="cb221-41"><a href="metorigin-analysis.html#cb221-41" tabindex="-1"></a>      fc <span class="ot">&lt;-</span> mn1 <span class="sc">/</span> mn2</span>
-<span id="cb221-42"><a href="metorigin-analysis.html#cb221-42" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb221-43"><a href="metorigin-analysis.html#cb221-43" tabindex="-1"></a>      fc <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb221-44"><a href="metorigin-analysis.html#cb221-44" tabindex="-1"></a>    }</span>
-<span id="cb221-45"><a href="metorigin-analysis.html#cb221-45" tabindex="-1"></a>    </span>
-<span id="cb221-46"><a href="metorigin-analysis.html#cb221-46" tabindex="-1"></a>    logfc <span class="ot">&lt;-</span> <span class="fu">log2</span>(fc)</span>
-<span id="cb221-47"><a href="metorigin-analysis.html#cb221-47" tabindex="-1"></a></span>
-<span id="cb221-48"><a href="metorigin-analysis.html#cb221-48" tabindex="-1"></a>    res <span class="ot">&lt;-</span> <span class="fu">c</span>(fc, logfc, mnall, mn1, mn2)</span>
-<span id="cb221-49"><a href="metorigin-analysis.html#cb221-49" tabindex="-1"></a>    <span class="fu">return</span>(res)</span>
-<span id="cb221-50"><a href="metorigin-analysis.html#cb221-50" tabindex="-1"></a>  }, phen<span class="sc">$</span>CompVar) <span class="sc">%&gt;%</span></span>
-<span id="cb221-51"><a href="metorigin-analysis.html#cb221-51" tabindex="-1"></a>    base<span class="sc">::</span><span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb221-52"><a href="metorigin-analysis.html#cb221-52" tabindex="-1"></a>    tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="st">&quot;Feature&quot;</span>)</span>
-<span id="cb221-53"><a href="metorigin-analysis.html#cb221-53" tabindex="-1"></a>  </span>
-<span id="cb221-54"><a href="metorigin-analysis.html#cb221-54" tabindex="-1"></a>  <span class="fu">colnames</span>(fc_res) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;FeatureID&quot;</span>, <span class="st">&quot;FoldChange&quot;</span>, </span>
-<span id="cb221-55"><a href="metorigin-analysis.html#cb221-55" tabindex="-1"></a>                        <span class="st">&quot;Log2FoldChange&quot;</span>,</span>
-<span id="cb221-56"><a href="metorigin-analysis.html#cb221-56" tabindex="-1"></a>                        <span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">(All)&quot;</span>,</span>
-<span id="cb221-57"><a href="metorigin-analysis.html#cb221-57" tabindex="-1"></a>                     <span class="fu">paste0</span>(<span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;former&quot;</span>, <span class="st">&quot;latter&quot;</span>)))  </span>
-<span id="cb221-58"><a href="metorigin-analysis.html#cb221-58" tabindex="-1"></a>  </span>
-<span id="cb221-59"><a href="metorigin-analysis.html#cb221-59" tabindex="-1"></a>  <span class="co"># Number of Group</span></span>
-<span id="cb221-60"><a href="metorigin-analysis.html#cb221-60" tabindex="-1"></a>  dat_status <span class="ot">&lt;-</span> <span class="fu">table</span>(phen<span class="sc">$</span>CompVar)</span>
-<span id="cb221-61"><a href="metorigin-analysis.html#cb221-61" tabindex="-1"></a>  dat_status_number <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dat_status)</span>
-<span id="cb221-62"><a href="metorigin-analysis.html#cb221-62" tabindex="-1"></a>  dat_status_name <span class="ot">&lt;-</span> <span class="fu">names</span>(dat_status)</span>
-<span id="cb221-63"><a href="metorigin-analysis.html#cb221-63" tabindex="-1"></a>  fc_res<span class="sc">$</span>Block <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">paste</span>(dat_status_number[<span class="dv">1</span>], dat_status_name[<span class="dv">1</span>], <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>),</span>
-<span id="cb221-64"><a href="metorigin-analysis.html#cb221-64" tabindex="-1"></a>                       <span class="st">&quot;vs&quot;</span>,</span>
-<span id="cb221-65"><a href="metorigin-analysis.html#cb221-65" tabindex="-1"></a>                       <span class="fu">paste</span>(dat_status_number[<span class="dv">2</span>], dat_status_name[<span class="dv">2</span>], <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>))</span>
-<span id="cb221-66"><a href="metorigin-analysis.html#cb221-66" tabindex="-1"></a>  </span>
-<span id="cb221-67"><a href="metorigin-analysis.html#cb221-67" tabindex="-1"></a>  res <span class="ot">&lt;-</span> fc_res <span class="sc">%&gt;%</span></span>
-<span id="cb221-68"><a href="metorigin-analysis.html#cb221-68" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(FeatureID, Block, <span class="fu">everything</span>())    </span>
-<span id="cb221-69"><a href="metorigin-analysis.html#cb221-69" tabindex="-1"></a></span>
-<span id="cb221-70"><a href="metorigin-analysis.html#cb221-70" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb221-71"><a href="metorigin-analysis.html#cb221-71" tabindex="-1"></a>}</span>
-<span id="cb221-72"><a href="metorigin-analysis.html#cb221-72" tabindex="-1"></a></span>
-<span id="cb221-73"><a href="metorigin-analysis.html#cb221-73" tabindex="-1"></a>VIP_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
-<span id="cb221-74"><a href="metorigin-analysis.html#cb221-74" tabindex="-1"></a>    x,</span>
-<span id="cb221-75"><a href="metorigin-analysis.html#cb221-75" tabindex="-1"></a>    group,</span>
-<span id="cb221-76"><a href="metorigin-analysis.html#cb221-76" tabindex="-1"></a>    group_names,</span>
-<span id="cb221-77"><a href="metorigin-analysis.html#cb221-77" tabindex="-1"></a>    <span class="at">VIPtype =</span> <span class="fu">c</span>(<span class="st">&quot;OPLS&quot;</span>, <span class="st">&quot;PLS&quot;</span>),</span>
-<span id="cb221-78"><a href="metorigin-analysis.html#cb221-78" tabindex="-1"></a>    <span class="at">vip_cutoff =</span> <span class="dv">1</span>) {</span>
-<span id="cb221-79"><a href="metorigin-analysis.html#cb221-79" tabindex="-1"></a>  </span>
-<span id="cb221-80"><a href="metorigin-analysis.html#cb221-80" tabindex="-1"></a>  metadata <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">colData</span>(x) <span class="sc">%&gt;%</span></span>
-<span id="cb221-81"><a href="metorigin-analysis.html#cb221-81" tabindex="-1"></a>      <span class="fu">as.data.frame</span>()</span>
-<span id="cb221-82"><a href="metorigin-analysis.html#cb221-82" tabindex="-1"></a>  profile <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">assay</span>(x) <span class="sc">%&gt;%</span></span>
-<span id="cb221-83"><a href="metorigin-analysis.html#cb221-83" tabindex="-1"></a>      <span class="fu">as.data.frame</span>()</span>
-<span id="cb221-84"><a href="metorigin-analysis.html#cb221-84" tabindex="-1"></a></span>
-<span id="cb221-85"><a href="metorigin-analysis.html#cb221-85" tabindex="-1"></a>  <span class="fu">colnames</span>(metadata)[<span class="fu">which</span>(<span class="fu">colnames</span>(metadata) <span class="sc">==</span> group)] <span class="ot">&lt;-</span> <span class="st">&quot;CompVar&quot;</span></span>
-<span id="cb221-86"><a href="metorigin-analysis.html#cb221-86" tabindex="-1"></a>  phenotype <span class="ot">&lt;-</span> metadata <span class="sc">%&gt;%</span></span>
-<span id="cb221-87"><a href="metorigin-analysis.html#cb221-87" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(CompVar <span class="sc">%in%</span> group_names) <span class="sc">%&gt;%</span></span>
-<span id="cb221-88"><a href="metorigin-analysis.html#cb221-88" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">CompVar =</span> <span class="fu">as.character</span>(CompVar)) <span class="sc">%&gt;%</span></span>
-<span id="cb221-89"><a href="metorigin-analysis.html#cb221-89" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">CompVar =</span> <span class="fu">factor</span>(CompVar, <span class="at">levels =</span> group_names))</span>
-<span id="cb221-90"><a href="metorigin-analysis.html#cb221-90" tabindex="-1"></a>  </span>
-<span id="cb221-91"><a href="metorigin-analysis.html#cb221-91" tabindex="-1"></a>  sid <span class="ot">&lt;-</span> <span class="fu">intersect</span>(<span class="fu">rownames</span>(phenotype), <span class="fu">colnames</span>(profile))</span>
-<span id="cb221-92"><a href="metorigin-analysis.html#cb221-92" tabindex="-1"></a>  phen <span class="ot">&lt;-</span> phenotype[<span class="fu">pmatch</span>(sid, <span class="fu">rownames</span>(phenotype)), , ]</span>
-<span id="cb221-93"><a href="metorigin-analysis.html#cb221-93" tabindex="-1"></a>  prof <span class="ot">&lt;-</span> profile <span class="sc">%&gt;%</span></span>
-<span id="cb221-94"><a href="metorigin-analysis.html#cb221-94" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">all_of</span>(sid))</span>
-<span id="cb221-95"><a href="metorigin-analysis.html#cb221-95" tabindex="-1"></a>  </span>
-<span id="cb221-96"><a href="metorigin-analysis.html#cb221-96" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">all</span>(<span class="fu">colnames</span>(prof) <span class="sc">==</span> <span class="fu">rownames</span>(phen))) {</span>
-<span id="cb221-97"><a href="metorigin-analysis.html#cb221-97" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Wrong Order&quot;</span>)</span>
-<span id="cb221-98"><a href="metorigin-analysis.html#cb221-98" tabindex="-1"></a>  }</span>
-<span id="cb221-99"><a href="metorigin-analysis.html#cb221-99" tabindex="-1"></a>  </span>
-<span id="cb221-100"><a href="metorigin-analysis.html#cb221-100" tabindex="-1"></a>  dataMatrix <span class="ot">&lt;-</span> prof <span class="sc">%&gt;%</span> base<span class="sc">::</span><span class="fu">t</span>() <span class="co"># row-&gt;sampleID; col-&gt;features</span></span>
-<span id="cb221-101"><a href="metorigin-analysis.html#cb221-101" tabindex="-1"></a>  sampleMetadata <span class="ot">&lt;-</span> phen <span class="co"># row-&gt;sampleID; col-&gt;features</span></span>
-<span id="cb221-102"><a href="metorigin-analysis.html#cb221-102" tabindex="-1"></a>  </span>
-<span id="cb221-103"><a href="metorigin-analysis.html#cb221-103" tabindex="-1"></a>  comparsionVn <span class="ot">&lt;-</span> sampleMetadata[, <span class="st">&quot;CompVar&quot;</span>]</span>
-<span id="cb221-104"><a href="metorigin-analysis.html#cb221-104" tabindex="-1"></a>  </span>
-<span id="cb221-105"><a href="metorigin-analysis.html#cb221-105" tabindex="-1"></a>  <span class="co"># corrlation between group and features</span></span>
-<span id="cb221-106"><a href="metorigin-analysis.html#cb221-106" tabindex="-1"></a>  pvaVn <span class="ot">&lt;-</span> <span class="fu">apply</span>(dataMatrix, <span class="dv">2</span>,</span>
-<span id="cb221-107"><a href="metorigin-analysis.html#cb221-107" tabindex="-1"></a>                 <span class="cf">function</span>(feaVn) <span class="fu">cor.test</span>(<span class="fu">as.numeric</span>(comparsionVn), feaVn)[[<span class="st">&quot;p.value&quot;</span>]])</span>
-<span id="cb221-108"><a href="metorigin-analysis.html#cb221-108" tabindex="-1"></a>  </span>
-<span id="cb221-109"><a href="metorigin-analysis.html#cb221-109" tabindex="-1"></a>  <span class="cf">if</span> (VIPtype <span class="sc">==</span> <span class="st">&quot;OPLS&quot;</span>) {</span>
-<span id="cb221-110"><a href="metorigin-analysis.html#cb221-110" tabindex="-1"></a>    vipVn <span class="ot">&lt;-</span> <span class="fu">getVipVn</span>(<span class="fu">opls</span>(dataMatrix, </span>
-<span id="cb221-111"><a href="metorigin-analysis.html#cb221-111" tabindex="-1"></a>                           comparsionVn,</span>
-<span id="cb221-112"><a href="metorigin-analysis.html#cb221-112" tabindex="-1"></a>                           <span class="at">predI =</span> <span class="dv">1</span>, </span>
-<span id="cb221-113"><a href="metorigin-analysis.html#cb221-113" tabindex="-1"></a>                           <span class="at">orthoI =</span> <span class="cn">NA</span>,</span>
-<span id="cb221-114"><a href="metorigin-analysis.html#cb221-114" tabindex="-1"></a>                           <span class="at">fig.pdfC =</span> <span class="st">&quot;none&quot;</span>))    </span>
-<span id="cb221-115"><a href="metorigin-analysis.html#cb221-115" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb221-116"><a href="metorigin-analysis.html#cb221-116" tabindex="-1"></a>    vipVn <span class="ot">&lt;-</span> <span class="fu">getVipVn</span>(<span class="fu">opls</span>(dataMatrix, </span>
-<span id="cb221-117"><a href="metorigin-analysis.html#cb221-117" tabindex="-1"></a>                           comparsionVn,</span>
-<span id="cb221-118"><a href="metorigin-analysis.html#cb221-118" tabindex="-1"></a>                           <span class="at">predI =</span> <span class="dv">1</span>, </span>
-<span id="cb221-119"><a href="metorigin-analysis.html#cb221-119" tabindex="-1"></a>                           <span class="at">fig.pdfC =</span> <span class="st">&quot;none&quot;</span>))    </span>
-<span id="cb221-120"><a href="metorigin-analysis.html#cb221-120" tabindex="-1"></a>  }</span>
-<span id="cb221-121"><a href="metorigin-analysis.html#cb221-121" tabindex="-1"></a>  quantVn <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> pvaVn <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb221-122"><a href="metorigin-analysis.html#cb221-122" tabindex="-1"></a>  rmsQuantN <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(quantVn<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb221-123"><a href="metorigin-analysis.html#cb221-123" tabindex="-1"></a>  </span>
-<span id="cb221-124"><a href="metorigin-analysis.html#cb221-124" tabindex="-1"></a>  opar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">font =</span> <span class="dv">2</span>, <span class="at">font.axis =</span> <span class="dv">2</span>, <span class="at">font.lab =</span> <span class="dv">2</span>,</span>
-<span id="cb221-125"><a href="metorigin-analysis.html#cb221-125" tabindex="-1"></a>              <span class="at">las =</span> <span class="dv">1</span>,</span>
-<span id="cb221-126"><a href="metorigin-analysis.html#cb221-126" tabindex="-1"></a>              <span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.6</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>),</span>
-<span id="cb221-127"><a href="metorigin-analysis.html#cb221-127" tabindex="-1"></a>              <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
-<span id="cb221-128"><a href="metorigin-analysis.html#cb221-128" tabindex="-1"></a>  <span class="fu">plot</span>(pvaVn, </span>
-<span id="cb221-129"><a href="metorigin-analysis.html#cb221-129" tabindex="-1"></a>       vipVn,</span>
-<span id="cb221-130"><a href="metorigin-analysis.html#cb221-130" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
-<span id="cb221-131"><a href="metorigin-analysis.html#cb221-131" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">16</span>,</span>
-<span id="cb221-132"><a href="metorigin-analysis.html#cb221-132" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">&quot;p-value&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;VIP&quot;</span>, <span class="at">xaxs =</span> <span class="st">&quot;i&quot;</span>, <span class="at">yaxs =</span> <span class="st">&quot;i&quot;</span>)</span>
-<span id="cb221-133"><a href="metorigin-analysis.html#cb221-133" tabindex="-1"></a>  <span class="fu">box</span>(<span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb221-134"><a href="metorigin-analysis.html#cb221-134" tabindex="-1"></a>  <span class="fu">curve</span>(<span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> x <span class="sc">/</span> <span class="dv">2</span>) <span class="sc">/</span> rmsQuantN, <span class="dv">0</span>, <span class="dv">1</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
-<span id="cb221-135"><a href="metorigin-analysis.html#cb221-135" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb221-136"><a href="metorigin-analysis.html#cb221-136" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v =</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb221-137"><a href="metorigin-analysis.html#cb221-137" tabindex="-1"></a>  </span>
-<span id="cb221-138"><a href="metorigin-analysis.html#cb221-138" tabindex="-1"></a>  res_temp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb221-139"><a href="metorigin-analysis.html#cb221-139" tabindex="-1"></a>      <span class="at">FeatureID =</span> <span class="fu">names</span>(vipVn),</span>
-<span id="cb221-140"><a href="metorigin-analysis.html#cb221-140" tabindex="-1"></a>      <span class="at">VIP =</span> vipVn,</span>
-<span id="cb221-141"><a href="metorigin-analysis.html#cb221-141" tabindex="-1"></a>      <span class="at">CorPvalue =</span> pvaVn) <span class="sc">%&gt;%</span></span>
-<span id="cb221-142"><a href="metorigin-analysis.html#cb221-142" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(VIP))</span>
-<span id="cb221-143"><a href="metorigin-analysis.html#cb221-143" tabindex="-1"></a></span>
-<span id="cb221-144"><a href="metorigin-analysis.html#cb221-144" tabindex="-1"></a>  vip_select <span class="ot">&lt;-</span> res_temp <span class="sc">%&gt;%</span></span>
-<span id="cb221-145"><a href="metorigin-analysis.html#cb221-145" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(VIP <span class="sc">&gt;</span> vip_cutoff) </span>
-<span id="cb221-146"><a href="metorigin-analysis.html#cb221-146" tabindex="-1"></a>  </span>
-<span id="cb221-147"><a href="metorigin-analysis.html#cb221-147" tabindex="-1"></a>  pl <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(vip_select, <span class="fu">aes</span>(FeatureID, VIP)) <span class="sc">+</span></span>
-<span id="cb221-148"><a href="metorigin-analysis.html#cb221-148" tabindex="-1"></a>    <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> FeatureID, <span class="at">xend =</span> FeatureID,</span>
-<span id="cb221-149"><a href="metorigin-analysis.html#cb221-149" tabindex="-1"></a>                     <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> VIP)) <span class="sc">+</span></span>
-<span id="cb221-150"><a href="metorigin-analysis.html#cb221-150" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">&#39;#008000&#39;</span> ,<span class="at">fill =</span> <span class="st">&#39;#008000&#39;</span>) <span class="sc">+</span></span>
-<span id="cb221-151"><a href="metorigin-analysis.html#cb221-151" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="dv">1</span>,<span class="fl">2.5</span>), <span class="at">color =</span> <span class="st">&#39;white&#39;</span>) <span class="sc">+</span></span>
-<span id="cb221-152"><a href="metorigin-analysis.html#cb221-152" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">&#39;dashed&#39;</span>) <span class="sc">+</span></span>
-<span id="cb221-153"><a href="metorigin-analysis.html#cb221-153" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb221-154"><a href="metorigin-analysis.html#cb221-154" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;&#39;</span>, <span class="at">y =</span> <span class="st">&#39;VIP value&#39;</span>) <span class="sc">+</span></span>
-<span id="cb221-155"><a href="metorigin-analysis.html#cb221-155" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb221-156"><a href="metorigin-analysis.html#cb221-156" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;none&#39;</span>,</span>
-<span id="cb221-157"><a href="metorigin-analysis.html#cb221-157" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&#39;black&#39;</span>,<span class="at">size =</span> <span class="dv">12</span>, <span class="at">family =</span> <span class="st">&#39;Arial&#39;</span>, <span class="at">face =</span> <span class="st">&#39;plain&#39;</span>),</span>
-<span id="cb221-158"><a href="metorigin-analysis.html#cb221-158" tabindex="-1"></a>          <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb221-159"><a href="metorigin-analysis.html#cb221-159" tabindex="-1"></a>          <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb221-160"><a href="metorigin-analysis.html#cb221-160" tabindex="-1"></a>          <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&#39;black&#39;</span>,<span class="at">size =</span> <span class="dv">15</span>, <span class="at">family =</span> <span class="st">&#39;Arial&#39;</span>, <span class="at">face =</span> <span class="st">&#39;plain&#39;</span>),</span>
-<span id="cb221-161"><a href="metorigin-analysis.html#cb221-161" tabindex="-1"></a>          <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>),</span>
-<span id="cb221-162"><a href="metorigin-analysis.html#cb221-162" tabindex="-1"></a>          <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&#39;black&#39;</span>,<span class="at">size =</span> <span class="dv">15</span>, <span class="at">family =</span> <span class="st">&#39;Arial&#39;</span>, <span class="at">face =</span> <span class="st">&#39;plain&#39;</span>),</span>
-<span id="cb221-163"><a href="metorigin-analysis.html#cb221-163" tabindex="-1"></a>          <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">&#39;black&#39;</span>),</span>
-<span id="cb221-164"><a href="metorigin-analysis.html#cb221-164" tabindex="-1"></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb221-165"><a href="metorigin-analysis.html#cb221-165" tabindex="-1"></a>  </span>
-<span id="cb221-166"><a href="metorigin-analysis.html#cb221-166" tabindex="-1"></a>  <span class="co"># Number of Group</span></span>
-<span id="cb221-167"><a href="metorigin-analysis.html#cb221-167" tabindex="-1"></a>  dat_status <span class="ot">&lt;-</span> <span class="fu">table</span>(phen<span class="sc">$</span>CompVar)</span>
-<span id="cb221-168"><a href="metorigin-analysis.html#cb221-168" tabindex="-1"></a>  dat_status_number <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dat_status)</span>
-<span id="cb221-169"><a href="metorigin-analysis.html#cb221-169" tabindex="-1"></a>  dat_status_name <span class="ot">&lt;-</span> <span class="fu">names</span>(dat_status)</span>
-<span id="cb221-170"><a href="metorigin-analysis.html#cb221-170" tabindex="-1"></a>  res_temp<span class="sc">$</span>Block <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">paste</span>(dat_status_number[<span class="dv">1</span>], dat_status_name[<span class="dv">1</span>], <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>),</span>
-<span id="cb221-171"><a href="metorigin-analysis.html#cb221-171" tabindex="-1"></a>                       <span class="st">&quot;vs&quot;</span>,</span>
-<span id="cb221-172"><a href="metorigin-analysis.html#cb221-172" tabindex="-1"></a>                       <span class="fu">paste</span>(dat_status_number[<span class="dv">2</span>], dat_status_name[<span class="dv">2</span>], <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>))</span>
-<span id="cb221-173"><a href="metorigin-analysis.html#cb221-173" tabindex="-1"></a></span>
-<span id="cb221-174"><a href="metorigin-analysis.html#cb221-174" tabindex="-1"></a>  res_df <span class="ot">&lt;-</span> res_temp <span class="sc">%&gt;%</span></span>
-<span id="cb221-175"><a href="metorigin-analysis.html#cb221-175" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(FeatureID, Block, <span class="fu">everything</span>())    </span>
-<span id="cb221-176"><a href="metorigin-analysis.html#cb221-176" tabindex="-1"></a></span>
-<span id="cb221-177"><a href="metorigin-analysis.html#cb221-177" tabindex="-1"></a></span>
-<span id="cb221-178"><a href="metorigin-analysis.html#cb221-178" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">vip =</span> res_df,</span>
-<span id="cb221-179"><a href="metorigin-analysis.html#cb221-179" tabindex="-1"></a>              <span class="at">plot =</span> pl)</span>
-<span id="cb221-180"><a href="metorigin-analysis.html#cb221-180" tabindex="-1"></a>  </span>
-<span id="cb221-181"><a href="metorigin-analysis.html#cb221-181" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb221-182"><a href="metorigin-analysis.html#cb221-182" tabindex="-1"></a>}</span>
-<span id="cb221-183"><a href="metorigin-analysis.html#cb221-183" tabindex="-1"></a></span>
-<span id="cb221-184"><a href="metorigin-analysis.html#cb221-184" tabindex="-1"></a>t_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
-<span id="cb221-185"><a href="metorigin-analysis.html#cb221-185" tabindex="-1"></a>    x,</span>
-<span id="cb221-186"><a href="metorigin-analysis.html#cb221-186" tabindex="-1"></a>    group,</span>
-<span id="cb221-187"><a href="metorigin-analysis.html#cb221-187" tabindex="-1"></a>    group_names) {</span>
-<span id="cb221-188"><a href="metorigin-analysis.html#cb221-188" tabindex="-1"></a>  </span>
-<span id="cb221-189"><a href="metorigin-analysis.html#cb221-189" tabindex="-1"></a>  <span class="co"># dataseat</span></span>
-<span id="cb221-190"><a href="metorigin-analysis.html#cb221-190" tabindex="-1"></a>  metadata <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">colData</span>(x) <span class="sc">%&gt;%</span></span>
-<span id="cb221-191"><a href="metorigin-analysis.html#cb221-191" tabindex="-1"></a>      <span class="fu">as.data.frame</span>()</span>
-<span id="cb221-192"><a href="metorigin-analysis.html#cb221-192" tabindex="-1"></a>  profile <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">assay</span>(x) <span class="sc">%&gt;%</span></span>
-<span id="cb221-193"><a href="metorigin-analysis.html#cb221-193" tabindex="-1"></a>      <span class="fu">as.data.frame</span>()</span>
-<span id="cb221-194"><a href="metorigin-analysis.html#cb221-194" tabindex="-1"></a></span>
-<span id="cb221-195"><a href="metorigin-analysis.html#cb221-195" tabindex="-1"></a>  <span class="co"># rename variables</span></span>
-<span id="cb221-196"><a href="metorigin-analysis.html#cb221-196" tabindex="-1"></a>  <span class="fu">colnames</span>(metadata)[<span class="fu">which</span>(<span class="fu">colnames</span>(metadata) <span class="sc">==</span> group)] <span class="ot">&lt;-</span> <span class="st">&quot;CompVar&quot;</span> </span>
-<span id="cb221-197"><a href="metorigin-analysis.html#cb221-197" tabindex="-1"></a>  </span>
-<span id="cb221-198"><a href="metorigin-analysis.html#cb221-198" tabindex="-1"></a>  phenotype <span class="ot">&lt;-</span> metadata <span class="sc">%&gt;%</span></span>
-<span id="cb221-199"><a href="metorigin-analysis.html#cb221-199" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(CompVar <span class="sc">%in%</span> group_names) <span class="sc">%&gt;%</span></span>
-<span id="cb221-200"><a href="metorigin-analysis.html#cb221-200" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">CompVar =</span> <span class="fu">as.character</span>(CompVar)) <span class="sc">%&gt;%</span></span>
-<span id="cb221-201"><a href="metorigin-analysis.html#cb221-201" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">CompVar =</span> <span class="fu">factor</span>(CompVar, <span class="at">levels =</span> group_names))</span>
-<span id="cb221-202"><a href="metorigin-analysis.html#cb221-202" tabindex="-1"></a>  </span>
-<span id="cb221-203"><a href="metorigin-analysis.html#cb221-203" tabindex="-1"></a>  sid <span class="ot">&lt;-</span> <span class="fu">intersect</span>(<span class="fu">rownames</span>(phenotype), <span class="fu">colnames</span>(profile))</span>
-<span id="cb221-204"><a href="metorigin-analysis.html#cb221-204" tabindex="-1"></a>  phen <span class="ot">&lt;-</span> phenotype[<span class="fu">pmatch</span>(sid, <span class="fu">rownames</span>(phenotype)), , ]</span>
-<span id="cb221-205"><a href="metorigin-analysis.html#cb221-205" tabindex="-1"></a>  prof <span class="ot">&lt;-</span> profile <span class="sc">%&gt;%</span></span>
-<span id="cb221-206"><a href="metorigin-analysis.html#cb221-206" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">all_of</span>(sid))</span>
-<span id="cb221-207"><a href="metorigin-analysis.html#cb221-207" tabindex="-1"></a>  </span>
-<span id="cb221-208"><a href="metorigin-analysis.html#cb221-208" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">all</span>(<span class="fu">colnames</span>(prof) <span class="sc">==</span> <span class="fu">rownames</span>(phen))) {</span>
-<span id="cb221-209"><a href="metorigin-analysis.html#cb221-209" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Wrong Order&quot;</span>)</span>
-<span id="cb221-210"><a href="metorigin-analysis.html#cb221-210" tabindex="-1"></a>  }</span>
-<span id="cb221-211"><a href="metorigin-analysis.html#cb221-211" tabindex="-1"></a></span>
-<span id="cb221-212"><a href="metorigin-analysis.html#cb221-212" tabindex="-1"></a>  t_res <span class="ot">&lt;-</span> <span class="fu">apply</span>(prof, <span class="dv">1</span>, <span class="cf">function</span>(x1, y1) {</span>
-<span id="cb221-213"><a href="metorigin-analysis.html#cb221-213" tabindex="-1"></a>    dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">value =</span> <span class="fu">as.numeric</span>(x1), <span class="at">group =</span> y1)</span>
-<span id="cb221-214"><a href="metorigin-analysis.html#cb221-214" tabindex="-1"></a>    </span>
-<span id="cb221-215"><a href="metorigin-analysis.html#cb221-215" tabindex="-1"></a>    rest <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="at">data =</span> dat, value <span class="sc">~</span> group)</span>
-<span id="cb221-216"><a href="metorigin-analysis.html#cb221-216" tabindex="-1"></a></span>
-<span id="cb221-217"><a href="metorigin-analysis.html#cb221-217" tabindex="-1"></a>    res <span class="ot">&lt;-</span> <span class="fu">c</span>(rest<span class="sc">$</span>statistic, rest<span class="sc">$</span>p.value)</span>
-<span id="cb221-218"><a href="metorigin-analysis.html#cb221-218" tabindex="-1"></a>    <span class="fu">return</span>(res)</span>
-<span id="cb221-219"><a href="metorigin-analysis.html#cb221-219" tabindex="-1"></a>  }, phen<span class="sc">$</span>CompVar) <span class="sc">%&gt;%</span></span>
-<span id="cb221-220"><a href="metorigin-analysis.html#cb221-220" tabindex="-1"></a>    base<span class="sc">::</span><span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb221-221"><a href="metorigin-analysis.html#cb221-221" tabindex="-1"></a>    tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="st">&quot;Feature&quot;</span>)</span>
-<span id="cb221-222"><a href="metorigin-analysis.html#cb221-222" tabindex="-1"></a>  </span>
-<span id="cb221-223"><a href="metorigin-analysis.html#cb221-223" tabindex="-1"></a>  <span class="fu">colnames</span>(t_res) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;FeatureID&quot;</span>, <span class="st">&quot;Statistic&quot;</span>, <span class="st">&quot;Pvalue&quot;</span>)</span>
-<span id="cb221-224"><a href="metorigin-analysis.html#cb221-224" tabindex="-1"></a>  t_res<span class="sc">$</span>AdjustedPvalue <span class="ot">&lt;-</span> <span class="fu">p.adjust</span>(<span class="fu">as.numeric</span>(t_res<span class="sc">$</span>Pvalue), <span class="at">method =</span> <span class="st">&quot;BH&quot;</span>)</span>
-<span id="cb221-225"><a href="metorigin-analysis.html#cb221-225" tabindex="-1"></a>  </span>
-<span id="cb221-226"><a href="metorigin-analysis.html#cb221-226" tabindex="-1"></a>  <span class="co"># Number of Group</span></span>
-<span id="cb221-227"><a href="metorigin-analysis.html#cb221-227" tabindex="-1"></a>  dat_status <span class="ot">&lt;-</span> <span class="fu">table</span>(phen<span class="sc">$</span>CompVar)</span>
-<span id="cb221-228"><a href="metorigin-analysis.html#cb221-228" tabindex="-1"></a>  dat_status_number <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dat_status)</span>
-<span id="cb221-229"><a href="metorigin-analysis.html#cb221-229" tabindex="-1"></a>  dat_status_name <span class="ot">&lt;-</span> <span class="fu">names</span>(dat_status)</span>
-<span id="cb221-230"><a href="metorigin-analysis.html#cb221-230" tabindex="-1"></a>  t_res<span class="sc">$</span>Block <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">paste</span>(dat_status_number[<span class="dv">1</span>], dat_status_name[<span class="dv">1</span>], <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>),</span>
-<span id="cb221-231"><a href="metorigin-analysis.html#cb221-231" tabindex="-1"></a>                       <span class="st">&quot;vs&quot;</span>,</span>
-<span id="cb221-232"><a href="metorigin-analysis.html#cb221-232" tabindex="-1"></a>                       <span class="fu">paste</span>(dat_status_number[<span class="dv">2</span>], dat_status_name[<span class="dv">2</span>], <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>))</span>
-<span id="cb221-233"><a href="metorigin-analysis.html#cb221-233" tabindex="-1"></a>  </span>
-<span id="cb221-234"><a href="metorigin-analysis.html#cb221-234" tabindex="-1"></a>  res <span class="ot">&lt;-</span> t_res <span class="sc">%&gt;%</span></span>
-<span id="cb221-235"><a href="metorigin-analysis.html#cb221-235" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(FeatureID, Block, <span class="fu">everything</span>())    </span>
-<span id="cb221-236"><a href="metorigin-analysis.html#cb221-236" tabindex="-1"></a></span>
-<span id="cb221-237"><a href="metorigin-analysis.html#cb221-237" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb221-238"><a href="metorigin-analysis.html#cb221-238" tabindex="-1"></a>}</span>
-<span id="cb221-239"><a href="metorigin-analysis.html#cb221-239" tabindex="-1"></a></span>
-<span id="cb221-240"><a href="metorigin-analysis.html#cb221-240" tabindex="-1"></a>mergedResults <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
-<span id="cb221-241"><a href="metorigin-analysis.html#cb221-241" tabindex="-1"></a>    fc_result,</span>
-<span id="cb221-242"><a href="metorigin-analysis.html#cb221-242" tabindex="-1"></a>    vip_result,</span>
-<span id="cb221-243"><a href="metorigin-analysis.html#cb221-243" tabindex="-1"></a>    test_result,</span>
-<span id="cb221-244"><a href="metorigin-analysis.html#cb221-244" tabindex="-1"></a>    group_names,</span>
-<span id="cb221-245"><a href="metorigin-analysis.html#cb221-245" tabindex="-1"></a>    group_labels) {</span>
-<span id="cb221-246"><a href="metorigin-analysis.html#cb221-246" tabindex="-1"></a>  </span>
-<span id="cb221-247"><a href="metorigin-analysis.html#cb221-247" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(vip_result)) {</span>
-<span id="cb221-248"><a href="metorigin-analysis.html#cb221-248" tabindex="-1"></a>    mdat <span class="ot">&lt;-</span> fc_result <span class="sc">%&gt;%</span></span>
-<span id="cb221-249"><a href="metorigin-analysis.html#cb221-249" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Block2 =</span> <span class="fu">paste</span>(group_labels, <span class="at">collapse =</span> <span class="st">&quot; vs &quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb221-250"><a href="metorigin-analysis.html#cb221-250" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">FeatureID =</span> <span class="fu">make.names</span>(FeatureID)) <span class="sc">%&gt;%</span></span>
-<span id="cb221-251"><a href="metorigin-analysis.html#cb221-251" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">(All)&quot;</span>, </span>
-<span id="cb221-252"><a href="metorigin-analysis.html#cb221-252" tabindex="-1"></a>                              <span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">former&quot;</span>, </span>
-<span id="cb221-253"><a href="metorigin-analysis.html#cb221-253" tabindex="-1"></a>                              <span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">latter&quot;</span>))) <span class="sc">%&gt;%</span></span>
-<span id="cb221-254"><a href="metorigin-analysis.html#cb221-254" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">inner_join</span>(test_result <span class="sc">%&gt;%</span></span>
-<span id="cb221-255"><a href="metorigin-analysis.html#cb221-255" tabindex="-1"></a>                          dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Block) <span class="sc">%&gt;%</span></span>
-<span id="cb221-256"><a href="metorigin-analysis.html#cb221-256" tabindex="-1"></a>                          dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">FeatureID =</span> <span class="fu">make.names</span>(FeatureID)),</span>
-<span id="cb221-257"><a href="metorigin-analysis.html#cb221-257" tabindex="-1"></a>                        <span class="at">by =</span> <span class="st">&quot;FeatureID&quot;</span>) </span>
-<span id="cb221-258"><a href="metorigin-analysis.html#cb221-258" tabindex="-1"></a>    </span>
-<span id="cb221-259"><a href="metorigin-analysis.html#cb221-259" tabindex="-1"></a>    res <span class="ot">&lt;-</span> mdat <span class="sc">%&gt;%</span></span>
-<span id="cb221-260"><a href="metorigin-analysis.html#cb221-260" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(FeatureID, Block2, Block,</span>
-<span id="cb221-261"><a href="metorigin-analysis.html#cb221-261" tabindex="-1"></a>                    FoldChange, Log2FoldChange,</span>
-<span id="cb221-262"><a href="metorigin-analysis.html#cb221-262" tabindex="-1"></a>                    Statistic, Pvalue, AdjustedPvalue,</span>
-<span id="cb221-263"><a href="metorigin-analysis.html#cb221-263" tabindex="-1"></a>                    <span class="fu">everything</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb221-264"><a href="metorigin-analysis.html#cb221-264" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">arrange</span>(AdjustedPvalue, Log2FoldChange)    </span>
-<span id="cb221-265"><a href="metorigin-analysis.html#cb221-265" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb221-266"><a href="metorigin-analysis.html#cb221-266" tabindex="-1"></a>    mdat <span class="ot">&lt;-</span> fc_result <span class="sc">%&gt;%</span></span>
-<span id="cb221-267"><a href="metorigin-analysis.html#cb221-267" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Block2 =</span> <span class="fu">paste</span>(group_labels, <span class="at">collapse =</span> <span class="st">&quot; vs &quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb221-268"><a href="metorigin-analysis.html#cb221-268" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">FeatureID =</span> <span class="fu">make.names</span>(FeatureID)) <span class="sc">%&gt;%</span></span>
-<span id="cb221-269"><a href="metorigin-analysis.html#cb221-269" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">(All)&quot;</span>, </span>
-<span id="cb221-270"><a href="metorigin-analysis.html#cb221-270" tabindex="-1"></a>                              <span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">former&quot;</span>, </span>
-<span id="cb221-271"><a href="metorigin-analysis.html#cb221-271" tabindex="-1"></a>                              <span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">latter&quot;</span>))) <span class="sc">%&gt;%</span></span>
-<span id="cb221-272"><a href="metorigin-analysis.html#cb221-272" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">inner_join</span>(vip_result <span class="sc">%&gt;%</span></span>
-<span id="cb221-273"><a href="metorigin-analysis.html#cb221-273" tabindex="-1"></a>                          dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Block) <span class="sc">%&gt;%</span></span>
-<span id="cb221-274"><a href="metorigin-analysis.html#cb221-274" tabindex="-1"></a>                          dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">FeatureID =</span> <span class="fu">make.names</span>(FeatureID)),</span>
-<span id="cb221-275"><a href="metorigin-analysis.html#cb221-275" tabindex="-1"></a>                        <span class="at">by =</span> <span class="st">&quot;FeatureID&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb221-276"><a href="metorigin-analysis.html#cb221-276" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">inner_join</span>(test_result <span class="sc">%&gt;%</span></span>
-<span id="cb221-277"><a href="metorigin-analysis.html#cb221-277" tabindex="-1"></a>                          dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Block) <span class="sc">%&gt;%</span></span>
-<span id="cb221-278"><a href="metorigin-analysis.html#cb221-278" tabindex="-1"></a>                          dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">FeatureID =</span> <span class="fu">make.names</span>(FeatureID)),</span>
-<span id="cb221-279"><a href="metorigin-analysis.html#cb221-279" tabindex="-1"></a>                        <span class="at">by =</span> <span class="st">&quot;FeatureID&quot;</span>) </span>
-<span id="cb221-280"><a href="metorigin-analysis.html#cb221-280" tabindex="-1"></a>    </span>
-<span id="cb221-281"><a href="metorigin-analysis.html#cb221-281" tabindex="-1"></a>    res <span class="ot">&lt;-</span> mdat <span class="sc">%&gt;%</span></span>
-<span id="cb221-282"><a href="metorigin-analysis.html#cb221-282" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(FeatureID, Block2, Block,</span>
-<span id="cb221-283"><a href="metorigin-analysis.html#cb221-283" tabindex="-1"></a>                    FoldChange, Log2FoldChange,</span>
-<span id="cb221-284"><a href="metorigin-analysis.html#cb221-284" tabindex="-1"></a>                    VIP, CorPvalue,</span>
-<span id="cb221-285"><a href="metorigin-analysis.html#cb221-285" tabindex="-1"></a>                    Statistic, Pvalue, AdjustedPvalue,</span>
-<span id="cb221-286"><a href="metorigin-analysis.html#cb221-286" tabindex="-1"></a>                    <span class="fu">everything</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb221-287"><a href="metorigin-analysis.html#cb221-287" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">arrange</span>(AdjustedPvalue, Log2FoldChange)    </span>
-<span id="cb221-288"><a href="metorigin-analysis.html#cb221-288" tabindex="-1"></a>  }</span>
-<span id="cb221-289"><a href="metorigin-analysis.html#cb221-289" tabindex="-1"></a>  </span>
-<span id="cb221-290"><a href="metorigin-analysis.html#cb221-290" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb221-291"><a href="metorigin-analysis.html#cb221-291" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="metorigin-analysis.html#cb241-1" tabindex="-1"></a>FoldChange <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb241-2"><a href="metorigin-analysis.html#cb241-2" tabindex="-1"></a>    x,</span>
+<span id="cb241-3"><a href="metorigin-analysis.html#cb241-3" tabindex="-1"></a>    group,</span>
+<span id="cb241-4"><a href="metorigin-analysis.html#cb241-4" tabindex="-1"></a>    group_names) {</span>
+<span id="cb241-5"><a href="metorigin-analysis.html#cb241-5" tabindex="-1"></a>  </span>
+<span id="cb241-6"><a href="metorigin-analysis.html#cb241-6" tabindex="-1"></a>  <span class="co"># dataseat</span></span>
+<span id="cb241-7"><a href="metorigin-analysis.html#cb241-7" tabindex="-1"></a>  metadata <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">colData</span>(x) <span class="sc">%&gt;%</span></span>
+<span id="cb241-8"><a href="metorigin-analysis.html#cb241-8" tabindex="-1"></a>      <span class="fu">as.data.frame</span>()</span>
+<span id="cb241-9"><a href="metorigin-analysis.html#cb241-9" tabindex="-1"></a>  profile <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">assay</span>(x) <span class="sc">%&gt;%</span></span>
+<span id="cb241-10"><a href="metorigin-analysis.html#cb241-10" tabindex="-1"></a>      <span class="fu">as.data.frame</span>()</span>
+<span id="cb241-11"><a href="metorigin-analysis.html#cb241-11" tabindex="-1"></a></span>
+<span id="cb241-12"><a href="metorigin-analysis.html#cb241-12" tabindex="-1"></a>  <span class="fu">colnames</span>(metadata)[<span class="fu">which</span>(<span class="fu">colnames</span>(metadata) <span class="sc">==</span> group)] <span class="ot">&lt;-</span> <span class="st">&quot;CompVar&quot;</span></span>
+<span id="cb241-13"><a href="metorigin-analysis.html#cb241-13" tabindex="-1"></a>  phenotype <span class="ot">&lt;-</span> metadata <span class="sc">%&gt;%</span></span>
+<span id="cb241-14"><a href="metorigin-analysis.html#cb241-14" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(CompVar <span class="sc">%in%</span> group_names) <span class="sc">%&gt;%</span></span>
+<span id="cb241-15"><a href="metorigin-analysis.html#cb241-15" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">CompVar =</span> <span class="fu">as.character</span>(CompVar)) <span class="sc">%&gt;%</span></span>
+<span id="cb241-16"><a href="metorigin-analysis.html#cb241-16" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">CompVar =</span> <span class="fu">factor</span>(CompVar, <span class="at">levels =</span> group_names))</span>
+<span id="cb241-17"><a href="metorigin-analysis.html#cb241-17" tabindex="-1"></a>  </span>
+<span id="cb241-18"><a href="metorigin-analysis.html#cb241-18" tabindex="-1"></a>  sid <span class="ot">&lt;-</span> <span class="fu">intersect</span>(<span class="fu">rownames</span>(phenotype), <span class="fu">colnames</span>(profile))</span>
+<span id="cb241-19"><a href="metorigin-analysis.html#cb241-19" tabindex="-1"></a>  phen <span class="ot">&lt;-</span> phenotype[<span class="fu">pmatch</span>(sid, <span class="fu">rownames</span>(phenotype)), , ]</span>
+<span id="cb241-20"><a href="metorigin-analysis.html#cb241-20" tabindex="-1"></a>  prof <span class="ot">&lt;-</span> profile <span class="sc">%&gt;%</span></span>
+<span id="cb241-21"><a href="metorigin-analysis.html#cb241-21" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">all_of</span>(sid))</span>
+<span id="cb241-22"><a href="metorigin-analysis.html#cb241-22" tabindex="-1"></a>  </span>
+<span id="cb241-23"><a href="metorigin-analysis.html#cb241-23" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">all</span>(<span class="fu">colnames</span>(prof) <span class="sc">==</span> <span class="fu">rownames</span>(phen))) {</span>
+<span id="cb241-24"><a href="metorigin-analysis.html#cb241-24" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Wrong Order&quot;</span>)</span>
+<span id="cb241-25"><a href="metorigin-analysis.html#cb241-25" tabindex="-1"></a>  }</span>
+<span id="cb241-26"><a href="metorigin-analysis.html#cb241-26" tabindex="-1"></a>  </span>
+<span id="cb241-27"><a href="metorigin-analysis.html#cb241-27" tabindex="-1"></a>  fc_res <span class="ot">&lt;-</span> <span class="fu">apply</span>(prof, <span class="dv">1</span>, <span class="cf">function</span>(x1, y1) {</span>
+<span id="cb241-28"><a href="metorigin-analysis.html#cb241-28" tabindex="-1"></a>    dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">value =</span> <span class="fu">as.numeric</span>(x1), <span class="at">group =</span> y1)</span>
+<span id="cb241-29"><a href="metorigin-analysis.html#cb241-29" tabindex="-1"></a>    mn <span class="ot">&lt;-</span> <span class="fu">tapply</span>(dat<span class="sc">$</span>value, dat<span class="sc">$</span>group, <span class="cf">function</span>(x){</span>
+<span id="cb241-30"><a href="metorigin-analysis.html#cb241-30" tabindex="-1"></a>      <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb241-31"><a href="metorigin-analysis.html#cb241-31" tabindex="-1"></a>    }) <span class="sc">%&gt;%</span></span>
+<span id="cb241-32"><a href="metorigin-analysis.html#cb241-32" tabindex="-1"></a>      <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb241-33"><a href="metorigin-analysis.html#cb241-33" tabindex="-1"></a>      stats<span class="sc">::</span><span class="fu">setNames</span>(<span class="st">&quot;value&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb241-34"><a href="metorigin-analysis.html#cb241-34" tabindex="-1"></a>      tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="st">&quot;Group&quot;</span>)</span>
+<span id="cb241-35"><a href="metorigin-analysis.html#cb241-35" tabindex="-1"></a></span>
+<span id="cb241-36"><a href="metorigin-analysis.html#cb241-36" tabindex="-1"></a>    mn1 <span class="ot">&lt;-</span> <span class="fu">with</span>(mn, mn[Group <span class="sc">%in%</span> group_names[<span class="dv">1</span>], <span class="st">&quot;value&quot;</span>])</span>
+<span id="cb241-37"><a href="metorigin-analysis.html#cb241-37" tabindex="-1"></a>    mn2 <span class="ot">&lt;-</span> <span class="fu">with</span>(mn, mn[Group <span class="sc">%in%</span> group_names[<span class="dv">2</span>], <span class="st">&quot;value&quot;</span>])</span>
+<span id="cb241-38"><a href="metorigin-analysis.html#cb241-38" tabindex="-1"></a>    mnall <span class="ot">&lt;-</span> <span class="fu">mean</span>(dat<span class="sc">$</span>value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb241-39"><a href="metorigin-analysis.html#cb241-39" tabindex="-1"></a>    </span>
+<span id="cb241-40"><a href="metorigin-analysis.html#cb241-40" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">all</span>(mn1 <span class="sc">!=</span> <span class="dv">0</span>, mn2 <span class="sc">!=</span> <span class="dv">0</span>)) {</span>
+<span id="cb241-41"><a href="metorigin-analysis.html#cb241-41" tabindex="-1"></a>      fc <span class="ot">&lt;-</span> mn1 <span class="sc">/</span> mn2</span>
+<span id="cb241-42"><a href="metorigin-analysis.html#cb241-42" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb241-43"><a href="metorigin-analysis.html#cb241-43" tabindex="-1"></a>      fc <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb241-44"><a href="metorigin-analysis.html#cb241-44" tabindex="-1"></a>    }</span>
+<span id="cb241-45"><a href="metorigin-analysis.html#cb241-45" tabindex="-1"></a>    </span>
+<span id="cb241-46"><a href="metorigin-analysis.html#cb241-46" tabindex="-1"></a>    logfc <span class="ot">&lt;-</span> <span class="fu">log2</span>(fc)</span>
+<span id="cb241-47"><a href="metorigin-analysis.html#cb241-47" tabindex="-1"></a></span>
+<span id="cb241-48"><a href="metorigin-analysis.html#cb241-48" tabindex="-1"></a>    res <span class="ot">&lt;-</span> <span class="fu">c</span>(fc, logfc, mnall, mn1, mn2)</span>
+<span id="cb241-49"><a href="metorigin-analysis.html#cb241-49" tabindex="-1"></a>    <span class="fu">return</span>(res)</span>
+<span id="cb241-50"><a href="metorigin-analysis.html#cb241-50" tabindex="-1"></a>  }, phen<span class="sc">$</span>CompVar) <span class="sc">%&gt;%</span></span>
+<span id="cb241-51"><a href="metorigin-analysis.html#cb241-51" tabindex="-1"></a>    base<span class="sc">::</span><span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb241-52"><a href="metorigin-analysis.html#cb241-52" tabindex="-1"></a>    tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="st">&quot;Feature&quot;</span>)</span>
+<span id="cb241-53"><a href="metorigin-analysis.html#cb241-53" tabindex="-1"></a>  </span>
+<span id="cb241-54"><a href="metorigin-analysis.html#cb241-54" tabindex="-1"></a>  <span class="fu">colnames</span>(fc_res) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;FeatureID&quot;</span>, <span class="st">&quot;FoldChange&quot;</span>, </span>
+<span id="cb241-55"><a href="metorigin-analysis.html#cb241-55" tabindex="-1"></a>                        <span class="st">&quot;Log2FoldChange&quot;</span>,</span>
+<span id="cb241-56"><a href="metorigin-analysis.html#cb241-56" tabindex="-1"></a>                        <span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">(All)&quot;</span>,</span>
+<span id="cb241-57"><a href="metorigin-analysis.html#cb241-57" tabindex="-1"></a>                     <span class="fu">paste0</span>(<span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;former&quot;</span>, <span class="st">&quot;latter&quot;</span>)))  </span>
+<span id="cb241-58"><a href="metorigin-analysis.html#cb241-58" tabindex="-1"></a>  </span>
+<span id="cb241-59"><a href="metorigin-analysis.html#cb241-59" tabindex="-1"></a>  <span class="co"># Number of Group</span></span>
+<span id="cb241-60"><a href="metorigin-analysis.html#cb241-60" tabindex="-1"></a>  dat_status <span class="ot">&lt;-</span> <span class="fu">table</span>(phen<span class="sc">$</span>CompVar)</span>
+<span id="cb241-61"><a href="metorigin-analysis.html#cb241-61" tabindex="-1"></a>  dat_status_number <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dat_status)</span>
+<span id="cb241-62"><a href="metorigin-analysis.html#cb241-62" tabindex="-1"></a>  dat_status_name <span class="ot">&lt;-</span> <span class="fu">names</span>(dat_status)</span>
+<span id="cb241-63"><a href="metorigin-analysis.html#cb241-63" tabindex="-1"></a>  fc_res<span class="sc">$</span>Block <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">paste</span>(dat_status_number[<span class="dv">1</span>], dat_status_name[<span class="dv">1</span>], <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>),</span>
+<span id="cb241-64"><a href="metorigin-analysis.html#cb241-64" tabindex="-1"></a>                       <span class="st">&quot;vs&quot;</span>,</span>
+<span id="cb241-65"><a href="metorigin-analysis.html#cb241-65" tabindex="-1"></a>                       <span class="fu">paste</span>(dat_status_number[<span class="dv">2</span>], dat_status_name[<span class="dv">2</span>], <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>))</span>
+<span id="cb241-66"><a href="metorigin-analysis.html#cb241-66" tabindex="-1"></a>  </span>
+<span id="cb241-67"><a href="metorigin-analysis.html#cb241-67" tabindex="-1"></a>  res <span class="ot">&lt;-</span> fc_res <span class="sc">%&gt;%</span></span>
+<span id="cb241-68"><a href="metorigin-analysis.html#cb241-68" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(FeatureID, Block, <span class="fu">everything</span>())    </span>
+<span id="cb241-69"><a href="metorigin-analysis.html#cb241-69" tabindex="-1"></a></span>
+<span id="cb241-70"><a href="metorigin-analysis.html#cb241-70" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb241-71"><a href="metorigin-analysis.html#cb241-71" tabindex="-1"></a>}</span>
+<span id="cb241-72"><a href="metorigin-analysis.html#cb241-72" tabindex="-1"></a></span>
+<span id="cb241-73"><a href="metorigin-analysis.html#cb241-73" tabindex="-1"></a>VIP_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb241-74"><a href="metorigin-analysis.html#cb241-74" tabindex="-1"></a>    x,</span>
+<span id="cb241-75"><a href="metorigin-analysis.html#cb241-75" tabindex="-1"></a>    group,</span>
+<span id="cb241-76"><a href="metorigin-analysis.html#cb241-76" tabindex="-1"></a>    group_names,</span>
+<span id="cb241-77"><a href="metorigin-analysis.html#cb241-77" tabindex="-1"></a>    <span class="at">VIPtype =</span> <span class="fu">c</span>(<span class="st">&quot;OPLS&quot;</span>, <span class="st">&quot;PLS&quot;</span>),</span>
+<span id="cb241-78"><a href="metorigin-analysis.html#cb241-78" tabindex="-1"></a>    <span class="at">vip_cutoff =</span> <span class="dv">1</span>) {</span>
+<span id="cb241-79"><a href="metorigin-analysis.html#cb241-79" tabindex="-1"></a>  </span>
+<span id="cb241-80"><a href="metorigin-analysis.html#cb241-80" tabindex="-1"></a>  metadata <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">colData</span>(x) <span class="sc">%&gt;%</span></span>
+<span id="cb241-81"><a href="metorigin-analysis.html#cb241-81" tabindex="-1"></a>      <span class="fu">as.data.frame</span>()</span>
+<span id="cb241-82"><a href="metorigin-analysis.html#cb241-82" tabindex="-1"></a>  profile <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">assay</span>(x) <span class="sc">%&gt;%</span></span>
+<span id="cb241-83"><a href="metorigin-analysis.html#cb241-83" tabindex="-1"></a>      <span class="fu">as.data.frame</span>()</span>
+<span id="cb241-84"><a href="metorigin-analysis.html#cb241-84" tabindex="-1"></a></span>
+<span id="cb241-85"><a href="metorigin-analysis.html#cb241-85" tabindex="-1"></a>  <span class="fu">colnames</span>(metadata)[<span class="fu">which</span>(<span class="fu">colnames</span>(metadata) <span class="sc">==</span> group)] <span class="ot">&lt;-</span> <span class="st">&quot;CompVar&quot;</span></span>
+<span id="cb241-86"><a href="metorigin-analysis.html#cb241-86" tabindex="-1"></a>  phenotype <span class="ot">&lt;-</span> metadata <span class="sc">%&gt;%</span></span>
+<span id="cb241-87"><a href="metorigin-analysis.html#cb241-87" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(CompVar <span class="sc">%in%</span> group_names) <span class="sc">%&gt;%</span></span>
+<span id="cb241-88"><a href="metorigin-analysis.html#cb241-88" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">CompVar =</span> <span class="fu">as.character</span>(CompVar)) <span class="sc">%&gt;%</span></span>
+<span id="cb241-89"><a href="metorigin-analysis.html#cb241-89" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">CompVar =</span> <span class="fu">factor</span>(CompVar, <span class="at">levels =</span> group_names))</span>
+<span id="cb241-90"><a href="metorigin-analysis.html#cb241-90" tabindex="-1"></a>  </span>
+<span id="cb241-91"><a href="metorigin-analysis.html#cb241-91" tabindex="-1"></a>  sid <span class="ot">&lt;-</span> <span class="fu">intersect</span>(<span class="fu">rownames</span>(phenotype), <span class="fu">colnames</span>(profile))</span>
+<span id="cb241-92"><a href="metorigin-analysis.html#cb241-92" tabindex="-1"></a>  phen <span class="ot">&lt;-</span> phenotype[<span class="fu">pmatch</span>(sid, <span class="fu">rownames</span>(phenotype)), , ]</span>
+<span id="cb241-93"><a href="metorigin-analysis.html#cb241-93" tabindex="-1"></a>  prof <span class="ot">&lt;-</span> profile <span class="sc">%&gt;%</span></span>
+<span id="cb241-94"><a href="metorigin-analysis.html#cb241-94" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">all_of</span>(sid))</span>
+<span id="cb241-95"><a href="metorigin-analysis.html#cb241-95" tabindex="-1"></a>  </span>
+<span id="cb241-96"><a href="metorigin-analysis.html#cb241-96" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">all</span>(<span class="fu">colnames</span>(prof) <span class="sc">==</span> <span class="fu">rownames</span>(phen))) {</span>
+<span id="cb241-97"><a href="metorigin-analysis.html#cb241-97" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Wrong Order&quot;</span>)</span>
+<span id="cb241-98"><a href="metorigin-analysis.html#cb241-98" tabindex="-1"></a>  }</span>
+<span id="cb241-99"><a href="metorigin-analysis.html#cb241-99" tabindex="-1"></a>  </span>
+<span id="cb241-100"><a href="metorigin-analysis.html#cb241-100" tabindex="-1"></a>  dataMatrix <span class="ot">&lt;-</span> prof <span class="sc">%&gt;%</span> base<span class="sc">::</span><span class="fu">t</span>() <span class="co"># row-&gt;sampleID; col-&gt;features</span></span>
+<span id="cb241-101"><a href="metorigin-analysis.html#cb241-101" tabindex="-1"></a>  sampleMetadata <span class="ot">&lt;-</span> phen <span class="co"># row-&gt;sampleID; col-&gt;features</span></span>
+<span id="cb241-102"><a href="metorigin-analysis.html#cb241-102" tabindex="-1"></a>  </span>
+<span id="cb241-103"><a href="metorigin-analysis.html#cb241-103" tabindex="-1"></a>  comparsionVn <span class="ot">&lt;-</span> sampleMetadata[, <span class="st">&quot;CompVar&quot;</span>]</span>
+<span id="cb241-104"><a href="metorigin-analysis.html#cb241-104" tabindex="-1"></a>  </span>
+<span id="cb241-105"><a href="metorigin-analysis.html#cb241-105" tabindex="-1"></a>  <span class="co"># corrlation between group and features</span></span>
+<span id="cb241-106"><a href="metorigin-analysis.html#cb241-106" tabindex="-1"></a>  pvaVn <span class="ot">&lt;-</span> <span class="fu">apply</span>(dataMatrix, <span class="dv">2</span>,</span>
+<span id="cb241-107"><a href="metorigin-analysis.html#cb241-107" tabindex="-1"></a>                 <span class="cf">function</span>(feaVn) <span class="fu">cor.test</span>(<span class="fu">as.numeric</span>(comparsionVn), feaVn)[[<span class="st">&quot;p.value&quot;</span>]])</span>
+<span id="cb241-108"><a href="metorigin-analysis.html#cb241-108" tabindex="-1"></a>  </span>
+<span id="cb241-109"><a href="metorigin-analysis.html#cb241-109" tabindex="-1"></a>  <span class="cf">if</span> (VIPtype <span class="sc">==</span> <span class="st">&quot;OPLS&quot;</span>) {</span>
+<span id="cb241-110"><a href="metorigin-analysis.html#cb241-110" tabindex="-1"></a>    vipVn <span class="ot">&lt;-</span> <span class="fu">getVipVn</span>(<span class="fu">opls</span>(dataMatrix, </span>
+<span id="cb241-111"><a href="metorigin-analysis.html#cb241-111" tabindex="-1"></a>                           comparsionVn,</span>
+<span id="cb241-112"><a href="metorigin-analysis.html#cb241-112" tabindex="-1"></a>                           <span class="at">predI =</span> <span class="dv">1</span>, </span>
+<span id="cb241-113"><a href="metorigin-analysis.html#cb241-113" tabindex="-1"></a>                           <span class="at">orthoI =</span> <span class="cn">NA</span>,</span>
+<span id="cb241-114"><a href="metorigin-analysis.html#cb241-114" tabindex="-1"></a>                           <span class="at">fig.pdfC =</span> <span class="st">&quot;none&quot;</span>))    </span>
+<span id="cb241-115"><a href="metorigin-analysis.html#cb241-115" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb241-116"><a href="metorigin-analysis.html#cb241-116" tabindex="-1"></a>    vipVn <span class="ot">&lt;-</span> <span class="fu">getVipVn</span>(<span class="fu">opls</span>(dataMatrix, </span>
+<span id="cb241-117"><a href="metorigin-analysis.html#cb241-117" tabindex="-1"></a>                           comparsionVn,</span>
+<span id="cb241-118"><a href="metorigin-analysis.html#cb241-118" tabindex="-1"></a>                           <span class="at">predI =</span> <span class="dv">1</span>, </span>
+<span id="cb241-119"><a href="metorigin-analysis.html#cb241-119" tabindex="-1"></a>                           <span class="at">fig.pdfC =</span> <span class="st">&quot;none&quot;</span>))    </span>
+<span id="cb241-120"><a href="metorigin-analysis.html#cb241-120" tabindex="-1"></a>  }</span>
+<span id="cb241-121"><a href="metorigin-analysis.html#cb241-121" tabindex="-1"></a>  quantVn <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> pvaVn <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb241-122"><a href="metorigin-analysis.html#cb241-122" tabindex="-1"></a>  rmsQuantN <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(quantVn<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb241-123"><a href="metorigin-analysis.html#cb241-123" tabindex="-1"></a>  </span>
+<span id="cb241-124"><a href="metorigin-analysis.html#cb241-124" tabindex="-1"></a>  opar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">font =</span> <span class="dv">2</span>, <span class="at">font.axis =</span> <span class="dv">2</span>, <span class="at">font.lab =</span> <span class="dv">2</span>,</span>
+<span id="cb241-125"><a href="metorigin-analysis.html#cb241-125" tabindex="-1"></a>              <span class="at">las =</span> <span class="dv">1</span>,</span>
+<span id="cb241-126"><a href="metorigin-analysis.html#cb241-126" tabindex="-1"></a>              <span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.6</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>),</span>
+<span id="cb241-127"><a href="metorigin-analysis.html#cb241-127" tabindex="-1"></a>              <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb241-128"><a href="metorigin-analysis.html#cb241-128" tabindex="-1"></a>  <span class="fu">plot</span>(pvaVn, </span>
+<span id="cb241-129"><a href="metorigin-analysis.html#cb241-129" tabindex="-1"></a>       vipVn,</span>
+<span id="cb241-130"><a href="metorigin-analysis.html#cb241-130" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb241-131"><a href="metorigin-analysis.html#cb241-131" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">16</span>,</span>
+<span id="cb241-132"><a href="metorigin-analysis.html#cb241-132" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">&quot;p-value&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;VIP&quot;</span>, <span class="at">xaxs =</span> <span class="st">&quot;i&quot;</span>, <span class="at">yaxs =</span> <span class="st">&quot;i&quot;</span>)</span>
+<span id="cb241-133"><a href="metorigin-analysis.html#cb241-133" tabindex="-1"></a>  <span class="fu">box</span>(<span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb241-134"><a href="metorigin-analysis.html#cb241-134" tabindex="-1"></a>  <span class="fu">curve</span>(<span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> x <span class="sc">/</span> <span class="dv">2</span>) <span class="sc">/</span> rmsQuantN, <span class="dv">0</span>, <span class="dv">1</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb241-135"><a href="metorigin-analysis.html#cb241-135" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb241-136"><a href="metorigin-analysis.html#cb241-136" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v =</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb241-137"><a href="metorigin-analysis.html#cb241-137" tabindex="-1"></a>  </span>
+<span id="cb241-138"><a href="metorigin-analysis.html#cb241-138" tabindex="-1"></a>  res_temp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb241-139"><a href="metorigin-analysis.html#cb241-139" tabindex="-1"></a>      <span class="at">FeatureID =</span> <span class="fu">names</span>(vipVn),</span>
+<span id="cb241-140"><a href="metorigin-analysis.html#cb241-140" tabindex="-1"></a>      <span class="at">VIP =</span> vipVn,</span>
+<span id="cb241-141"><a href="metorigin-analysis.html#cb241-141" tabindex="-1"></a>      <span class="at">CorPvalue =</span> pvaVn) <span class="sc">%&gt;%</span></span>
+<span id="cb241-142"><a href="metorigin-analysis.html#cb241-142" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(VIP))</span>
+<span id="cb241-143"><a href="metorigin-analysis.html#cb241-143" tabindex="-1"></a></span>
+<span id="cb241-144"><a href="metorigin-analysis.html#cb241-144" tabindex="-1"></a>  vip_select <span class="ot">&lt;-</span> res_temp <span class="sc">%&gt;%</span></span>
+<span id="cb241-145"><a href="metorigin-analysis.html#cb241-145" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(VIP <span class="sc">&gt;</span> vip_cutoff) </span>
+<span id="cb241-146"><a href="metorigin-analysis.html#cb241-146" tabindex="-1"></a>  </span>
+<span id="cb241-147"><a href="metorigin-analysis.html#cb241-147" tabindex="-1"></a>  pl <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(vip_select, <span class="fu">aes</span>(FeatureID, VIP)) <span class="sc">+</span></span>
+<span id="cb241-148"><a href="metorigin-analysis.html#cb241-148" tabindex="-1"></a>    <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> FeatureID, <span class="at">xend =</span> FeatureID,</span>
+<span id="cb241-149"><a href="metorigin-analysis.html#cb241-149" tabindex="-1"></a>                     <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> VIP)) <span class="sc">+</span></span>
+<span id="cb241-150"><a href="metorigin-analysis.html#cb241-150" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">&#39;#008000&#39;</span> ,<span class="at">fill =</span> <span class="st">&#39;#008000&#39;</span>) <span class="sc">+</span></span>
+<span id="cb241-151"><a href="metorigin-analysis.html#cb241-151" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="dv">1</span>,<span class="fl">2.5</span>), <span class="at">color =</span> <span class="st">&#39;white&#39;</span>) <span class="sc">+</span></span>
+<span id="cb241-152"><a href="metorigin-analysis.html#cb241-152" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">&#39;dashed&#39;</span>) <span class="sc">+</span></span>
+<span id="cb241-153"><a href="metorigin-analysis.html#cb241-153" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb241-154"><a href="metorigin-analysis.html#cb241-154" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;&#39;</span>, <span class="at">y =</span> <span class="st">&#39;VIP value&#39;</span>) <span class="sc">+</span></span>
+<span id="cb241-155"><a href="metorigin-analysis.html#cb241-155" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb241-156"><a href="metorigin-analysis.html#cb241-156" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;none&#39;</span>,</span>
+<span id="cb241-157"><a href="metorigin-analysis.html#cb241-157" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&#39;black&#39;</span>,<span class="at">size =</span> <span class="dv">12</span>, <span class="at">family =</span> <span class="st">&#39;Arial&#39;</span>, <span class="at">face =</span> <span class="st">&#39;plain&#39;</span>),</span>
+<span id="cb241-158"><a href="metorigin-analysis.html#cb241-158" tabindex="-1"></a>          <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb241-159"><a href="metorigin-analysis.html#cb241-159" tabindex="-1"></a>          <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb241-160"><a href="metorigin-analysis.html#cb241-160" tabindex="-1"></a>          <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&#39;black&#39;</span>,<span class="at">size =</span> <span class="dv">15</span>, <span class="at">family =</span> <span class="st">&#39;Arial&#39;</span>, <span class="at">face =</span> <span class="st">&#39;plain&#39;</span>),</span>
+<span id="cb241-161"><a href="metorigin-analysis.html#cb241-161" tabindex="-1"></a>          <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>),</span>
+<span id="cb241-162"><a href="metorigin-analysis.html#cb241-162" tabindex="-1"></a>          <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&#39;black&#39;</span>,<span class="at">size =</span> <span class="dv">15</span>, <span class="at">family =</span> <span class="st">&#39;Arial&#39;</span>, <span class="at">face =</span> <span class="st">&#39;plain&#39;</span>),</span>
+<span id="cb241-163"><a href="metorigin-analysis.html#cb241-163" tabindex="-1"></a>          <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">&#39;black&#39;</span>),</span>
+<span id="cb241-164"><a href="metorigin-analysis.html#cb241-164" tabindex="-1"></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb241-165"><a href="metorigin-analysis.html#cb241-165" tabindex="-1"></a>  </span>
+<span id="cb241-166"><a href="metorigin-analysis.html#cb241-166" tabindex="-1"></a>  <span class="co"># Number of Group</span></span>
+<span id="cb241-167"><a href="metorigin-analysis.html#cb241-167" tabindex="-1"></a>  dat_status <span class="ot">&lt;-</span> <span class="fu">table</span>(phen<span class="sc">$</span>CompVar)</span>
+<span id="cb241-168"><a href="metorigin-analysis.html#cb241-168" tabindex="-1"></a>  dat_status_number <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dat_status)</span>
+<span id="cb241-169"><a href="metorigin-analysis.html#cb241-169" tabindex="-1"></a>  dat_status_name <span class="ot">&lt;-</span> <span class="fu">names</span>(dat_status)</span>
+<span id="cb241-170"><a href="metorigin-analysis.html#cb241-170" tabindex="-1"></a>  res_temp<span class="sc">$</span>Block <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">paste</span>(dat_status_number[<span class="dv">1</span>], dat_status_name[<span class="dv">1</span>], <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>),</span>
+<span id="cb241-171"><a href="metorigin-analysis.html#cb241-171" tabindex="-1"></a>                       <span class="st">&quot;vs&quot;</span>,</span>
+<span id="cb241-172"><a href="metorigin-analysis.html#cb241-172" tabindex="-1"></a>                       <span class="fu">paste</span>(dat_status_number[<span class="dv">2</span>], dat_status_name[<span class="dv">2</span>], <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>))</span>
+<span id="cb241-173"><a href="metorigin-analysis.html#cb241-173" tabindex="-1"></a></span>
+<span id="cb241-174"><a href="metorigin-analysis.html#cb241-174" tabindex="-1"></a>  res_df <span class="ot">&lt;-</span> res_temp <span class="sc">%&gt;%</span></span>
+<span id="cb241-175"><a href="metorigin-analysis.html#cb241-175" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(FeatureID, Block, <span class="fu">everything</span>())    </span>
+<span id="cb241-176"><a href="metorigin-analysis.html#cb241-176" tabindex="-1"></a></span>
+<span id="cb241-177"><a href="metorigin-analysis.html#cb241-177" tabindex="-1"></a></span>
+<span id="cb241-178"><a href="metorigin-analysis.html#cb241-178" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">vip =</span> res_df,</span>
+<span id="cb241-179"><a href="metorigin-analysis.html#cb241-179" tabindex="-1"></a>              <span class="at">plot =</span> pl)</span>
+<span id="cb241-180"><a href="metorigin-analysis.html#cb241-180" tabindex="-1"></a>  </span>
+<span id="cb241-181"><a href="metorigin-analysis.html#cb241-181" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb241-182"><a href="metorigin-analysis.html#cb241-182" tabindex="-1"></a>}</span>
+<span id="cb241-183"><a href="metorigin-analysis.html#cb241-183" tabindex="-1"></a></span>
+<span id="cb241-184"><a href="metorigin-analysis.html#cb241-184" tabindex="-1"></a>t_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb241-185"><a href="metorigin-analysis.html#cb241-185" tabindex="-1"></a>    x,</span>
+<span id="cb241-186"><a href="metorigin-analysis.html#cb241-186" tabindex="-1"></a>    group,</span>
+<span id="cb241-187"><a href="metorigin-analysis.html#cb241-187" tabindex="-1"></a>    group_names) {</span>
+<span id="cb241-188"><a href="metorigin-analysis.html#cb241-188" tabindex="-1"></a>  </span>
+<span id="cb241-189"><a href="metorigin-analysis.html#cb241-189" tabindex="-1"></a>  <span class="co"># dataseat</span></span>
+<span id="cb241-190"><a href="metorigin-analysis.html#cb241-190" tabindex="-1"></a>  metadata <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">colData</span>(x) <span class="sc">%&gt;%</span></span>
+<span id="cb241-191"><a href="metorigin-analysis.html#cb241-191" tabindex="-1"></a>      <span class="fu">as.data.frame</span>()</span>
+<span id="cb241-192"><a href="metorigin-analysis.html#cb241-192" tabindex="-1"></a>  profile <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">assay</span>(x) <span class="sc">%&gt;%</span></span>
+<span id="cb241-193"><a href="metorigin-analysis.html#cb241-193" tabindex="-1"></a>      <span class="fu">as.data.frame</span>()</span>
+<span id="cb241-194"><a href="metorigin-analysis.html#cb241-194" tabindex="-1"></a></span>
+<span id="cb241-195"><a href="metorigin-analysis.html#cb241-195" tabindex="-1"></a>  <span class="co"># rename variables</span></span>
+<span id="cb241-196"><a href="metorigin-analysis.html#cb241-196" tabindex="-1"></a>  <span class="fu">colnames</span>(metadata)[<span class="fu">which</span>(<span class="fu">colnames</span>(metadata) <span class="sc">==</span> group)] <span class="ot">&lt;-</span> <span class="st">&quot;CompVar&quot;</span> </span>
+<span id="cb241-197"><a href="metorigin-analysis.html#cb241-197" tabindex="-1"></a>  </span>
+<span id="cb241-198"><a href="metorigin-analysis.html#cb241-198" tabindex="-1"></a>  phenotype <span class="ot">&lt;-</span> metadata <span class="sc">%&gt;%</span></span>
+<span id="cb241-199"><a href="metorigin-analysis.html#cb241-199" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(CompVar <span class="sc">%in%</span> group_names) <span class="sc">%&gt;%</span></span>
+<span id="cb241-200"><a href="metorigin-analysis.html#cb241-200" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">CompVar =</span> <span class="fu">as.character</span>(CompVar)) <span class="sc">%&gt;%</span></span>
+<span id="cb241-201"><a href="metorigin-analysis.html#cb241-201" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">CompVar =</span> <span class="fu">factor</span>(CompVar, <span class="at">levels =</span> group_names))</span>
+<span id="cb241-202"><a href="metorigin-analysis.html#cb241-202" tabindex="-1"></a>  </span>
+<span id="cb241-203"><a href="metorigin-analysis.html#cb241-203" tabindex="-1"></a>  sid <span class="ot">&lt;-</span> <span class="fu">intersect</span>(<span class="fu">rownames</span>(phenotype), <span class="fu">colnames</span>(profile))</span>
+<span id="cb241-204"><a href="metorigin-analysis.html#cb241-204" tabindex="-1"></a>  phen <span class="ot">&lt;-</span> phenotype[<span class="fu">pmatch</span>(sid, <span class="fu">rownames</span>(phenotype)), , ]</span>
+<span id="cb241-205"><a href="metorigin-analysis.html#cb241-205" tabindex="-1"></a>  prof <span class="ot">&lt;-</span> profile <span class="sc">%&gt;%</span></span>
+<span id="cb241-206"><a href="metorigin-analysis.html#cb241-206" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">all_of</span>(sid))</span>
+<span id="cb241-207"><a href="metorigin-analysis.html#cb241-207" tabindex="-1"></a>  </span>
+<span id="cb241-208"><a href="metorigin-analysis.html#cb241-208" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">all</span>(<span class="fu">colnames</span>(prof) <span class="sc">==</span> <span class="fu">rownames</span>(phen))) {</span>
+<span id="cb241-209"><a href="metorigin-analysis.html#cb241-209" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Wrong Order&quot;</span>)</span>
+<span id="cb241-210"><a href="metorigin-analysis.html#cb241-210" tabindex="-1"></a>  }</span>
+<span id="cb241-211"><a href="metorigin-analysis.html#cb241-211" tabindex="-1"></a></span>
+<span id="cb241-212"><a href="metorigin-analysis.html#cb241-212" tabindex="-1"></a>  t_res <span class="ot">&lt;-</span> <span class="fu">apply</span>(prof, <span class="dv">1</span>, <span class="cf">function</span>(x1, y1) {</span>
+<span id="cb241-213"><a href="metorigin-analysis.html#cb241-213" tabindex="-1"></a>    dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">value =</span> <span class="fu">as.numeric</span>(x1), <span class="at">group =</span> y1)</span>
+<span id="cb241-214"><a href="metorigin-analysis.html#cb241-214" tabindex="-1"></a>    </span>
+<span id="cb241-215"><a href="metorigin-analysis.html#cb241-215" tabindex="-1"></a>    rest <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="at">data =</span> dat, value <span class="sc">~</span> group)</span>
+<span id="cb241-216"><a href="metorigin-analysis.html#cb241-216" tabindex="-1"></a></span>
+<span id="cb241-217"><a href="metorigin-analysis.html#cb241-217" tabindex="-1"></a>    res <span class="ot">&lt;-</span> <span class="fu">c</span>(rest<span class="sc">$</span>statistic, rest<span class="sc">$</span>p.value)</span>
+<span id="cb241-218"><a href="metorigin-analysis.html#cb241-218" tabindex="-1"></a>    <span class="fu">return</span>(res)</span>
+<span id="cb241-219"><a href="metorigin-analysis.html#cb241-219" tabindex="-1"></a>  }, phen<span class="sc">$</span>CompVar) <span class="sc">%&gt;%</span></span>
+<span id="cb241-220"><a href="metorigin-analysis.html#cb241-220" tabindex="-1"></a>    base<span class="sc">::</span><span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb241-221"><a href="metorigin-analysis.html#cb241-221" tabindex="-1"></a>    tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="st">&quot;Feature&quot;</span>)</span>
+<span id="cb241-222"><a href="metorigin-analysis.html#cb241-222" tabindex="-1"></a>  </span>
+<span id="cb241-223"><a href="metorigin-analysis.html#cb241-223" tabindex="-1"></a>  <span class="fu">colnames</span>(t_res) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;FeatureID&quot;</span>, <span class="st">&quot;Statistic&quot;</span>, <span class="st">&quot;Pvalue&quot;</span>)</span>
+<span id="cb241-224"><a href="metorigin-analysis.html#cb241-224" tabindex="-1"></a>  t_res<span class="sc">$</span>AdjustedPvalue <span class="ot">&lt;-</span> <span class="fu">p.adjust</span>(<span class="fu">as.numeric</span>(t_res<span class="sc">$</span>Pvalue), <span class="at">method =</span> <span class="st">&quot;BH&quot;</span>)</span>
+<span id="cb241-225"><a href="metorigin-analysis.html#cb241-225" tabindex="-1"></a>  </span>
+<span id="cb241-226"><a href="metorigin-analysis.html#cb241-226" tabindex="-1"></a>  <span class="co"># Number of Group</span></span>
+<span id="cb241-227"><a href="metorigin-analysis.html#cb241-227" tabindex="-1"></a>  dat_status <span class="ot">&lt;-</span> <span class="fu">table</span>(phen<span class="sc">$</span>CompVar)</span>
+<span id="cb241-228"><a href="metorigin-analysis.html#cb241-228" tabindex="-1"></a>  dat_status_number <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dat_status)</span>
+<span id="cb241-229"><a href="metorigin-analysis.html#cb241-229" tabindex="-1"></a>  dat_status_name <span class="ot">&lt;-</span> <span class="fu">names</span>(dat_status)</span>
+<span id="cb241-230"><a href="metorigin-analysis.html#cb241-230" tabindex="-1"></a>  t_res<span class="sc">$</span>Block <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">paste</span>(dat_status_number[<span class="dv">1</span>], dat_status_name[<span class="dv">1</span>], <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>),</span>
+<span id="cb241-231"><a href="metorigin-analysis.html#cb241-231" tabindex="-1"></a>                       <span class="st">&quot;vs&quot;</span>,</span>
+<span id="cb241-232"><a href="metorigin-analysis.html#cb241-232" tabindex="-1"></a>                       <span class="fu">paste</span>(dat_status_number[<span class="dv">2</span>], dat_status_name[<span class="dv">2</span>], <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>))</span>
+<span id="cb241-233"><a href="metorigin-analysis.html#cb241-233" tabindex="-1"></a>  </span>
+<span id="cb241-234"><a href="metorigin-analysis.html#cb241-234" tabindex="-1"></a>  res <span class="ot">&lt;-</span> t_res <span class="sc">%&gt;%</span></span>
+<span id="cb241-235"><a href="metorigin-analysis.html#cb241-235" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(FeatureID, Block, <span class="fu">everything</span>())    </span>
+<span id="cb241-236"><a href="metorigin-analysis.html#cb241-236" tabindex="-1"></a></span>
+<span id="cb241-237"><a href="metorigin-analysis.html#cb241-237" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb241-238"><a href="metorigin-analysis.html#cb241-238" tabindex="-1"></a>}</span>
+<span id="cb241-239"><a href="metorigin-analysis.html#cb241-239" tabindex="-1"></a></span>
+<span id="cb241-240"><a href="metorigin-analysis.html#cb241-240" tabindex="-1"></a>mergedResults <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb241-241"><a href="metorigin-analysis.html#cb241-241" tabindex="-1"></a>    fc_result,</span>
+<span id="cb241-242"><a href="metorigin-analysis.html#cb241-242" tabindex="-1"></a>    vip_result,</span>
+<span id="cb241-243"><a href="metorigin-analysis.html#cb241-243" tabindex="-1"></a>    test_result,</span>
+<span id="cb241-244"><a href="metorigin-analysis.html#cb241-244" tabindex="-1"></a>    group_names,</span>
+<span id="cb241-245"><a href="metorigin-analysis.html#cb241-245" tabindex="-1"></a>    group_labels) {</span>
+<span id="cb241-246"><a href="metorigin-analysis.html#cb241-246" tabindex="-1"></a>  </span>
+<span id="cb241-247"><a href="metorigin-analysis.html#cb241-247" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(vip_result)) {</span>
+<span id="cb241-248"><a href="metorigin-analysis.html#cb241-248" tabindex="-1"></a>    mdat <span class="ot">&lt;-</span> fc_result <span class="sc">%&gt;%</span></span>
+<span id="cb241-249"><a href="metorigin-analysis.html#cb241-249" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Block2 =</span> <span class="fu">paste</span>(group_labels, <span class="at">collapse =</span> <span class="st">&quot; vs &quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb241-250"><a href="metorigin-analysis.html#cb241-250" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">FeatureID =</span> <span class="fu">make.names</span>(FeatureID)) <span class="sc">%&gt;%</span></span>
+<span id="cb241-251"><a href="metorigin-analysis.html#cb241-251" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">(All)&quot;</span>, </span>
+<span id="cb241-252"><a href="metorigin-analysis.html#cb241-252" tabindex="-1"></a>                              <span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">former&quot;</span>, </span>
+<span id="cb241-253"><a href="metorigin-analysis.html#cb241-253" tabindex="-1"></a>                              <span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">latter&quot;</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb241-254"><a href="metorigin-analysis.html#cb241-254" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">inner_join</span>(test_result <span class="sc">%&gt;%</span></span>
+<span id="cb241-255"><a href="metorigin-analysis.html#cb241-255" tabindex="-1"></a>                          dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Block) <span class="sc">%&gt;%</span></span>
+<span id="cb241-256"><a href="metorigin-analysis.html#cb241-256" tabindex="-1"></a>                          dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">FeatureID =</span> <span class="fu">make.names</span>(FeatureID)),</span>
+<span id="cb241-257"><a href="metorigin-analysis.html#cb241-257" tabindex="-1"></a>                        <span class="at">by =</span> <span class="st">&quot;FeatureID&quot;</span>) </span>
+<span id="cb241-258"><a href="metorigin-analysis.html#cb241-258" tabindex="-1"></a>    </span>
+<span id="cb241-259"><a href="metorigin-analysis.html#cb241-259" tabindex="-1"></a>    res <span class="ot">&lt;-</span> mdat <span class="sc">%&gt;%</span></span>
+<span id="cb241-260"><a href="metorigin-analysis.html#cb241-260" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(FeatureID, Block2, Block,</span>
+<span id="cb241-261"><a href="metorigin-analysis.html#cb241-261" tabindex="-1"></a>                    FoldChange, Log2FoldChange,</span>
+<span id="cb241-262"><a href="metorigin-analysis.html#cb241-262" tabindex="-1"></a>                    Statistic, Pvalue, AdjustedPvalue,</span>
+<span id="cb241-263"><a href="metorigin-analysis.html#cb241-263" tabindex="-1"></a>                    <span class="fu">everything</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb241-264"><a href="metorigin-analysis.html#cb241-264" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">arrange</span>(AdjustedPvalue, Log2FoldChange)    </span>
+<span id="cb241-265"><a href="metorigin-analysis.html#cb241-265" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb241-266"><a href="metorigin-analysis.html#cb241-266" tabindex="-1"></a>    mdat <span class="ot">&lt;-</span> fc_result <span class="sc">%&gt;%</span></span>
+<span id="cb241-267"><a href="metorigin-analysis.html#cb241-267" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Block2 =</span> <span class="fu">paste</span>(group_labels, <span class="at">collapse =</span> <span class="st">&quot; vs &quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb241-268"><a href="metorigin-analysis.html#cb241-268" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">FeatureID =</span> <span class="fu">make.names</span>(FeatureID)) <span class="sc">%&gt;%</span></span>
+<span id="cb241-269"><a href="metorigin-analysis.html#cb241-269" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">(All)&quot;</span>, </span>
+<span id="cb241-270"><a href="metorigin-analysis.html#cb241-270" tabindex="-1"></a>                              <span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">former&quot;</span>, </span>
+<span id="cb241-271"><a href="metorigin-analysis.html#cb241-271" tabindex="-1"></a>                              <span class="st">&quot;Mean Abundance</span><span class="sc">\n</span><span class="st">latter&quot;</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb241-272"><a href="metorigin-analysis.html#cb241-272" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">inner_join</span>(vip_result <span class="sc">%&gt;%</span></span>
+<span id="cb241-273"><a href="metorigin-analysis.html#cb241-273" tabindex="-1"></a>                          dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Block) <span class="sc">%&gt;%</span></span>
+<span id="cb241-274"><a href="metorigin-analysis.html#cb241-274" tabindex="-1"></a>                          dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">FeatureID =</span> <span class="fu">make.names</span>(FeatureID)),</span>
+<span id="cb241-275"><a href="metorigin-analysis.html#cb241-275" tabindex="-1"></a>                        <span class="at">by =</span> <span class="st">&quot;FeatureID&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb241-276"><a href="metorigin-analysis.html#cb241-276" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">inner_join</span>(test_result <span class="sc">%&gt;%</span></span>
+<span id="cb241-277"><a href="metorigin-analysis.html#cb241-277" tabindex="-1"></a>                          dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Block) <span class="sc">%&gt;%</span></span>
+<span id="cb241-278"><a href="metorigin-analysis.html#cb241-278" tabindex="-1"></a>                          dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">FeatureID =</span> <span class="fu">make.names</span>(FeatureID)),</span>
+<span id="cb241-279"><a href="metorigin-analysis.html#cb241-279" tabindex="-1"></a>                        <span class="at">by =</span> <span class="st">&quot;FeatureID&quot;</span>) </span>
+<span id="cb241-280"><a href="metorigin-analysis.html#cb241-280" tabindex="-1"></a>    </span>
+<span id="cb241-281"><a href="metorigin-analysis.html#cb241-281" tabindex="-1"></a>    res <span class="ot">&lt;-</span> mdat <span class="sc">%&gt;%</span></span>
+<span id="cb241-282"><a href="metorigin-analysis.html#cb241-282" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">select</span>(FeatureID, Block2, Block,</span>
+<span id="cb241-283"><a href="metorigin-analysis.html#cb241-283" tabindex="-1"></a>                    FoldChange, Log2FoldChange,</span>
+<span id="cb241-284"><a href="metorigin-analysis.html#cb241-284" tabindex="-1"></a>                    VIP, CorPvalue,</span>
+<span id="cb241-285"><a href="metorigin-analysis.html#cb241-285" tabindex="-1"></a>                    Statistic, Pvalue, AdjustedPvalue,</span>
+<span id="cb241-286"><a href="metorigin-analysis.html#cb241-286" tabindex="-1"></a>                    <span class="fu">everything</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb241-287"><a href="metorigin-analysis.html#cb241-287" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">arrange</span>(AdjustedPvalue, Log2FoldChange)    </span>
+<span id="cb241-288"><a href="metorigin-analysis.html#cb241-288" tabindex="-1"></a>  }</span>
+<span id="cb241-289"><a href="metorigin-analysis.html#cb241-289" tabindex="-1"></a>  </span>
+<span id="cb241-290"><a href="metorigin-analysis.html#cb241-290" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb241-291"><a href="metorigin-analysis.html#cb241-291" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="de-metabolites" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> DE metabolites<a href="metorigin-analysis.html#de-metabolites" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="metorigin-analysis.html#cb222-1" tabindex="-1"></a>fc_res <span class="ot">&lt;-</span> <span class="fu">FoldChange</span>(</span>
-<span id="cb222-2"><a href="metorigin-analysis.html#cb222-2" tabindex="-1"></a>           <span class="at">x =</span> se_impute,</span>
-<span id="cb222-3"><a href="metorigin-analysis.html#cb222-3" tabindex="-1"></a>           <span class="at">group =</span> <span class="st">&quot;group&quot;</span>,</span>
-<span id="cb222-4"><a href="metorigin-analysis.html#cb222-4" tabindex="-1"></a>           <span class="at">group_names =</span> <span class="fu">c</span>(<span class="st">&quot;Mild&quot;</span>, <span class="st">&quot;Moderate&quot;</span>))</span>
-<span id="cb222-5"><a href="metorigin-analysis.html#cb222-5" tabindex="-1"></a></span>
-<span id="cb222-6"><a href="metorigin-analysis.html#cb222-6" tabindex="-1"></a>vip_res <span class="ot">&lt;-</span> <span class="fu">VIP_fun</span>(</span>
-<span id="cb222-7"><a href="metorigin-analysis.html#cb222-7" tabindex="-1"></a>  <span class="at">x =</span> se_norm,</span>
-<span id="cb222-8"><a href="metorigin-analysis.html#cb222-8" tabindex="-1"></a>  <span class="at">group =</span> <span class="st">&quot;group&quot;</span>,</span>
-<span id="cb222-9"><a href="metorigin-analysis.html#cb222-9" tabindex="-1"></a>  <span class="at">group_names =</span> <span class="fu">c</span>(<span class="st">&quot;Mild&quot;</span>, <span class="st">&quot;Severe&quot;</span>),</span>
-<span id="cb222-10"><a href="metorigin-analysis.html#cb222-10" tabindex="-1"></a>  <span class="at">VIPtype =</span> <span class="st">&quot;PLS&quot;</span>,</span>
-<span id="cb222-11"><a href="metorigin-analysis.html#cb222-11" tabindex="-1"></a>  <span class="at">vip_cutoff =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="metorigin-analysis.html#cb242-1" tabindex="-1"></a>fc_res <span class="ot">&lt;-</span> <span class="fu">FoldChange</span>(</span>
+<span id="cb242-2"><a href="metorigin-analysis.html#cb242-2" tabindex="-1"></a>           <span class="at">x =</span> se_impute,</span>
+<span id="cb242-3"><a href="metorigin-analysis.html#cb242-3" tabindex="-1"></a>           <span class="at">group =</span> <span class="st">&quot;group&quot;</span>,</span>
+<span id="cb242-4"><a href="metorigin-analysis.html#cb242-4" tabindex="-1"></a>           <span class="at">group_names =</span> <span class="fu">c</span>(<span class="st">&quot;Mild&quot;</span>, <span class="st">&quot;Moderate&quot;</span>))</span>
+<span id="cb242-5"><a href="metorigin-analysis.html#cb242-5" tabindex="-1"></a></span>
+<span id="cb242-6"><a href="metorigin-analysis.html#cb242-6" tabindex="-1"></a>vip_res <span class="ot">&lt;-</span> <span class="fu">VIP_fun</span>(</span>
+<span id="cb242-7"><a href="metorigin-analysis.html#cb242-7" tabindex="-1"></a>  <span class="at">x =</span> se_norm,</span>
+<span id="cb242-8"><a href="metorigin-analysis.html#cb242-8" tabindex="-1"></a>  <span class="at">group =</span> <span class="st">&quot;group&quot;</span>,</span>
+<span id="cb242-9"><a href="metorigin-analysis.html#cb242-9" tabindex="-1"></a>  <span class="at">group_names =</span> <span class="fu">c</span>(<span class="st">&quot;Mild&quot;</span>, <span class="st">&quot;Severe&quot;</span>),</span>
+<span id="cb242-10"><a href="metorigin-analysis.html#cb242-10" tabindex="-1"></a>  <span class="at">VIPtype =</span> <span class="st">&quot;PLS&quot;</span>,</span>
+<span id="cb242-11"><a href="metorigin-analysis.html#cb242-11" tabindex="-1"></a>  <span class="at">vip_cutoff =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## PLS-DA
 ## 26 samples x 167 variables and 1 response
 ## standard scaling of predictors and response(s)
 ##       R2X(cum) R2Y(cum) Q2(cum) RMSEE pre ort pR2Y  pQ2
 ## Total     0.12    0.692    0.33 0.288   1   0  0.2 0.05</code></pre>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-163-1.png" width="672" /></p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="metorigin-analysis.html#cb224-1" tabindex="-1"></a>ttest_res <span class="ot">&lt;-</span> <span class="fu">t_fun</span>(</span>
-<span id="cb224-2"><a href="metorigin-analysis.html#cb224-2" tabindex="-1"></a>  <span class="at">x =</span> se_norm,</span>
-<span id="cb224-3"><a href="metorigin-analysis.html#cb224-3" tabindex="-1"></a>  <span class="at">group =</span> <span class="st">&quot;group&quot;</span>,</span>
-<span id="cb224-4"><a href="metorigin-analysis.html#cb224-4" tabindex="-1"></a>  <span class="at">group_names =</span> <span class="fu">c</span>(<span class="st">&quot;Mild&quot;</span>, <span class="st">&quot;Severe&quot;</span>))</span>
-<span id="cb224-5"><a href="metorigin-analysis.html#cb224-5" tabindex="-1"></a></span>
-<span id="cb224-6"><a href="metorigin-analysis.html#cb224-6" tabindex="-1"></a>m_results <span class="ot">&lt;-</span> <span class="fu">mergedResults</span>(</span>
-<span id="cb224-7"><a href="metorigin-analysis.html#cb224-7" tabindex="-1"></a>  <span class="at">fc_result =</span> fc_res,</span>
-<span id="cb224-8"><a href="metorigin-analysis.html#cb224-8" tabindex="-1"></a>  <span class="at">vip_result =</span> vip_res<span class="sc">$</span>vip,</span>
-<span id="cb224-9"><a href="metorigin-analysis.html#cb224-9" tabindex="-1"></a>  <span class="at">test_result =</span> ttest_res,</span>
-<span id="cb224-10"><a href="metorigin-analysis.html#cb224-10" tabindex="-1"></a>  <span class="at">group_names =</span> <span class="fu">c</span>(<span class="st">&quot;Mild&quot;</span>, <span class="st">&quot;Severe&quot;</span>),</span>
-<span id="cb224-11"><a href="metorigin-analysis.html#cb224-11" tabindex="-1"></a>  <span class="at">group_labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mild&quot;</span>, <span class="st">&quot;Severe&quot;</span>))</span>
-<span id="cb224-12"><a href="metorigin-analysis.html#cb224-12" tabindex="-1"></a></span>
-<span id="cb224-13"><a href="metorigin-analysis.html#cb224-13" tabindex="-1"></a><span class="fu">head</span>(m_results)</span></code></pre></div>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="metorigin-analysis.html#cb244-1" tabindex="-1"></a>ttest_res <span class="ot">&lt;-</span> <span class="fu">t_fun</span>(</span>
+<span id="cb244-2"><a href="metorigin-analysis.html#cb244-2" tabindex="-1"></a>  <span class="at">x =</span> se_norm,</span>
+<span id="cb244-3"><a href="metorigin-analysis.html#cb244-3" tabindex="-1"></a>  <span class="at">group =</span> <span class="st">&quot;group&quot;</span>,</span>
+<span id="cb244-4"><a href="metorigin-analysis.html#cb244-4" tabindex="-1"></a>  <span class="at">group_names =</span> <span class="fu">c</span>(<span class="st">&quot;Mild&quot;</span>, <span class="st">&quot;Severe&quot;</span>))</span>
+<span id="cb244-5"><a href="metorigin-analysis.html#cb244-5" tabindex="-1"></a></span>
+<span id="cb244-6"><a href="metorigin-analysis.html#cb244-6" tabindex="-1"></a>m_results <span class="ot">&lt;-</span> <span class="fu">mergedResults</span>(</span>
+<span id="cb244-7"><a href="metorigin-analysis.html#cb244-7" tabindex="-1"></a>  <span class="at">fc_result =</span> fc_res,</span>
+<span id="cb244-8"><a href="metorigin-analysis.html#cb244-8" tabindex="-1"></a>  <span class="at">vip_result =</span> vip_res<span class="sc">$</span>vip,</span>
+<span id="cb244-9"><a href="metorigin-analysis.html#cb244-9" tabindex="-1"></a>  <span class="at">test_result =</span> ttest_res,</span>
+<span id="cb244-10"><a href="metorigin-analysis.html#cb244-10" tabindex="-1"></a>  <span class="at">group_names =</span> <span class="fu">c</span>(<span class="st">&quot;Mild&quot;</span>, <span class="st">&quot;Severe&quot;</span>),</span>
+<span id="cb244-11"><a href="metorigin-analysis.html#cb244-11" tabindex="-1"></a>  <span class="at">group_labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mild&quot;</span>, <span class="st">&quot;Severe&quot;</span>))</span>
+<span id="cb244-12"><a href="metorigin-analysis.html#cb244-12" tabindex="-1"></a></span>
+<span id="cb244-13"><a href="metorigin-analysis.html#cb244-13" tabindex="-1"></a><span class="fu">head</span>(m_results)</span></code></pre></div>
 <pre><code>##   FeatureID         Block2                  Block FoldChange Log2FoldChange      VIP   CorPvalue Statistic      Pvalue AdjustedPvalue
 ## 1   M_42449 Mild vs Severe 14_Mild vs 19_Moderate  0.6571801     -0.6056393 2.362694 0.002247897 -3.498896 0.001881585      0.2132448
 ## 2   M_52446 Mild vs Severe 14_Mild vs 19_Moderate  0.7040861     -0.5061763 2.059461 0.009476225 -2.892892 0.008125613      0.2132448
@@ -761,66 +762,66 @@ div.csl-indent {
 <blockquote>
 <p>The metabolite table must contain at least one column of “HMDBID”, “KEGGID” or “Name”, and a column of 0/1 values indicating statistical significance (1-significant, 0-nonsignificant). If the “Diff” column is missing, all metabolites will be considered as differential metabolites.</p>
 </blockquote>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="metorigin-analysis.html#cb226-1" tabindex="-1"></a>get_metabolites <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
-<span id="cb226-2"><a href="metorigin-analysis.html#cb226-2" tabindex="-1"></a>  <span class="at">x =</span> ExprSet,</span>
-<span id="cb226-3"><a href="metorigin-analysis.html#cb226-3" tabindex="-1"></a>  dat,</span>
-<span id="cb226-4"><a href="metorigin-analysis.html#cb226-4" tabindex="-1"></a>  group_names,</span>
-<span id="cb226-5"><a href="metorigin-analysis.html#cb226-5" tabindex="-1"></a>  <span class="at">index_names =</span> <span class="fu">c</span>(<span class="st">&quot;FoldChange&quot;</span>, <span class="st">&quot;Log2FoldChange&quot;</span>, <span class="st">&quot;VIP&quot;</span>, <span class="st">&quot;CorPvalue&quot;</span>, <span class="st">&quot;Pvalue&quot;</span>, <span class="st">&quot;AdjustedPvalue&quot;</span>),</span>
-<span id="cb226-6"><a href="metorigin-analysis.html#cb226-6" tabindex="-1"></a>  <span class="at">index_cutoff =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.05</span>, <span class="fl">0.05</span>, <span class="fl">0.2</span>)) {</span>
-<span id="cb226-7"><a href="metorigin-analysis.html#cb226-7" tabindex="-1"></a>  </span>
-<span id="cb226-8"><a href="metorigin-analysis.html#cb226-8" tabindex="-1"></a>  <span class="co"># x = ExprSet</span></span>
-<span id="cb226-9"><a href="metorigin-analysis.html#cb226-9" tabindex="-1"></a>  <span class="co"># dat = m_results</span></span>
-<span id="cb226-10"><a href="metorigin-analysis.html#cb226-10" tabindex="-1"></a>  <span class="co"># group_names = &quot;Mild vs Severe&quot;</span></span>
-<span id="cb226-11"><a href="metorigin-analysis.html#cb226-11" tabindex="-1"></a>  <span class="co"># index_names = c(&quot;Log2FoldChange&quot;, &quot;AdjustedPvalue&quot;)</span></span>
-<span id="cb226-12"><a href="metorigin-analysis.html#cb226-12" tabindex="-1"></a>  <span class="co"># index_cutoff = c(0, 0.2)</span></span>
-<span id="cb226-13"><a href="metorigin-analysis.html#cb226-13" tabindex="-1"></a>  </span>
-<span id="cb226-14"><a href="metorigin-analysis.html#cb226-14" tabindex="-1"></a>  feature <span class="ot">&lt;-</span> Biobase<span class="sc">::</span><span class="fu">fData</span>(x)</span>
-<span id="cb226-15"><a href="metorigin-analysis.html#cb226-15" tabindex="-1"></a>  <span class="fu">colnames</span>(feature)[<span class="fu">which</span>(<span class="fu">colnames</span>(feature) <span class="sc">==</span> <span class="st">&quot;SampleID HMDBID&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;HMDB&quot;</span></span>
-<span id="cb226-16"><a href="metorigin-analysis.html#cb226-16" tabindex="-1"></a>  <span class="fu">colnames</span>(feature)[<span class="fu">which</span>(<span class="fu">colnames</span>(feature) <span class="sc">==</span> <span class="st">&quot;KEGG&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;cpd_ID&quot;</span></span>
-<span id="cb226-17"><a href="metorigin-analysis.html#cb226-17" tabindex="-1"></a>  <span class="fu">colnames</span>(feature)[<span class="fu">which</span>(<span class="fu">colnames</span>(feature) <span class="sc">==</span> <span class="st">&quot;BIOCHEMICAL&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Compounds&quot;</span></span>
-<span id="cb226-18"><a href="metorigin-analysis.html#cb226-18" tabindex="-1"></a>  feature<span class="sc">$</span>HMDB <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;,</span><span class="sc">\\</span><span class="st">S+&quot;</span>, <span class="st">&quot;&quot;</span>, feature<span class="sc">$</span>HMDB)</span>
-<span id="cb226-19"><a href="metorigin-analysis.html#cb226-19" tabindex="-1"></a>  </span>
-<span id="cb226-20"><a href="metorigin-analysis.html#cb226-20" tabindex="-1"></a>  temp_dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
-<span id="cb226-21"><a href="metorigin-analysis.html#cb226-21" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(Block2 <span class="sc">%in%</span> group_names) <span class="sc">%&gt;%</span></span>
-<span id="cb226-22"><a href="metorigin-analysis.html#cb226-22" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">inner_join</span>(feature <span class="sc">%&gt;%</span></span>
-<span id="cb226-23"><a href="metorigin-analysis.html#cb226-23" tabindex="-1"></a>                        tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="st">&quot;FeatureID&quot;</span>),</span>
-<span id="cb226-24"><a href="metorigin-analysis.html#cb226-24" tabindex="-1"></a>                      <span class="at">by =</span> <span class="st">&quot;FeatureID&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb226-25"><a href="metorigin-analysis.html#cb226-25" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(HMDB <span class="sc">!=</span> <span class="st">&quot;-&quot;</span>)</span>
-<span id="cb226-26"><a href="metorigin-analysis.html#cb226-26" tabindex="-1"></a>  </span>
-<span id="cb226-27"><a href="metorigin-analysis.html#cb226-27" tabindex="-1"></a>  <span class="fu">colnames</span>(temp_dat)[<span class="fu">which</span>(<span class="fu">colnames</span>(temp_dat) <span class="sc">==</span> index_names[<span class="dv">1</span>])] <span class="ot">&lt;-</span> <span class="st">&quot;DA_index1&quot;</span></span>
-<span id="cb226-28"><a href="metorigin-analysis.html#cb226-28" tabindex="-1"></a>  <span class="fu">colnames</span>(temp_dat)[<span class="fu">which</span>(<span class="fu">colnames</span>(temp_dat) <span class="sc">==</span> index_names[<span class="dv">2</span>])] <span class="ot">&lt;-</span> <span class="st">&quot;DA_index2&quot;</span></span>
-<span id="cb226-29"><a href="metorigin-analysis.html#cb226-29" tabindex="-1"></a>  </span>
-<span id="cb226-30"><a href="metorigin-analysis.html#cb226-30" tabindex="-1"></a>  temp_dat_diff <span class="ot">&lt;-</span> temp_dat <span class="sc">%&gt;%</span></span>
-<span id="cb226-31"><a href="metorigin-analysis.html#cb226-31" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">abs</span>(DA_index1) <span class="sc">&gt;</span> index_cutoff[<span class="dv">1</span>]) <span class="sc">%&gt;%</span></span>
-<span id="cb226-32"><a href="metorigin-analysis.html#cb226-32" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(DA_index2 <span class="sc">&lt;</span> index_cutoff[<span class="dv">2</span>]) <span class="sc">%&gt;%</span></span>
-<span id="cb226-33"><a href="metorigin-analysis.html#cb226-33" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Diff =</span> <span class="dv">1</span>)</span>
-<span id="cb226-34"><a href="metorigin-analysis.html#cb226-34" tabindex="-1"></a>  </span>
-<span id="cb226-35"><a href="metorigin-analysis.html#cb226-35" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">nrow</span>(temp_dat_diff) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb226-36"><a href="metorigin-analysis.html#cb226-36" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Beyond these thresholds, no significant metabolites were selected&quot;</span>)</span>
-<span id="cb226-37"><a href="metorigin-analysis.html#cb226-37" tabindex="-1"></a>  }</span>
-<span id="cb226-38"><a href="metorigin-analysis.html#cb226-38" tabindex="-1"></a>  </span>
-<span id="cb226-39"><a href="metorigin-analysis.html#cb226-39" tabindex="-1"></a>  temp_dat_nodiff <span class="ot">&lt;-</span> temp_dat <span class="sc">%&gt;%</span></span>
-<span id="cb226-40"><a href="metorigin-analysis.html#cb226-40" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span>HMDB <span class="sc">%in%</span> temp_dat_diff<span class="sc">$</span>HMDB) <span class="sc">%&gt;%</span></span>
-<span id="cb226-41"><a href="metorigin-analysis.html#cb226-41" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Diff =</span> <span class="dv">0</span>)</span>
-<span id="cb226-42"><a href="metorigin-analysis.html#cb226-42" tabindex="-1"></a>  </span>
-<span id="cb226-43"><a href="metorigin-analysis.html#cb226-43" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">rbind</span>(temp_dat_diff, temp_dat_nodiff) <span class="sc">%&gt;%</span></span>
-<span id="cb226-44"><a href="metorigin-analysis.html#cb226-44" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(HMDB, cpd_ID, Compounds, DA_index1, DA_index2, Diff) <span class="sc">%&gt;%</span></span>
-<span id="cb226-45"><a href="metorigin-analysis.html#cb226-45" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">HMDBID =</span> HMDB,</span>
-<span id="cb226-46"><a href="metorigin-analysis.html#cb226-46" tabindex="-1"></a>                  <span class="at">KEGGID =</span> cpd_ID,</span>
-<span id="cb226-47"><a href="metorigin-analysis.html#cb226-47" tabindex="-1"></a>                  <span class="at">Name =</span> Compounds) <span class="sc">%&gt;%</span></span>
-<span id="cb226-48"><a href="metorigin-analysis.html#cb226-48" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(HMDBID, KEGGID, Name, Diff)</span>
-<span id="cb226-49"><a href="metorigin-analysis.html#cb226-49" tabindex="-1"></a></span>
-<span id="cb226-50"><a href="metorigin-analysis.html#cb226-50" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb226-51"><a href="metorigin-analysis.html#cb226-51" tabindex="-1"></a>}</span>
-<span id="cb226-52"><a href="metorigin-analysis.html#cb226-52" tabindex="-1"></a></span>
-<span id="cb226-53"><a href="metorigin-analysis.html#cb226-53" tabindex="-1"></a>pre_result <span class="ot">&lt;-</span> <span class="fu">get_metabolites</span>(</span>
-<span id="cb226-54"><a href="metorigin-analysis.html#cb226-54" tabindex="-1"></a>  <span class="at">x =</span> ExprSet,</span>
-<span id="cb226-55"><a href="metorigin-analysis.html#cb226-55" tabindex="-1"></a>  <span class="at">dat =</span> m_results,</span>
-<span id="cb226-56"><a href="metorigin-analysis.html#cb226-56" tabindex="-1"></a>  <span class="at">group_names =</span> <span class="st">&quot;Mild vs Severe&quot;</span>,</span>
-<span id="cb226-57"><a href="metorigin-analysis.html#cb226-57" tabindex="-1"></a>  <span class="at">index_names =</span> <span class="fu">c</span>(<span class="st">&quot;Log2FoldChange&quot;</span>, <span class="st">&quot;AdjustedPvalue&quot;</span>),</span>
-<span id="cb226-58"><a href="metorigin-analysis.html#cb226-58" tabindex="-1"></a>  <span class="at">index_cutoff =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb226-59"><a href="metorigin-analysis.html#cb226-59" tabindex="-1"></a>  </span>
-<span id="cb226-60"><a href="metorigin-analysis.html#cb226-60" tabindex="-1"></a><span class="fu">head</span>(pre_result)</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="metorigin-analysis.html#cb246-1" tabindex="-1"></a>get_metabolites <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb246-2"><a href="metorigin-analysis.html#cb246-2" tabindex="-1"></a>  <span class="at">x =</span> ExprSet,</span>
+<span id="cb246-3"><a href="metorigin-analysis.html#cb246-3" tabindex="-1"></a>  dat,</span>
+<span id="cb246-4"><a href="metorigin-analysis.html#cb246-4" tabindex="-1"></a>  group_names,</span>
+<span id="cb246-5"><a href="metorigin-analysis.html#cb246-5" tabindex="-1"></a>  <span class="at">index_names =</span> <span class="fu">c</span>(<span class="st">&quot;FoldChange&quot;</span>, <span class="st">&quot;Log2FoldChange&quot;</span>, <span class="st">&quot;VIP&quot;</span>, <span class="st">&quot;CorPvalue&quot;</span>, <span class="st">&quot;Pvalue&quot;</span>, <span class="st">&quot;AdjustedPvalue&quot;</span>),</span>
+<span id="cb246-6"><a href="metorigin-analysis.html#cb246-6" tabindex="-1"></a>  <span class="at">index_cutoff =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.05</span>, <span class="fl">0.05</span>, <span class="fl">0.2</span>)) {</span>
+<span id="cb246-7"><a href="metorigin-analysis.html#cb246-7" tabindex="-1"></a>  </span>
+<span id="cb246-8"><a href="metorigin-analysis.html#cb246-8" tabindex="-1"></a>  <span class="co"># x = ExprSet</span></span>
+<span id="cb246-9"><a href="metorigin-analysis.html#cb246-9" tabindex="-1"></a>  <span class="co"># dat = m_results</span></span>
+<span id="cb246-10"><a href="metorigin-analysis.html#cb246-10" tabindex="-1"></a>  <span class="co"># group_names = &quot;Mild vs Severe&quot;</span></span>
+<span id="cb246-11"><a href="metorigin-analysis.html#cb246-11" tabindex="-1"></a>  <span class="co"># index_names = c(&quot;Log2FoldChange&quot;, &quot;AdjustedPvalue&quot;)</span></span>
+<span id="cb246-12"><a href="metorigin-analysis.html#cb246-12" tabindex="-1"></a>  <span class="co"># index_cutoff = c(0, 0.2)</span></span>
+<span id="cb246-13"><a href="metorigin-analysis.html#cb246-13" tabindex="-1"></a>  </span>
+<span id="cb246-14"><a href="metorigin-analysis.html#cb246-14" tabindex="-1"></a>  feature <span class="ot">&lt;-</span> Biobase<span class="sc">::</span><span class="fu">fData</span>(x)</span>
+<span id="cb246-15"><a href="metorigin-analysis.html#cb246-15" tabindex="-1"></a>  <span class="fu">colnames</span>(feature)[<span class="fu">which</span>(<span class="fu">colnames</span>(feature) <span class="sc">==</span> <span class="st">&quot;SampleID HMDBID&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;HMDB&quot;</span></span>
+<span id="cb246-16"><a href="metorigin-analysis.html#cb246-16" tabindex="-1"></a>  <span class="fu">colnames</span>(feature)[<span class="fu">which</span>(<span class="fu">colnames</span>(feature) <span class="sc">==</span> <span class="st">&quot;KEGG&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;cpd_ID&quot;</span></span>
+<span id="cb246-17"><a href="metorigin-analysis.html#cb246-17" tabindex="-1"></a>  <span class="fu">colnames</span>(feature)[<span class="fu">which</span>(<span class="fu">colnames</span>(feature) <span class="sc">==</span> <span class="st">&quot;BIOCHEMICAL&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Compounds&quot;</span></span>
+<span id="cb246-18"><a href="metorigin-analysis.html#cb246-18" tabindex="-1"></a>  feature<span class="sc">$</span>HMDB <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;,</span><span class="sc">\\</span><span class="st">S+&quot;</span>, <span class="st">&quot;&quot;</span>, feature<span class="sc">$</span>HMDB)</span>
+<span id="cb246-19"><a href="metorigin-analysis.html#cb246-19" tabindex="-1"></a>  </span>
+<span id="cb246-20"><a href="metorigin-analysis.html#cb246-20" tabindex="-1"></a>  temp_dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb246-21"><a href="metorigin-analysis.html#cb246-21" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(Block2 <span class="sc">%in%</span> group_names) <span class="sc">%&gt;%</span></span>
+<span id="cb246-22"><a href="metorigin-analysis.html#cb246-22" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">inner_join</span>(feature <span class="sc">%&gt;%</span></span>
+<span id="cb246-23"><a href="metorigin-analysis.html#cb246-23" tabindex="-1"></a>                        tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="st">&quot;FeatureID&quot;</span>),</span>
+<span id="cb246-24"><a href="metorigin-analysis.html#cb246-24" tabindex="-1"></a>                      <span class="at">by =</span> <span class="st">&quot;FeatureID&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb246-25"><a href="metorigin-analysis.html#cb246-25" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(HMDB <span class="sc">!=</span> <span class="st">&quot;-&quot;</span>)</span>
+<span id="cb246-26"><a href="metorigin-analysis.html#cb246-26" tabindex="-1"></a>  </span>
+<span id="cb246-27"><a href="metorigin-analysis.html#cb246-27" tabindex="-1"></a>  <span class="fu">colnames</span>(temp_dat)[<span class="fu">which</span>(<span class="fu">colnames</span>(temp_dat) <span class="sc">==</span> index_names[<span class="dv">1</span>])] <span class="ot">&lt;-</span> <span class="st">&quot;DA_index1&quot;</span></span>
+<span id="cb246-28"><a href="metorigin-analysis.html#cb246-28" tabindex="-1"></a>  <span class="fu">colnames</span>(temp_dat)[<span class="fu">which</span>(<span class="fu">colnames</span>(temp_dat) <span class="sc">==</span> index_names[<span class="dv">2</span>])] <span class="ot">&lt;-</span> <span class="st">&quot;DA_index2&quot;</span></span>
+<span id="cb246-29"><a href="metorigin-analysis.html#cb246-29" tabindex="-1"></a>  </span>
+<span id="cb246-30"><a href="metorigin-analysis.html#cb246-30" tabindex="-1"></a>  temp_dat_diff <span class="ot">&lt;-</span> temp_dat <span class="sc">%&gt;%</span></span>
+<span id="cb246-31"><a href="metorigin-analysis.html#cb246-31" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">abs</span>(DA_index1) <span class="sc">&gt;</span> index_cutoff[<span class="dv">1</span>]) <span class="sc">%&gt;%</span></span>
+<span id="cb246-32"><a href="metorigin-analysis.html#cb246-32" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(DA_index2 <span class="sc">&lt;</span> index_cutoff[<span class="dv">2</span>]) <span class="sc">%&gt;%</span></span>
+<span id="cb246-33"><a href="metorigin-analysis.html#cb246-33" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Diff =</span> <span class="dv">1</span>)</span>
+<span id="cb246-34"><a href="metorigin-analysis.html#cb246-34" tabindex="-1"></a>  </span>
+<span id="cb246-35"><a href="metorigin-analysis.html#cb246-35" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">nrow</span>(temp_dat_diff) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb246-36"><a href="metorigin-analysis.html#cb246-36" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Beyond these thresholds, no significant metabolites were selected&quot;</span>)</span>
+<span id="cb246-37"><a href="metorigin-analysis.html#cb246-37" tabindex="-1"></a>  }</span>
+<span id="cb246-38"><a href="metorigin-analysis.html#cb246-38" tabindex="-1"></a>  </span>
+<span id="cb246-39"><a href="metorigin-analysis.html#cb246-39" tabindex="-1"></a>  temp_dat_nodiff <span class="ot">&lt;-</span> temp_dat <span class="sc">%&gt;%</span></span>
+<span id="cb246-40"><a href="metorigin-analysis.html#cb246-40" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span>HMDB <span class="sc">%in%</span> temp_dat_diff<span class="sc">$</span>HMDB) <span class="sc">%&gt;%</span></span>
+<span id="cb246-41"><a href="metorigin-analysis.html#cb246-41" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Diff =</span> <span class="dv">0</span>)</span>
+<span id="cb246-42"><a href="metorigin-analysis.html#cb246-42" tabindex="-1"></a>  </span>
+<span id="cb246-43"><a href="metorigin-analysis.html#cb246-43" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">rbind</span>(temp_dat_diff, temp_dat_nodiff) <span class="sc">%&gt;%</span></span>
+<span id="cb246-44"><a href="metorigin-analysis.html#cb246-44" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(HMDB, cpd_ID, Compounds, DA_index1, DA_index2, Diff) <span class="sc">%&gt;%</span></span>
+<span id="cb246-45"><a href="metorigin-analysis.html#cb246-45" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">HMDBID =</span> HMDB,</span>
+<span id="cb246-46"><a href="metorigin-analysis.html#cb246-46" tabindex="-1"></a>                  <span class="at">KEGGID =</span> cpd_ID,</span>
+<span id="cb246-47"><a href="metorigin-analysis.html#cb246-47" tabindex="-1"></a>                  <span class="at">Name =</span> Compounds) <span class="sc">%&gt;%</span></span>
+<span id="cb246-48"><a href="metorigin-analysis.html#cb246-48" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(HMDBID, KEGGID, Name, Diff)</span>
+<span id="cb246-49"><a href="metorigin-analysis.html#cb246-49" tabindex="-1"></a></span>
+<span id="cb246-50"><a href="metorigin-analysis.html#cb246-50" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb246-51"><a href="metorigin-analysis.html#cb246-51" tabindex="-1"></a>}</span>
+<span id="cb246-52"><a href="metorigin-analysis.html#cb246-52" tabindex="-1"></a></span>
+<span id="cb246-53"><a href="metorigin-analysis.html#cb246-53" tabindex="-1"></a>pre_result <span class="ot">&lt;-</span> <span class="fu">get_metabolites</span>(</span>
+<span id="cb246-54"><a href="metorigin-analysis.html#cb246-54" tabindex="-1"></a>  <span class="at">x =</span> ExprSet,</span>
+<span id="cb246-55"><a href="metorigin-analysis.html#cb246-55" tabindex="-1"></a>  <span class="at">dat =</span> m_results,</span>
+<span id="cb246-56"><a href="metorigin-analysis.html#cb246-56" tabindex="-1"></a>  <span class="at">group_names =</span> <span class="st">&quot;Mild vs Severe&quot;</span>,</span>
+<span id="cb246-57"><a href="metorigin-analysis.html#cb246-57" tabindex="-1"></a>  <span class="at">index_names =</span> <span class="fu">c</span>(<span class="st">&quot;Log2FoldChange&quot;</span>, <span class="st">&quot;AdjustedPvalue&quot;</span>),</span>
+<span id="cb246-58"><a href="metorigin-analysis.html#cb246-58" tabindex="-1"></a>  <span class="at">index_cutoff =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb246-59"><a href="metorigin-analysis.html#cb246-59" tabindex="-1"></a>  </span>
+<span id="cb246-60"><a href="metorigin-analysis.html#cb246-60" tabindex="-1"></a><span class="fu">head</span>(pre_result)</span></code></pre></div>
 <pre><code>##        HMDBID KEGGID                                    Name Diff
 ## 1 HMDB0005322   &lt;NA&gt; 1-palmitoyl-2-linoleoyl-GPE (16:0/18:2)    1
 ## 2 HMDB0008994   &lt;NA&gt; 1-stearoyl-2-linoleoyl-GPE (18:0/18:2)*    1
@@ -834,15 +835,54 @@ div.csl-indent {
 <ul>
 <li>the csv file could be used as inputs in the MetOrigin website.</li>
 </ul>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="metorigin-analysis.html#cb228-1" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">dir.exists</span>(<span class="st">&quot;./dataset/MetOrigin&quot;</span>)) {</span>
-<span id="cb228-2"><a href="metorigin-analysis.html#cb228-2" tabindex="-1"></a>  <span class="fu">dir.create</span>(<span class="st">&quot;./dataset/MetOrigin&quot;</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb228-3"><a href="metorigin-analysis.html#cb228-3" tabindex="-1"></a>}</span>
-<span id="cb228-4"><a href="metorigin-analysis.html#cb228-4" tabindex="-1"></a></span>
-<span id="cb228-5"><a href="metorigin-analysis.html#cb228-5" tabindex="-1"></a><span class="fu">write.csv</span>(pre_result, <span class="st">&quot;./dataset/MetOrigin/MetOrigin_inputs.csv&quot;</span>, <span class="at">row.names =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="metorigin-analysis.html#cb248-1" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">dir.exists</span>(<span class="st">&quot;./dataset/MetOrigin&quot;</span>)) {</span>
+<span id="cb248-2"><a href="metorigin-analysis.html#cb248-2" tabindex="-1"></a>  <span class="fu">dir.create</span>(<span class="st">&quot;./dataset/MetOrigin&quot;</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb248-3"><a href="metorigin-analysis.html#cb248-3" tabindex="-1"></a>}</span>
+<span id="cb248-4"><a href="metorigin-analysis.html#cb248-4" tabindex="-1"></a></span>
+<span id="cb248-5"><a href="metorigin-analysis.html#cb248-5" tabindex="-1"></a><span class="fu">write.csv</span>(pre_result, <span class="st">&quot;./dataset/MetOrigin/MetOrigin_inputs.csv&quot;</span>, <span class="at">row.names =</span> F)</span></code></pre></div>
 </div>
-<div id="session-info-1" class="section level2 hasAnchor" number="5.7">
-<h2><span class="header-section-number">5.7</span> Session info<a href="metorigin-analysis.html#session-info-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="metorigin-analysis.html#cb229-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
+<div id="metorigin-user-tutorial" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> MetOrigin User Tutorial<a href="metorigin-analysis.html#metorigin-user-tutorial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>MetOrigin comprises five parts:</p>
+<ul>
+<li><strong>Load data</strong></li>
+</ul>
+<blockquote>
+<p>Please select the analysis mode at first “Simple MetOrigin Analysis” or “Deep MetOrigin Analysis”. Then you can try “Load Example Data” or upload your own data. Host information needs to be confirmed before moving to the next step.</p>
+</blockquote>
+<ul>
+<li><strong>Origin Analysis</strong></li>
+</ul>
+<blockquote>
+<p>This step is to identify where metabolites come from: host, bacteria, both, or unknown?</p>
+</blockquote>
+<ul>
+<li><strong>Function Analysis</strong></li>
+</ul>
+<blockquote>
+<p>This step is to perform the metabolic pathway enrichment analysis according to different categories of metabolites: metabolites belonging to the host, bacteria, or both.</p>
+</blockquote>
+<ul>
+<li><strong>Sankey Network</strong></li>
+</ul>
+<blockquote>
+<p>This step is to link all the possible bacteria that may participate in a specific metabolic reaction, helping you to identify important interplay between bacteria and metabolites.</p>
+</blockquote>
+<ul>
+<li><strong>Download Results</strong></li>
+</ul>
+<blockquote>
+<p>All the analysis results can be downloaded for your further data exploration.</p>
+</blockquote>
+<p><strong>See more details please go to the below tutorial (<a href="https://metorigin.met-bioinformatics.cn/">MetOrigin website</a>)</strong>:</p>
+<div class="float">
+<embed src="./dataset/Tutorial/MetOrigin_User_Tutorial_20231127.pdf" style="width:100.0%" height="800" />
+<div class="figcaption">MetOrigin User Tutorial</div>
+</div>
+</div>
+<div id="session-info-1" class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> Session info<a href="metorigin-analysis.html#session-info-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="metorigin-analysis.html#cb249-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
 <pre><code>## ─ Session info ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
 ##  version  R version 4.1.3 (2022-03-10)
@@ -853,7 +893,7 @@ div.csl-indent {
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       Asia/Shanghai
-##  date     2023-11-23
+##  date     2023-11-27
 ##  rstudio  2023.09.0+463 Desert Sunflower (desktop)
 ##  pandoc   3.1.1 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/ (via rmarkdown)
 ## 
@@ -882,7 +922,7 @@ div.csl-indent {
 ##  blob                   1.2.4      2023-03-17 [2] CRAN (R 4.1.2)
 ##  bookdown               0.34       2023-05-09 [2] CRAN (R 4.1.2)
 ##  broom                  1.0.5      2023-06-09 [2] CRAN (R 4.1.3)
-##  bslib                  0.5.0      2023-06-09 [2] CRAN (R 4.1.3)
+##  bslib                  0.6.0      2023-11-21 [1] CRAN (R 4.1.3)
 ##  cachem                 1.0.8      2023-05-01 [2] CRAN (R 4.1.2)
 ##  Cairo                  1.6-0      2022-07-05 [2] CRAN (R 4.1.2)
 ##  callr                  3.7.3      2022-11-02 [2] CRAN (R 4.1.2)
@@ -923,7 +963,7 @@ div.csl-indent {
 ##  downloader             0.4        2015-07-09 [2] CRAN (R 4.1.0)
 ##  dplyr                * 1.1.2      2023-04-20 [2] CRAN (R 4.1.2)
 ##  DT                     0.28       2023-05-18 [2] CRAN (R 4.1.3)
-##  dynamicTreeCut         1.63-1     2016-03-11 [2] CRAN (R 4.1.0)
+##  dynamicTreeCut       * 1.63-1     2016-03-11 [2] CRAN (R 4.1.0)
 ##  e1071                  1.7-13     2023-02-01 [2] CRAN (R 4.1.2)
 ##  edgeR                  3.36.0     2021-10-26 [2] Bioconductor
 ##  ellipse                0.4.5      2023-04-05 [2] CRAN (R 4.1.2)
@@ -933,7 +973,7 @@ div.csl-indent {
 ##  factoextra           * 1.0.7      2020-04-01 [2] CRAN (R 4.1.0)
 ##  fansi                  1.0.4      2023-01-22 [2] CRAN (R 4.1.2)
 ##  farver                 2.1.1      2022-07-06 [2] CRAN (R 4.1.2)
-##  fastcluster            1.2.3      2021-05-24 [2] CRAN (R 4.1.0)
+##  fastcluster          * 1.2.3      2021-05-24 [2] CRAN (R 4.1.0)
 ##  fastmap                1.1.1      2023-02-24 [2] CRAN (R 4.1.2)
 ##  fastmatch              1.1-3      2021-07-23 [2] CRAN (R 4.1.0)
 ##  fdrtool                1.2.17     2021-11-13 [2] CRAN (R 4.1.0)
@@ -987,12 +1027,12 @@ div.csl-indent {
 ##  Hmisc                  5.1-0      2023-05-08 [2] CRAN (R 4.1.2)
 ##  hms                    1.1.3      2023-03-21 [2] CRAN (R 4.1.2)
 ##  htmlTable            * 2.4.1      2022-07-07 [2] CRAN (R 4.1.2)
-##  htmltools              0.5.5      2023-03-23 [2] CRAN (R 4.1.2)
+##  htmltools              0.5.7      2023-11-03 [1] CRAN (R 4.1.3)
 ##  htmlwidgets            1.6.2      2023-03-17 [2] CRAN (R 4.1.2)
 ##  httpuv                 1.6.11     2023-05-11 [2] CRAN (R 4.1.3)
 ##  httr                 * 1.4.6      2023-05-08 [2] CRAN (R 4.1.2)
 ##  huge                   1.3.5      2021-06-30 [2] CRAN (R 4.1.0)
-##  igraph                 1.5.0      2023-06-16 [1] CRAN (R 4.1.3)
+##  igraph               * 1.5.0      2023-06-16 [1] CRAN (R 4.1.3)
 ##  impute                 1.68.0     2021-10-26 [2] Bioconductor
 ##  imputeLCMD             2.1        2022-06-10 [2] CRAN (R 4.1.2)
 ##  ipred                  0.9-14     2023-03-09 [2] CRAN (R 4.1.2)
@@ -1064,6 +1104,7 @@ div.csl-indent {
 ##  pcaMethods             1.86.0     2021-10-26 [2] Bioconductor
 ##  pcaPP                  2.0-3      2022-10-24 [2] CRAN (R 4.1.2)
 ##  permute                0.9-7      2022-01-27 [2] CRAN (R 4.1.2)
+##  pheatmap               1.0.12     2019-01-04 [2] CRAN (R 4.1.0)
 ##  phyloseq               1.38.0     2021-10-26 [2] Bioconductor
 ##  pillar                 1.9.0      2023-03-22 [2] CRAN (R 4.1.2)
 ##  pkgbuild               1.4.2      2023-06-26 [2] CRAN (R 4.1.3)
@@ -1113,7 +1154,6 @@ div.csl-indent {
 ##  rhdf5                  2.38.1     2022-03-10 [2] Bioconductor
 ##  rhdf5filters           1.6.0      2021-10-26 [2] Bioconductor
 ##  Rhdf5lib               1.16.0     2021-10-26 [2] Bioconductor
-##  rJava                  1.0-6      2021-12-10 [2] CRAN (R 4.1.0)
 ##  rjson                  0.2.21     2022-01-09 [2] CRAN (R 4.1.2)
 ##  rlang                  1.1.1      2023-04-28 [1] CRAN (R 4.1.2)
 ##  rmarkdown              2.23       2023-07-01 [2] CRAN (R 4.1.3)
@@ -1173,13 +1213,10 @@ div.csl-indent {
 ##  viridis                0.6.3      2023-05-03 [2] CRAN (R 4.1.2)
 ##  viridisLite            0.4.2      2023-05-02 [2] CRAN (R 4.1.2)
 ##  vsn                    3.62.0     2021-10-26 [2] Bioconductor
-##  WGCNA                  1.72-1     2023-01-18 [2] CRAN (R 4.1.2)
+##  WGCNA                * 1.72-1     2023-01-18 [2] CRAN (R 4.1.2)
 ##  withr                  2.5.0      2022-03-03 [2] CRAN (R 4.1.2)
 ##  Wrench                 1.12.0     2021-10-26 [2] Bioconductor
-##  writexl                1.4.2      2023-01-06 [2] CRAN (R 4.1.2)
 ##  xfun                   0.40       2023-08-09 [1] CRAN (R 4.1.3)
-##  xlsx                   0.6.5      2020-11-10 [2] CRAN (R 4.1.0)
-##  xlsxjars               0.6.1      2014-08-22 [2] CRAN (R 4.1.0)
 ##  XMAS2                * 2.2.0      2023-10-27 [1] local
 ##  XML                    3.99-0.14  2023-03-19 [2] CRAN (R 4.1.2)
 ##  xml2                   1.3.5      2023-07-06 [2] CRAN (R 4.1.3)
