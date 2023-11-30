@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 12 Association Analysis | XMAS 2.0 Tutorial</title>
+  <meta name="description" content="A tutorial of XMAS 2.0 package for in-house training" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 12 Association Analysis | XMAS 2.0 Tutorial" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A tutorial of XMAS 2.0 package for in-house training" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 Association Analysis | XMAS 2.0 Tutorial" />
+  
+  <meta name="twitter:description" content="A tutorial of XMAS 2.0 package for in-house training" />
+  
+
+<meta name="author" content="Hua Zou" />
+
+
+<meta name="date" content="2023-11-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="visualization-5.html"/>
+<link rel="next" href="principals-of-differential-analysis-methods.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.28/datatables.js"></script>
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">XMAS 2.0 Tutorial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview-of-the-design-of-xmas"><i class="fa fa-check"></i><b>1.1</b> Overview of the design of <strong>XMAS</strong></a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#input-data"><i class="fa fa-check"></i><b>1.2</b> Input data</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#methods"><i class="fa fa-check"></i><b>1.3</b> Methods</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#outline-of-this-tutorial"><i class="fa fa-check"></i><b>1.4</b> Outline of this Tutorial</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#key-publications"><i class="fa fa-check"></i><b>1.5</b> Key publications</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.6</b> Citation</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#change-log"><i class="fa fa-check"></i><b>1.7</b> Change log</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html"><i class="fa fa-check"></i><b>2</b> How to install XMAS</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#description"><i class="fa fa-check"></i><b>2.1</b> Description</a></li>
+<li class="chapter" data-level="2.2" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation-of-dependencies"><i class="fa fa-check"></i><b>2.2</b> Installation of dependencies</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#packages-in-cran-bioconductor"><i class="fa fa-check"></i><b>2.2.1</b> Packages in CRAN &amp; Bioconductor</a></li>
+<li class="chapter" data-level="2.2.2" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#packages-in-github"><i class="fa fa-check"></i><b>2.2.2</b> Packages in github</a></li>
+<li class="chapter" data-level="2.2.3" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#packages-from-website"><i class="fa fa-check"></i><b>2.2.3</b> Packages from website</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation"><i class="fa fa-check"></i><b>2.3</b> Installation</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation-in-linux-or-mac-os-through-command-line"><i class="fa fa-check"></i><b>2.3.1</b> Installation in linux or Mac os through command line</a></li>
+<li class="chapter" data-level="2.3.2" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation-by-r-from-gitlab"><i class="fa fa-check"></i><b>2.3.2</b> Installation by R from gitlab</a></li>
+<li class="chapter" data-level="2.3.3" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation-by-r-from-local-xmas.tar.gz-file"><i class="fa fa-check"></i><b>2.3.3</b> Installation by R from local XMAS*.tar.gz file</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#vignette"><i class="fa fa-check"></i><b>2.4</b> Vignette</a></li>
+<li class="chapter" data-level="2.5" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#authors"><i class="fa fa-check"></i><b>2.5</b> Authors</a></li>
+<li class="chapter" data-level="2.6" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#future-plan"><i class="fa fa-check"></i><b>2.6</b> Future plan</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html"><i class="fa fa-check"></i><b>3</b> Convert inputdata into phyloseq object</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#loading-packages"><i class="fa fa-check"></i><b>3.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="3.2" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#importing-data"><i class="fa fa-check"></i><b>3.2</b> Importing Data</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#result-from-dada2"><i class="fa fa-check"></i><b>3.2.1</b> Result from dada2</a></li>
+<li class="chapter" data-level="3.2.2" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#result-from-metaphlan"><i class="fa fa-check"></i><b>3.2.2</b> Result from Metaphlan</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#systematic-information"><i class="fa fa-check"></i><b>3.3</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="quality-evaluation.html"><a href="quality-evaluation.html"><i class="fa fa-check"></i><b>4</b> Quality Evaluation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="quality-evaluation.html"><a href="quality-evaluation.html#loading-packages-1"><i class="fa fa-check"></i><b>4.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="4.2" data-path="quality-evaluation.html"><a href="quality-evaluation.html#importing-data-1"><i class="fa fa-check"></i><b>4.2</b> Importing Data</a></li>
+<li class="chapter" data-level="4.3" data-path="quality-evaluation.html"><a href="quality-evaluation.html#reads-track"><i class="fa fa-check"></i><b>4.3</b> Reads track</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="quality-evaluation.html"><a href="quality-evaluation.html#plotting-dad2"><i class="fa fa-check"></i><b>4.3.1</b> Plotting DAD2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="quality-evaluation.html"><a href="quality-evaluation.html#plotting-metaphlan"><i class="fa fa-check"></i><b>4.3.2</b> Plotting Metaphlan</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="quality-evaluation.html"><a href="quality-evaluation.html#spike-in-brs-sample-assessment"><i class="fa fa-check"></i><b>4.4</b> Spike-in (BRS) sample assessment</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="quality-evaluation.html"><a href="quality-evaluation.html#s-data"><i class="fa fa-check"></i><b>4.4.1</b> 16s data</a></li>
+<li class="chapter" data-level="4.4.2" data-path="quality-evaluation.html"><a href="quality-evaluation.html#metagenomic-data"><i class="fa fa-check"></i><b>4.4.2</b> Metagenomic data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="quality-evaluation.html"><a href="quality-evaluation.html#removing-brs"><i class="fa fa-check"></i><b>4.5</b> Removing BRS</a></li>
+<li class="chapter" data-level="4.6" data-path="quality-evaluation.html"><a href="quality-evaluation.html#rarefaction-curves"><i class="fa fa-check"></i><b>4.6</b> Rarefaction Curves</a></li>
+<li class="chapter" data-level="4.7" data-path="quality-evaluation.html"><a href="quality-evaluation.html#summarize-phyloseq-class-object"><i class="fa fa-check"></i><b>4.7</b> Summarize phyloseq-class object</a></li>
+<li class="chapter" data-level="4.8" data-path="quality-evaluation.html"><a href="quality-evaluation.html#variability"><i class="fa fa-check"></i><b>4.8</b> Variability</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="quality-evaluation.html"><a href="quality-evaluation.html#coefficient-of-variation"><i class="fa fa-check"></i><b>4.8.1</b> Coefficient of variation</a></li>
+<li class="chapter" data-level="4.8.2" data-path="quality-evaluation.html"><a href="quality-evaluation.html#distribution-of-number-of-sequences"><i class="fa fa-check"></i><b>4.8.2</b> Distribution of number of sequences</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="quality-evaluation.html"><a href="quality-evaluation.html#systematic-information-1"><i class="fa fa-check"></i><b>4.9</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>5</b> Pre-processing</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="pre-processing.html"><a href="pre-processing.html#loading-packages-2"><i class="fa fa-check"></i><b>5.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="5.2" data-path="pre-processing.html"><a href="pre-processing.html#importing-data-2"><i class="fa fa-check"></i><b>5.2</b> Importing Data</a></li>
+<li class="chapter" data-level="5.3" data-path="pre-processing.html"><a href="pre-processing.html#transformation"><i class="fa fa-check"></i><b>5.3</b> Transformation</a></li>
+<li class="chapter" data-level="5.4" data-path="pre-processing.html"><a href="pre-processing.html#normalization"><i class="fa fa-check"></i><b>5.4</b> Normalization</a></li>
+<li class="chapter" data-level="5.5" data-path="pre-processing.html"><a href="pre-processing.html#filtering"><i class="fa fa-check"></i><b>5.5</b> Filtering</a></li>
+<li class="chapter" data-level="5.6" data-path="pre-processing.html"><a href="pre-processing.html#trimming"><i class="fa fa-check"></i><b>5.6</b> Trimming</a></li>
+<li class="chapter" data-level="5.7" data-path="pre-processing.html"><a href="pre-processing.html#imputation"><i class="fa fa-check"></i><b>5.7</b> Imputation</a></li>
+<li class="chapter" data-level="5.8" data-path="pre-processing.html"><a href="pre-processing.html#extracting-specific-taxa-phyloseq-class-object"><i class="fa fa-check"></i><b>5.8</b> Extracting specific taxa phyloseq-class object</a></li>
+<li class="chapter" data-level="5.9" data-path="pre-processing.html"><a href="pre-processing.html#aggregating-low-relative-abundance-or-unclassified-taxa-into-others"><i class="fa fa-check"></i><b>5.9</b> Aggregating low relative abundance or unclassified taxa into others</a></li>
+<li class="chapter" data-level="5.10" data-path="pre-processing.html"><a href="pre-processing.html#transform-the-abundance-of-taxa-whose-relative-abundance-under-limit-of-detection-lod-into-zeros-only-in-metaphlan23"><i class="fa fa-check"></i><b>5.10</b> Transform the abundance of taxa whose relative abundance under Limit Of Detection (LOD) into Zeros (only in metaphlan2/3)</a></li>
+<li class="chapter" data-level="5.11" data-path="pre-processing.html"><a href="pre-processing.html#systematic-information-2"><i class="fa fa-check"></i><b>5.11</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="aplha-diversity.html"><a href="aplha-diversity.html"><i class="fa fa-check"></i><b>6</b> Aplha diversity</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="aplha-diversity.html"><a href="aplha-diversity.html#loading-packages-3"><i class="fa fa-check"></i><b>6.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="6.2" data-path="aplha-diversity.html"><a href="aplha-diversity.html#importing-data-3"><i class="fa fa-check"></i><b>6.2</b> Importing Data</a></li>
+<li class="chapter" data-level="6.3" data-path="aplha-diversity.html"><a href="aplha-diversity.html#equal-sample-sums"><i class="fa fa-check"></i><b>6.3</b> Equal sample sums</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="aplha-diversity.html"><a href="aplha-diversity.html#dada2_ps-dataset"><i class="fa fa-check"></i><b>6.3.1</b> dada2_ps dataset</a></li>
+<li class="chapter" data-level="6.3.2" data-path="aplha-diversity.html"><a href="aplha-diversity.html#amplicon_ps-dataset"><i class="fa fa-check"></i><b>6.3.2</b> amplicon_ps dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="aplha-diversity.html"><a href="aplha-diversity.html#non-phylogenetic-diversities"><i class="fa fa-check"></i><b>6.4</b> Non-phylogenetic diversities</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="aplha-diversity.html"><a href="aplha-diversity.html#xmas2-r-package"><i class="fa fa-check"></i><b>6.4.1</b> XMAS2 R package</a></li>
+<li class="chapter" data-level="6.4.2" data-path="aplha-diversity.html"><a href="aplha-diversity.html#microbiome-r-package"><i class="fa fa-check"></i><b>6.4.2</b> microbiome R package</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="aplha-diversity.html"><a href="aplha-diversity.html#phylogenetic-diversity"><i class="fa fa-check"></i><b>6.5</b> Phylogenetic diversity</a></li>
+<li class="chapter" data-level="6.6" data-path="aplha-diversity.html"><a href="aplha-diversity.html#rank-abundance"><i class="fa fa-check"></i><b>6.6</b> Rank Abundance</a></li>
+<li class="chapter" data-level="6.7" data-path="aplha-diversity.html"><a href="aplha-diversity.html#evenness"><i class="fa fa-check"></i><b>6.7</b> Evenness</a></li>
+<li class="chapter" data-level="6.8" data-path="aplha-diversity.html"><a href="aplha-diversity.html#systematic-information-3"><i class="fa fa-check"></i><b>6.8</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="beta-diversity.html"><a href="beta-diversity.html"><i class="fa fa-check"></i><b>7</b> Beta diversity</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="beta-diversity.html"><a href="beta-diversity.html#loading-packages-4"><i class="fa fa-check"></i><b>7.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="7.2" data-path="beta-diversity.html"><a href="beta-diversity.html#importing-data-4"><i class="fa fa-check"></i><b>7.2</b> Importing Data</a></li>
+<li class="chapter" data-level="7.3" data-path="beta-diversity.html"><a href="beta-diversity.html#phylogenetic-beta-diversity-metrics"><i class="fa fa-check"></i><b>7.3</b> Phylogenetic beta-diversity metrics</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="beta-diversity.html"><a href="beta-diversity.html#unweighted-unifrac"><i class="fa fa-check"></i><b>7.3.1</b> Unweighted Unifrac</a></li>
+<li class="chapter" data-level="7.3.2" data-path="beta-diversity.html"><a href="beta-diversity.html#weighted-unifrac"><i class="fa fa-check"></i><b>7.3.2</b> Weighted Unifrac</a></li>
+<li class="chapter" data-level="7.3.3" data-path="beta-diversity.html"><a href="beta-diversity.html#generalized-unifrac-distance-metrics"><i class="fa fa-check"></i><b>7.3.3</b> Generalized UniFrac Distance Metrics</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="beta-diversity.html"><a href="beta-diversity.html#distance-dissimilarity-coefficients-bray-curtis-index"><i class="fa fa-check"></i><b>7.4</b> Distance (Dissimilarity) Coefficients: Bray-Curtis Index</a></li>
+<li class="chapter" data-level="7.5" data-path="beta-diversity.html"><a href="beta-diversity.html#checking-the-homogeneity-condition"><i class="fa fa-check"></i><b>7.5</b> Checking the homogeneity condition</a></li>
+<li class="chapter" data-level="7.6" data-path="beta-diversity.html"><a href="beta-diversity.html#permutational-multivariate-analysis-of-variance-permanova"><i class="fa fa-check"></i><b>7.6</b> Permutational Multivariate Analysis of Variance (PERMANOVA)</a></li>
+<li class="chapter" data-level="7.7" data-path="beta-diversity.html"><a href="beta-diversity.html#mantel-test"><i class="fa fa-check"></i><b>7.7</b> Mantel Test</a></li>
+<li class="chapter" data-level="7.8" data-path="beta-diversity.html"><a href="beta-diversity.html#analysis-of-similarity-anosim"><i class="fa fa-check"></i><b>7.8</b> Analysis of Similarity (ANOSIM)</a></li>
+<li class="chapter" data-level="7.9" data-path="beta-diversity.html"><a href="beta-diversity.html#multi-response-permutation-procedures-mrpp"><i class="fa fa-check"></i><b>7.9</b> Multi-response permutation procedures (MRPP)</a></li>
+<li class="chapter" data-level="7.10" data-path="beta-diversity.html"><a href="beta-diversity.html#ordination"><i class="fa fa-check"></i><b>7.10</b> Ordination</a>
+<ul>
+<li class="chapter" data-level="7.10.1" data-path="beta-diversity.html"><a href="beta-diversity.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>7.10.1</b> Principal Component Analysis (PCA)</a></li>
+<li class="chapter" data-level="7.10.2" data-path="beta-diversity.html"><a href="beta-diversity.html#principal-coordinate-analysis-pcoa"><i class="fa fa-check"></i><b>7.10.2</b> Principal Coordinate Analysis (PCoA)</a></li>
+<li class="chapter" data-level="7.10.3" data-path="beta-diversity.html"><a href="beta-diversity.html#t-distributed-stochastic-neighbor-embedding-t-sne"><i class="fa fa-check"></i><b>7.10.3</b> t-distributed stochastic neighbor embedding (t-SNE)</a></li>
+<li class="chapter" data-level="7.10.4" data-path="beta-diversity.html"><a href="beta-diversity.html#uniform-manifold-approximation-and-projection-for-dimension-reduction-umap"><i class="fa fa-check"></i><b>7.10.4</b> Uniform Manifold Approximation and Projection for Dimension Reduction (UMAP)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.11" data-path="beta-diversity.html"><a href="beta-diversity.html#systematic-information-4"><i class="fa fa-check"></i><b>7.11</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="microbial-composition.html"><a href="microbial-composition.html"><i class="fa fa-check"></i><b>8</b> Microbial Composition</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="microbial-composition.html"><a href="microbial-composition.html#loading-packages-5"><i class="fa fa-check"></i><b>8.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="8.2" data-path="microbial-composition.html"><a href="microbial-composition.html#importing-data-5"><i class="fa fa-check"></i><b>8.2</b> Importing Data</a></li>
+<li class="chapter" data-level="8.3" data-path="microbial-composition.html"><a href="microbial-composition.html#plot_stacked_bar-from-xviz"><i class="fa fa-check"></i><b>8.3</b> plot_stacked_bar from XVIZ</a></li>
+<li class="chapter" data-level="8.4" data-path="microbial-composition.html"><a href="microbial-composition.html#plot_stackbarplot-from-xams2"><i class="fa fa-check"></i><b>8.4</b> plot_StackBarPlot from XAMS2</a></li>
+<li class="chapter" data-level="8.5" data-path="microbial-composition.html"><a href="microbial-composition.html#heatmaps"><i class="fa fa-check"></i><b>8.5</b> Heatmaps</a></li>
+<li class="chapter" data-level="8.6" data-path="microbial-composition.html"><a href="microbial-composition.html#systematic-information-5"><i class="fa fa-check"></i><b>8.6</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="core-microbiota.html"><a href="core-microbiota.html"><i class="fa fa-check"></i><b>9</b> Core microbiota</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="core-microbiota.html"><a href="core-microbiota.html#loading-packages-6"><i class="fa fa-check"></i><b>9.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="9.2" data-path="core-microbiota.html"><a href="core-microbiota.html#importing-data-6"><i class="fa fa-check"></i><b>9.2</b> Importing Data</a></li>
+<li class="chapter" data-level="9.3" data-path="core-microbiota.html"><a href="core-microbiota.html#obtaining-core-microbiota"><i class="fa fa-check"></i><b>9.3</b> Obtaining core microbiota</a></li>
+<li class="chapter" data-level="9.4" data-path="core-microbiota.html"><a href="core-microbiota.html#showing-core-abundance-and-diversity"><i class="fa fa-check"></i><b>9.4</b> Showing core abundance and diversity</a></li>
+<li class="chapter" data-level="9.5" data-path="core-microbiota.html"><a href="core-microbiota.html#visualizing-core-taxa"><i class="fa fa-check"></i><b>9.5</b> Visualizing core taxa</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="core-microbiota.html"><a href="core-microbiota.html#heatmap"><i class="fa fa-check"></i><b>9.5.1</b> heatmap</a></li>
+<li class="chapter" data-level="9.5.2" data-path="core-microbiota.html"><a href="core-microbiota.html#linechart"><i class="fa fa-check"></i><b>9.5.2</b> linechart</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="core-microbiota.html"><a href="core-microbiota.html#systematic-information-6"><i class="fa fa-check"></i><b>9.6</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="differential-analysis.html"><a href="differential-analysis.html"><i class="fa fa-check"></i><b>10</b> Differential Analysis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="differential-analysis.html"><a href="differential-analysis.html#loading-packages-7"><i class="fa fa-check"></i><b>10.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="10.2" data-path="differential-analysis.html"><a href="differential-analysis.html#importing-data-7"><i class="fa fa-check"></i><b>10.2</b> Importing Data</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="differential-analysis.html"><a href="differential-analysis.html#s-data-1"><i class="fa fa-check"></i><b>10.2.1</b> 16s data</a></li>
+<li class="chapter" data-level="10.2.2" data-path="differential-analysis.html"><a href="differential-analysis.html#metagenomic-data-1"><i class="fa fa-check"></i><b>10.2.2</b> Metagenomic data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="differential-analysis.html"><a href="differential-analysis.html#amplicon-sequencing-microbial-data-16s"><i class="fa fa-check"></i><b>10.3</b> Amplicon sequencing microbial data (16s)</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="differential-analysis.html"><a href="differential-analysis.html#aldex2"><i class="fa fa-check"></i><b>10.3.1</b> ALDEx2</a></li>
+<li class="chapter" data-level="10.3.2" data-path="differential-analysis.html"><a href="differential-analysis.html#limma_voom"><i class="fa fa-check"></i><b>10.3.2</b> limma_voom</a></li>
+<li class="chapter" data-level="10.3.3" data-path="differential-analysis.html"><a href="differential-analysis.html#mbzinb"><i class="fa fa-check"></i><b>10.3.3</b> mbzinb</a></li>
+<li class="chapter" data-level="10.3.4" data-path="differential-analysis.html"><a href="differential-analysis.html#omnibus"><i class="fa fa-check"></i><b>10.3.4</b> omnibus</a></li>
+<li class="chapter" data-level="10.3.5" data-path="differential-analysis.html"><a href="differential-analysis.html#raida"><i class="fa fa-check"></i><b>10.3.5</b> RAIDA</a></li>
+<li class="chapter" data-level="10.3.6" data-path="differential-analysis.html"><a href="differential-analysis.html#wilcoxon-rank-sum-and-signed-rank-tests"><i class="fa fa-check"></i><b>10.3.6</b> Wilcoxon Rank Sum and Signed Rank Tests</a></li>
+<li class="chapter" data-level="10.3.7" data-path="differential-analysis.html"><a href="differential-analysis.html#liner-discriminant-analysis-lda-effect-size-lefse"><i class="fa fa-check"></i><b>10.3.7</b> Liner discriminant analysis (LDA) effect size (LEfSe)</a></li>
+<li class="chapter" data-level="10.3.8" data-path="differential-analysis.html"><a href="differential-analysis.html#t-test"><i class="fa fa-check"></i><b>10.3.8</b> t-test</a></li>
+<li class="chapter" data-level="10.3.9" data-path="differential-analysis.html"><a href="differential-analysis.html#metagenomeseq"><i class="fa fa-check"></i><b>10.3.9</b> MetagenomeSeq</a></li>
+<li class="chapter" data-level="10.3.10" data-path="differential-analysis.html"><a href="differential-analysis.html#deseq2"><i class="fa fa-check"></i><b>10.3.10</b> DESeq2</a></li>
+<li class="chapter" data-level="10.3.11" data-path="differential-analysis.html"><a href="differential-analysis.html#edger"><i class="fa fa-check"></i><b>10.3.11</b> EdgeR</a></li>
+<li class="chapter" data-level="10.3.12" data-path="differential-analysis.html"><a href="differential-analysis.html#ancom"><i class="fa fa-check"></i><b>10.3.12</b> ANCOM</a></li>
+<li class="chapter" data-level="10.3.13" data-path="differential-analysis.html"><a href="differential-analysis.html#corncob"><i class="fa fa-check"></i><b>10.3.13</b> Corncob</a></li>
+<li class="chapter" data-level="10.3.14" data-path="differential-analysis.html"><a href="differential-analysis.html#maaslin2-microbiome-multivariable-association-with-linear-models"><i class="fa fa-check"></i><b>10.3.14</b> Maaslin2 (Microbiome Multivariable Association with Linear Models)</a></li>
+<li class="chapter" data-level="10.3.15" data-path="differential-analysis.html"><a href="differential-analysis.html#locom"><i class="fa fa-check"></i><b>10.3.15</b> LOCOM</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="differential-analysis.html"><a href="differential-analysis.html#metagenomic-sequencing-microbial-data-metaphlan23"><i class="fa fa-check"></i><b>10.4</b> Metagenomic sequencing microbial data (metaphlan2/3)</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="differential-analysis.html"><a href="differential-analysis.html#wilcoxon-rank-sum-and-signed-rank-tests-1"><i class="fa fa-check"></i><b>10.4.1</b> Wilcoxon Rank Sum and Signed Rank Tests</a></li>
+<li class="chapter" data-level="10.4.2" data-path="differential-analysis.html"><a href="differential-analysis.html#liner-discriminant-analysis-lda-effect-size-lefse-1"><i class="fa fa-check"></i><b>10.4.2</b> Liner discriminant analysis (LDA) effect size (LEfSe)</a></li>
+<li class="chapter" data-level="10.4.3" data-path="differential-analysis.html"><a href="differential-analysis.html#t-test-1"><i class="fa fa-check"></i><b>10.4.3</b> t-test</a></li>
+<li class="chapter" data-level="10.4.4" data-path="differential-analysis.html"><a href="differential-analysis.html#maaslin2-microbiome-multivariable-association-with-linear-models-1"><i class="fa fa-check"></i><b>10.4.4</b> Maaslin2 (Microbiome Multivariable Association with Linear Models)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="differential-analysis.html"><a href="differential-analysis.html#visualization-4"><i class="fa fa-check"></i><b>10.5</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="differential-analysis.html"><a href="differential-analysis.html#volcano-plot"><i class="fa fa-check"></i><b>10.5.1</b> Volcano plot</a></li>
+<li class="chapter" data-level="10.5.2" data-path="differential-analysis.html"><a href="differential-analysis.html#barplot-in-lefse"><i class="fa fa-check"></i><b>10.5.2</b> barplot in lefse</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="differential-analysis.html"><a href="differential-analysis.html#dominant-taxa"><i class="fa fa-check"></i><b>10.6</b> Dominant taxa</a></li>
+<li class="chapter" data-level="10.7" data-path="differential-analysis.html"><a href="differential-analysis.html#multiple-differential-analysis-by-one-function"><i class="fa fa-check"></i><b>10.7</b> Multiple differential analysis by one function</a></li>
+<li class="chapter" data-level="10.8" data-path="differential-analysis.html"><a href="differential-analysis.html#systematic-information-7"><i class="fa fa-check"></i><b>10.8</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="visualization-5.html"><a href="visualization-5.html"><i class="fa fa-check"></i><b>11</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="visualization-5.html"><a href="visualization-5.html#loading-packages-8"><i class="fa fa-check"></i><b>11.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="11.2" data-path="visualization-5.html"><a href="visualization-5.html#importing-data-8"><i class="fa fa-check"></i><b>11.2</b> Importing Data</a></li>
+<li class="chapter" data-level="11.3" data-path="visualization-5.html"><a href="visualization-5.html#plot_boxplot"><i class="fa fa-check"></i><b>11.3</b> plot_boxplot</a></li>
+<li class="chapter" data-level="11.4" data-path="visualization-5.html"><a href="visualization-5.html#plot_barplot"><i class="fa fa-check"></i><b>11.4</b> plot_barplot</a></li>
+<li class="chapter" data-level="11.5" data-path="visualization-5.html"><a href="visualization-5.html#plot_dotplot"><i class="fa fa-check"></i><b>11.5</b> plot_dotplot</a></li>
+<li class="chapter" data-level="11.6" data-path="visualization-5.html"><a href="visualization-5.html#plot_correlation_boxplot"><i class="fa fa-check"></i><b>11.6</b> plot_correlation_boxplot</a></li>
+<li class="chapter" data-level="11.7" data-path="visualization-5.html"><a href="visualization-5.html#plot_correlation_density"><i class="fa fa-check"></i><b>11.7</b> plot_correlation_density</a></li>
+<li class="chapter" data-level="11.8" data-path="visualization-5.html"><a href="visualization-5.html#plot_ordination"><i class="fa fa-check"></i><b>11.8</b> plot_Ordination</a></li>
+<li class="chapter" data-level="11.9" data-path="visualization-5.html"><a href="visualization-5.html#plot_ggbiplot"><i class="fa fa-check"></i><b>11.9</b> plot_ggbiplot</a></li>
+<li class="chapter" data-level="11.10" data-path="visualization-5.html"><a href="visualization-5.html#plot_corrplot"><i class="fa fa-check"></i><b>11.10</b> plot_corrplot</a></li>
+<li class="chapter" data-level="11.11" data-path="visualization-5.html"><a href="visualization-5.html#plot_2da_venn"><i class="fa fa-check"></i><b>11.11</b> plot_2DA_venn</a></li>
+<li class="chapter" data-level="11.12" data-path="visualization-5.html"><a href="visualization-5.html#plot-the-da-results-from-the-significant-taxa-by-double-barplot"><i class="fa fa-check"></i><b>11.12</b> plot the DA results from the significant taxa by double barplot</a></li>
+<li class="chapter" data-level="11.13" data-path="visualization-5.html"><a href="visualization-5.html#plot_stacked_bar_xivz"><i class="fa fa-check"></i><b>11.13</b> plot_stacked_bar_XIVZ</a></li>
+<li class="chapter" data-level="11.14" data-path="visualization-5.html"><a href="visualization-5.html#plot_stackbarplot"><i class="fa fa-check"></i><b>11.14</b> plot_StackBarPlot</a></li>
+<li class="chapter" data-level="11.15" data-path="visualization-5.html"><a href="visualization-5.html#color-palettes"><i class="fa fa-check"></i><b>11.15</b> Color Palettes</a>
+<ul>
+<li class="chapter" data-level="11.15.1" data-path="visualization-5.html"><a href="visualization-5.html#wes-anderson-palettes"><i class="fa fa-check"></i><b>11.15.1</b> Wes Anderson Palettes</a></li>
+<li class="chapter" data-level="11.15.2" data-path="visualization-5.html"><a href="visualization-5.html#usemycol"><i class="fa fa-check"></i><b>11.15.2</b> useMyCol</a></li>
+</ul></li>
+<li class="chapter" data-level="11.16" data-path="visualization-5.html"><a href="visualization-5.html#ordination-plots-with-ggplot2"><i class="fa fa-check"></i><b>11.16</b> Ordination plots with ggplot2</a>
+<ul>
+<li class="chapter" data-level="11.16.1" data-path="visualization-5.html"><a href="visualization-5.html#principal-components-analysis-with-the-iris-data-set"><i class="fa fa-check"></i><b>11.16.1</b> principal components analysis with the iris data set</a></li>
+<li class="chapter" data-level="11.16.2" data-path="visualization-5.html"><a href="visualization-5.html#multiple-correspondence-analysis-with-the-tea-dataset"><i class="fa fa-check"></i><b>11.16.2</b> multiple correspondence analysis with the tea dataset</a></li>
+<li class="chapter" data-level="11.16.3" data-path="visualization-5.html"><a href="visualization-5.html#linear-discriminant-analysis"><i class="fa fa-check"></i><b>11.16.3</b> linear discriminant analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="11.17" data-path="visualization-5.html"><a href="visualization-5.html#systematic-information-8"><i class="fa fa-check"></i><b>11.17</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="association-analysis.html"><a href="association-analysis.html"><i class="fa fa-check"></i><b>12</b> Association Analysis</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="association-analysis.html"><a href="association-analysis.html#loading-packages-9"><i class="fa fa-check"></i><b>12.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="12.2" data-path="association-analysis.html"><a href="association-analysis.html#importing-data-9"><i class="fa fa-check"></i><b>12.2</b> Importing Data</a></li>
+<li class="chapter" data-level="12.3" data-path="association-analysis.html"><a href="association-analysis.html#spearman-correlation-analysis"><i class="fa fa-check"></i><b>12.3</b> Spearman Correlation Analysis</a></li>
+<li class="chapter" data-level="12.4" data-path="association-analysis.html"><a href="association-analysis.html#partial-correlation-analysis"><i class="fa fa-check"></i><b>12.4</b> Partial Correlation Analysis</a></li>
+<li class="chapter" data-level="12.5" data-path="association-analysis.html"><a href="association-analysis.html#systematic-information-9"><i class="fa fa-check"></i><b>12.5</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html"><i class="fa fa-check"></i><b>13</b> Principals of Differential Analysis methods</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#aldex2-1"><i class="fa fa-check"></i><b>13.1</b> ALDEx2</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-1"><i class="fa fa-check"></i><b>13.1.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.1.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type"><i class="fa fa-check"></i><b>13.1.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.1.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments"><i class="fa fa-check"></i><b>13.1.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.1.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures"><i class="fa fa-check"></i><b>13.1.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.1.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output"><i class="fa fa-check"></i><b>13.1.5</b> Key output</a></li>
+<li class="chapter" data-level="13.1.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax"><i class="fa fa-check"></i><b>13.1.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.1.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax"><i class="fa fa-check"></i><b>13.1.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.1.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes"><i class="fa fa-check"></i><b>13.1.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#ancom-ii"><i class="fa fa-check"></i><b>13.2</b> ANCOM-II</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-1"><i class="fa fa-check"></i><b>13.2.1</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.2.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-1"><i class="fa fa-check"></i><b>13.2.2</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.2.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-1"><i class="fa fa-check"></i><b>13.2.3</b> Procedures</a></li>
+<li class="chapter" data-level="13.2.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-1"><i class="fa fa-check"></i><b>13.2.4</b> Key output</a></li>
+<li class="chapter" data-level="13.2.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-1"><i class="fa fa-check"></i><b>13.2.5</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.2.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-1"><i class="fa fa-check"></i><b>13.2.6</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.2.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-1"><i class="fa fa-check"></i><b>13.2.7</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#corncob-1"><i class="fa fa-check"></i><b>13.3</b> corncob</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-2"><i class="fa fa-check"></i><b>13.3.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.3.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-2"><i class="fa fa-check"></i><b>13.3.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.3.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-2"><i class="fa fa-check"></i><b>13.3.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.3.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-2"><i class="fa fa-check"></i><b>13.3.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.3.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-2"><i class="fa fa-check"></i><b>13.3.5</b> Key output</a></li>
+<li class="chapter" data-level="13.3.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-2"><i class="fa fa-check"></i><b>13.3.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.3.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-2"><i class="fa fa-check"></i><b>13.3.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.3.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-2"><i class="fa fa-check"></i><b>13.3.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#deseq2-1"><i class="fa fa-check"></i><b>13.4</b> DESeq2</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-3"><i class="fa fa-check"></i><b>13.4.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.4.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-3"><i class="fa fa-check"></i><b>13.4.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.4.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-3"><i class="fa fa-check"></i><b>13.4.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.4.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-3"><i class="fa fa-check"></i><b>13.4.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.4.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-3"><i class="fa fa-check"></i><b>13.4.5</b> Key output</a></li>
+<li class="chapter" data-level="13.4.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-3"><i class="fa fa-check"></i><b>13.4.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.4.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-3"><i class="fa fa-check"></i><b>13.4.7</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#edger-1"><i class="fa fa-check"></i><b>13.5</b> edgeR</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-4"><i class="fa fa-check"></i><b>13.5.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.5.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-4"><i class="fa fa-check"></i><b>13.5.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.5.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-4"><i class="fa fa-check"></i><b>13.5.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.5.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-4"><i class="fa fa-check"></i><b>13.5.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.5.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-4"><i class="fa fa-check"></i><b>13.5.5</b> Key output</a></li>
+<li class="chapter" data-level="13.5.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-4"><i class="fa fa-check"></i><b>13.5.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.5.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-4"><i class="fa fa-check"></i><b>13.5.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.5.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-3"><i class="fa fa-check"></i><b>13.5.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#lefse"><i class="fa fa-check"></i><b>13.6</b> LEfSe</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-5"><i class="fa fa-check"></i><b>13.6.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.6.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-5"><i class="fa fa-check"></i><b>13.6.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.6.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-5"><i class="fa fa-check"></i><b>13.6.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.6.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-5"><i class="fa fa-check"></i><b>13.6.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.6.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-5"><i class="fa fa-check"></i><b>13.6.5</b> Key output</a></li>
+<li class="chapter" data-level="13.6.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-5"><i class="fa fa-check"></i><b>13.6.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.6.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-5"><i class="fa fa-check"></i><b>13.6.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.6.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-4"><i class="fa fa-check"></i><b>13.6.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#limma-voom"><i class="fa fa-check"></i><b>13.7</b> limma voom</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-6"><i class="fa fa-check"></i><b>13.7.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.7.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-6"><i class="fa fa-check"></i><b>13.7.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.7.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-6"><i class="fa fa-check"></i><b>13.7.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.7.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-6"><i class="fa fa-check"></i><b>13.7.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.7.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-6"><i class="fa fa-check"></i><b>13.7.5</b> Key output</a></li>
+<li class="chapter" data-level="13.7.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-6"><i class="fa fa-check"></i><b>13.7.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.7.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-6"><i class="fa fa-check"></i><b>13.7.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.7.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-5"><i class="fa fa-check"></i><b>13.7.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#maaslin2"><i class="fa fa-check"></i><b>13.8</b> MaAsLin2</a>
+<ul>
+<li class="chapter" data-level="13.8.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-7"><i class="fa fa-check"></i><b>13.8.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.8.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-7"><i class="fa fa-check"></i><b>13.8.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.8.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-7"><i class="fa fa-check"></i><b>13.8.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.8.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-7"><i class="fa fa-check"></i><b>13.8.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.8.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-7"><i class="fa fa-check"></i><b>13.8.5</b> Key output</a></li>
+<li class="chapter" data-level="13.8.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-7"><i class="fa fa-check"></i><b>13.8.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.8.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-7"><i class="fa fa-check"></i><b>13.8.7</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#metagenomeseq-1"><i class="fa fa-check"></i><b>13.9</b> metagenomeSeq</a>
+<ul>
+<li class="chapter" data-level="13.9.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-8"><i class="fa fa-check"></i><b>13.9.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.9.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-8"><i class="fa fa-check"></i><b>13.9.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.9.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-8"><i class="fa fa-check"></i><b>13.9.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.9.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-8"><i class="fa fa-check"></i><b>13.9.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.9.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-8"><i class="fa fa-check"></i><b>13.9.5</b> Key output</a></li>
+<li class="chapter" data-level="13.9.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-8"><i class="fa fa-check"></i><b>13.9.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.9.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-8"><i class="fa fa-check"></i><b>13.9.7</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.10" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#t-test-2"><i class="fa fa-check"></i><b>13.10</b> t-test</a>
+<ul>
+<li class="chapter" data-level="13.10.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-9"><i class="fa fa-check"></i><b>13.10.1</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.10.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-9"><i class="fa fa-check"></i><b>13.10.2</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.10.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-9"><i class="fa fa-check"></i><b>13.10.3</b> Procedures</a></li>
+<li class="chapter" data-level="13.10.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-9"><i class="fa fa-check"></i><b>13.10.4</b> Key output</a></li>
+<li class="chapter" data-level="13.10.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-9"><i class="fa fa-check"></i><b>13.10.5</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.10.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-9"><i class="fa fa-check"></i><b>13.10.6</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.11" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#wilcoxon-test"><i class="fa fa-check"></i><b>13.11</b> Wilcoxon test</a>
+<ul>
+<li class="chapter" data-level="13.11.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-10"><i class="fa fa-check"></i><b>13.11.1</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.11.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-10"><i class="fa fa-check"></i><b>13.11.2</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.11.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-10"><i class="fa fa-check"></i><b>13.11.3</b> Procedures</a></li>
+<li class="chapter" data-level="13.11.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-10"><i class="fa fa-check"></i><b>13.11.4</b> Key output</a></li>
+<li class="chapter" data-level="13.11.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-10"><i class="fa fa-check"></i><b>13.11.5</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.11.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-10"><i class="fa fa-check"></i><b>13.11.6</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.12" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#raida-1"><i class="fa fa-check"></i><b>13.12</b> RAIDA</a>
+<ul>
+<li class="chapter" data-level="13.12.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-9"><i class="fa fa-check"></i><b>13.12.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.12.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-11"><i class="fa fa-check"></i><b>13.12.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.12.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-11"><i class="fa fa-check"></i><b>13.12.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.12.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-11"><i class="fa fa-check"></i><b>13.12.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.12.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-11"><i class="fa fa-check"></i><b>13.12.5</b> Key output</a></li>
+<li class="chapter" data-level="13.12.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-11"><i class="fa fa-check"></i><b>13.12.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.12.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-11"><i class="fa fa-check"></i><b>13.12.7</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.13" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#summary"><i class="fa fa-check"></i><b>13.13</b> Summary</a></li>
+<li class="chapter" data-level="13.14" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#advantages-and-disadvantages"><i class="fa fa-check"></i><b>13.14</b> Advantages and disadvantages</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>14</b> Examples</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="examples.html"><a href="examples.html#loading-packages-10"><i class="fa fa-check"></i><b>14.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="14.2" data-path="examples.html"><a href="examples.html#workflow-description"><i class="fa fa-check"></i><b>14.2</b> Workflow description</a></li>
+<li class="chapter" data-level="14.3" data-path="examples.html"><a href="examples.html#amplicon-sequencing-16s"><i class="fa fa-check"></i><b>14.3</b> Amplicon sequencing (16s)</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="examples.html"><a href="examples.html#converting-inputs-into-phyloseq-class-object"><i class="fa fa-check"></i><b>14.3.1</b> Converting inputs into phyloseq-class object</a></li>
+<li class="chapter" data-level="14.3.2" data-path="examples.html"><a href="examples.html#quality-control"><i class="fa fa-check"></i><b>14.3.2</b> Quality Control</a></li>
+<li class="chapter" data-level="14.3.3" data-path="examples.html"><a href="examples.html#data-processing"><i class="fa fa-check"></i><b>14.3.3</b> Data processing</a></li>
+<li class="chapter" data-level="14.3.4" data-path="examples.html"><a href="examples.html#diversity-analysis"><i class="fa fa-check"></i><b>14.3.4</b> Diversity analysis</a></li>
+<li class="chapter" data-level="14.3.5" data-path="examples.html"><a href="examples.html#permanova-ordination"><i class="fa fa-check"></i><b>14.3.5</b> PERMANOVA + Ordination</a></li>
+<li class="chapter" data-level="14.3.6" data-path="examples.html"><a href="examples.html#microbial-composition-1"><i class="fa fa-check"></i><b>14.3.6</b> Microbial composition</a></li>
+<li class="chapter" data-level="14.3.7" data-path="examples.html"><a href="examples.html#differential-analysis-1"><i class="fa fa-check"></i><b>14.3.7</b> Differential Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="examples.html"><a href="examples.html#metagenomics-mgs"><i class="fa fa-check"></i><b>14.4</b> Metagenomics (MGS)</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="examples.html"><a href="examples.html#converting-inputs-into-phyloseq-class-object-1"><i class="fa fa-check"></i><b>14.4.1</b> Converting inputs into phyloseq-class object</a></li>
+<li class="chapter" data-level="14.4.2" data-path="examples.html"><a href="examples.html#quality-control-1"><i class="fa fa-check"></i><b>14.4.2</b> Quality Control</a></li>
+<li class="chapter" data-level="14.4.3" data-path="examples.html"><a href="examples.html#data-processing-1"><i class="fa fa-check"></i><b>14.4.3</b> Data processing</a></li>
+<li class="chapter" data-level="14.4.4" data-path="examples.html"><a href="examples.html#diversity-analysis-1"><i class="fa fa-check"></i><b>14.4.4</b> Diversity analysis</a></li>
+<li class="chapter" data-level="14.4.5" data-path="examples.html"><a href="examples.html#permanova-ordination-1"><i class="fa fa-check"></i><b>14.4.5</b> PERMANOVA + Ordination</a></li>
+<li class="chapter" data-level="14.4.6" data-path="examples.html"><a href="examples.html#microbial-composition-2"><i class="fa fa-check"></i><b>14.4.6</b> Microbial composition</a></li>
+<li class="chapter" data-level="14.4.7" data-path="examples.html"><a href="examples.html#differential-analysis-2"><i class="fa fa-check"></i><b>14.4.7</b> Differential Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="examples.html"><a href="examples.html#systematic-information-10"><i class="fa fa-check"></i><b>14.5</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">XMAS 2.0 Tutorial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="association-analysis" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Association Analysis<a href="association-analysis.html#association-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The potential relationships between microbiota and environmental factors such as clinical parameters are vital when scientists investigate the mechanism of diseases.</p>
+<p>Here, we identify the associations between them by using spearman correlation analysis.</p>
+<p>Outline of this Chapter:</p>
+<ul>
+<li><p><a href="convert-inputdata-into-phyloseq-object.html#loading-packages">Loading Packages</a></p></li>
+<li><p><a href="convert-inputdata-into-phyloseq-object.html#importing-data">Importing Data</a></p></li>
+<li><p><a href="association-analysis.html#spearman-correlation-analysis">Spearman Correlation Analysis</a></p></li>
+<li><p><a href="association-analysis.html#partial-correlation-analysis">Partial Correlation Analysis</a></p></li>
+</ul>
+<div id="loading-packages-9" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Loading Packages<a href="association-analysis.html#loading-packages-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="association-analysis.html#cb465-1" tabindex="-1"></a><span class="fu">library</span>(XMAS2)</span>
+<span id="cb465-2"><a href="association-analysis.html#cb465-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb465-3"><a href="association-analysis.html#cb465-3" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb465-4"><a href="association-analysis.html#cb465-4" tabindex="-1"></a><span class="fu">library</span>(phyloseq)</span>
+<span id="cb465-5"><a href="association-analysis.html#cb465-5" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span></code></pre></div>
+</div>
+<div id="importing-data-9" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Importing Data<a href="association-analysis.html#importing-data-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <strong>Zeybel_Gut</strong> is from <span class="citation">(<a href="#ref-zeybel2022multiomics">Zeybel et al. 2022</a>)</span>, containing gut and oral microbiota.</p>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="association-analysis.html#cb466-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Zeybel_Gut&quot;</span>)</span>
+<span id="cb466-2"><a href="association-analysis.html#cb466-2" tabindex="-1"></a></span>
+<span id="cb466-3"><a href="association-analysis.html#cb466-3" tabindex="-1"></a>Zeybel_Gut_genus <span class="ot">&lt;-</span> <span class="fu">summarize_taxa</span>(<span class="at">ps =</span> Zeybel_Gut,</span>
+<span id="cb466-4"><a href="association-analysis.html#cb466-4" tabindex="-1"></a>       <span class="at">taxa_level =</span> <span class="st">&quot;Genus&quot;</span>)</span></code></pre></div>
+<ul>
+<li>sample data in Zeybel_Gut object</li>
+</ul>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="association-analysis.html#cb467-1" tabindex="-1"></a>zeybel_metadata <span class="ot">&lt;-</span> <span class="fu">sample_data</span>(Zeybel_Gut_genus) <span class="sc">%&gt;%</span> </span>
+<span id="cb467-2"><a href="association-analysis.html#cb467-2" tabindex="-1"></a>  <span class="fu">data.frame</span>()</span>
+<span id="cb467-3"><a href="association-analysis.html#cb467-3" tabindex="-1"></a></span>
+<span id="cb467-4"><a href="association-analysis.html#cb467-4" tabindex="-1"></a><span class="fu">head</span>(zeybel_metadata)</span></code></pre></div>
+<pre><code>##          Stage Metabolomics Proteomics GutMetagenomics OralMetagenomics LiverFatClass Gender AlcoholConsumption Smoker Age       LF Sodium
+## P101042 Before         Send       Send            Send             Send          Mild   Male                 No     No  33  6.45000    142
+## P101076 Before         Send       Send            Send             Send      Moderate   Male                 No     No  40  9.30000    146
+## P101095 Before         Send       Send            Send    Failed Sample      Moderate   Male                 No     No  29  9.90000    140
+## P101084 Before         Send       Send            Send             Send        Severe   Male                 No     No  45 18.15000    143
+## P101038 Before         Send       Send            Send             Send      Moderate Female                 No     No  43 15.93333    142
+## P101071 Before         Send       Send            Send             Send      Moderate   Male                 No    Yes  48  8.10000    144
+##         Potassium Creatinine Urea  UA ALT AST GGT  AP   TB Albumin  CK  TC HDL LDL Triglycerides Glucose Insulin Weight  BMI  HR SBP DBP
+## P101042       4.6       0.96   17 7.2  26  17  29 103 0.25    5.00  85 255  40 181           164      93    11.4   84.5 31.0 101 120  70
+## P101076       4.9       1.05   22 5.6  28  16  56  81 0.34    5.00 123 193  48 133           115     111    14.7   83.0 28.4  73 120  70
+## P101095       4.1       1.13   14 9.1  39  28  32  78 1.46    5.14 300 152  38 103            98      88    10.3  123.1 38.9  73 110  70
+## P101084       5.1       1.15   12 8.8  57  33  55  67 0.34    4.72 336 195  47 128           124      99    36.3  108.0 33.7  74 130  80
+## P101038       4.1       0.91    9 7.2  15  16  17  72 1.24    4.70 108 235  55 165           141     114    24.6   98.6 37.6  85 130  80
+## P101071       4.4       1.04   19 6.0  21  13  21  70 0.34    4.60  77 228  39 146           279     104    12.5  105.8 36.6  78 110  70
+##          WC  HC  TFM TFFM TTBW LAFM LAFFM LATBW RAFM RAFFM RATBW LLFM LLFFM LLTBW RLFM RLFFM RLTBW
+## P101042 100 109 13.9 32.0 44.8  1.3   3.6  44.8  1.2   3.6  44.8  3.4  10.9  44.8  3.4  11.1  44.8
+## P101076  95 100 11.4 34.4 46.4  1.0   3.9  46.4  1.0   3.8  46.4  3.1  10.6  46.4  3.3  10.6  46.4
+## P101095 118 128 23.8 43.2 61.5  2.7   5.0  61.5  2.3   5.1  61.5  4.8  15.5  61.5  5.5  15.2  61.5
+## P101084 115 120 21.3 38.7 53.4  2.0   4.4  53.4  1.8   4.4  53.4  5.1  12.7  53.4  5.0  12.8  53.4
+## P101038 100 124 23.4 28.9 52.0  3.1   2.9  52.0  2.9   2.8  52.0  8.6   8.7  52.0  8.7   8.7  52.0
+## P101071 115 115 20.6 37.2 51.7  1.9   4.4  51.7  1.7   4.4  51.7  5.4  12.3  51.7  5.6  12.2  51.7</code></pre>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="association-analysis.html#cb469-1" tabindex="-1"></a><span class="fu">colnames</span>(zeybel_metadata)</span></code></pre></div>
+<pre><code>##  [1] &quot;Stage&quot;              &quot;Metabolomics&quot;       &quot;Proteomics&quot;         &quot;GutMetagenomics&quot;    &quot;OralMetagenomics&quot;   &quot;LiverFatClass&quot;     
+##  [7] &quot;Gender&quot;             &quot;AlcoholConsumption&quot; &quot;Smoker&quot;             &quot;Age&quot;                &quot;LF&quot;                 &quot;Sodium&quot;            
+## [13] &quot;Potassium&quot;          &quot;Creatinine&quot;         &quot;Urea&quot;               &quot;UA&quot;                 &quot;ALT&quot;                &quot;AST&quot;               
+## [19] &quot;GGT&quot;                &quot;AP&quot;                 &quot;TB&quot;                 &quot;Albumin&quot;            &quot;CK&quot;                 &quot;TC&quot;                
+## [25] &quot;HDL&quot;                &quot;LDL&quot;                &quot;Triglycerides&quot;      &quot;Glucose&quot;            &quot;Insulin&quot;            &quot;Weight&quot;            
+## [31] &quot;BMI&quot;                &quot;HR&quot;                 &quot;SBP&quot;                &quot;DBP&quot;                &quot;WC&quot;                 &quot;HC&quot;                
+## [37] &quot;TFM&quot;                &quot;TFFM&quot;               &quot;TTBW&quot;               &quot;LAFM&quot;               &quot;LAFFM&quot;              &quot;LATBW&quot;             
+## [43] &quot;RAFM&quot;               &quot;RAFFM&quot;              &quot;RATBW&quot;              &quot;LLFM&quot;               &quot;LLFFM&quot;              &quot;LLTBW&quot;             
+## [49] &quot;RLFM&quot;               &quot;RLFFM&quot;              &quot;RLTBW&quot;</code></pre>
+<ul>
+<li>otu table profile in Zeybel_Gut object</li>
+</ul>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="association-analysis.html#cb471-1" tabindex="-1"></a>zeybel_otu <span class="ot">&lt;-</span> <span class="fu">otu_table</span>(Zeybel_Gut_genus) <span class="sc">%&gt;%</span> </span>
+<span id="cb471-2"><a href="association-analysis.html#cb471-2" tabindex="-1"></a>  <span class="fu">data.frame</span>()</span>
+<span id="cb471-3"><a href="association-analysis.html#cb471-3" tabindex="-1"></a></span>
+<span id="cb471-4"><a href="association-analysis.html#cb471-4" tabindex="-1"></a><span class="fu">head</span>(zeybel_otu)</span></code></pre></div>
+<pre><code>##                      P101042   P101076  P101095   P101084   P101038   P101071   P101047   P101012  P101027   P101024   P101057   P101067
+## g__Absiella        0.0000000 0.0000000 0.00e+00 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.00e+00 0.0000000 0.0000000 0.0000000
+## g__Acidaminococcus 0.0000000 0.0012421 0.00e+00 0.0114403 0.0000000 0.0017583 0.0000000 0.0000000 0.00e+00 0.0000000 0.0000000 0.0132178
+## g__Actinomyces     0.0000893 0.0003643 2.79e-05 0.0000000 0.0000000 0.0000926 0.0002638 0.0004858 0.00e+00 0.0000555 0.0006398 0.0002071
+## g__Adlercreutzia   0.0000000 0.0000000 0.00e+00 0.0002282 0.0000137 0.0000000 0.0000792 0.0003161 4.06e-05 0.0001708 0.0000000 0.0000000
+## g__Agathobaculum   0.0004688 0.0000000 1.84e-04 0.0006843 0.0001106 0.0000364 0.0006443 0.0000074 9.73e-05 0.0028784 0.0002393 0.0000000
+## g__Aggregatibacter 0.0000000 0.0000000 0.00e+00 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.00e+00 0.0000000 0.0000000 0.0000000
+##                      P101094   P101007   P101054   P101031   P101003   P101018   P101025  P101010   P101069   P101077   P101065   P101096
+## g__Absiella        0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0002135 0.00e+00 0.0000000 0.0000000 0.0000000 0.0000000
+## g__Acidaminococcus 0.0000000 0.0159577 0.0012000 0.0000000 0.0000000 0.0000000 0.0009027 0.00e+00 0.0001482 0.0000000 0.0000000 0.0000000
+## g__Actinomyces     0.0000000 0.0002216 0.0000024 0.0313157 0.0000000 0.0000000 0.0000000 0.00e+00 0.0000401 0.0002101 0.0001259 0.0000000
+## g__Adlercreutzia   0.0001777 0.0000000 0.0000245 0.0000000 0.0000000 0.0008641 0.0000000 0.00e+00 0.0000158 0.0001580 0.0000000 0.0004234
+## g__Agathobaculum   0.0020933 0.0001628 0.0007184 0.0000000 0.0002355 0.0000000 0.0061141 1.29e-05 0.0002268 0.0007352 0.0004899 0.0007549
+## g__Aggregatibacter 0.0000000 0.0000000 0.0000000 0.0152900 0.0000000 0.0000000 0.0000000 0.00e+00 0.0000000 0.0000000 0.0000000 0.0000000
+##                      P101085   P101021  P101052   P101030   P101041   P101078   P101051  P101068  P101056   P101079   P101022   P101074
+## g__Absiella        0.0000000 0.0000000 0.00e+00 0.0000000 0.0000000 0.0000000 0.0000000 0.00e+00 0.00e+00 0.0000000 0.0000000 0.0000000
+## g__Acidaminococcus 0.0000000 0.0000000 0.00e+00 0.0000000 0.0002144 0.0000000 0.0000000 0.00e+00 0.00e+00 0.0000000 0.0000000 0.0141640
+## g__Actinomyces     0.0000000 0.0000000 1.44e-05 0.0000000 0.0000000 0.0000940 0.0000000 1.99e-05 0.00e+00 0.0000000 0.0001212 0.0000113
+## g__Adlercreutzia   0.0000000 0.0000000 0.00e+00 0.0003256 0.0000000 0.0000802 0.0000000 0.00e+00 0.00e+00 0.0000000 0.0000000 0.0004728
+## g__Agathobaculum   0.0020973 0.0001715 0.00e+00 0.0021537 0.0000000 0.0006245 0.0001612 2.74e-05 2.83e-05 0.0008838 0.0005000 0.0000000
+## g__Aggregatibacter 0.0000000 0.0000000 0.00e+00 0.0000000 0.0000000 0.0000000 0.0000000 0.00e+00 0.00e+00 0.0000000 0.0000000 0.0000000
+##                      P101059 P101050   P101088   P101061   P101082   P101064
+## g__Absiella        0.0000000       0 0.0000000 0.0000000 0.0000000 0.0000000
+## g__Acidaminococcus 0.0029344       0 0.0000000 0.0000000 0.0030215 0.0000000
+## g__Actinomyces     0.0000000       0 0.0000000 0.0000299 0.0000174 0.0000093
+## g__Adlercreutzia   0.0000379       0 0.0002421 0.0000383 0.0000397 0.0000200
+## g__Agathobaculum   0.0025444       0 0.0022848 0.0005402 0.0013902 0.0011816
+## g__Aggregatibacter 0.0000000       0 0.0000000 0.0000000 0.0000000 0.0000000</code></pre>
+<p>Results:</p>
+<ol style="list-style-type: decimal">
+<li>metadata has 42 continuous variables</li>
+</ol>
+</div>
+<div id="spearman-correlation-analysis" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Spearman Correlation Analysis<a href="association-analysis.html#spearman-correlation-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To identify the association between individual genus and continuous variables, we perform the correlation analysis with “spearman”, “pearson” and “kendall” method to calculate the test results. Here, the results have four statistical indexes: <em>statistical</em>, <em>Rho</em>, <em>Pvalue</em> and <em>AdjustedPvalue</em> and we also provide the <code>plot_correlation_heatmap</code> to display the results.</p>
+<ul>
+<li>Calculation</li>
+</ul>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="association-analysis.html#cb473-1" tabindex="-1"></a>dat_cor <span class="ot">&lt;-</span> <span class="fu">run_cor</span>(<span class="at">ps =</span> Zeybel_Gut_genus,</span>
+<span id="cb473-2"><a href="association-analysis.html#cb473-2" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;LF&quot;</span>, <span class="st">&quot;Sodium&quot;</span>, <span class="st">&quot;Potassium&quot;</span>, <span class="st">&quot;Creatinine&quot;</span>, <span class="st">&quot;Urea&quot;</span>, <span class="st">&quot;RLTBW&quot;</span>),</span>
+<span id="cb473-3"><a href="association-analysis.html#cb473-3" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span>
+<span id="cb473-4"><a href="association-analysis.html#cb473-4" tabindex="-1"></a></span>
+<span id="cb473-5"><a href="association-analysis.html#cb473-5" tabindex="-1"></a><span class="fu">head</span>(dat_cor)</span></code></pre></div>
+<pre><code>##   Phenotype             TaxaID Statistic         Rho    Pvalue AdjustedPvalue
+## 1        LF        g__Absiella  12102.49  0.01932697 0.9033074      0.9808251
+## 2        LF g__Acidaminococcus  11509.50  0.06737739 0.6715949      0.9297863
+## 3        LF     g__Actinomyces  11349.08  0.08037634 0.6128579      0.9297863
+## 4        LF   g__Adlercreutzia  11028.15  0.10638089 0.5025215      0.9297863
+## 5        LF   g__Agathobaculum  13752.81 -0.11440021 0.4706651      0.9297863
+## 6        LF g__Aggregatibacter  13533.57 -0.09663486 0.5426616      0.9297863</code></pre>
+<ul>
+<li>visualization</li>
+</ul>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="association-analysis.html#cb475-1" tabindex="-1"></a><span class="fu">plot_correlation_heatmap</span>(</span>
+<span id="cb475-2"><a href="association-analysis.html#cb475-2" tabindex="-1"></a>      <span class="at">data =</span> dat_cor,</span>
+<span id="cb475-3"><a href="association-analysis.html#cb475-3" tabindex="-1"></a>      <span class="at">x_index =</span> <span class="st">&quot;Rho&quot;</span>,</span>
+<span id="cb475-4"><a href="association-analysis.html#cb475-4" tabindex="-1"></a>      <span class="at">x_index_cutoff =</span> <span class="dv">0</span>,</span>
+<span id="cb475-5"><a href="association-analysis.html#cb475-5" tabindex="-1"></a>      <span class="at">y_index =</span> <span class="st">&quot;Pvalue&quot;</span>,</span>
+<span id="cb475-6"><a href="association-analysis.html#cb475-6" tabindex="-1"></a>      <span class="at">y_index_cutoff =</span> <span class="fl">0.05</span>,</span>
+<span id="cb475-7"><a href="association-analysis.html#cb475-7" tabindex="-1"></a>      <span class="at">cellwidth =</span> <span class="dv">35</span>,</span>
+<span id="cb475-8"><a href="association-analysis.html#cb475-8" tabindex="-1"></a>      <span class="at">cellheight =</span> <span class="dv">10</span>,</span>
+<span id="cb475-9"><a href="association-analysis.html#cb475-9" tabindex="-1"></a>      <span class="at">fontsize_number =</span> <span class="dv">15</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-259"></span>
+<img src="XMAS-2.0-Tutorial_files/figure-html/unnamed-chunk-259-1.png" alt="Spearman Correlation Coefficient" width="768" />
+<p class="caption">
+Figure 12.1: Spearman Correlation Coefficient
+</p>
+</div>
+<p>Results:</p>
+<ol style="list-style-type: decimal">
+<li>the color of cell shows the size of <em>Rho</em>.</li>
+</ol>
+<ul>
+<li><p>red: positive</p></li>
+<li><p>blue: negative</p></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>the asterisk of cell shows the significance:</li>
+</ol>
+<ul>
+<li><p>* for [0.05, 0.01]</p></li>
+<li><p>** for less than 0.01</p></li>
+</ul>
+</div>
+<div id="partial-correlation-analysis" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> Partial Correlation Analysis<a href="association-analysis.html#partial-correlation-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To identify the association between individual genus and continuous variables, while controlling third variables, we perform the partial correlation analysis with “spearman”, “pearson” and “kendall” method to calculate the test results. Here, the results have four statistical indexes: <em>statistical</em>, <em>Rho</em>, <em>Pvalue</em> and <em>AdjustedPvalue</em> and we also provide the <code>plot_correlation_heatmap</code> to display the results.</p>
+<p>When comparing the Spearman Correlation Analysis, Partial Correlation Analysis has adjusted effects from the confounding factors as third variables. For instance, we should pay attention to the age or gender etc, which could affect the test results when we do some association analysis.</p>
+<ul>
+<li>Calculation</li>
+</ul>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="association-analysis.html#cb476-1" tabindex="-1"></a>dat_cor_partial <span class="ot">&lt;-</span> <span class="fu">run_partial_cor</span>(<span class="at">ps =</span> Zeybel_Gut_genus,</span>
+<span id="cb476-2"><a href="association-analysis.html#cb476-2" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;LF&quot;</span>, <span class="st">&quot;Sodium&quot;</span>, <span class="st">&quot;Potassium&quot;</span>, <span class="st">&quot;Creatinine&quot;</span>, <span class="st">&quot;Urea&quot;</span>, <span class="st">&quot;RLTBW&quot;</span>),</span>
+<span id="cb476-3"><a href="association-analysis.html#cb476-3" tabindex="-1"></a>    <span class="at">AdjVars =</span> <span class="fu">c</span>(<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;Smoker&quot;</span>),</span>
+<span id="cb476-4"><a href="association-analysis.html#cb476-4" tabindex="-1"></a>    <span class="at">method_t =</span> <span class="st">&quot;pcor&quot;</span>,</span>
+<span id="cb476-5"><a href="association-analysis.html#cb476-5" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>,</span>
+<span id="cb476-6"><a href="association-analysis.html#cb476-6" tabindex="-1"></a>    <span class="at">p_adjust =</span> <span class="st">&quot;BH&quot;</span>)</span>
+<span id="cb476-7"><a href="association-analysis.html#cb476-7" tabindex="-1"></a></span>
+<span id="cb476-8"><a href="association-analysis.html#cb476-8" tabindex="-1"></a><span class="fu">head</span>(dat_cor_partial)</span></code></pre></div>
+<pre><code>##   Phenotype             TaxaID   Statistic         Rho    Pvalue AdjustedPvalue
+## 1        LF        g__Absiella  0.07849237  0.01290299 0.9378594      0.9942613
+## 2        LF g__Acidaminococcus  0.41767935  0.06850475 0.6785956      0.9738542
+## 3        LF     g__Actinomyces  0.53412751  0.08747343 0.5964482      0.9738542
+## 4        LF   g__Adlercreutzia  0.54397242  0.08907305 0.5897236      0.9738542
+## 5        LF   g__Agathobaculum -0.43073071 -0.07063482 0.6691631      0.9738542
+## 6        LF g__Aggregatibacter -0.34019586 -0.05584059 0.7356329      0.9738542</code></pre>
+<ul>
+<li>visualization</li>
+</ul>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="association-analysis.html#cb478-1" tabindex="-1"></a><span class="fu">plot_correlation_heatmap</span>(</span>
+<span id="cb478-2"><a href="association-analysis.html#cb478-2" tabindex="-1"></a>      <span class="at">data =</span> dat_cor_partial,</span>
+<span id="cb478-3"><a href="association-analysis.html#cb478-3" tabindex="-1"></a>      <span class="at">x_index =</span> <span class="st">&quot;Rho&quot;</span>,</span>
+<span id="cb478-4"><a href="association-analysis.html#cb478-4" tabindex="-1"></a>      <span class="at">x_index_cutoff =</span> <span class="dv">0</span>,</span>
+<span id="cb478-5"><a href="association-analysis.html#cb478-5" tabindex="-1"></a>      <span class="at">y_index =</span> <span class="st">&quot;Pvalue&quot;</span>,</span>
+<span id="cb478-6"><a href="association-analysis.html#cb478-6" tabindex="-1"></a>      <span class="at">y_index_cutoff =</span> <span class="fl">0.05</span>,</span>
+<span id="cb478-7"><a href="association-analysis.html#cb478-7" tabindex="-1"></a>      <span class="at">cellwidth =</span> <span class="dv">35</span>,</span>
+<span id="cb478-8"><a href="association-analysis.html#cb478-8" tabindex="-1"></a>      <span class="at">cellheight =</span> <span class="dv">10</span>,</span>
+<span id="cb478-9"><a href="association-analysis.html#cb478-9" tabindex="-1"></a>      <span class="at">fontsize_number =</span> <span class="dv">15</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-261"></span>
+<img src="XMAS-2.0-Tutorial_files/figure-html/unnamed-chunk-261-1.png" alt="Partial Correlation Coefficient" width="768" />
+<p class="caption">
+Figure 12.2: Partial Correlation Coefficient
+</p>
+</div>
+<p>Results:</p>
+<ol style="list-style-type: decimal">
+<li>the color of cell shows the size of <em>Rho</em>.</li>
+</ol>
+<ul>
+<li><p>red: positive</p></li>
+<li><p>blue: negative</p></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>the asterisk of cell shows the significance:</li>
+</ol>
+<ul>
+<li><p>* for [0.05, 0.01]</p></li>
+<li><p>** for less than 0.01</p></li>
+</ul>
+</div>
+<div id="systematic-information-9" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">12.5</span> Systematic Information<a href="association-analysis.html#systematic-information-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="association-analysis.html#cb479-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
+<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  setting  value
+##  version  R version 4.1.3 (2022-03-10)
+##  os       macOS Monterey 12.2.1
+##  system   x86_64, darwin17.0
+##  ui       RStudio
+##  language (EN)
+##  collate  en_US.UTF-8
+##  ctype    en_US.UTF-8
+##  tz       Asia/Shanghai
+##  date     2023-11-30
+##  rstudio  2023.09.0+463 Desert Sunflower (desktop)
+##  pandoc   3.1.1 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/ (via rmarkdown)
+## 
+## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  package              * version   date (UTC) lib source
+##  abind                  1.4-5     2016-07-21 [2] CRAN (R 4.1.0)
+##  ade4                   1.7-22    2023-02-06 [2] CRAN (R 4.1.2)
+##  ALDEx2                 1.30.0    2022-11-01 [2] Bioconductor
+##  annotate               1.72.0    2021-10-26 [2] Bioconductor
+##  AnnotationDbi          1.60.2    2023-03-10 [2] Bioconductor
+##  ape                  * 5.7-1     2023-03-13 [2] CRAN (R 4.1.2)
+##  askpass                1.1       2019-01-13 [2] CRAN (R 4.1.0)
+##  backports              1.4.1     2021-12-13 [2] CRAN (R 4.1.0)
+##  base64enc              0.1-3     2015-07-28 [2] CRAN (R 4.1.0)
+##  bayesm                 3.1-5     2022-12-02 [2] CRAN (R 4.1.2)
+##  Biobase                2.54.0    2021-10-26 [2] Bioconductor
+##  BiocGenerics           0.40.0    2021-10-26 [2] Bioconductor
+##  BiocParallel           1.28.3    2021-12-09 [2] Bioconductor
+##  biomformat             1.22.0    2021-10-26 [2] Bioconductor
+##  Biostrings             2.62.0    2021-10-26 [2] Bioconductor
+##  bit                    4.0.5     2022-11-15 [2] CRAN (R 4.1.2)
+##  bit64                  4.0.5     2020-08-30 [2] CRAN (R 4.1.0)
+##  bitops                 1.0-7     2021-04-24 [2] CRAN (R 4.1.0)
+##  blob                   1.2.4     2023-03-17 [2] CRAN (R 4.1.2)
+##  bookdown               0.34      2023-05-09 [2] CRAN (R 4.1.2)
+##  broom                  1.0.5     2023-06-09 [2] CRAN (R 4.1.3)
+##  bslib                  0.6.0     2023-11-21 [1] CRAN (R 4.1.3)
+##  cachem                 1.0.8     2023-05-01 [2] CRAN (R 4.1.2)
+##  callr                  3.7.3     2022-11-02 [2] CRAN (R 4.1.2)
+##  car                    3.1-2     2023-03-30 [2] CRAN (R 4.1.2)
+##  carData                3.0-5     2022-01-06 [2] CRAN (R 4.1.2)
+##  caTools                1.18.2    2021-03-28 [2] CRAN (R 4.1.0)
+##  checkmate              2.2.0     2023-04-27 [2] CRAN (R 4.1.2)
+##  class                  7.3-22    2023-05-03 [2] CRAN (R 4.1.2)
+##  classInt               0.4-9     2023-02-28 [2] CRAN (R 4.1.2)
+##  cli                    3.6.1     2023-03-23 [2] CRAN (R 4.1.2)
+##  cluster                2.1.4     2022-08-22 [2] CRAN (R 4.1.2)
+##  coda                   0.19-4    2020-09-30 [2] CRAN (R 4.1.0)
+##  codetools              0.2-19    2023-02-01 [2] CRAN (R 4.1.2)
+##  coin                   1.4-2     2021-10-08 [2] CRAN (R 4.1.0)
+##  colorspace             2.1-0     2023-01-23 [2] CRAN (R 4.1.2)
+##  compositions           2.0-6     2023-04-13 [2] CRAN (R 4.1.2)
+##  conflicted           * 1.2.0     2023-02-01 [2] CRAN (R 4.1.2)
+##  corrplot               0.92      2021-11-18 [2] CRAN (R 4.1.0)
+##  cowplot                1.1.1     2020-12-30 [2] CRAN (R 4.1.0)
+##  crayon                 1.5.2     2022-09-29 [2] CRAN (R 4.1.2)
+##  crosstalk              1.2.0     2021-11-04 [2] CRAN (R 4.1.0)
+##  data.table             1.14.8    2023-02-17 [2] CRAN (R 4.1.2)
+##  DBI                    1.1.3     2022-06-18 [2] CRAN (R 4.1.2)
+##  DelayedArray           0.20.0    2021-10-26 [2] Bioconductor
+##  DEoptimR               1.0-14    2023-06-09 [2] CRAN (R 4.1.3)
+##  DESeq2                 1.34.0    2021-10-26 [2] Bioconductor
+##  devtools               2.4.5     2022-10-11 [2] CRAN (R 4.1.2)
+##  digest                 0.6.33    2023-07-07 [1] CRAN (R 4.1.3)
+##  dplyr                * 1.1.2     2023-04-20 [2] CRAN (R 4.1.2)
+##  DT                     0.28      2023-05-18 [2] CRAN (R 4.1.3)
+##  e1071                  1.7-13    2023-02-01 [2] CRAN (R 4.1.2)
+##  edgeR                  3.36.0    2021-10-26 [2] Bioconductor
+##  ellipsis               0.3.2     2021-04-29 [2] CRAN (R 4.1.0)
+##  emmeans                1.8.7     2023-06-23 [1] CRAN (R 4.1.3)
+##  estimability           1.4.1     2022-08-05 [2] CRAN (R 4.1.2)
+##  evaluate               0.21      2023-05-05 [2] CRAN (R 4.1.2)
+##  FactoMineR             2.8       2023-03-27 [2] CRAN (R 4.1.2)
+##  fansi                  1.0.4     2023-01-22 [2] CRAN (R 4.1.2)
+##  farver                 2.1.1     2022-07-06 [2] CRAN (R 4.1.2)
+##  fastmap                1.1.1     2023-02-24 [2] CRAN (R 4.1.2)
+##  flashClust             1.01-2    2012-08-21 [2] CRAN (R 4.1.0)
+##  foreach                1.5.2     2022-02-02 [2] CRAN (R 4.1.2)
+##  foreign                0.8-84    2022-12-06 [2] CRAN (R 4.1.2)
+##  Formula                1.2-5     2023-02-24 [2] CRAN (R 4.1.2)
+##  fs                     1.6.2     2023-04-25 [2] CRAN (R 4.1.2)
+##  genefilter             1.76.0    2021-10-26 [2] Bioconductor
+##  geneplotter            1.72.0    2021-10-26 [2] Bioconductor
+##  generics               0.1.3     2022-07-05 [2] CRAN (R 4.1.2)
+##  GenomeInfoDb           1.30.1    2022-01-30 [2] Bioconductor
+##  GenomeInfoDbData       1.2.7     2022-03-09 [2] Bioconductor
+##  GenomicRanges          1.46.1    2021-11-18 [2] Bioconductor
+##  ggiraph                0.8.7     2023-03-17 [2] CRAN (R 4.1.2)
+##  ggiraphExtra           0.3.0     2020-10-06 [2] CRAN (R 4.1.2)
+##  ggplot2              * 3.4.2     2023-04-03 [2] CRAN (R 4.1.2)
+##  ggpubr               * 0.6.0     2023-02-10 [2] CRAN (R 4.1.2)
+##  ggrepel                0.9.3     2023-02-03 [2] CRAN (R 4.1.2)
+##  ggsci                  3.0.0     2023-03-08 [2] CRAN (R 4.1.2)
+##  ggsignif               0.6.4     2022-10-13 [2] CRAN (R 4.1.2)
+##  ggVennDiagram          1.2.2     2022-09-08 [2] CRAN (R 4.1.2)
+##  glmnet                 4.1-7     2023-03-23 [2] CRAN (R 4.1.2)
+##  glue                   1.6.2     2022-02-24 [2] CRAN (R 4.1.2)
+##  gplots                 3.1.3     2022-04-25 [2] CRAN (R 4.1.2)
+##  gridExtra              2.3       2017-09-09 [2] CRAN (R 4.1.0)
+##  gtable                 0.3.3     2023-03-21 [2] CRAN (R 4.1.2)
+##  gtools                 3.9.4     2022-11-27 [2] CRAN (R 4.1.2)
+##  highr                  0.10      2022-12-22 [2] CRAN (R 4.1.2)
+##  Hmisc                  5.1-0     2023-05-08 [2] CRAN (R 4.1.2)
+##  htmlTable              2.4.1     2022-07-07 [2] CRAN (R 4.1.2)
+##  htmltools              0.5.7     2023-11-03 [1] CRAN (R 4.1.3)
+##  htmlwidgets            1.6.2     2023-03-17 [2] CRAN (R 4.1.2)
+##  httpuv                 1.6.11    2023-05-11 [2] CRAN (R 4.1.3)
+##  httr                   1.4.6     2023-05-08 [2] CRAN (R 4.1.2)
+##  igraph                 1.5.0     2023-06-16 [1] CRAN (R 4.1.3)
+##  insight                0.19.3    2023-06-29 [2] CRAN (R 4.1.3)
+##  IRanges                2.28.0    2021-10-26 [2] Bioconductor
+##  iterators              1.0.14    2022-02-05 [2] CRAN (R 4.1.2)
+##  jquerylib              0.1.4     2021-04-26 [2] CRAN (R 4.1.0)
+##  jsonlite               1.8.7     2023-06-29 [2] CRAN (R 4.1.3)
+##  kableExtra             1.3.4     2021-02-20 [2] CRAN (R 4.1.2)
+##  KEGGREST               1.34.0    2021-10-26 [2] Bioconductor
+##  KernSmooth             2.23-22   2023-07-10 [2] CRAN (R 4.1.3)
+##  knitr                  1.43      2023-05-25 [2] CRAN (R 4.1.3)
+##  labeling               0.4.2     2020-10-20 [2] CRAN (R 4.1.0)
+##  later                  1.3.1     2023-05-02 [2] CRAN (R 4.1.2)
+##  lattice              * 0.21-8    2023-04-05 [2] CRAN (R 4.1.2)
+##  leaps                  3.1       2020-01-16 [2] CRAN (R 4.1.0)
+##  libcoin                1.0-9     2021-09-27 [2] CRAN (R 4.1.0)
+##  lifecycle              1.0.3     2022-10-07 [2] CRAN (R 4.1.2)
+##  limma                  3.50.3    2022-04-07 [2] Bioconductor
+##  locfit                 1.5-9.8   2023-06-11 [2] CRAN (R 4.1.3)
+##  LOCOM                  1.1       2022-08-05 [2] Github (yijuanhu/LOCOM@c181e0f)
+##  magrittr               2.0.3     2022-03-30 [2] CRAN (R 4.1.2)
+##  MASS                   7.3-60    2023-05-04 [2] CRAN (R 4.1.2)
+##  Matrix                 1.6-0     2023-07-08 [2] CRAN (R 4.1.3)
+##  MatrixGenerics         1.6.0     2021-10-26 [2] Bioconductor
+##  matrixStats            1.0.0     2023-06-02 [2] CRAN (R 4.1.3)
+##  mbzinb                 0.2       2022-03-16 [2] local
+##  memoise                2.0.1     2021-11-26 [2] CRAN (R 4.1.0)
+##  metagenomeSeq          1.36.0    2021-10-26 [2] Bioconductor
+##  mgcv                   1.8-42    2023-03-02 [2] CRAN (R 4.1.2)
+##  microbiome             1.16.0    2021-10-26 [2] Bioconductor
+##  mime                   0.12      2021-09-28 [2] CRAN (R 4.1.0)
+##  miniUI                 0.1.1.1   2018-05-18 [2] CRAN (R 4.1.0)
+##  modeltools             0.2-23    2020-03-05 [2] CRAN (R 4.1.0)
+##  multcomp               1.4-25    2023-06-20 [2] CRAN (R 4.1.3)
+##  multcompView           0.1-9     2023-04-09 [2] CRAN (R 4.1.2)
+##  multtest               2.50.0    2021-10-26 [2] Bioconductor
+##  munsell                0.5.0     2018-06-12 [2] CRAN (R 4.1.0)
+##  mvtnorm                1.2-2     2023-06-08 [2] CRAN (R 4.1.3)
+##  mycor                  0.1.1     2018-04-10 [2] CRAN (R 4.1.0)
+##  NADA                   1.6-1.1   2020-03-22 [2] CRAN (R 4.1.0)
+##  nlme                 * 3.1-162   2023-01-31 [2] CRAN (R 4.1.2)
+##  nnet                   7.3-19    2023-05-03 [2] CRAN (R 4.1.2)
+##  openssl                2.0.6     2023-03-09 [2] CRAN (R 4.1.2)
+##  permute              * 0.9-7     2022-01-27 [2] CRAN (R 4.1.2)
+##  pheatmap             * 1.0.12    2019-01-04 [2] CRAN (R 4.1.0)
+##  phyloseq             * 1.38.0    2021-10-26 [2] Bioconductor
+##  picante              * 1.8.2     2020-06-10 [2] CRAN (R 4.1.0)
+##  pillar                 1.9.0     2023-03-22 [2] CRAN (R 4.1.2)
+##  pkgbuild               1.4.2     2023-06-26 [2] CRAN (R 4.1.3)
+##  pkgconfig              2.0.3     2019-09-22 [2] CRAN (R 4.1.0)
+##  pkgload                1.3.2.1   2023-07-08 [2] CRAN (R 4.1.3)
+##  plyr                   1.8.8     2022-11-11 [2] CRAN (R 4.1.2)
+##  png                    0.1-8     2022-11-29 [2] CRAN (R 4.1.2)
+##  ppcor                  1.1       2015-12-03 [2] CRAN (R 4.1.0)
+##  prettyunits            1.1.1     2020-01-24 [2] CRAN (R 4.1.0)
+##  processx               3.8.2     2023-06-30 [2] CRAN (R 4.1.3)
+##  profvis                0.3.8     2023-05-02 [2] CRAN (R 4.1.2)
+##  promises               1.2.0.1   2021-02-11 [2] CRAN (R 4.1.0)
+##  protoclust             1.6.4     2022-04-01 [2] CRAN (R 4.1.2)
+##  proxy                  0.4-27    2022-06-09 [2] CRAN (R 4.1.2)
+##  ps                     1.7.5     2023-04-18 [2] CRAN (R 4.1.2)
+##  pscl                   1.5.5.1   2023-05-10 [2] CRAN (R 4.1.2)
+##  purrr                  1.0.1     2023-01-10 [2] CRAN (R 4.1.2)
+##  qvalue                 2.26.0    2021-10-26 [2] Bioconductor
+##  R6                     2.5.1     2021-08-19 [2] CRAN (R 4.1.0)
+##  RAIDA                  1.0       2022-03-14 [2] local
+##  RColorBrewer         * 1.1-3     2022-04-03 [2] CRAN (R 4.1.2)
+##  Rcpp                   1.0.11    2023-07-06 [1] CRAN (R 4.1.3)
+##  RcppZiggurat           0.1.6     2020-10-20 [2] CRAN (R 4.1.0)
+##  RCurl                  1.98-1.12 2023-03-27 [2] CRAN (R 4.1.2)
+##  remotes                2.4.2     2021-11-30 [2] CRAN (R 4.1.0)
+##  reshape2               1.4.4     2020-04-09 [2] CRAN (R 4.1.0)
+##  reticulate             1.30      2023-06-09 [2] CRAN (R 4.1.3)
+##  Rfast                  2.0.8     2023-07-03 [2] CRAN (R 4.1.3)
+##  rhdf5                  2.38.1    2022-03-10 [2] Bioconductor
+##  rhdf5filters           1.6.0     2021-10-26 [2] Bioconductor
+##  Rhdf5lib               1.16.0    2021-10-26 [2] Bioconductor
+##  rlang                  1.1.1     2023-04-28 [1] CRAN (R 4.1.2)
+##  rmarkdown              2.23      2023-07-01 [2] CRAN (R 4.1.3)
+##  robustbase             0.99-0    2023-06-16 [2] CRAN (R 4.1.3)
+##  rpart                  4.1.19    2022-10-21 [2] CRAN (R 4.1.2)
+##  RSpectra               0.16-1    2022-04-24 [2] CRAN (R 4.1.2)
+##  RSQLite                2.3.1     2023-04-03 [2] CRAN (R 4.1.2)
+##  rstatix                0.7.2     2023-02-01 [2] CRAN (R 4.1.2)
+##  rstudioapi             0.15.0    2023-07-07 [2] CRAN (R 4.1.3)
+##  Rtsne                  0.16      2022-04-17 [2] CRAN (R 4.1.2)
+##  RVenn                  1.1.0     2019-07-18 [2] CRAN (R 4.1.0)
+##  rvest                  1.0.3     2022-08-19 [2] CRAN (R 4.1.2)
+##  S4Vectors              0.32.4    2022-03-29 [2] Bioconductor
+##  sandwich               3.0-2     2022-06-15 [2] CRAN (R 4.1.2)
+##  sass                   0.4.6     2023-05-03 [2] CRAN (R 4.1.2)
+##  scales                 1.2.1     2022-08-20 [2] CRAN (R 4.1.2)
+##  scatterplot3d          0.3-44    2023-05-05 [2] CRAN (R 4.1.2)
+##  sessioninfo            1.2.2     2021-12-06 [2] CRAN (R 4.1.0)
+##  sf                     1.0-7     2022-03-07 [2] CRAN (R 4.1.2)
+##  shape                  1.4.6     2021-05-19 [2] CRAN (R 4.1.0)
+##  shiny                  1.7.4.1   2023-07-06 [2] CRAN (R 4.1.3)
+##  sjlabelled             1.2.0     2022-04-10 [2] CRAN (R 4.1.2)
+##  sjmisc                 2.8.9     2021-12-03 [2] CRAN (R 4.1.0)
+##  stringi                1.7.12    2023-01-11 [2] CRAN (R 4.1.2)
+##  stringr                1.5.0     2022-12-02 [2] CRAN (R 4.1.2)
+##  SummarizedExperiment   1.24.0    2021-10-26 [2] Bioconductor
+##  survival               3.5-5     2023-03-12 [2] CRAN (R 4.1.2)
+##  svglite                2.1.1     2023-01-10 [2] CRAN (R 4.1.2)
+##  systemfonts            1.0.4     2022-02-11 [2] CRAN (R 4.1.2)
+##  tensorA                0.36.2    2020-11-19 [2] CRAN (R 4.1.0)
+##  TH.data                1.1-2     2023-04-17 [2] CRAN (R 4.1.2)
+##  tibble               * 3.2.1     2023-03-20 [2] CRAN (R 4.1.2)
+##  tidyr                  1.3.0     2023-01-24 [2] CRAN (R 4.1.2)
+##  tidyselect             1.2.0     2022-10-10 [2] CRAN (R 4.1.2)
+##  truncnorm              1.0-9     2023-03-20 [2] CRAN (R 4.1.2)
+##  umap                   0.2.10.0  2023-02-01 [2] CRAN (R 4.1.2)
+##  units                  0.8-2     2023-04-27 [2] CRAN (R 4.1.2)
+##  urlchecker             1.0.1     2021-11-30 [2] CRAN (R 4.1.0)
+##  usethis                2.2.2     2023-07-06 [2] CRAN (R 4.1.3)
+##  utf8                   1.2.3     2023-01-31 [2] CRAN (R 4.1.2)
+##  uuid                   1.1-0     2022-04-19 [2] CRAN (R 4.1.2)
+##  vctrs                  0.6.3     2023-06-14 [1] CRAN (R 4.1.3)
+##  vegan                * 2.6-4     2022-10-11 [2] CRAN (R 4.1.2)
+##  viridis              * 0.6.3     2023-05-03 [2] CRAN (R 4.1.2)
+##  viridisLite          * 0.4.2     2023-05-02 [2] CRAN (R 4.1.2)
+##  webshot                0.5.5     2023-06-26 [2] CRAN (R 4.1.3)
+##  withr                  2.5.0     2022-03-03 [2] CRAN (R 4.1.2)
+##  Wrench                 1.12.0    2021-10-26 [2] Bioconductor
+##  xfun                   0.40      2023-08-09 [1] CRAN (R 4.1.3)
+##  XMAS2                * 2.2.0     2023-11-30 [1] local
+##  XML                    3.99-0.14 2023-03-19 [2] CRAN (R 4.1.2)
+##  xml2                   1.3.5     2023-07-06 [2] CRAN (R 4.1.3)
+##  xtable                 1.8-4     2019-04-21 [2] CRAN (R 4.1.0)
+##  XVector                0.34.0    2021-10-26 [2] Bioconductor
+##  yaml                   2.3.7     2023-01-23 [2] CRAN (R 4.1.2)
+##  zCompositions          1.4.0-1   2022-03-26 [2] CRAN (R 4.1.2)
+##  zlibbioc               1.40.0    2021-10-26 [2] Bioconductor
+##  zoo                    1.8-12    2023-04-13 [2] CRAN (R 4.1.2)
+## 
+##  [1] /Users/zouhua/Library/R/x86_64/4.1/library
+##  [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library
+## 
+## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-zeybel2022multiomics" class="csl-entry">
+Zeybel, Mujdat, Muhammad Arif, Xiangyu Li, Ozlem Altay, Hong Yang, Mengnan Shi, Murat Akyildiz, et al. 2022. <span>“Multiomics Analysis Reveals the Impact of Microbiota on Host Metabolism in Hepatic Steatosis.”</span> <em>Advanced Science</em> 9 (11): 2104373.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visualization-5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="principals-of-differential-analysis-methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/XbiomeAnalysis/XMAS_tutorial/blob/main/11-Association_Analysis.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["XMAS 2.0 Tutorial.pdf", "XMAS 2.0 Tutorial.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_depth": 3
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

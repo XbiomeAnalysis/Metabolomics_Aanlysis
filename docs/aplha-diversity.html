@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Aplha diversity | XMAS 2.0 Tutorial</title>
+  <meta name="description" content="A tutorial of XMAS 2.0 package for in-house training" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Aplha diversity | XMAS 2.0 Tutorial" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A tutorial of XMAS 2.0 package for in-house training" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Aplha diversity | XMAS 2.0 Tutorial" />
+  
+  <meta name="twitter:description" content="A tutorial of XMAS 2.0 package for in-house training" />
+  
+
+<meta name="author" content="Hua Zou" />
+
+
+<meta name="date" content="2023-11-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="pre-processing.html"/>
+<link rel="next" href="beta-diversity.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.28/datatables.js"></script>
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">XMAS 2.0 Tutorial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview-of-the-design-of-xmas"><i class="fa fa-check"></i><b>1.1</b> Overview of the design of <strong>XMAS</strong></a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#input-data"><i class="fa fa-check"></i><b>1.2</b> Input data</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#methods"><i class="fa fa-check"></i><b>1.3</b> Methods</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#outline-of-this-tutorial"><i class="fa fa-check"></i><b>1.4</b> Outline of this Tutorial</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#key-publications"><i class="fa fa-check"></i><b>1.5</b> Key publications</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.6</b> Citation</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#change-log"><i class="fa fa-check"></i><b>1.7</b> Change log</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html"><i class="fa fa-check"></i><b>2</b> How to install XMAS</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#description"><i class="fa fa-check"></i><b>2.1</b> Description</a></li>
+<li class="chapter" data-level="2.2" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation-of-dependencies"><i class="fa fa-check"></i><b>2.2</b> Installation of dependencies</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#packages-in-cran-bioconductor"><i class="fa fa-check"></i><b>2.2.1</b> Packages in CRAN &amp; Bioconductor</a></li>
+<li class="chapter" data-level="2.2.2" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#packages-in-github"><i class="fa fa-check"></i><b>2.2.2</b> Packages in github</a></li>
+<li class="chapter" data-level="2.2.3" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#packages-from-website"><i class="fa fa-check"></i><b>2.2.3</b> Packages from website</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation"><i class="fa fa-check"></i><b>2.3</b> Installation</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation-in-linux-or-mac-os-through-command-line"><i class="fa fa-check"></i><b>2.3.1</b> Installation in linux or Mac os through command line</a></li>
+<li class="chapter" data-level="2.3.2" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation-by-r-from-gitlab"><i class="fa fa-check"></i><b>2.3.2</b> Installation by R from gitlab</a></li>
+<li class="chapter" data-level="2.3.3" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation-by-r-from-local-xmas.tar.gz-file"><i class="fa fa-check"></i><b>2.3.3</b> Installation by R from local XMAS*.tar.gz file</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#vignette"><i class="fa fa-check"></i><b>2.4</b> Vignette</a></li>
+<li class="chapter" data-level="2.5" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#authors"><i class="fa fa-check"></i><b>2.5</b> Authors</a></li>
+<li class="chapter" data-level="2.6" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#future-plan"><i class="fa fa-check"></i><b>2.6</b> Future plan</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html"><i class="fa fa-check"></i><b>3</b> Convert inputdata into phyloseq object</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#loading-packages"><i class="fa fa-check"></i><b>3.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="3.2" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#importing-data"><i class="fa fa-check"></i><b>3.2</b> Importing Data</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#result-from-dada2"><i class="fa fa-check"></i><b>3.2.1</b> Result from dada2</a></li>
+<li class="chapter" data-level="3.2.2" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#result-from-metaphlan"><i class="fa fa-check"></i><b>3.2.2</b> Result from Metaphlan</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#systematic-information"><i class="fa fa-check"></i><b>3.3</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="quality-evaluation.html"><a href="quality-evaluation.html"><i class="fa fa-check"></i><b>4</b> Quality Evaluation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="quality-evaluation.html"><a href="quality-evaluation.html#loading-packages-1"><i class="fa fa-check"></i><b>4.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="4.2" data-path="quality-evaluation.html"><a href="quality-evaluation.html#importing-data-1"><i class="fa fa-check"></i><b>4.2</b> Importing Data</a></li>
+<li class="chapter" data-level="4.3" data-path="quality-evaluation.html"><a href="quality-evaluation.html#reads-track"><i class="fa fa-check"></i><b>4.3</b> Reads track</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="quality-evaluation.html"><a href="quality-evaluation.html#plotting-dad2"><i class="fa fa-check"></i><b>4.3.1</b> Plotting DAD2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="quality-evaluation.html"><a href="quality-evaluation.html#plotting-metaphlan"><i class="fa fa-check"></i><b>4.3.2</b> Plotting Metaphlan</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="quality-evaluation.html"><a href="quality-evaluation.html#spike-in-brs-sample-assessment"><i class="fa fa-check"></i><b>4.4</b> Spike-in (BRS) sample assessment</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="quality-evaluation.html"><a href="quality-evaluation.html#s-data"><i class="fa fa-check"></i><b>4.4.1</b> 16s data</a></li>
+<li class="chapter" data-level="4.4.2" data-path="quality-evaluation.html"><a href="quality-evaluation.html#metagenomic-data"><i class="fa fa-check"></i><b>4.4.2</b> Metagenomic data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="quality-evaluation.html"><a href="quality-evaluation.html#removing-brs"><i class="fa fa-check"></i><b>4.5</b> Removing BRS</a></li>
+<li class="chapter" data-level="4.6" data-path="quality-evaluation.html"><a href="quality-evaluation.html#rarefaction-curves"><i class="fa fa-check"></i><b>4.6</b> Rarefaction Curves</a></li>
+<li class="chapter" data-level="4.7" data-path="quality-evaluation.html"><a href="quality-evaluation.html#summarize-phyloseq-class-object"><i class="fa fa-check"></i><b>4.7</b> Summarize phyloseq-class object</a></li>
+<li class="chapter" data-level="4.8" data-path="quality-evaluation.html"><a href="quality-evaluation.html#variability"><i class="fa fa-check"></i><b>4.8</b> Variability</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="quality-evaluation.html"><a href="quality-evaluation.html#coefficient-of-variation"><i class="fa fa-check"></i><b>4.8.1</b> Coefficient of variation</a></li>
+<li class="chapter" data-level="4.8.2" data-path="quality-evaluation.html"><a href="quality-evaluation.html#distribution-of-number-of-sequences"><i class="fa fa-check"></i><b>4.8.2</b> Distribution of number of sequences</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="quality-evaluation.html"><a href="quality-evaluation.html#systematic-information-1"><i class="fa fa-check"></i><b>4.9</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>5</b> Pre-processing</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="pre-processing.html"><a href="pre-processing.html#loading-packages-2"><i class="fa fa-check"></i><b>5.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="5.2" data-path="pre-processing.html"><a href="pre-processing.html#importing-data-2"><i class="fa fa-check"></i><b>5.2</b> Importing Data</a></li>
+<li class="chapter" data-level="5.3" data-path="pre-processing.html"><a href="pre-processing.html#transformation"><i class="fa fa-check"></i><b>5.3</b> Transformation</a></li>
+<li class="chapter" data-level="5.4" data-path="pre-processing.html"><a href="pre-processing.html#normalization"><i class="fa fa-check"></i><b>5.4</b> Normalization</a></li>
+<li class="chapter" data-level="5.5" data-path="pre-processing.html"><a href="pre-processing.html#filtering"><i class="fa fa-check"></i><b>5.5</b> Filtering</a></li>
+<li class="chapter" data-level="5.6" data-path="pre-processing.html"><a href="pre-processing.html#trimming"><i class="fa fa-check"></i><b>5.6</b> Trimming</a></li>
+<li class="chapter" data-level="5.7" data-path="pre-processing.html"><a href="pre-processing.html#imputation"><i class="fa fa-check"></i><b>5.7</b> Imputation</a></li>
+<li class="chapter" data-level="5.8" data-path="pre-processing.html"><a href="pre-processing.html#extracting-specific-taxa-phyloseq-class-object"><i class="fa fa-check"></i><b>5.8</b> Extracting specific taxa phyloseq-class object</a></li>
+<li class="chapter" data-level="5.9" data-path="pre-processing.html"><a href="pre-processing.html#aggregating-low-relative-abundance-or-unclassified-taxa-into-others"><i class="fa fa-check"></i><b>5.9</b> Aggregating low relative abundance or unclassified taxa into others</a></li>
+<li class="chapter" data-level="5.10" data-path="pre-processing.html"><a href="pre-processing.html#transform-the-abundance-of-taxa-whose-relative-abundance-under-limit-of-detection-lod-into-zeros-only-in-metaphlan23"><i class="fa fa-check"></i><b>5.10</b> Transform the abundance of taxa whose relative abundance under Limit Of Detection (LOD) into Zeros (only in metaphlan2/3)</a></li>
+<li class="chapter" data-level="5.11" data-path="pre-processing.html"><a href="pre-processing.html#systematic-information-2"><i class="fa fa-check"></i><b>5.11</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="aplha-diversity.html"><a href="aplha-diversity.html"><i class="fa fa-check"></i><b>6</b> Aplha diversity</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="aplha-diversity.html"><a href="aplha-diversity.html#loading-packages-3"><i class="fa fa-check"></i><b>6.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="6.2" data-path="aplha-diversity.html"><a href="aplha-diversity.html#importing-data-3"><i class="fa fa-check"></i><b>6.2</b> Importing Data</a></li>
+<li class="chapter" data-level="6.3" data-path="aplha-diversity.html"><a href="aplha-diversity.html#equal-sample-sums"><i class="fa fa-check"></i><b>6.3</b> Equal sample sums</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="aplha-diversity.html"><a href="aplha-diversity.html#dada2_ps-dataset"><i class="fa fa-check"></i><b>6.3.1</b> dada2_ps dataset</a></li>
+<li class="chapter" data-level="6.3.2" data-path="aplha-diversity.html"><a href="aplha-diversity.html#amplicon_ps-dataset"><i class="fa fa-check"></i><b>6.3.2</b> amplicon_ps dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="aplha-diversity.html"><a href="aplha-diversity.html#non-phylogenetic-diversities"><i class="fa fa-check"></i><b>6.4</b> Non-phylogenetic diversities</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="aplha-diversity.html"><a href="aplha-diversity.html#xmas2-r-package"><i class="fa fa-check"></i><b>6.4.1</b> XMAS2 R package</a></li>
+<li class="chapter" data-level="6.4.2" data-path="aplha-diversity.html"><a href="aplha-diversity.html#microbiome-r-package"><i class="fa fa-check"></i><b>6.4.2</b> microbiome R package</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="aplha-diversity.html"><a href="aplha-diversity.html#phylogenetic-diversity"><i class="fa fa-check"></i><b>6.5</b> Phylogenetic diversity</a></li>
+<li class="chapter" data-level="6.6" data-path="aplha-diversity.html"><a href="aplha-diversity.html#rank-abundance"><i class="fa fa-check"></i><b>6.6</b> Rank Abundance</a></li>
+<li class="chapter" data-level="6.7" data-path="aplha-diversity.html"><a href="aplha-diversity.html#evenness"><i class="fa fa-check"></i><b>6.7</b> Evenness</a></li>
+<li class="chapter" data-level="6.8" data-path="aplha-diversity.html"><a href="aplha-diversity.html#systematic-information-3"><i class="fa fa-check"></i><b>6.8</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="beta-diversity.html"><a href="beta-diversity.html"><i class="fa fa-check"></i><b>7</b> Beta diversity</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="beta-diversity.html"><a href="beta-diversity.html#loading-packages-4"><i class="fa fa-check"></i><b>7.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="7.2" data-path="beta-diversity.html"><a href="beta-diversity.html#importing-data-4"><i class="fa fa-check"></i><b>7.2</b> Importing Data</a></li>
+<li class="chapter" data-level="7.3" data-path="beta-diversity.html"><a href="beta-diversity.html#phylogenetic-beta-diversity-metrics"><i class="fa fa-check"></i><b>7.3</b> Phylogenetic beta-diversity metrics</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="beta-diversity.html"><a href="beta-diversity.html#unweighted-unifrac"><i class="fa fa-check"></i><b>7.3.1</b> Unweighted Unifrac</a></li>
+<li class="chapter" data-level="7.3.2" data-path="beta-diversity.html"><a href="beta-diversity.html#weighted-unifrac"><i class="fa fa-check"></i><b>7.3.2</b> Weighted Unifrac</a></li>
+<li class="chapter" data-level="7.3.3" data-path="beta-diversity.html"><a href="beta-diversity.html#generalized-unifrac-distance-metrics"><i class="fa fa-check"></i><b>7.3.3</b> Generalized UniFrac Distance Metrics</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="beta-diversity.html"><a href="beta-diversity.html#distance-dissimilarity-coefficients-bray-curtis-index"><i class="fa fa-check"></i><b>7.4</b> Distance (Dissimilarity) Coefficients: Bray-Curtis Index</a></li>
+<li class="chapter" data-level="7.5" data-path="beta-diversity.html"><a href="beta-diversity.html#checking-the-homogeneity-condition"><i class="fa fa-check"></i><b>7.5</b> Checking the homogeneity condition</a></li>
+<li class="chapter" data-level="7.6" data-path="beta-diversity.html"><a href="beta-diversity.html#permutational-multivariate-analysis-of-variance-permanova"><i class="fa fa-check"></i><b>7.6</b> Permutational Multivariate Analysis of Variance (PERMANOVA)</a></li>
+<li class="chapter" data-level="7.7" data-path="beta-diversity.html"><a href="beta-diversity.html#mantel-test"><i class="fa fa-check"></i><b>7.7</b> Mantel Test</a></li>
+<li class="chapter" data-level="7.8" data-path="beta-diversity.html"><a href="beta-diversity.html#analysis-of-similarity-anosim"><i class="fa fa-check"></i><b>7.8</b> Analysis of Similarity (ANOSIM)</a></li>
+<li class="chapter" data-level="7.9" data-path="beta-diversity.html"><a href="beta-diversity.html#multi-response-permutation-procedures-mrpp"><i class="fa fa-check"></i><b>7.9</b> Multi-response permutation procedures (MRPP)</a></li>
+<li class="chapter" data-level="7.10" data-path="beta-diversity.html"><a href="beta-diversity.html#ordination"><i class="fa fa-check"></i><b>7.10</b> Ordination</a>
+<ul>
+<li class="chapter" data-level="7.10.1" data-path="beta-diversity.html"><a href="beta-diversity.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>7.10.1</b> Principal Component Analysis (PCA)</a></li>
+<li class="chapter" data-level="7.10.2" data-path="beta-diversity.html"><a href="beta-diversity.html#principal-coordinate-analysis-pcoa"><i class="fa fa-check"></i><b>7.10.2</b> Principal Coordinate Analysis (PCoA)</a></li>
+<li class="chapter" data-level="7.10.3" data-path="beta-diversity.html"><a href="beta-diversity.html#t-distributed-stochastic-neighbor-embedding-t-sne"><i class="fa fa-check"></i><b>7.10.3</b> t-distributed stochastic neighbor embedding (t-SNE)</a></li>
+<li class="chapter" data-level="7.10.4" data-path="beta-diversity.html"><a href="beta-diversity.html#uniform-manifold-approximation-and-projection-for-dimension-reduction-umap"><i class="fa fa-check"></i><b>7.10.4</b> Uniform Manifold Approximation and Projection for Dimension Reduction (UMAP)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.11" data-path="beta-diversity.html"><a href="beta-diversity.html#systematic-information-4"><i class="fa fa-check"></i><b>7.11</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="microbial-composition.html"><a href="microbial-composition.html"><i class="fa fa-check"></i><b>8</b> Microbial Composition</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="microbial-composition.html"><a href="microbial-composition.html#loading-packages-5"><i class="fa fa-check"></i><b>8.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="8.2" data-path="microbial-composition.html"><a href="microbial-composition.html#importing-data-5"><i class="fa fa-check"></i><b>8.2</b> Importing Data</a></li>
+<li class="chapter" data-level="8.3" data-path="microbial-composition.html"><a href="microbial-composition.html#plot_stacked_bar-from-xviz"><i class="fa fa-check"></i><b>8.3</b> plot_stacked_bar from XVIZ</a></li>
+<li class="chapter" data-level="8.4" data-path="microbial-composition.html"><a href="microbial-composition.html#plot_stackbarplot-from-xams2"><i class="fa fa-check"></i><b>8.4</b> plot_StackBarPlot from XAMS2</a></li>
+<li class="chapter" data-level="8.5" data-path="microbial-composition.html"><a href="microbial-composition.html#heatmaps"><i class="fa fa-check"></i><b>8.5</b> Heatmaps</a></li>
+<li class="chapter" data-level="8.6" data-path="microbial-composition.html"><a href="microbial-composition.html#systematic-information-5"><i class="fa fa-check"></i><b>8.6</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="core-microbiota.html"><a href="core-microbiota.html"><i class="fa fa-check"></i><b>9</b> Core microbiota</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="core-microbiota.html"><a href="core-microbiota.html#loading-packages-6"><i class="fa fa-check"></i><b>9.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="9.2" data-path="core-microbiota.html"><a href="core-microbiota.html#importing-data-6"><i class="fa fa-check"></i><b>9.2</b> Importing Data</a></li>
+<li class="chapter" data-level="9.3" data-path="core-microbiota.html"><a href="core-microbiota.html#obtaining-core-microbiota"><i class="fa fa-check"></i><b>9.3</b> Obtaining core microbiota</a></li>
+<li class="chapter" data-level="9.4" data-path="core-microbiota.html"><a href="core-microbiota.html#showing-core-abundance-and-diversity"><i class="fa fa-check"></i><b>9.4</b> Showing core abundance and diversity</a></li>
+<li class="chapter" data-level="9.5" data-path="core-microbiota.html"><a href="core-microbiota.html#visualizing-core-taxa"><i class="fa fa-check"></i><b>9.5</b> Visualizing core taxa</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="core-microbiota.html"><a href="core-microbiota.html#heatmap"><i class="fa fa-check"></i><b>9.5.1</b> heatmap</a></li>
+<li class="chapter" data-level="9.5.2" data-path="core-microbiota.html"><a href="core-microbiota.html#linechart"><i class="fa fa-check"></i><b>9.5.2</b> linechart</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="core-microbiota.html"><a href="core-microbiota.html#systematic-information-6"><i class="fa fa-check"></i><b>9.6</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="differential-analysis.html"><a href="differential-analysis.html"><i class="fa fa-check"></i><b>10</b> Differential Analysis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="differential-analysis.html"><a href="differential-analysis.html#loading-packages-7"><i class="fa fa-check"></i><b>10.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="10.2" data-path="differential-analysis.html"><a href="differential-analysis.html#importing-data-7"><i class="fa fa-check"></i><b>10.2</b> Importing Data</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="differential-analysis.html"><a href="differential-analysis.html#s-data-1"><i class="fa fa-check"></i><b>10.2.1</b> 16s data</a></li>
+<li class="chapter" data-level="10.2.2" data-path="differential-analysis.html"><a href="differential-analysis.html#metagenomic-data-1"><i class="fa fa-check"></i><b>10.2.2</b> Metagenomic data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="differential-analysis.html"><a href="differential-analysis.html#amplicon-sequencing-microbial-data-16s"><i class="fa fa-check"></i><b>10.3</b> Amplicon sequencing microbial data (16s)</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="differential-analysis.html"><a href="differential-analysis.html#aldex2"><i class="fa fa-check"></i><b>10.3.1</b> ALDEx2</a></li>
+<li class="chapter" data-level="10.3.2" data-path="differential-analysis.html"><a href="differential-analysis.html#limma_voom"><i class="fa fa-check"></i><b>10.3.2</b> limma_voom</a></li>
+<li class="chapter" data-level="10.3.3" data-path="differential-analysis.html"><a href="differential-analysis.html#mbzinb"><i class="fa fa-check"></i><b>10.3.3</b> mbzinb</a></li>
+<li class="chapter" data-level="10.3.4" data-path="differential-analysis.html"><a href="differential-analysis.html#omnibus"><i class="fa fa-check"></i><b>10.3.4</b> omnibus</a></li>
+<li class="chapter" data-level="10.3.5" data-path="differential-analysis.html"><a href="differential-analysis.html#raida"><i class="fa fa-check"></i><b>10.3.5</b> RAIDA</a></li>
+<li class="chapter" data-level="10.3.6" data-path="differential-analysis.html"><a href="differential-analysis.html#wilcoxon-rank-sum-and-signed-rank-tests"><i class="fa fa-check"></i><b>10.3.6</b> Wilcoxon Rank Sum and Signed Rank Tests</a></li>
+<li class="chapter" data-level="10.3.7" data-path="differential-analysis.html"><a href="differential-analysis.html#liner-discriminant-analysis-lda-effect-size-lefse"><i class="fa fa-check"></i><b>10.3.7</b> Liner discriminant analysis (LDA) effect size (LEfSe)</a></li>
+<li class="chapter" data-level="10.3.8" data-path="differential-analysis.html"><a href="differential-analysis.html#t-test"><i class="fa fa-check"></i><b>10.3.8</b> t-test</a></li>
+<li class="chapter" data-level="10.3.9" data-path="differential-analysis.html"><a href="differential-analysis.html#metagenomeseq"><i class="fa fa-check"></i><b>10.3.9</b> MetagenomeSeq</a></li>
+<li class="chapter" data-level="10.3.10" data-path="differential-analysis.html"><a href="differential-analysis.html#deseq2"><i class="fa fa-check"></i><b>10.3.10</b> DESeq2</a></li>
+<li class="chapter" data-level="10.3.11" data-path="differential-analysis.html"><a href="differential-analysis.html#edger"><i class="fa fa-check"></i><b>10.3.11</b> EdgeR</a></li>
+<li class="chapter" data-level="10.3.12" data-path="differential-analysis.html"><a href="differential-analysis.html#ancom"><i class="fa fa-check"></i><b>10.3.12</b> ANCOM</a></li>
+<li class="chapter" data-level="10.3.13" data-path="differential-analysis.html"><a href="differential-analysis.html#corncob"><i class="fa fa-check"></i><b>10.3.13</b> Corncob</a></li>
+<li class="chapter" data-level="10.3.14" data-path="differential-analysis.html"><a href="differential-analysis.html#maaslin2-microbiome-multivariable-association-with-linear-models"><i class="fa fa-check"></i><b>10.3.14</b> Maaslin2 (Microbiome Multivariable Association with Linear Models)</a></li>
+<li class="chapter" data-level="10.3.15" data-path="differential-analysis.html"><a href="differential-analysis.html#locom"><i class="fa fa-check"></i><b>10.3.15</b> LOCOM</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="differential-analysis.html"><a href="differential-analysis.html#metagenomic-sequencing-microbial-data-metaphlan23"><i class="fa fa-check"></i><b>10.4</b> Metagenomic sequencing microbial data (metaphlan2/3)</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="differential-analysis.html"><a href="differential-analysis.html#wilcoxon-rank-sum-and-signed-rank-tests-1"><i class="fa fa-check"></i><b>10.4.1</b> Wilcoxon Rank Sum and Signed Rank Tests</a></li>
+<li class="chapter" data-level="10.4.2" data-path="differential-analysis.html"><a href="differential-analysis.html#liner-discriminant-analysis-lda-effect-size-lefse-1"><i class="fa fa-check"></i><b>10.4.2</b> Liner discriminant analysis (LDA) effect size (LEfSe)</a></li>
+<li class="chapter" data-level="10.4.3" data-path="differential-analysis.html"><a href="differential-analysis.html#t-test-1"><i class="fa fa-check"></i><b>10.4.3</b> t-test</a></li>
+<li class="chapter" data-level="10.4.4" data-path="differential-analysis.html"><a href="differential-analysis.html#maaslin2-microbiome-multivariable-association-with-linear-models-1"><i class="fa fa-check"></i><b>10.4.4</b> Maaslin2 (Microbiome Multivariable Association with Linear Models)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="differential-analysis.html"><a href="differential-analysis.html#visualization-4"><i class="fa fa-check"></i><b>10.5</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="differential-analysis.html"><a href="differential-analysis.html#volcano-plot"><i class="fa fa-check"></i><b>10.5.1</b> Volcano plot</a></li>
+<li class="chapter" data-level="10.5.2" data-path="differential-analysis.html"><a href="differential-analysis.html#barplot-in-lefse"><i class="fa fa-check"></i><b>10.5.2</b> barplot in lefse</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="differential-analysis.html"><a href="differential-analysis.html#dominant-taxa"><i class="fa fa-check"></i><b>10.6</b> Dominant taxa</a></li>
+<li class="chapter" data-level="10.7" data-path="differential-analysis.html"><a href="differential-analysis.html#multiple-differential-analysis-by-one-function"><i class="fa fa-check"></i><b>10.7</b> Multiple differential analysis by one function</a></li>
+<li class="chapter" data-level="10.8" data-path="differential-analysis.html"><a href="differential-analysis.html#systematic-information-7"><i class="fa fa-check"></i><b>10.8</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="visualization-5.html"><a href="visualization-5.html"><i class="fa fa-check"></i><b>11</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="visualization-5.html"><a href="visualization-5.html#loading-packages-8"><i class="fa fa-check"></i><b>11.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="11.2" data-path="visualization-5.html"><a href="visualization-5.html#importing-data-8"><i class="fa fa-check"></i><b>11.2</b> Importing Data</a></li>
+<li class="chapter" data-level="11.3" data-path="visualization-5.html"><a href="visualization-5.html#plot_boxplot"><i class="fa fa-check"></i><b>11.3</b> plot_boxplot</a></li>
+<li class="chapter" data-level="11.4" data-path="visualization-5.html"><a href="visualization-5.html#plot_barplot"><i class="fa fa-check"></i><b>11.4</b> plot_barplot</a></li>
+<li class="chapter" data-level="11.5" data-path="visualization-5.html"><a href="visualization-5.html#plot_dotplot"><i class="fa fa-check"></i><b>11.5</b> plot_dotplot</a></li>
+<li class="chapter" data-level="11.6" data-path="visualization-5.html"><a href="visualization-5.html#plot_correlation_boxplot"><i class="fa fa-check"></i><b>11.6</b> plot_correlation_boxplot</a></li>
+<li class="chapter" data-level="11.7" data-path="visualization-5.html"><a href="visualization-5.html#plot_correlation_density"><i class="fa fa-check"></i><b>11.7</b> plot_correlation_density</a></li>
+<li class="chapter" data-level="11.8" data-path="visualization-5.html"><a href="visualization-5.html#plot_ordination"><i class="fa fa-check"></i><b>11.8</b> plot_Ordination</a></li>
+<li class="chapter" data-level="11.9" data-path="visualization-5.html"><a href="visualization-5.html#plot_ggbiplot"><i class="fa fa-check"></i><b>11.9</b> plot_ggbiplot</a></li>
+<li class="chapter" data-level="11.10" data-path="visualization-5.html"><a href="visualization-5.html#plot_corrplot"><i class="fa fa-check"></i><b>11.10</b> plot_corrplot</a></li>
+<li class="chapter" data-level="11.11" data-path="visualization-5.html"><a href="visualization-5.html#plot_2da_venn"><i class="fa fa-check"></i><b>11.11</b> plot_2DA_venn</a></li>
+<li class="chapter" data-level="11.12" data-path="visualization-5.html"><a href="visualization-5.html#plot-the-da-results-from-the-significant-taxa-by-double-barplot"><i class="fa fa-check"></i><b>11.12</b> plot the DA results from the significant taxa by double barplot</a></li>
+<li class="chapter" data-level="11.13" data-path="visualization-5.html"><a href="visualization-5.html#plot_stacked_bar_xivz"><i class="fa fa-check"></i><b>11.13</b> plot_stacked_bar_XIVZ</a></li>
+<li class="chapter" data-level="11.14" data-path="visualization-5.html"><a href="visualization-5.html#plot_stackbarplot"><i class="fa fa-check"></i><b>11.14</b> plot_StackBarPlot</a></li>
+<li class="chapter" data-level="11.15" data-path="visualization-5.html"><a href="visualization-5.html#color-palettes"><i class="fa fa-check"></i><b>11.15</b> Color Palettes</a>
+<ul>
+<li class="chapter" data-level="11.15.1" data-path="visualization-5.html"><a href="visualization-5.html#wes-anderson-palettes"><i class="fa fa-check"></i><b>11.15.1</b> Wes Anderson Palettes</a></li>
+<li class="chapter" data-level="11.15.2" data-path="visualization-5.html"><a href="visualization-5.html#usemycol"><i class="fa fa-check"></i><b>11.15.2</b> useMyCol</a></li>
+</ul></li>
+<li class="chapter" data-level="11.16" data-path="visualization-5.html"><a href="visualization-5.html#ordination-plots-with-ggplot2"><i class="fa fa-check"></i><b>11.16</b> Ordination plots with ggplot2</a>
+<ul>
+<li class="chapter" data-level="11.16.1" data-path="visualization-5.html"><a href="visualization-5.html#principal-components-analysis-with-the-iris-data-set"><i class="fa fa-check"></i><b>11.16.1</b> principal components analysis with the iris data set</a></li>
+<li class="chapter" data-level="11.16.2" data-path="visualization-5.html"><a href="visualization-5.html#multiple-correspondence-analysis-with-the-tea-dataset"><i class="fa fa-check"></i><b>11.16.2</b> multiple correspondence analysis with the tea dataset</a></li>
+<li class="chapter" data-level="11.16.3" data-path="visualization-5.html"><a href="visualization-5.html#linear-discriminant-analysis"><i class="fa fa-check"></i><b>11.16.3</b> linear discriminant analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="11.17" data-path="visualization-5.html"><a href="visualization-5.html#systematic-information-8"><i class="fa fa-check"></i><b>11.17</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="association-analysis.html"><a href="association-analysis.html"><i class="fa fa-check"></i><b>12</b> Association Analysis</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="association-analysis.html"><a href="association-analysis.html#loading-packages-9"><i class="fa fa-check"></i><b>12.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="12.2" data-path="association-analysis.html"><a href="association-analysis.html#importing-data-9"><i class="fa fa-check"></i><b>12.2</b> Importing Data</a></li>
+<li class="chapter" data-level="12.3" data-path="association-analysis.html"><a href="association-analysis.html#spearman-correlation-analysis"><i class="fa fa-check"></i><b>12.3</b> Spearman Correlation Analysis</a></li>
+<li class="chapter" data-level="12.4" data-path="association-analysis.html"><a href="association-analysis.html#partial-correlation-analysis"><i class="fa fa-check"></i><b>12.4</b> Partial Correlation Analysis</a></li>
+<li class="chapter" data-level="12.5" data-path="association-analysis.html"><a href="association-analysis.html#systematic-information-9"><i class="fa fa-check"></i><b>12.5</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html"><i class="fa fa-check"></i><b>13</b> Principals of Differential Analysis methods</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#aldex2-1"><i class="fa fa-check"></i><b>13.1</b> ALDEx2</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-1"><i class="fa fa-check"></i><b>13.1.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.1.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type"><i class="fa fa-check"></i><b>13.1.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.1.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments"><i class="fa fa-check"></i><b>13.1.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.1.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures"><i class="fa fa-check"></i><b>13.1.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.1.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output"><i class="fa fa-check"></i><b>13.1.5</b> Key output</a></li>
+<li class="chapter" data-level="13.1.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax"><i class="fa fa-check"></i><b>13.1.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.1.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax"><i class="fa fa-check"></i><b>13.1.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.1.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes"><i class="fa fa-check"></i><b>13.1.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#ancom-ii"><i class="fa fa-check"></i><b>13.2</b> ANCOM-II</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-1"><i class="fa fa-check"></i><b>13.2.1</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.2.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-1"><i class="fa fa-check"></i><b>13.2.2</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.2.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-1"><i class="fa fa-check"></i><b>13.2.3</b> Procedures</a></li>
+<li class="chapter" data-level="13.2.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-1"><i class="fa fa-check"></i><b>13.2.4</b> Key output</a></li>
+<li class="chapter" data-level="13.2.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-1"><i class="fa fa-check"></i><b>13.2.5</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.2.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-1"><i class="fa fa-check"></i><b>13.2.6</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.2.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-1"><i class="fa fa-check"></i><b>13.2.7</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#corncob-1"><i class="fa fa-check"></i><b>13.3</b> corncob</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-2"><i class="fa fa-check"></i><b>13.3.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.3.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-2"><i class="fa fa-check"></i><b>13.3.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.3.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-2"><i class="fa fa-check"></i><b>13.3.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.3.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-2"><i class="fa fa-check"></i><b>13.3.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.3.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-2"><i class="fa fa-check"></i><b>13.3.5</b> Key output</a></li>
+<li class="chapter" data-level="13.3.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-2"><i class="fa fa-check"></i><b>13.3.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.3.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-2"><i class="fa fa-check"></i><b>13.3.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.3.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-2"><i class="fa fa-check"></i><b>13.3.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#deseq2-1"><i class="fa fa-check"></i><b>13.4</b> DESeq2</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-3"><i class="fa fa-check"></i><b>13.4.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.4.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-3"><i class="fa fa-check"></i><b>13.4.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.4.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-3"><i class="fa fa-check"></i><b>13.4.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.4.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-3"><i class="fa fa-check"></i><b>13.4.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.4.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-3"><i class="fa fa-check"></i><b>13.4.5</b> Key output</a></li>
+<li class="chapter" data-level="13.4.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-3"><i class="fa fa-check"></i><b>13.4.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.4.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-3"><i class="fa fa-check"></i><b>13.4.7</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#edger-1"><i class="fa fa-check"></i><b>13.5</b> edgeR</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-4"><i class="fa fa-check"></i><b>13.5.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.5.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-4"><i class="fa fa-check"></i><b>13.5.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.5.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-4"><i class="fa fa-check"></i><b>13.5.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.5.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-4"><i class="fa fa-check"></i><b>13.5.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.5.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-4"><i class="fa fa-check"></i><b>13.5.5</b> Key output</a></li>
+<li class="chapter" data-level="13.5.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-4"><i class="fa fa-check"></i><b>13.5.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.5.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-4"><i class="fa fa-check"></i><b>13.5.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.5.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-3"><i class="fa fa-check"></i><b>13.5.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#lefse"><i class="fa fa-check"></i><b>13.6</b> LEfSe</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-5"><i class="fa fa-check"></i><b>13.6.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.6.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-5"><i class="fa fa-check"></i><b>13.6.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.6.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-5"><i class="fa fa-check"></i><b>13.6.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.6.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-5"><i class="fa fa-check"></i><b>13.6.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.6.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-5"><i class="fa fa-check"></i><b>13.6.5</b> Key output</a></li>
+<li class="chapter" data-level="13.6.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-5"><i class="fa fa-check"></i><b>13.6.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.6.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-5"><i class="fa fa-check"></i><b>13.6.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.6.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-4"><i class="fa fa-check"></i><b>13.6.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#limma-voom"><i class="fa fa-check"></i><b>13.7</b> limma voom</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-6"><i class="fa fa-check"></i><b>13.7.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.7.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-6"><i class="fa fa-check"></i><b>13.7.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.7.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-6"><i class="fa fa-check"></i><b>13.7.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.7.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-6"><i class="fa fa-check"></i><b>13.7.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.7.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-6"><i class="fa fa-check"></i><b>13.7.5</b> Key output</a></li>
+<li class="chapter" data-level="13.7.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-6"><i class="fa fa-check"></i><b>13.7.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.7.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-6"><i class="fa fa-check"></i><b>13.7.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.7.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-5"><i class="fa fa-check"></i><b>13.7.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#maaslin2"><i class="fa fa-check"></i><b>13.8</b> MaAsLin2</a>
+<ul>
+<li class="chapter" data-level="13.8.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-7"><i class="fa fa-check"></i><b>13.8.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.8.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-7"><i class="fa fa-check"></i><b>13.8.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.8.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-7"><i class="fa fa-check"></i><b>13.8.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.8.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-7"><i class="fa fa-check"></i><b>13.8.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.8.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-7"><i class="fa fa-check"></i><b>13.8.5</b> Key output</a></li>
+<li class="chapter" data-level="13.8.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-7"><i class="fa fa-check"></i><b>13.8.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.8.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-7"><i class="fa fa-check"></i><b>13.8.7</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#metagenomeseq-1"><i class="fa fa-check"></i><b>13.9</b> metagenomeSeq</a>
+<ul>
+<li class="chapter" data-level="13.9.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-8"><i class="fa fa-check"></i><b>13.9.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.9.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-8"><i class="fa fa-check"></i><b>13.9.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.9.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-8"><i class="fa fa-check"></i><b>13.9.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.9.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-8"><i class="fa fa-check"></i><b>13.9.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.9.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-8"><i class="fa fa-check"></i><b>13.9.5</b> Key output</a></li>
+<li class="chapter" data-level="13.9.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-8"><i class="fa fa-check"></i><b>13.9.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.9.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-8"><i class="fa fa-check"></i><b>13.9.7</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.10" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#t-test-2"><i class="fa fa-check"></i><b>13.10</b> t-test</a>
+<ul>
+<li class="chapter" data-level="13.10.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-9"><i class="fa fa-check"></i><b>13.10.1</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.10.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-9"><i class="fa fa-check"></i><b>13.10.2</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.10.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-9"><i class="fa fa-check"></i><b>13.10.3</b> Procedures</a></li>
+<li class="chapter" data-level="13.10.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-9"><i class="fa fa-check"></i><b>13.10.4</b> Key output</a></li>
+<li class="chapter" data-level="13.10.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-9"><i class="fa fa-check"></i><b>13.10.5</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.10.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-9"><i class="fa fa-check"></i><b>13.10.6</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.11" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#wilcoxon-test"><i class="fa fa-check"></i><b>13.11</b> Wilcoxon test</a>
+<ul>
+<li class="chapter" data-level="13.11.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-10"><i class="fa fa-check"></i><b>13.11.1</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.11.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-10"><i class="fa fa-check"></i><b>13.11.2</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.11.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-10"><i class="fa fa-check"></i><b>13.11.3</b> Procedures</a></li>
+<li class="chapter" data-level="13.11.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-10"><i class="fa fa-check"></i><b>13.11.4</b> Key output</a></li>
+<li class="chapter" data-level="13.11.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-10"><i class="fa fa-check"></i><b>13.11.5</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.11.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-10"><i class="fa fa-check"></i><b>13.11.6</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.12" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#raida-1"><i class="fa fa-check"></i><b>13.12</b> RAIDA</a>
+<ul>
+<li class="chapter" data-level="13.12.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-9"><i class="fa fa-check"></i><b>13.12.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.12.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-11"><i class="fa fa-check"></i><b>13.12.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.12.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-11"><i class="fa fa-check"></i><b>13.12.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.12.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-11"><i class="fa fa-check"></i><b>13.12.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.12.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-11"><i class="fa fa-check"></i><b>13.12.5</b> Key output</a></li>
+<li class="chapter" data-level="13.12.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-11"><i class="fa fa-check"></i><b>13.12.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.12.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-11"><i class="fa fa-check"></i><b>13.12.7</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.13" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#summary"><i class="fa fa-check"></i><b>13.13</b> Summary</a></li>
+<li class="chapter" data-level="13.14" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#advantages-and-disadvantages"><i class="fa fa-check"></i><b>13.14</b> Advantages and disadvantages</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>14</b> Examples</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="examples.html"><a href="examples.html#loading-packages-10"><i class="fa fa-check"></i><b>14.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="14.2" data-path="examples.html"><a href="examples.html#workflow-description"><i class="fa fa-check"></i><b>14.2</b> Workflow description</a></li>
+<li class="chapter" data-level="14.3" data-path="examples.html"><a href="examples.html#amplicon-sequencing-16s"><i class="fa fa-check"></i><b>14.3</b> Amplicon sequencing (16s)</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="examples.html"><a href="examples.html#converting-inputs-into-phyloseq-class-object"><i class="fa fa-check"></i><b>14.3.1</b> Converting inputs into phyloseq-class object</a></li>
+<li class="chapter" data-level="14.3.2" data-path="examples.html"><a href="examples.html#quality-control"><i class="fa fa-check"></i><b>14.3.2</b> Quality Control</a></li>
+<li class="chapter" data-level="14.3.3" data-path="examples.html"><a href="examples.html#data-processing"><i class="fa fa-check"></i><b>14.3.3</b> Data processing</a></li>
+<li class="chapter" data-level="14.3.4" data-path="examples.html"><a href="examples.html#diversity-analysis"><i class="fa fa-check"></i><b>14.3.4</b> Diversity analysis</a></li>
+<li class="chapter" data-level="14.3.5" data-path="examples.html"><a href="examples.html#permanova-ordination"><i class="fa fa-check"></i><b>14.3.5</b> PERMANOVA + Ordination</a></li>
+<li class="chapter" data-level="14.3.6" data-path="examples.html"><a href="examples.html#microbial-composition-1"><i class="fa fa-check"></i><b>14.3.6</b> Microbial composition</a></li>
+<li class="chapter" data-level="14.3.7" data-path="examples.html"><a href="examples.html#differential-analysis-1"><i class="fa fa-check"></i><b>14.3.7</b> Differential Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="examples.html"><a href="examples.html#metagenomics-mgs"><i class="fa fa-check"></i><b>14.4</b> Metagenomics (MGS)</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="examples.html"><a href="examples.html#converting-inputs-into-phyloseq-class-object-1"><i class="fa fa-check"></i><b>14.4.1</b> Converting inputs into phyloseq-class object</a></li>
+<li class="chapter" data-level="14.4.2" data-path="examples.html"><a href="examples.html#quality-control-1"><i class="fa fa-check"></i><b>14.4.2</b> Quality Control</a></li>
+<li class="chapter" data-level="14.4.3" data-path="examples.html"><a href="examples.html#data-processing-1"><i class="fa fa-check"></i><b>14.4.3</b> Data processing</a></li>
+<li class="chapter" data-level="14.4.4" data-path="examples.html"><a href="examples.html#diversity-analysis-1"><i class="fa fa-check"></i><b>14.4.4</b> Diversity analysis</a></li>
+<li class="chapter" data-level="14.4.5" data-path="examples.html"><a href="examples.html#permanova-ordination-1"><i class="fa fa-check"></i><b>14.4.5</b> PERMANOVA + Ordination</a></li>
+<li class="chapter" data-level="14.4.6" data-path="examples.html"><a href="examples.html#microbial-composition-2"><i class="fa fa-check"></i><b>14.4.6</b> Microbial composition</a></li>
+<li class="chapter" data-level="14.4.7" data-path="examples.html"><a href="examples.html#differential-analysis-2"><i class="fa fa-check"></i><b>14.4.7</b> Differential Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="examples.html"><a href="examples.html#systematic-information-10"><i class="fa fa-check"></i><b>14.5</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">XMAS 2.0 Tutorial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="aplha-diversity" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Aplha diversity<a href="aplha-diversity.html#aplha-diversity" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Alpha diversity is a measure of microbiome diversity applicable to a single sample. The commonly used metrics/indices are Shannon, Chao1, Observed, Simpson, Gini and Inverse Simpson. The reference of this part is <span class="citation">(<a href="#ref-Sudarshan2020Microbial">A et al. 2020</a>)</span>.</p>
+<blockquote>
+<p><strong>It is important to note that, alpha diversity indices are sensitive to noise that is inherent to application of polymerase chain reaction and the sequencing errors.</strong></p>
+</blockquote>
+<p><strong>Cautions</strong>: <em>Shannon, Simpson and InvSimpson</em> measures are both for relative or absolute abundance.</p>
+<p>As defined by Shannon, the index of Shannon index is given as follow:</p>
+<p><span class="math display">\[H^{&#39;} = \sum_{i=1}^{S}p_{i}\,\ln\,p_{i}\]</span>
+where <span class="math inline">\(p_{i}\)</span> is the proportion of individuals (or relative abundance) of species <span class="math inline">\(i\)</span> in the community and <span class="math inline">\(S\)</span> is the total number of species present so that <span class="math inline">\(\sum_{i=1}^{S}p_{i} = 1\)</span>.</p>
+<p>Outline of this Chapter:</p>
+<ul>
+<li><p><a href="convert-inputdata-into-phyloseq-object.html#loading-packages">Loading Packages</a></p></li>
+<li><p><a href="convert-inputdata-into-phyloseq-object.html#importing-data">Importing Data</a></p></li>
+<li><p><a href="aplha-diversity.html#equal-sample-sums">Equal sample sums</a></p></li>
+<li><p><a href="aplha-diversity.html#non-phylogenetic-diversities">Non-phylogenetic diversities</a></p></li>
+<li><p><a href="aplha-diversity.html#phylogenetic-diversity">Phylogenetic diversity</a></p></li>
+<li><p><a href="aplha-diversity.html#rank-abundance">Rank Abundance</a></p></li>
+</ul>
+<div id="loading-packages-3" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Loading Packages<a href="aplha-diversity.html#loading-packages-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="aplha-diversity.html#cb127-1" tabindex="-1"></a><span class="fu">library</span>(XMAS2)</span>
+<span id="cb127-2"><a href="aplha-diversity.html#cb127-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb127-3"><a href="aplha-diversity.html#cb127-3" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb127-4"><a href="aplha-diversity.html#cb127-4" tabindex="-1"></a><span class="fu">library</span>(phyloseq)</span>
+<span id="cb127-5"><a href="aplha-diversity.html#cb127-5" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb127-6"><a href="aplha-diversity.html#cb127-6" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span></code></pre></div>
+</div>
+<div id="importing-data-3" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Importing Data<a href="aplha-diversity.html#importing-data-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="aplha-diversity.html#cb128-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;dada2_ps&quot;</span>)</span>
+<span id="cb128-2"><a href="aplha-diversity.html#cb128-2" tabindex="-1"></a>dada2_ps_remove_BRS <span class="ot">&lt;-</span> <span class="fu">get_GroupPhyloseq</span>(</span>
+<span id="cb128-3"><a href="aplha-diversity.html#cb128-3" tabindex="-1"></a>                         <span class="at">ps =</span> dada2_ps,</span>
+<span id="cb128-4"><a href="aplha-diversity.html#cb128-4" tabindex="-1"></a>                         <span class="at">group =</span> <span class="st">&quot;Group&quot;</span>,</span>
+<span id="cb128-5"><a href="aplha-diversity.html#cb128-5" tabindex="-1"></a>                         <span class="at">group_names =</span> <span class="st">&quot;QC&quot;</span>,</span>
+<span id="cb128-6"><a href="aplha-diversity.html#cb128-6" tabindex="-1"></a>                         <span class="at">discard =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb128-7"><a href="aplha-diversity.html#cb128-7" tabindex="-1"></a>dada2_ps_remove_BRS</span></code></pre></div>
+<pre><code>## phyloseq-class experiment-level object
+## otu_table()   OTU Table:         [ 896 taxa and 23 samples ]
+## sample_data() Sample Data:       [ 23 samples by 1 sample variables ]
+## tax_table()   Taxonomy Table:    [ 896 taxa by 7 taxonomic ranks ]
+## phy_tree()    Phylogenetic Tree: [ 896 tips and 893 internal nodes ]
+## refseq()      DNAStringSet:      [ 896 reference sequences ]</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="aplha-diversity.html#cb130-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;amplicon_ps&quot;</span>)</span>
+<span id="cb130-2"><a href="aplha-diversity.html#cb130-2" tabindex="-1"></a>amplicon_ps</span></code></pre></div>
+<pre><code>## phyloseq-class experiment-level object
+## otu_table()   OTU Table:         [ 3426 taxa and 34 samples ]
+## sample_data() Sample Data:       [ 34 samples by 8 sample variables ]
+## tax_table()   Taxonomy Table:    [ 3426 taxa by 7 taxonomic ranks ]
+## phy_tree()    Phylogenetic Tree: [ 3426 tips and 3424 internal nodes ]</code></pre>
+<details>
+<summary>
+<strong>metagenomic sequencing (metaphlan2/3)</strong>
+</summary>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="aplha-diversity.html#cb132-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;metaphlan2_ps&quot;</span>)</span>
+<span id="cb132-2"><a href="aplha-diversity.html#cb132-2" tabindex="-1"></a>metaphlan2_ps_remove_BRS <span class="ot">&lt;-</span> <span class="fu">get_GroupPhyloseq</span>(</span>
+<span id="cb132-3"><a href="aplha-diversity.html#cb132-3" tabindex="-1"></a>                               <span class="at">ps =</span> metaphlan2_ps,</span>
+<span id="cb132-4"><a href="aplha-diversity.html#cb132-4" tabindex="-1"></a>                               <span class="at">group =</span> <span class="st">&quot;Group&quot;</span>,</span>
+<span id="cb132-5"><a href="aplha-diversity.html#cb132-5" tabindex="-1"></a>                               <span class="at">group_names =</span> <span class="st">&quot;QC&quot;</span>,</span>
+<span id="cb132-6"><a href="aplha-diversity.html#cb132-6" tabindex="-1"></a>                               <span class="at">discard =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb132-7"><a href="aplha-diversity.html#cb132-7" tabindex="-1"></a>metaphlan2_ps_remove_BRS</span></code></pre></div>
+<pre><code>## phyloseq-class experiment-level object
+## otu_table()   OTU Table:         [ 326 taxa and 22 samples ]
+## sample_data() Sample Data:       [ 22 samples by 2 sample variables ]
+## tax_table()   Taxonomy Table:    [ 326 taxa by 7 taxonomic ranks ]</code></pre>
+</details>
+</div>
+<div id="equal-sample-sums" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Equal sample sums<a href="aplha-diversity.html#equal-sample-sums" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="dada2_ps-dataset" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> dada2_ps dataset<a href="aplha-diversity.html#dada2_ps-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Summary counts</li>
+</ul>
+<p>The previous result from <em>Rarefaction Curves</em> had demonstrated that the sequence depth of each sample has a larger significance and normalizing the samples’ depth into equal sampling depth is necessary.</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="aplha-diversity.html#cb134-1" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">sample_sums</span>(dada2_ps_remove_BRS))</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   51181   58608   61435   61257   64283   71667</code></pre>
+<p>As is evident there is a large difference in the number of reads. Minimum is <em>51181</em> and maximum is <em>71667</em>!! There is a <strong>~1.4X</strong> difference.</p>
+<ul>
+<li>Rarefying counts</li>
+</ul>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="aplha-diversity.html#cb136-1" tabindex="-1"></a>dada2_ps_rarefy <span class="ot">&lt;-</span> <span class="fu">norm_rarefy</span>(<span class="at">object =</span> dada2_ps_remove_BRS, </span>
+<span id="cb136-2"><a href="aplha-diversity.html#cb136-2" tabindex="-1"></a>                               <span class="at">size =</span> <span class="dv">51181</span>)</span>
+<span id="cb136-3"><a href="aplha-diversity.html#cb136-3" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">sample_sums</span>(dada2_ps_rarefy))</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   51181   51181   51181   51181   51181   51181</code></pre>
+<ul>
+<li>Checking taxa prevalence</li>
+</ul>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="aplha-diversity.html#cb138-1" tabindex="-1"></a><span class="fu">plot_taxa_prevalence</span>(<span class="at">ps =</span> dada2_ps_rarefy, </span>
+<span id="cb138-2"><a href="aplha-diversity.html#cb138-2" tabindex="-1"></a>                     <span class="at">taxa_level =</span> <span class="st">&quot;Phylum&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-66"></span>
+<img src="XMAS-2.0-Tutorial_files/figure-html/unnamed-chunk-66-1.png" alt="Taxa prevalence after rarefying" width="672" />
+<p class="caption">
+Figure 6.1: Taxa prevalence after rarefying
+</p>
+</div>
+</div>
+<div id="amplicon_ps-dataset" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> amplicon_ps dataset<a href="aplha-diversity.html#amplicon_ps-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Preparing for input phyloseq object</li>
+</ul>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="aplha-diversity.html#cb139-1" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">sample_sums</span>(amplicon_ps))</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1114    2139    4965    5357    8438   11449</code></pre>
+<p>As is evident there is a large difference in the number of reads. Minimum is <em>1114</em> and maximum is <em>11449</em>!! There is a <strong>~10X</strong> difference!</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="aplha-diversity.html#cb141-1" tabindex="-1"></a>amplicon_ps_rarefy <span class="ot">&lt;-</span> <span class="fu">norm_rarefy</span>(<span class="at">object =</span> amplicon_ps, </span>
+<span id="cb141-2"><a href="aplha-diversity.html#cb141-2" tabindex="-1"></a>                                  <span class="at">size =</span> <span class="dv">1114</span>)</span>
+<span id="cb141-3"><a href="aplha-diversity.html#cb141-3" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">sample_sums</span>(amplicon_ps))</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1114    2139    4965    5357    8438   11449</code></pre>
+</div>
+</div>
+<div id="non-phylogenetic-diversities" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Non-phylogenetic diversities<a href="aplha-diversity.html#non-phylogenetic-diversities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="xmas2-r-package" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> XMAS2 R package<a href="aplha-diversity.html#xmas2-r-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Calculation</li>
+</ul>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="aplha-diversity.html#cb143-1" tabindex="-1"></a>amplicon_ps_rarefy_alpha <span class="ot">&lt;-</span> <span class="fu">run_alpha_diversity</span>(<span class="at">ps =</span> amplicon_ps_rarefy, </span>
+<span id="cb143-2"><a href="aplha-diversity.html#cb143-2" tabindex="-1"></a>                                                <span class="at">measures =</span> <span class="fu">c</span>(<span class="st">&quot;Shannon&quot;</span>, <span class="st">&quot;Chao1&quot;</span>, <span class="st">&quot;Observed&quot;</span>)) </span>
+<span id="cb143-3"><a href="aplha-diversity.html#cb143-3" tabindex="-1"></a><span class="fu">head</span>(amplicon_ps_rarefy_alpha)</span></code></pre></div>
+<pre><code>##   TempRowNames SampleType Year Month Day Subject ReportedAntibioticUsage DaysSinceExperimentStart         Description Observed  Chao1
+## 1       L1S140        gut 2008    10  28       2                     Yes                        0   2_Fece_10_28_2008       27  74.50
+## 2       L1S208        gut 2009     1  20       2                      No                       84    2_Fece_1_20_2009       40 148.75
+## 3         L1S8        gut 2008    10  28       1                     Yes                        0   1_Fece_10_28_2008       19  54.00
+## 4       L1S281        gut 2009     4  14       2                      No                      168    2_Fece_4_14_2009       60 256.00
+## 5       L3S242 right palm 2008    10  28       1                     Yes                        0 1_R_Palm_10_28_2008       16  42.00
+## 6       L2S309  left palm 2009     1  20       2                      No                       84  2_L_Palm_1_20_2009       12  57.00
+##   se.chao1  Shannon
+## 1 30.70970 3.126005
+## 2 62.86107 3.303186
+## 3 25.57190 2.688337
+## 4 93.42352 3.664947
+## 5 19.97805 2.692311
+## 6 30.06061 2.082828</code></pre>
+<details>
+<summary>
+<strong>MGS Non-phylogenetic diversities</strong>
+</summary>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="aplha-diversity.html#cb145-1" tabindex="-1"></a>metaphlan2_ps_alpha <span class="ot">&lt;-</span> <span class="fu">run_alpha_diversity</span>(<span class="at">ps =</span> metaphlan2_ps_remove_BRS, </span>
+<span id="cb145-2"><a href="aplha-diversity.html#cb145-2" tabindex="-1"></a>                                           <span class="at">measures =</span> <span class="st">&quot;Shannon&quot;</span>) </span>
+<span id="cb145-3"><a href="aplha-diversity.html#cb145-3" tabindex="-1"></a><span class="fu">head</span>(metaphlan2_ps_alpha)</span></code></pre></div>
+<pre><code>##   TempRowNames Group phynotype  Shannon
+## 1           s1    BB      0.00 2.876002
+## 2           s2    AA      2.50 2.045392
+## 3           s3    BB      0.00 3.441176
+## 4           s4    AA      1.25 2.746917
+## 5           s5    AA     30.00 1.450722
+## 6           s6    AA     15.00 2.619951</code></pre>
+<ul>
+<li><strong>Visualization</strong></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>single measure</li>
+</ol>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="aplha-diversity.html#cb147-1" tabindex="-1"></a><span class="fu">plot_boxplot</span>(<span class="at">data =</span> amplicon_ps_rarefy_alpha,</span>
+<span id="cb147-2"><a href="aplha-diversity.html#cb147-2" tabindex="-1"></a>             <span class="at">y_index =</span> <span class="st">&quot;Shannon&quot;</span>,</span>
+<span id="cb147-3"><a href="aplha-diversity.html#cb147-3" tabindex="-1"></a>             <span class="at">group =</span> <span class="st">&quot;SampleType&quot;</span>,</span>
+<span id="cb147-4"><a href="aplha-diversity.html#cb147-4" tabindex="-1"></a>             <span class="at">group_names =</span> <span class="cn">NULL</span>,</span>
+<span id="cb147-5"><a href="aplha-diversity.html#cb147-5" tabindex="-1"></a>             <span class="at">group_color =</span> <span class="cn">NULL</span>,</span>
+<span id="cb147-6"><a href="aplha-diversity.html#cb147-6" tabindex="-1"></a>             <span class="at">do_test =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb147-7"><a href="aplha-diversity.html#cb147-7" tabindex="-1"></a>             <span class="at">ref_group =</span> <span class="cn">NULL</span>,</span>
+<span id="cb147-8"><a href="aplha-diversity.html#cb147-8" tabindex="-1"></a>             <span class="at">method =</span> <span class="st">&quot;wilcox.test&quot;</span>,</span>
+<span id="cb147-9"><a href="aplha-diversity.html#cb147-9" tabindex="-1"></a>             <span class="at">outlier =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-71"></span>
+<img src="XMAS-2.0-Tutorial_files/figure-html/unnamed-chunk-71-1.png" alt="Alpha diversity from XMAS(one measure)" width="576" />
+<p class="caption">
+Figure 6.2: Alpha diversity from XMAS(one measure)
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>multiple measures</li>
+</ol>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="aplha-diversity.html#cb148-1" tabindex="-1"></a><span class="fu">plot_boxplot</span>(<span class="at">data =</span> amplicon_ps_rarefy_alpha,</span>
+<span id="cb148-2"><a href="aplha-diversity.html#cb148-2" tabindex="-1"></a>             <span class="at">y_index =</span> <span class="fu">c</span>(<span class="st">&quot;Shannon&quot;</span>, <span class="st">&quot;Chao1&quot;</span>, <span class="st">&quot;Observed&quot;</span>),</span>
+<span id="cb148-3"><a href="aplha-diversity.html#cb148-3" tabindex="-1"></a>             <span class="at">group =</span> <span class="st">&quot;SampleType&quot;</span>,</span>
+<span id="cb148-4"><a href="aplha-diversity.html#cb148-4" tabindex="-1"></a>             <span class="at">group_names =</span> <span class="fu">c</span>(<span class="st">&quot;gut&quot;</span>, <span class="st">&quot;right palm&quot;</span>, <span class="st">&quot;tongue&quot;</span>),</span>
+<span id="cb148-5"><a href="aplha-diversity.html#cb148-5" tabindex="-1"></a>             <span class="at">group_color =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>),</span>
+<span id="cb148-6"><a href="aplha-diversity.html#cb148-6" tabindex="-1"></a>             <span class="at">do_test =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb148-7"><a href="aplha-diversity.html#cb148-7" tabindex="-1"></a>             <span class="at">ref_group =</span> <span class="st">&quot;gut&quot;</span>,</span>
+<span id="cb148-8"><a href="aplha-diversity.html#cb148-8" tabindex="-1"></a>             <span class="at">method =</span> <span class="st">&quot;wilcox.test&quot;</span>,</span>
+<span id="cb148-9"><a href="aplha-diversity.html#cb148-9" tabindex="-1"></a>             <span class="at">outlier =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-72"></span>
+<img src="XMAS-2.0-Tutorial_files/figure-html/unnamed-chunk-72-1.png" alt="Alpha diversity from XMAS(multiple measures)" width="864" />
+<p class="caption">
+Figure 6.3: Alpha diversity from XMAS(multiple measures)
+</p>
+</div>
+</div>
+<div id="microbiome-r-package" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> microbiome R package<a href="aplha-diversity.html#microbiome-r-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Calculation</strong></li>
+</ul>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="aplha-diversity.html#cb149-1" tabindex="-1"></a>amplicon_ps_rarefy_alpha_v2 <span class="ot">&lt;-</span> microbiome<span class="sc">::</span><span class="fu">alpha</span>(<span class="at">x =</span> amplicon_ps_rarefy, <span class="at">index =</span> <span class="st">&quot;all&quot;</span>)</span>
+<span id="cb149-2"><a href="aplha-diversity.html#cb149-2" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(amplicon_ps_rarefy_alpha_v2)</span></code></pre></div>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-4286a7541dd828326c4b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4286a7541dd828326c4b">{"x":{"filter":"none","vertical":false,"data":[["L1S140","L1S208","L1S8","L1S281","L3S242","L2S309","L2S357","L4S112","L2S155","L2S382","L4S63","L2S222","L3S341","L3S360","L2S204","L4S137","L3S294","L2S175","L5S203","L6S93","L6S20","L6S68","L1S257","L3S378","L1S105","L5S174","L5S155","L5S222","L5S104","L1S57","L1S76","L5S240","L3S313","L2S240"],[161,183,112,212,120,296,256,287,252,253,337,442,321,408,296,245,210,286,124,132,113,104,200,174,154,96,100,102,101,175,151,103,253,133],[332.7307692307692,365,303.1538461538462,587.9130434782609,278.8823529411765,560.0526315789473,574.0256410256411,816.3714285714286,620.15625,378.2340425531915,831.0425531914893,1000.223880597015,723.0612244897959,845.6351351351352,843.25,425.6222222222223,392.0833333333334,749.3235294117646,425.875,309.5,206.1578947368421,176.0588235294118,418.9032258064516,400.3846153846154,281.7307692307692,166.7142857142857,166.3529411764706,190.4,219.4615384615385,553.0666666666666,347.8947368421053,248.0909090909091,510.4,244.7142857142857],[8.605000762734194,13.16790458809049,8.471078103455337,15.24602570087717,8.341035877995994,25.60761008625315,31.57429269285569,25.23477977957624,27.05699210744342,57.51742677048573,45.55116722948172,110.2127886323268,30.88745084374533,86.21620119494233,12.42686053032124,29.64634495938844,22.14640588193304,22.36431789511624,18.872741650952,23.21527985633044,9.293344116942247,13.00861653284136,16.54926121512775,9.574995370656133,15.73310682319531,9.418323669591087,11.28937648963849,11.66963815542015,14.11184898794633,16.71465129434582,11.44745775219541,11.35694413939527,21.13628776782369,17.0893717811011],[0.8837885053618223,0.9240577729501143,0.881951271398135,0.9344091358876258,0.8801108142169677,0.9609491086192059,0.9683286650400162,0.9603721526902584,0.9630409767638252,0.9826139649120545,0.9780466657426776,0.9909266427933692,0.9676243920206028,0.9884012518976693,0.9195291523904993,0.9662690290701984,0.9548459463205361,0.9552859155065769,0.9470135278437642,0.9569249215952348,0.8923961076425709,0.9231278747070901,0.939574341899571,0.8955613072080812,0.9364397629001222,0.8938239929862788,0.9114211488191742,0.9143075400726514,0.9291375636988355,0.9401722487421393,0.9126443598528924,0.9119481448771793,0.9526880022175737,0.9414840982565617],[3.149765262341201,3.617229196521321,2.817766888273249,3.892762756976512,2.911608556831697,4.494509002285549,4.355037424998011,4.393807627801617,4.297196129115915,4.784474796019372,4.842813311582196,5.497475480770366,4.59153700621914,5.285742220037889,4.101431725361657,4.409628969946808,4.04956612762706,4.37844645899076,3.534037359938643,3.672738467331704,3.027762471301746,3.180212445401417,3.789898127435368,3.25756506054248,3.523774769766752,3.019699542203259,3.135127817853599,3.116158650900184,3.268891885591633,3.699387385148124,3.375461244431873,3.111856644396075,4.212651019411642,3.477829214503678],[51.66413643759893,62.27597115332852,31.0438978006773,77.62047830658669,34.13343082812816,131.7589837107913,104.064855708661,125.2020899047703,101.493950100822,102.1334314405712,164.2350856151543,270.8885017152638,151.0340061006052,232.1160942641327,131.7589837107913,97.0775428181732,76.5110101892887,124.4855766858345,35.71831458217448,38.96865802605818,31.42424920293765,28.06100380570446,71.07891691917628,57.830151725378,48.46706722036095,25.18475951649873,26.60955800898667,27.3319496352217,26.96992087074747,58.31691578932642,47.1229886717681,27.69564401603036,102.1334314405712,39.38253128878743],[3,5,3,8,3,16,12,14,12,27,22,58,14,40,8,14,9,12,7,8,3,5,7,4,6,4,5,4,6,6,4,4,9,6],[0.9525519363939472,0.8969400869215449,0.9656081687612208,0.7733308492259747,0.9687986235786954,0.9289570090737057,0.9439589878815081,0.9574249807642985,0.9624227009774586,0.9679465799987227,0.8928128113196491,0.8775193546552719,0.9581312885562957,0.9157139965501461,0.9635808384686302,0.9799362473894405,0.9982217662648543,0.9509861771980264,0.9928910638790757,0.9920366138947827,0.9955513893964189,0.9911441789808038,0.8240529622980252,0.955245671598671,0.9319114458252699,0.9956145272292041,0.992181328545781,0.9938307459429014,0.9991112217146311,0.9053911259297256,0.9344287633609569,0.9937773439542626,0.946466459931451,0.9902539112592973],[0.619861171459995,0.6943543164134083,0.5971744330416363,0.7267245513029413,0.6081699380936666,0.7898462370193865,0.785373861991309,0.7763621229458842,0.7771500567430032,0.8646553447513827,0.8320866505744104,0.9025112146970957,0.7955616124745321,0.8793058213323904,0.7207684783858445,0.8015673508097654,0.7573377016197194,0.7741253179707295,0.7331599434264695,0.7521784675193812,0.6404726219661953,0.6847426313726857,0.7153022111064224,0.6314266608149068,0.6995846592001309,0.6615839580004,0.6807843556776006,0.6737679931760177,0.7083004384528987,0.716271187969058,0.672767187443682,0.6714214902961857,0.7613147471352861,0.7111617439404165],[0.05344720970642357,0.07195576277645076,0.07563462592370837,0.07191521557017534,0.06950863231663328,0.08651219623734172,0.1233370808314675,0.08792606194974298,0.1073690162993787,0.2273416077884811,0.135166668336741,0.2493502005256263,0.09622258829827206,0.2113142186150547,0.04198263692676093,0.1210054896301569,0.1054590756282526,0.07819691571718963,0.1521995294431613,0.1758733322449276,0.0822419833357721,0.1250828512773207,0.08274630607563876,0.05502870902675938,0.1021630313194501,0.09810753822490716,0.1128937648963848,0.1144082172100014,0.1397212771083795,0.09551229311054757,0.07581097849136031,0.1102615935863619,0.0835426393985126,0.1284915171511361],[0.4679565753223547,0.4583313718530655,0.3589046454310837,0.4727457968640056,0.3704219008333869,0.5739457221864117,0.5062093995033413,0.5443130165974174,0.5103483271226514,0.5208029526902933,0.5834757820138669,0.6690699580729323,0.6037755211998116,0.6414312745741557,0.6060690628677138,0.5093345087242026,0.471522551496088,0.5656933881281302,0.3247304445726437,0.3352931246344274,0.351406398382064,0.3222332425924689,0.4737542500533233,0.4784404500784486,0.4090308905151057,0.317692947290534,0.3117613056017066,0.3162034894198074,0.2869653167416909,0.4204874023897182,0.408322039696004,0.311672675394312,0.5393600919268964,0.3640626048104404],[0.3053355026929982,0.3597520074180757,0.2593688841444676,0.3834352957192816,0.2755457658826547,0.466250798770654,0.4208610553736755,0.431080589069817,0.430686589369631,0.5358781453934057,0.4931392664785842,0.5943037897385166,0.4848687163375224,0.5549517201222767,0.4366917201716216,0.4671248197309945,0.4078152783623822,0.4649343286402721,0.3435652668914481,0.3559691367330437,0.3057514747371121,0.322375416151017,0.362648069792409,0.3145878519317982,0.330669670621091,0.3344231314372106,0.3237944979417152,0.3169916632596832,0.3332764811490125,0.3615891784807775,0.3413943746259725,0.312202978139191,0.4440419195805192,0.3337617648658942],[0.2692998204667864,0.2172351885098743,0.2199281867145422,0.2163375224416517,0.2351885098743267,0.1552962298025135,0.1023339317773788,0.1490125673249551,0.1122082585278276,0.07540394973070018,0.1023339317773788,0.05834829443447038,0.1077199281867145,0.05834829443447038,0.2504488330341113,0.1355475763016158,0.1400359066427289,0.1597845601436266,0.1193895870736086,0.08797127468581688,0.2360861759425494,0.1463195691202873,0.1714542190305206,0.2414721723518851,0.1346499102333932,0.255834829443447,0.2091561938958707,0.1938958707360862,0.1876122082585278,0.1382405745062837,0.203770197486535,0.2145421903052065,0.1543985637342908,0.1292639138240574],[0.4228007181328546,0.3231597845601436,0.3824057450628366,0.3007181328545781,0.4308797127468582,0.2289048473967684,0.1750448833034111,0.2405745062836624,0.2064631956912029,0.1283662477558348,0.1526032315978456,0.08527827648114901,0.2064631956912029,0.09605026929982047,0.3590664272890485,0.196588868940754,0.2333931777378815,0.2549371633752244,0.236983842010772,0.1687612208258528,0.3994614003590664,0.2854578096947935,0.2953321364452424,0.3931777378815081,0.2657091561938959,0.3833034111310593,0.3662477558348294,0.3177737881508079,0.3007181328545781,0.2728904847396768,0.3563734290843806,0.3402154398563734,0.2576301615798923,0.2262118491921005],[300,242,245,241,262,173,114,166,125,84,114,65,120,65,279,151,156,178,133,98,263,163,191,269,150,285,233,216,209,154,227,239,172,144],[0.2692998204667864,0.2172351885098743,0.2199281867145422,0.2163375224416517,0.2351885098743267,0.1552962298025135,0.1023339317773788,0.1490125673249551,0.1122082585278276,0.07540394973070018,0.1023339317773788,0.05834829443447038,0.1077199281867145,0.05834829443447038,0.2504488330341113,0.1355475763016158,0.1400359066427289,0.1597845601436266,0.1193895870736086,0.08797127468581688,0.2360861759425494,0.1463195691202873,0.1714542190305206,0.2414721723518851,0.1346499102333932,0.255834829443447,0.2091561938958707,0.1938958707360862,0.1876122082585278,0.1382405745062837,0.203770197486535,0.2145421903052065,0.1543985637342908,0.1292639138240574],[0.1162114946381777,0.07594222704988574,0.118048728601865,0.06559086411237425,0.1198891857830323,0.03905089138079413,0.03167133495998375,0.03962784730974152,0.03695902323617482,0.01738603508794549,0.02195333425732235,0.009073357206630803,0.0323756079793972,0.01159874810233071,0.08047084760950077,0.03373097092980155,0.04515405367946392,0.04471408449342303,0.05298647215623579,0.0430750784047652,0.107603892357429,0.07687212529290989,0.06042565810042901,0.1044386927919187,0.06356023709987785,0.1061760070137212,0.08857885118082572,0.08569245992734867,0.07086243630116455,0.05982775125786062,0.08735564014710766,0.0880518551228207,0.04731199778242638,0.05851590174343833],[0,0.002692998204667864,0.003590664272890485,0,0.006283662477558349,0.1732495511669659,0.1921005385996409,0.2028725314183124,0.0718132854578097,0.1678635547576302,0.06283662477558348,0.04308797127468582,0.08797127468581688,0.04578096947935368,0.02872531418312388,0.2728904847396768,0.04488330341113106,0.1929982046678635,0.4389587073608617,0.2872531418312388,0.5745062836624776,0.492818671454219,0,0,0.002692998204667864,0.2235188509874327,0.6005385996409336,0.3635547576301616,0.3438061041292639,0,0,0.5287253141831239,0.1526032315978456,0.4335727109515261],[0.9855805581398229,0.9806029453403831,0.9918579976290403,0.9749485825588309,0.9908304266791959,0.9546476388426512,0.9648284477689018,0.9589827280958545,0.9655386463133411,0.9555219687045877,0.9431911173064407,0.9039964031127425,0.9488198102610852,0.9187954472617292,0.958221189897607,0.9640521299733322,0.9737335440852029,0.9577295738186393,0.9872490968888155,0.9856739029649439,0.9906180672020515,0.9905939531222288,0.9775326784675293,0.9838490116338789,0.9846354417854997,0.991544514591352,0.9909517749518493,0.9910521206388516,0.9902975833024765,0.9813224783673355,0.9855058822797282,0.9910917921895273,0.9651364856917937,0.9868780512089721],[2.060065673552239,2.058886663406501,2.053223391858691,2.05613020259501,2.054966233122589,2.054912467104502,2.056428653984741,2.058794519366927,2.057575838810065,2.0417525909029,2.058241963081294,2.057369521100648,2.060074790568454,2.057284102370433,2.059506939942912,2.052608913952296,2.056086891666496,2.055549266516773,2.049782032068119,2.050067672311331,2.051427816312636,2.044752916984967,2.059188094942363,2.056876806788572,2.05821287544001,2.039840074334144,2.051781336323482,2.049035886150438,2.043566742153337,2.052337025551929,2.055029233711671,2.047902585176587,2.058907070093776,2.054711435481778],[0.1301615798922801,0.1463195691202873,0.08527827648114901,0.1579892280071813,0.09515260323159785,0.2567324955116697,0.2100538599640934,0.2342908438061041,0.1938958707360862,0.1804308797127469,0.2764811490125673,0.3644524236983842,0.2648114901256732,0.3599640933572711,0.2414721723518851,0.1938958707360862,0.1660682226211849,0.2190305206463196,0.07540394973070018,0.08707360861759426,0.08617594254937164,0.07360861759425494,0.158886894075404,0.1427289048473968,0.118491921005386,0.06373429084380611,0.0718132854578097,0.0718132854578097,0.0718132854578097,0.1211849192100539,0.1104129263913824,0.06912028725314183,0.1992818671454219,0.09784560143626571],[0.2908438061041293,0.4470377019748654,0.2989228007181328,0.5718132854578097,0.2603231597845601,0.3402154398563735,0.3177737881508079,0.3186714542190305,0.5718132854578097,0.6095152603231597,0.4596050269299821,0.7145421903052065,0.4344703770197487,0.7163375224416517,0.440754039497307,0.4721723518850988,0.5368043087971275,0.3312387791741472,0.1283662477558348,0.3168761220825853,0.1113105924596051,0.1086175942549372,0.5646319569120287,0.3213644524236984,0.4111310592459605,0.1382405745062837,0.1113105924596051,0.1005385996409336,0.08797127468581689,0.4685816876122083,0.381508078994614,0.08527827648114905,0.3249551166965888,0.1561938958707361]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>observed<\/th>\n      <th>chao1<\/th>\n      <th>diversity_inverse_simpson<\/th>\n      <th>diversity_gini_simpson<\/th>\n      <th>diversity_shannon<\/th>\n      <th>diversity_fisher<\/th>\n      <th>diversity_coverage<\/th>\n      <th>evenness_camargo<\/th>\n      <th>evenness_pielou<\/th>\n      <th>evenness_simpson<\/th>\n      <th>evenness_evar<\/th>\n      <th>evenness_bulla<\/th>\n      <th>dominance_dbp<\/th>\n      <th>dominance_dmn<\/th>\n      <th>dominance_absolute<\/th>\n      <th>dominance_relative<\/th>\n      <th>dominance_simpson<\/th>\n      <th>dominance_core_abundance<\/th>\n      <th>dominance_gini<\/th>\n      <th>rarity_log_modulo_skewness<\/th>\n      <th>rarity_low_abundance<\/th>\n      <th>rarity_rare_abundance<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<ul>
+<li><strong>Visualization</strong></li>
+</ul>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="aplha-diversity.html#cb150-1" tabindex="-1"></a>amplicon_ps_rarefy_metadata <span class="ot">&lt;-</span> phyloseq<span class="sc">::</span><span class="fu">sample_data</span>(amplicon_ps_rarefy) <span class="sc">%&gt;%</span></span>
+<span id="cb150-2"><a href="aplha-diversity.html#cb150-2" tabindex="-1"></a>  <span class="fu">data.frame</span>()</span>
+<span id="cb150-3"><a href="aplha-diversity.html#cb150-3" tabindex="-1"></a>amplicon_ps_rarefy_alpha_v2<span class="sc">$</span>SampleID <span class="ot">&lt;-</span> <span class="fu">rownames</span>(amplicon_ps_rarefy_metadata)</span>
+<span id="cb150-4"><a href="aplha-diversity.html#cb150-4" tabindex="-1"></a>amplicon_ps_rarefy_metadata<span class="sc">$</span>SampleID <span class="ot">&lt;-</span> <span class="fu">rownames</span>(amplicon_ps_rarefy_metadata)</span>
+<span id="cb150-5"><a href="aplha-diversity.html#cb150-5" tabindex="-1"></a>dat_diversity <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(amplicon_ps_rarefy_metadata, amplicon_ps_rarefy_alpha_v2, <span class="at">by =</span> <span class="st">&quot;SampleID&quot;</span>)</span>
+<span id="cb150-6"><a href="aplha-diversity.html#cb150-6" tabindex="-1"></a>dat_diversity_v2 <span class="ot">&lt;-</span> dat_diversity[, <span class="fu">c</span>(<span class="st">&quot;SampleType&quot;</span>, <span class="st">&quot;diversity_inverse_simpson&quot;</span>, </span>
+<span id="cb150-7"><a href="aplha-diversity.html#cb150-7" tabindex="-1"></a>                                 <span class="st">&quot;diversity_gini_simpson&quot;</span>, <span class="st">&quot;diversity_shannon&quot;</span>, </span>
+<span id="cb150-8"><a href="aplha-diversity.html#cb150-8" tabindex="-1"></a>                                 <span class="st">&quot;diversity_fisher&quot;</span>, <span class="st">&quot;diversity_coverage&quot;</span>)]</span>
+<span id="cb150-9"><a href="aplha-diversity.html#cb150-9" tabindex="-1"></a></span>
+<span id="cb150-10"><a href="aplha-diversity.html#cb150-10" tabindex="-1"></a><span class="fu">colnames</span>(dat_diversity_v2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;SampleType&quot;</span>, <span class="st">&quot;Inverse Simpson&quot;</span>, <span class="st">&quot;Gini-Simpson&quot;</span>, <span class="st">&quot;Shannon&quot;</span>, <span class="st">&quot;Fisher&quot;</span>, <span class="st">&quot;Coverage&quot;</span>)</span>
+<span id="cb150-11"><a href="aplha-diversity.html#cb150-11" tabindex="-1"></a></span>
+<span id="cb150-12"><a href="aplha-diversity.html#cb150-12" tabindex="-1"></a>plotdata <span class="ot">&lt;-</span> dat_diversity_v2 <span class="sc">%&gt;%</span> </span>
+<span id="cb150-13"><a href="aplha-diversity.html#cb150-13" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">gather</span>(<span class="at">key =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">value =</span> <span class="st">&quot;Value&quot;</span>, <span class="sc">-</span>SampleType)</span>
+<span id="cb150-14"><a href="aplha-diversity.html#cb150-14" tabindex="-1"></a>groups <span class="ot">&lt;-</span> <span class="fu">unique</span>(dat_diversity_v2<span class="sc">$</span>SampleType) </span>
+<span id="cb150-15"><a href="aplha-diversity.html#cb150-15" tabindex="-1"></a>cmp_list <span class="ot">&lt;-</span> <span class="fu">combn</span>(<span class="fu">seq_along</span>(groups), <span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>, <span class="at">FUN =</span> <span class="cf">function</span>(x) {groups[x]})</span>
+<span id="cb150-16"><a href="aplha-diversity.html#cb150-16" tabindex="-1"></a>pval_sign <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb150-17"><a href="aplha-diversity.html#cb150-17" tabindex="-1"></a>  <span class="at">cutpoints =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.0001</span>, <span class="fl">0.001</span>, <span class="fl">0.01</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="dv">1</span>),</span>
+<span id="cb150-18"><a href="aplha-diversity.html#cb150-18" tabindex="-1"></a>  <span class="at">symbols =</span> <span class="fu">c</span>(<span class="st">&quot;****&quot;</span>, <span class="st">&quot;***&quot;</span>, <span class="st">&quot;**&quot;</span>, <span class="st">&quot;*&quot;</span>, <span class="st">&quot;n.s&quot;</span>)</span>
+<span id="cb150-19"><a href="aplha-diversity.html#cb150-19" tabindex="-1"></a>)</span>
+<span id="cb150-20"><a href="aplha-diversity.html#cb150-20" tabindex="-1"></a></span>
+<span id="cb150-21"><a href="aplha-diversity.html#cb150-21" tabindex="-1"></a><span class="fu">ggboxplot</span>(plotdata, </span>
+<span id="cb150-22"><a href="aplha-diversity.html#cb150-22" tabindex="-1"></a>          <span class="at">x =</span> <span class="st">&quot;SampleType&quot;</span>, </span>
+<span id="cb150-23"><a href="aplha-diversity.html#cb150-23" tabindex="-1"></a>          <span class="at">y =</span> <span class="st">&quot;Value&quot;</span>,</span>
+<span id="cb150-24"><a href="aplha-diversity.html#cb150-24" tabindex="-1"></a>          <span class="at">fill =</span> <span class="st">&quot;SampleType&quot;</span>, </span>
+<span id="cb150-25"><a href="aplha-diversity.html#cb150-25" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>, </span>
+<span id="cb150-26"><a href="aplha-diversity.html#cb150-26" tabindex="-1"></a>          <span class="at">legend=</span> <span class="st">&quot;right&quot;</span>,</span>
+<span id="cb150-27"><a href="aplha-diversity.html#cb150-27" tabindex="-1"></a>          <span class="at">facet.by =</span> <span class="st">&quot;Variable&quot;</span>, </span>
+<span id="cb150-28"><a href="aplha-diversity.html#cb150-28" tabindex="-1"></a>          <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>)<span class="sc">+</span></span>
+<span id="cb150-29"><a href="aplha-diversity.html#cb150-29" tabindex="-1"></a>  <span class="fu">rotate_x_text</span>()<span class="sc">+</span></span>
+<span id="cb150-30"><a href="aplha-diversity.html#cb150-30" tabindex="-1"></a>  <span class="fu">rremove</span>(<span class="st">&quot;x.text&quot;</span>)<span class="sc">+</span></span>
+<span id="cb150-31"><a href="aplha-diversity.html#cb150-31" tabindex="-1"></a>  <span class="fu">stat_compare_means</span>(</span>
+<span id="cb150-32"><a href="aplha-diversity.html#cb150-32" tabindex="-1"></a>  <span class="at">comparisons =</span> cmp_list,</span>
+<span id="cb150-33"><a href="aplha-diversity.html#cb150-33" tabindex="-1"></a>  <span class="at">label =</span> <span class="st">&quot;p.signif&quot;</span>,</span>
+<span id="cb150-34"><a href="aplha-diversity.html#cb150-34" tabindex="-1"></a>  <span class="at">symnum.args =</span> pval_sign)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-74"></span>
+<img src="XMAS-2.0-Tutorial_files/figure-html/unnamed-chunk-74-1.png" alt="Alpha diversity from microbiome" width="768" />
+<p class="caption">
+Figure 6.4: Alpha diversity from microbiome
+</p>
+</div>
+</div>
+</div>
+<div id="phylogenetic-diversity" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Phylogenetic diversity<a href="aplha-diversity.html#phylogenetic-diversity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Phylogenetic diversity is calculated using the picante package.</p>
+<ul>
+<li><strong>Calculation</strong></li>
+</ul>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="aplha-diversity.html#cb151-1" tabindex="-1"></a><span class="fu">library</span>(picante)</span>
+<span id="cb151-2"><a href="aplha-diversity.html#cb151-2" tabindex="-1"></a>amplicon_ps_rarefy_tab <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(amplicon_ps_rarefy<span class="sc">@</span>otu_table)</span>
+<span id="cb151-3"><a href="aplha-diversity.html#cb151-3" tabindex="-1"></a>amplicon_ps_rarefy_tree <span class="ot">&lt;-</span> amplicon_ps_rarefy<span class="sc">@</span>phy_tree</span>
+<span id="cb151-4"><a href="aplha-diversity.html#cb151-4" tabindex="-1"></a>dat_pd <span class="ot">&lt;-</span> <span class="fu">pd</span>(<span class="fu">t</span>(amplicon_ps_rarefy_tab), </span>
+<span id="cb151-5"><a href="aplha-diversity.html#cb151-5" tabindex="-1"></a>             amplicon_ps_rarefy_tree, </span>
+<span id="cb151-6"><a href="aplha-diversity.html#cb151-6" tabindex="-1"></a>             <span class="at">include.root =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb151-7"><a href="aplha-diversity.html#cb151-7" tabindex="-1"></a></span>
+<span id="cb151-8"><a href="aplha-diversity.html#cb151-8" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(dat_pd)</span></code></pre></div>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b9a3a0855c3a307236d1" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b9a3a0855c3a307236d1">{"x":{"filter":"none","vertical":false,"data":[["L1S140","L1S208","L1S8","L1S281","L3S242","L2S309","L2S357","L4S112","L2S155","L2S382","L4S63","L2S222","L3S341","L3S360","L2S204","L4S137","L3S294","L2S175","L5S203","L6S93","L6S20","L6S68","L1S257","L3S378","L1S105","L5S174","L5S155","L5S222","L5S104","L1S57","L1S76","L5S240","L3S313","L2S240"],[10.95687,13.15985,7.28409,13.47078,10.87712,24.68686,21.77435,26.13078,22.78599,21.97112,30.03251,34.46333,29.28208,32.05889,26.26564,20.60712,19.75832,23.56375,10.90434,12.57366,12.06673,10.49032,13.09457,12.70959,11.72443,10.04502,9.141019999999999,10.576,11.73492,10.77197,11.04506,11.16986,22.24153,11.84624],[161,183,112,212,120,296,256,287,252,253,337,442,321,408,296,245,210,286,124,132,113,104,200,174,154,96,100,102,101,175,151,103,253,133]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>PD<\/th>\n      <th>SR<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<ul>
+<li><strong>Visualization</strong></li>
+</ul>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="aplha-diversity.html#cb152-1" tabindex="-1"></a>amplicon_ps_rarefy_metadata<span class="sc">$</span>Phylogenetic_Diversity <span class="ot">&lt;-</span> dat_pd<span class="sc">$</span>PD</span>
+<span id="cb152-2"><a href="aplha-diversity.html#cb152-2" tabindex="-1"></a></span>
+<span id="cb152-3"><a href="aplha-diversity.html#cb152-3" tabindex="-1"></a><span class="fu">ggboxplot</span>(amplicon_ps_rarefy_metadata,</span>
+<span id="cb152-4"><a href="aplha-diversity.html#cb152-4" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;SampleType&quot;</span>,</span>
+<span id="cb152-5"><a href="aplha-diversity.html#cb152-5" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Phylogenetic_Diversity&quot;</span>,</span>
+<span id="cb152-6"><a href="aplha-diversity.html#cb152-6" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;SampleType&quot;</span>,</span>
+<span id="cb152-7"><a href="aplha-diversity.html#cb152-7" tabindex="-1"></a>    <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb152-8"><a href="aplha-diversity.html#cb152-8" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">&quot;Phylogenetic Diversity&quot;</span>,</span>
+<span id="cb152-9"><a href="aplha-diversity.html#cb152-9" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">&quot;Sample Type&quot;</span>,</span>
+<span id="cb152-10"><a href="aplha-diversity.html#cb152-10" tabindex="-1"></a>    <span class="at">legend =</span> <span class="st">&quot;right&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb152-11"><a href="aplha-diversity.html#cb152-11" tabindex="-1"></a>  <span class="fu">rotate_x_text</span>()<span class="sc">+</span></span>
+<span id="cb152-12"><a href="aplha-diversity.html#cb152-12" tabindex="-1"></a>  <span class="fu">stat_compare_means</span>(</span>
+<span id="cb152-13"><a href="aplha-diversity.html#cb152-13" tabindex="-1"></a>    <span class="at">comparisons =</span> cmp_list,</span>
+<span id="cb152-14"><a href="aplha-diversity.html#cb152-14" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">&quot;p.signif&quot;</span>,</span>
+<span id="cb152-15"><a href="aplha-diversity.html#cb152-15" tabindex="-1"></a>    <span class="at">symnum.args =</span> pval_sign)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-76"></span>
+<img src="XMAS-2.0-Tutorial_files/figure-html/unnamed-chunk-76-1.png" alt="Alpha diversity from picante(Phylogenetic diversity)" width="672" />
+<p class="caption">
+Figure 6.5: Alpha diversity from picante(Phylogenetic diversity)
+</p>
+</div>
+<p><strong>Cautions</strong>:</p>
+<blockquote>
+<p>There are arguments both for and against the use of rarefying to equal library size.
+The application of normalization method will depend on the type of research question. It is always good to check if there is a correlation between increasing library sizes and richness. Observed ASVs and Phylogenetic diversity can be affected by library sizes. It is always good to check for this before making a choice.</p>
+</blockquote>
+<ul>
+<li>Calculation</li>
+</ul>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="aplha-diversity.html#cb153-1" tabindex="-1"></a>lib.div <span class="ot">&lt;-</span> microbiome<span class="sc">::</span><span class="fu">alpha</span>(amplicon_ps, <span class="at">index =</span> <span class="st">&quot;all&quot;</span>)</span>
+<span id="cb153-2"><a href="aplha-diversity.html#cb153-2" tabindex="-1"></a>lib.div2 <span class="ot">&lt;-</span> microbiome<span class="sc">::</span><span class="fu">richness</span>(amplicon_ps)</span>
+<span id="cb153-3"><a href="aplha-diversity.html#cb153-3" tabindex="-1"></a>lib.div<span class="sc">$</span>ReadsPerSample <span class="ot">&lt;-</span> <span class="fu">sample_sums</span>(amplicon_ps)</span>
+<span id="cb153-4"><a href="aplha-diversity.html#cb153-4" tabindex="-1"></a>lib.div<span class="sc">$</span>Observed <span class="ot">&lt;-</span> lib.div2<span class="sc">$</span>observed</span>
+<span id="cb153-5"><a href="aplha-diversity.html#cb153-5" tabindex="-1"></a></span>
+<span id="cb153-6"><a href="aplha-diversity.html#cb153-6" tabindex="-1"></a><span class="fu">colnames</span>(lib.div)</span></code></pre></div>
+<pre><code>##  [1] &quot;observed&quot;                   &quot;chao1&quot;                      &quot;diversity_inverse_simpson&quot;  &quot;diversity_gini_simpson&quot;    
+##  [5] &quot;diversity_shannon&quot;          &quot;diversity_fisher&quot;           &quot;diversity_coverage&quot;         &quot;evenness_camargo&quot;          
+##  [9] &quot;evenness_pielou&quot;            &quot;evenness_simpson&quot;           &quot;evenness_evar&quot;              &quot;evenness_bulla&quot;            
+## [13] &quot;dominance_dbp&quot;              &quot;dominance_dmn&quot;              &quot;dominance_absolute&quot;         &quot;dominance_relative&quot;        
+## [17] &quot;dominance_simpson&quot;          &quot;dominance_core_abundance&quot;   &quot;dominance_gini&quot;             &quot;rarity_log_modulo_skewness&quot;
+## [21] &quot;rarity_low_abundance&quot;       &quot;rarity_rare_abundance&quot;      &quot;ReadsPerSample&quot;             &quot;Observed&quot;</code></pre>
+<ul>
+<li>scatterplot</li>
+</ul>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="aplha-diversity.html#cb155-1" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggscatter</span>(lib.div, <span class="st">&quot;diversity_shannon&quot;</span>, <span class="st">&quot;ReadsPerSample&quot;</span>)<span class="sc">+</span></span>
+<span id="cb155-2"><a href="aplha-diversity.html#cb155-2" tabindex="-1"></a>  <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span>
+<span id="cb155-3"><a href="aplha-diversity.html#cb155-3" tabindex="-1"></a></span>
+<span id="cb155-4"><a href="aplha-diversity.html#cb155-4" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggscatter</span>(lib.div, <span class="st">&quot;diversity_inverse_simpson&quot;</span>, <span class="st">&quot;ReadsPerSample&quot;</span>,<span class="at">dd =</span> <span class="st">&quot;loess&quot;</span>)<span class="sc">+</span></span>
+<span id="cb155-5"><a href="aplha-diversity.html#cb155-5" tabindex="-1"></a>  <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span>
+<span id="cb155-6"><a href="aplha-diversity.html#cb155-6" tabindex="-1"></a></span>
+<span id="cb155-7"><a href="aplha-diversity.html#cb155-7" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggscatter</span>(lib.div, <span class="st">&quot;Observed&quot;</span>, <span class="st">&quot;ReadsPerSample&quot;</span>, <span class="at">add =</span> <span class="st">&quot;loess&quot;</span>) <span class="sc">+</span></span>
+<span id="cb155-8"><a href="aplha-diversity.html#cb155-8" tabindex="-1"></a>  <span class="fu">stat_cor</span>(</span>
+<span id="cb155-9"><a href="aplha-diversity.html#cb155-9" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>,</span>
+<span id="cb155-10"><a href="aplha-diversity.html#cb155-10" tabindex="-1"></a>    <span class="at">label.x =</span> <span class="dv">100</span>,</span>
+<span id="cb155-11"><a href="aplha-diversity.html#cb155-11" tabindex="-1"></a>    <span class="at">label.y =</span> <span class="dv">50000</span></span>
+<span id="cb155-12"><a href="aplha-diversity.html#cb155-12" tabindex="-1"></a>  )</span>
+<span id="cb155-13"><a href="aplha-diversity.html#cb155-13" tabindex="-1"></a></span>
+<span id="cb155-14"><a href="aplha-diversity.html#cb155-14" tabindex="-1"></a><span class="fu">ggarrange</span>(p1, p2, p3, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-78"></span>
+<img src="XMAS-2.0-Tutorial_files/figure-html/unnamed-chunk-78-1.png" alt="Correlation between increasing library sizes and richness" width="768" />
+<p class="caption">
+Figure 6.6: Correlation between increasing library sizes and richness
+</p>
+</div>
+</div>
+<div id="rank-abundance" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Rank Abundance<a href="aplha-diversity.html#rank-abundance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A rank abundance curve is a chart used by ecologists to display relative species abundance, a component of biodiversity. It can also be used to visualize species richness and species evenness. It overcomes the shortcomings of biodiversity indices that cannot display the relative role different variables played in their calculation.
+The curve is a 2D chart with relative abundance on the Y-axis and the abundance rank on the X-axis.</p>
+<ul>
+<li>X-axis: The abundance rank. The most abundant species is given rank 1, the second most abundant is 2 and so on.</li>
+<li>Y-axis: The relative abundance. Usually measured on a log scale, this is a measure of a species abundance (e.g., the number of individuals) relative to the abundance of other species.</li>
+</ul>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="aplha-diversity.html#cb156-1" tabindex="-1"></a><span class="fu">plot_RankAbundance</span>(</span>
+<span id="cb156-2"><a href="aplha-diversity.html#cb156-2" tabindex="-1"></a>        <span class="at">ps =</span> dada2_ps_remove_BRS,</span>
+<span id="cb156-3"><a href="aplha-diversity.html#cb156-3" tabindex="-1"></a>        <span class="at">taxa_level =</span> <span class="st">&quot;Family&quot;</span>,</span>
+<span id="cb156-4"><a href="aplha-diversity.html#cb156-4" tabindex="-1"></a>        <span class="at">group =</span> <span class="st">&quot;Group&quot;</span>,</span>
+<span id="cb156-5"><a href="aplha-diversity.html#cb156-5" tabindex="-1"></a>        <span class="at">group_names =</span> <span class="fu">c</span>(<span class="st">&quot;AA&quot;</span>, <span class="st">&quot;BB&quot;</span>))</span></code></pre></div>
+<pre><code>## Successfully executed the call.</code></pre>
+<pre><code>## All done, quitting.</code></pre>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-79"></span>
+<img src="XMAS-2.0-Tutorial_files/figure-html/unnamed-chunk-79-1.png" alt="Rank Abundance" width="480" />
+<p class="caption">
+Figure 6.7: Rank Abundance
+</p>
+</div>
+<p><strong>Results</strong>:</p>
+<ol style="list-style-type: decimal">
+<li><p>From the horizontal level (Family rank), the higher degree of width means the higher degree of <strong>Family richness</strong>;</p></li>
+<li><p>From the vertical level (Relative abundance), the slope of the line reflects the <strong>Family evenness</strong>.</p></li>
+</ol>
+</div>
+<div id="evenness" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Evenness<a href="aplha-diversity.html#evenness" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>pielou</strong>: Pielou’s evenness (Pielou, 1966), also known as Shannon or Shannon-Weaver/Wiener/Weiner evenness.</p>
+<p><span class="math display">\[Pielou_{evenness} = \frac{Shannon}{log(Observed)}\]</span></p>
+<ul>
+<li>Calculation</li>
+</ul>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="aplha-diversity.html#cb159-1" tabindex="-1"></a>amplicon_ps_rarefy_Evenness<span class="ot">&lt;-</span> <span class="fu">run_alpha_diversity</span>(<span class="at">ps =</span> amplicon_ps_rarefy, </span>
+<span id="cb159-2"><a href="aplha-diversity.html#cb159-2" tabindex="-1"></a>                                                <span class="at">measures =</span> <span class="st">&quot;Evenness&quot;</span>) </span>
+<span id="cb159-3"><a href="aplha-diversity.html#cb159-3" tabindex="-1"></a><span class="fu">head</span>(amplicon_ps_rarefy_Evenness)</span></code></pre></div>
+<pre><code>##   TempRowNames SampleType Year Month Day Subject ReportedAntibioticUsage DaysSinceExperimentStart         Description  Evenness
+## 1       L1S140        gut 2008    10  28       2                     Yes                        0   2_Fece_10_28_2008 0.9484708
+## 2       L1S208        gut 2009     1  20       2                      No                       84    2_Fece_1_20_2009 0.8954443
+## 3         L1S8        gut 2008    10  28       1                     Yes                        0   1_Fece_10_28_2008 0.9130219
+## 4       L1S281        gut 2009     4  14       2                      No                      168    2_Fece_4_14_2009 0.8951243
+## 5       L3S242 right palm 2008    10  28       1                     Yes                        0 1_R_Palm_10_28_2008 0.9710459
+## 6       L2S309  left palm 2009     1  20       2                      No                       84  2_L_Palm_1_20_2009 0.8381918</code></pre>
+<ul>
+<li>visualization</li>
+</ul>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="aplha-diversity.html#cb161-1" tabindex="-1"></a><span class="fu">plot_boxplot</span>(<span class="at">data =</span> amplicon_ps_rarefy_Evenness,</span>
+<span id="cb161-2"><a href="aplha-diversity.html#cb161-2" tabindex="-1"></a>             <span class="at">y_index =</span> <span class="st">&quot;Evenness&quot;</span>,</span>
+<span id="cb161-3"><a href="aplha-diversity.html#cb161-3" tabindex="-1"></a>             <span class="at">group =</span> <span class="st">&quot;SampleType&quot;</span>,</span>
+<span id="cb161-4"><a href="aplha-diversity.html#cb161-4" tabindex="-1"></a>             <span class="at">group_names =</span> <span class="cn">NULL</span>,</span>
+<span id="cb161-5"><a href="aplha-diversity.html#cb161-5" tabindex="-1"></a>             <span class="at">group_color =</span> <span class="cn">NULL</span>,</span>
+<span id="cb161-6"><a href="aplha-diversity.html#cb161-6" tabindex="-1"></a>             <span class="at">do_test =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb161-7"><a href="aplha-diversity.html#cb161-7" tabindex="-1"></a>             <span class="at">ref_group =</span> <span class="cn">NULL</span>,</span>
+<span id="cb161-8"><a href="aplha-diversity.html#cb161-8" tabindex="-1"></a>             <span class="at">method =</span> <span class="st">&quot;wilcox.test&quot;</span>,</span>
+<span id="cb161-9"><a href="aplha-diversity.html#cb161-9" tabindex="-1"></a>             <span class="at">outlier =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb161-10"><a href="aplha-diversity.html#cb161-10" tabindex="-1"></a>             <span class="at">group_number =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-81"></span>
+<img src="XMAS-2.0-Tutorial_files/figure-html/unnamed-chunk-81-1.png" alt="Evenness" width="576" />
+<p class="caption">
+Figure 6.8: Evenness
+</p>
+</div>
+</div>
+<div id="systematic-information-3" class="section level2 hasAnchor" number="6.8">
+<h2><span class="header-section-number">6.8</span> Systematic Information<a href="aplha-diversity.html#systematic-information-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="aplha-diversity.html#cb162-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
+<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  setting  value
+##  version  R version 4.1.3 (2022-03-10)
+##  os       macOS Monterey 12.2.1
+##  system   x86_64, darwin17.0
+##  ui       RStudio
+##  language (EN)
+##  collate  en_US.UTF-8
+##  ctype    en_US.UTF-8
+##  tz       Asia/Shanghai
+##  date     2023-11-30
+##  rstudio  2023.09.0+463 Desert Sunflower (desktop)
+##  pandoc   3.1.1 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/ (via rmarkdown)
+## 
+## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  package              * version   date (UTC) lib source
+##  abind                  1.4-5     2016-07-21 [2] CRAN (R 4.1.0)
+##  ade4                   1.7-22    2023-02-06 [2] CRAN (R 4.1.2)
+##  annotate               1.72.0    2021-10-26 [2] Bioconductor
+##  AnnotationDbi          1.60.2    2023-03-10 [2] Bioconductor
+##  ape                  * 5.7-1     2023-03-13 [2] CRAN (R 4.1.2)
+##  backports              1.4.1     2021-12-13 [2] CRAN (R 4.1.0)
+##  base64enc              0.1-3     2015-07-28 [2] CRAN (R 4.1.0)
+##  Biobase                2.54.0    2021-10-26 [2] Bioconductor
+##  BiocGenerics           0.40.0    2021-10-26 [2] Bioconductor
+##  BiocParallel           1.28.3    2021-12-09 [2] Bioconductor
+##  biomformat             1.22.0    2021-10-26 [2] Bioconductor
+##  Biostrings             2.62.0    2021-10-26 [2] Bioconductor
+##  bit                    4.0.5     2022-11-15 [2] CRAN (R 4.1.2)
+##  bit64                  4.0.5     2020-08-30 [2] CRAN (R 4.1.0)
+##  bitops                 1.0-7     2021-04-24 [2] CRAN (R 4.1.0)
+##  blob                   1.2.4     2023-03-17 [2] CRAN (R 4.1.2)
+##  bookdown               0.34      2023-05-09 [2] CRAN (R 4.1.2)
+##  broom                  1.0.5     2023-06-09 [2] CRAN (R 4.1.3)
+##  bslib                  0.6.0     2023-11-21 [1] CRAN (R 4.1.3)
+##  cachem                 1.0.8     2023-05-01 [2] CRAN (R 4.1.2)
+##  callr                  3.7.3     2022-11-02 [2] CRAN (R 4.1.2)
+##  car                    3.1-2     2023-03-30 [2] CRAN (R 4.1.2)
+##  carData                3.0-5     2022-01-06 [2] CRAN (R 4.1.2)
+##  caTools                1.18.2    2021-03-28 [2] CRAN (R 4.1.0)
+##  checkmate              2.2.0     2023-04-27 [2] CRAN (R 4.1.2)
+##  cli                    3.6.1     2023-03-23 [2] CRAN (R 4.1.2)
+##  cluster                2.1.4     2022-08-22 [2] CRAN (R 4.1.2)
+##  coda                   0.19-4    2020-09-30 [2] CRAN (R 4.1.0)
+##  codetools              0.2-19    2023-02-01 [2] CRAN (R 4.1.2)
+##  coin                   1.4-2     2021-10-08 [2] CRAN (R 4.1.0)
+##  colorspace             2.1-0     2023-01-23 [2] CRAN (R 4.1.2)
+##  conflicted           * 1.2.0     2023-02-01 [2] CRAN (R 4.1.2)
+##  cowplot                1.1.1     2020-12-30 [2] CRAN (R 4.1.0)
+##  crayon                 1.5.2     2022-09-29 [2] CRAN (R 4.1.2)
+##  crosstalk              1.2.0     2021-11-04 [2] CRAN (R 4.1.0)
+##  data.table             1.14.8    2023-02-17 [2] CRAN (R 4.1.2)
+##  DBI                    1.1.3     2022-06-18 [2] CRAN (R 4.1.2)
+##  DelayedArray           0.20.0    2021-10-26 [2] Bioconductor
+##  DESeq2                 1.34.0    2021-10-26 [2] Bioconductor
+##  devtools               2.4.5     2022-10-11 [2] CRAN (R 4.1.2)
+##  digest                 0.6.33    2023-07-07 [1] CRAN (R 4.1.3)
+##  dplyr                * 1.1.2     2023-04-20 [2] CRAN (R 4.1.2)
+##  DT                     0.28      2023-05-18 [2] CRAN (R 4.1.3)
+##  edgeR                  3.36.0    2021-10-26 [2] Bioconductor
+##  ellipsis               0.3.2     2021-04-29 [2] CRAN (R 4.1.0)
+##  emmeans                1.8.7     2023-06-23 [1] CRAN (R 4.1.3)
+##  estimability           1.4.1     2022-08-05 [2] CRAN (R 4.1.2)
+##  evaluate               0.21      2023-05-05 [2] CRAN (R 4.1.2)
+##  FactoMineR             2.8       2023-03-27 [2] CRAN (R 4.1.2)
+##  fansi                  1.0.4     2023-01-22 [2] CRAN (R 4.1.2)
+##  farver                 2.1.1     2022-07-06 [2] CRAN (R 4.1.2)
+##  fastmap                1.1.1     2023-02-24 [2] CRAN (R 4.1.2)
+##  flashClust             1.01-2    2012-08-21 [2] CRAN (R 4.1.0)
+##  foreach                1.5.2     2022-02-02 [2] CRAN (R 4.1.2)
+##  foreign                0.8-84    2022-12-06 [2] CRAN (R 4.1.2)
+##  Formula                1.2-5     2023-02-24 [2] CRAN (R 4.1.2)
+##  fs                     1.6.2     2023-04-25 [2] CRAN (R 4.1.2)
+##  genefilter             1.76.0    2021-10-26 [2] Bioconductor
+##  geneplotter            1.72.0    2021-10-26 [2] Bioconductor
+##  generics               0.1.3     2022-07-05 [2] CRAN (R 4.1.2)
+##  GenomeInfoDb           1.30.1    2022-01-30 [2] Bioconductor
+##  GenomeInfoDbData       1.2.7     2022-03-09 [2] Bioconductor
+##  GenomicRanges          1.46.1    2021-11-18 [2] Bioconductor
+##  ggplot2              * 3.4.2     2023-04-03 [2] CRAN (R 4.1.2)
+##  ggpubr               * 0.6.0     2023-02-10 [2] CRAN (R 4.1.2)
+##  ggrepel                0.9.3     2023-02-03 [2] CRAN (R 4.1.2)
+##  ggsci                  3.0.0     2023-03-08 [2] CRAN (R 4.1.2)
+##  ggsignif               0.6.4     2022-10-13 [2] CRAN (R 4.1.2)
+##  glmnet                 4.1-7     2023-03-23 [2] CRAN (R 4.1.2)
+##  glue                   1.6.2     2022-02-24 [2] CRAN (R 4.1.2)
+##  gplots                 3.1.3     2022-04-25 [2] CRAN (R 4.1.2)
+##  gridExtra              2.3       2017-09-09 [2] CRAN (R 4.1.0)
+##  gtable                 0.3.3     2023-03-21 [2] CRAN (R 4.1.2)
+##  gtools                 3.9.4     2022-11-27 [2] CRAN (R 4.1.2)
+##  highr                  0.10      2022-12-22 [2] CRAN (R 4.1.2)
+##  Hmisc                  5.1-0     2023-05-08 [2] CRAN (R 4.1.2)
+##  htmlTable              2.4.1     2022-07-07 [2] CRAN (R 4.1.2)
+##  htmltools              0.5.7     2023-11-03 [1] CRAN (R 4.1.3)
+##  htmlwidgets            1.6.2     2023-03-17 [2] CRAN (R 4.1.2)
+##  httpuv                 1.6.11    2023-05-11 [2] CRAN (R 4.1.3)
+##  httr                   1.4.6     2023-05-08 [2] CRAN (R 4.1.2)
+##  igraph                 1.5.0     2023-06-16 [1] CRAN (R 4.1.3)
+##  IRanges                2.28.0    2021-10-26 [2] Bioconductor
+##  iterators              1.0.14    2022-02-05 [2] CRAN (R 4.1.2)
+##  jquerylib              0.1.4     2021-04-26 [2] CRAN (R 4.1.0)
+##  jsonlite               1.8.7     2023-06-29 [2] CRAN (R 4.1.3)
+##  kableExtra             1.3.4     2021-02-20 [2] CRAN (R 4.1.2)
+##  KEGGREST               1.34.0    2021-10-26 [2] Bioconductor
+##  KernSmooth             2.23-22   2023-07-10 [2] CRAN (R 4.1.3)
+##  knitr                  1.43      2023-05-25 [2] CRAN (R 4.1.3)
+##  labeling               0.4.2     2020-10-20 [2] CRAN (R 4.1.0)
+##  later                  1.3.1     2023-05-02 [2] CRAN (R 4.1.2)
+##  lattice              * 0.21-8    2023-04-05 [2] CRAN (R 4.1.2)
+##  leaps                  3.1       2020-01-16 [2] CRAN (R 4.1.0)
+##  libcoin                1.0-9     2021-09-27 [2] CRAN (R 4.1.0)
+##  lifecycle              1.0.3     2022-10-07 [2] CRAN (R 4.1.2)
+##  limma                  3.50.3    2022-04-07 [2] Bioconductor
+##  locfit                 1.5-9.8   2023-06-11 [2] CRAN (R 4.1.3)
+##  magrittr               2.0.3     2022-03-30 [2] CRAN (R 4.1.2)
+##  MASS                   7.3-60    2023-05-04 [2] CRAN (R 4.1.2)
+##  Matrix                 1.6-0     2023-07-08 [2] CRAN (R 4.1.3)
+##  MatrixGenerics         1.6.0     2021-10-26 [2] Bioconductor
+##  matrixStats            1.0.0     2023-06-02 [2] CRAN (R 4.1.3)
+##  memoise                2.0.1     2021-11-26 [2] CRAN (R 4.1.0)
+##  metagenomeSeq          1.36.0    2021-10-26 [2] Bioconductor
+##  mgcv                   1.8-42    2023-03-02 [2] CRAN (R 4.1.2)
+##  microbiome             1.16.0    2021-10-26 [2] Bioconductor
+##  mime                   0.12      2021-09-28 [2] CRAN (R 4.1.0)
+##  miniUI                 0.1.1.1   2018-05-18 [2] CRAN (R 4.1.0)
+##  modeltools             0.2-23    2020-03-05 [2] CRAN (R 4.1.0)
+##  multcomp               1.4-25    2023-06-20 [2] CRAN (R 4.1.3)
+##  multcompView           0.1-9     2023-04-09 [2] CRAN (R 4.1.2)
+##  multtest               2.50.0    2021-10-26 [2] Bioconductor
+##  munsell                0.5.0     2018-06-12 [2] CRAN (R 4.1.0)
+##  mvtnorm                1.2-2     2023-06-08 [2] CRAN (R 4.1.3)
+##  nlme                 * 3.1-162   2023-01-31 [2] CRAN (R 4.1.2)
+##  nnet                   7.3-19    2023-05-03 [2] CRAN (R 4.1.2)
+##  permute              * 0.9-7     2022-01-27 [2] CRAN (R 4.1.2)
+##  phyloseq             * 1.38.0    2021-10-26 [2] Bioconductor
+##  picante              * 1.8.2     2020-06-10 [2] CRAN (R 4.1.0)
+##  pillar                 1.9.0     2023-03-22 [2] CRAN (R 4.1.2)
+##  pkgbuild               1.4.2     2023-06-26 [2] CRAN (R 4.1.3)
+##  pkgconfig              2.0.3     2019-09-22 [2] CRAN (R 4.1.0)
+##  pkgload                1.3.2.1   2023-07-08 [2] CRAN (R 4.1.3)
+##  plyr                   1.8.8     2022-11-11 [2] CRAN (R 4.1.2)
+##  png                    0.1-8     2022-11-29 [2] CRAN (R 4.1.2)
+##  prettyunits            1.1.1     2020-01-24 [2] CRAN (R 4.1.0)
+##  processx               3.8.2     2023-06-30 [2] CRAN (R 4.1.3)
+##  profvis                0.3.8     2023-05-02 [2] CRAN (R 4.1.2)
+##  promises               1.2.0.1   2021-02-11 [2] CRAN (R 4.1.0)
+##  ps                     1.7.5     2023-04-18 [2] CRAN (R 4.1.2)
+##  purrr                  1.0.1     2023-01-10 [2] CRAN (R 4.1.2)
+##  R6                     2.5.1     2021-08-19 [2] CRAN (R 4.1.0)
+##  RColorBrewer           1.1-3     2022-04-03 [2] CRAN (R 4.1.2)
+##  Rcpp                   1.0.11    2023-07-06 [1] CRAN (R 4.1.3)
+##  RCurl                  1.98-1.12 2023-03-27 [2] CRAN (R 4.1.2)
+##  remotes                2.4.2     2021-11-30 [2] CRAN (R 4.1.0)
+##  reshape2               1.4.4     2020-04-09 [2] CRAN (R 4.1.0)
+##  rhdf5                  2.38.1    2022-03-10 [2] Bioconductor
+##  rhdf5filters           1.6.0     2021-10-26 [2] Bioconductor
+##  Rhdf5lib               1.16.0    2021-10-26 [2] Bioconductor
+##  rlang                  1.1.1     2023-04-28 [1] CRAN (R 4.1.2)
+##  rmarkdown              2.23      2023-07-01 [2] CRAN (R 4.1.3)
+##  rpart                  4.1.19    2022-10-21 [2] CRAN (R 4.1.2)
+##  RSQLite                2.3.1     2023-04-03 [2] CRAN (R 4.1.2)
+##  rstatix                0.7.2     2023-02-01 [2] CRAN (R 4.1.2)
+##  rstudioapi             0.15.0    2023-07-07 [2] CRAN (R 4.1.3)
+##  Rtsne                  0.16      2022-04-17 [2] CRAN (R 4.1.2)
+##  rvest                  1.0.3     2022-08-19 [2] CRAN (R 4.1.2)
+##  S4Vectors              0.32.4    2022-03-29 [2] Bioconductor
+##  sandwich               3.0-2     2022-06-15 [2] CRAN (R 4.1.2)
+##  sass                   0.4.6     2023-05-03 [2] CRAN (R 4.1.2)
+##  scales                 1.2.1     2022-08-20 [2] CRAN (R 4.1.2)
+##  scatterplot3d          0.3-44    2023-05-05 [2] CRAN (R 4.1.2)
+##  sessioninfo            1.2.2     2021-12-06 [2] CRAN (R 4.1.0)
+##  shape                  1.4.6     2021-05-19 [2] CRAN (R 4.1.0)
+##  shiny                  1.7.4.1   2023-07-06 [2] CRAN (R 4.1.3)
+##  stringi                1.7.12    2023-01-11 [2] CRAN (R 4.1.2)
+##  stringr                1.5.0     2022-12-02 [2] CRAN (R 4.1.2)
+##  SummarizedExperiment   1.24.0    2021-10-26 [2] Bioconductor
+##  survival               3.5-5     2023-03-12 [2] CRAN (R 4.1.2)
+##  svglite                2.1.1     2023-01-10 [2] CRAN (R 4.1.2)
+##  systemfonts            1.0.4     2022-02-11 [2] CRAN (R 4.1.2)
+##  TH.data                1.1-2     2023-04-17 [2] CRAN (R 4.1.2)
+##  tibble               * 3.2.1     2023-03-20 [2] CRAN (R 4.1.2)
+##  tidyr                  1.3.0     2023-01-24 [2] CRAN (R 4.1.2)
+##  tidyselect             1.2.0     2022-10-10 [2] CRAN (R 4.1.2)
+##  urlchecker             1.0.1     2021-11-30 [2] CRAN (R 4.1.0)
+##  usethis                2.2.2     2023-07-06 [2] CRAN (R 4.1.3)
+##  utf8                   1.2.3     2023-01-31 [2] CRAN (R 4.1.2)
+##  vctrs                  0.6.3     2023-06-14 [1] CRAN (R 4.1.3)
+##  vegan                * 2.6-4     2022-10-11 [2] CRAN (R 4.1.2)
+##  viridisLite            0.4.2     2023-05-02 [2] CRAN (R 4.1.2)
+##  webshot                0.5.5     2023-06-26 [2] CRAN (R 4.1.3)
+##  withr                  2.5.0     2022-03-03 [2] CRAN (R 4.1.2)
+##  Wrench                 1.12.0    2021-10-26 [2] Bioconductor
+##  xfun                   0.40      2023-08-09 [1] CRAN (R 4.1.3)
+##  XMAS2                * 2.2.0     2023-11-30 [1] local
+##  XML                    3.99-0.14 2023-03-19 [2] CRAN (R 4.1.2)
+##  xml2                   1.3.5     2023-07-06 [2] CRAN (R 4.1.3)
+##  xtable                 1.8-4     2019-04-21 [2] CRAN (R 4.1.0)
+##  XVector                0.34.0    2021-10-26 [2] Bioconductor
+##  yaml                   2.3.7     2023-01-23 [2] CRAN (R 4.1.2)
+##  zlibbioc               1.40.0    2021-10-26 [2] Bioconductor
+##  zoo                    1.8-12    2023-04-13 [2] CRAN (R 4.1.2)
+## 
+##  [1] /Users/zouhua/Library/R/x86_64/4.1/library
+##  [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library
+## 
+## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Sudarshan2020Microbial" class="csl-entry">
+A, Shetty Sudarshan, Lahti Leo, Hermes Gerben DA, and Hauke Smidt. 2020. <em>Microbial Bioinformatics Introductory Course Material 2018 (Version V3.0)</em>. Vol. 100. Zenodo.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="pre-processing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="beta-diversity.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/XbiomeAnalysis/XMAS_tutorial/blob/main/05-Alpha-Diversity.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["XMAS 2.0 Tutorial.pdf", "XMAS 2.0 Tutorial.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_depth": 3
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

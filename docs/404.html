@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Data Analysis in Metabolomics</title>
-  <meta name="description" content="A template for Data Analysis in Metabolomics" />
+  <title>Page not found | XMAS 2.0 Tutorial</title>
+  <meta name="description" content="A tutorial of XMAS 2.0 package for in-house training" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Data Analysis in Metabolomics" />
+  <meta property="og:title" content="Page not found | XMAS 2.0 Tutorial" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="A template for Data Analysis in Metabolomics" />
+  <meta property="og:description" content="A tutorial of XMAS 2.0 package for in-house training" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Data Analysis in Metabolomics" />
+  <meta name="twitter:title" content="Page not found | XMAS 2.0 Tutorial" />
   
-  <meta name="twitter:description" content="A template for Data Analysis in Metabolomics" />
+  <meta name="twitter:description" content="A tutorial of XMAS 2.0 package for in-house training" />
   
 
-<meta name="author" content="Hua Zou and Bangzhuo Tong" />
+<meta name="author" content="Hua Zou" />
 
 
-<meta name="date" content="2023-11-27" />
+<meta name="date" content="2023-11-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,16 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.28/datatables.js"></script>
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -159,198 +169,384 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Data Analysis in Metabolomics</a></li>
+<li><a href="./">XMAS 2.0 Tutorial</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-is-metabolomics"><i class="fa fa-check"></i><b>1.1</b> What is metabolomics?</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#workflow-of-metabolomics-data-analysis"><i class="fa fa-check"></i><b>1.2</b> Workflow of metabolomics data analysis</a>
-<ul>
-<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#statistical-analysis"><i class="fa fa-check"></i><b>1.2.1</b> Statistical Analysis</a></li>
-<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#functional-analysis"><i class="fa fa-check"></i><b>1.2.2</b> Functional Analysis</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview-of-the-design-of-xmas"><i class="fa fa-check"></i><b>1.1</b> Overview of the design of <strong>XMAS</strong></a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#input-data"><i class="fa fa-check"></i><b>1.2</b> Input data</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#methods"><i class="fa fa-check"></i><b>1.3</b> Methods</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#outline-of-this-tutorial"><i class="fa fa-check"></i><b>1.4</b> Outline of this Tutorial</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#key-publications"><i class="fa fa-check"></i><b>1.5</b> Key publications</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.6</b> Citation</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#change-log"><i class="fa fa-check"></i><b>1.7</b> Change log</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#software"><i class="fa fa-check"></i><b>1.3</b> Software</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#reference"><i class="fa fa-check"></i><b>1.4</b> Reference</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data Processing</a>
+<li class="chapter" data-level="2" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html"><i class="fa fa-check"></i><b>2</b> How to install XMAS</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#loading-packages"><i class="fa fa-check"></i><b>2.1</b> Loading packages</a></li>
-<li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#importing-data"><i class="fa fa-check"></i><b>2.2</b> Importing data</a></li>
-<li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#data-checking"><i class="fa fa-check"></i><b>2.3</b> Data Checking</a></li>
-<li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#missing-value-imputation"><i class="fa fa-check"></i><b>2.4</b> Missing value imputation</a></li>
-<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#data-filtering"><i class="fa fa-check"></i><b>2.5</b> Data Filtering</a></li>
-<li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#data-normalization"><i class="fa fa-check"></i><b>2.6</b> Data Normalization</a>
+<li class="chapter" data-level="2.1" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#description"><i class="fa fa-check"></i><b>2.1</b> Description</a></li>
+<li class="chapter" data-level="2.2" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation-of-dependencies"><i class="fa fa-check"></i><b>2.2</b> Installation of dependencies</a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="data-processing.html"><a href="data-processing.html#normalization-by-normalizedata-function"><i class="fa fa-check"></i><b>2.6.1</b> Normalization by <strong>NormalizeData</strong> function</a></li>
-<li class="chapter" data-level="2.6.2" data-path="data-processing.html"><a href="data-processing.html#normalization-by-poma-r-package"><i class="fa fa-check"></i><b>2.6.2</b> Normalization by <strong>POMA</strong> R package</a></li>
-<li class="chapter" data-level="2.6.3" data-path="data-processing.html"><a href="data-processing.html#comparison-of-unnormalized-and-normalized-dataset"><i class="fa fa-check"></i><b>2.6.3</b> Comparison of unnormalized and normalized dataset</a></li>
+<li class="chapter" data-level="2.2.1" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#packages-in-cran-bioconductor"><i class="fa fa-check"></i><b>2.2.1</b> Packages in CRAN &amp; Bioconductor</a></li>
+<li class="chapter" data-level="2.2.2" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#packages-in-github"><i class="fa fa-check"></i><b>2.2.2</b> Packages in github</a></li>
+<li class="chapter" data-level="2.2.3" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#packages-from-website"><i class="fa fa-check"></i><b>2.2.3</b> Packages from website</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="data-processing.html"><a href="data-processing.html#removing-outliers"><i class="fa fa-check"></i><b>2.7</b> Removing outliers</a></li>
-<li class="chapter" data-level="2.8" data-path="data-processing.html"><a href="data-processing.html#data-distribution"><i class="fa fa-check"></i><b>2.8</b> Data distribution</a></li>
-<li class="chapter" data-level="2.9" data-path="data-processing.html"><a href="data-processing.html#saving-datasets-into-rds-files"><i class="fa fa-check"></i><b>2.9</b> Saving datasets into RDS files</a></li>
-<li class="chapter" data-level="2.10" data-path="data-processing.html"><a href="data-processing.html#systematic-information"><i class="fa fa-check"></i><b>2.10</b> Systematic Information</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html"><i class="fa fa-check"></i><b>3</b> Statistical Analysis</a>
+<li class="chapter" data-level="2.3" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation"><i class="fa fa-check"></i><b>2.3</b> Installation</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-preprocessing"><i class="fa fa-check"></i><b>3.1</b> Data Preprocessing</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#environment-setup"><i class="fa fa-check"></i><b>3.1.1</b> Environment setup</a></li>
-<li class="chapter" data-level="3.1.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-data"><i class="fa fa-check"></i><b>3.1.2</b> Loading data</a></li>
-<li class="chapter" data-level="3.1.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#object-preparation"><i class="fa fa-check"></i><b>3.1.3</b> Object Preparation</a></li>
-<li class="chapter" data-level="3.1.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-checking-1"><i class="fa fa-check"></i><b>3.1.4</b> Data Checking</a></li>
-<li class="chapter" data-level="3.1.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#missing-value-imputation-1"><i class="fa fa-check"></i><b>3.1.5</b> Missing value imputation</a></li>
-<li class="chapter" data-level="3.1.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-filtering-1"><i class="fa fa-check"></i><b>3.1.6</b> Data Filtering</a></li>
-<li class="chapter" data-level="3.1.7" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-normalization-1"><i class="fa fa-check"></i><b>3.1.7</b> Data Normalization</a></li>
-<li class="chapter" data-level="3.1.8" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#removing-outliers-1"><i class="fa fa-check"></i><b>3.1.8</b> Removing outliers</a></li>
-<li class="chapter" data-level="3.1.9" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#saving-datasets-into-rds-files-1"><i class="fa fa-check"></i><b>3.1.9</b> Saving datasets into RDS files</a></li>
+<li class="chapter" data-level="2.3.1" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation-in-linux-or-mac-os-through-command-line"><i class="fa fa-check"></i><b>2.3.1</b> Installation in linux or Mac os through command line</a></li>
+<li class="chapter" data-level="2.3.2" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation-by-r-from-gitlab"><i class="fa fa-check"></i><b>2.3.2</b> Installation by R from gitlab</a></li>
+<li class="chapter" data-level="2.3.3" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#installation-by-r-from-local-xmas.tar.gz-file"><i class="fa fa-check"></i><b>2.3.3</b> Installation by R from local XMAS*.tar.gz file</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#cluster-analysis"><i class="fa fa-check"></i><b>3.2</b> Cluster Analysis</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages-1"><i class="fa fa-check"></i><b>3.2.1</b> Loading packages</a></li>
-<li class="chapter" data-level="3.2.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-1"><i class="fa fa-check"></i><b>3.2.2</b> Importing data</a></li>
-<li class="chapter" data-level="3.2.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#hierarchical-clustering"><i class="fa fa-check"></i><b>3.2.3</b> Hierarchical Clustering</a></li>
-<li class="chapter" data-level="3.2.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#partitional-clustering"><i class="fa fa-check"></i><b>3.2.4</b> Partitional Clustering</a></li>
+<li class="chapter" data-level="2.4" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#vignette"><i class="fa fa-check"></i><b>2.4</b> Vignette</a></li>
+<li class="chapter" data-level="2.5" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#authors"><i class="fa fa-check"></i><b>2.5</b> Authors</a></li>
+<li class="chapter" data-level="2.6" data-path="how-to-install-xmas.html"><a href="how-to-install-xmas.html#future-plan"><i class="fa fa-check"></i><b>2.6</b> Future plan</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#chemometrics-analysis"><i class="fa fa-check"></i><b>3.3</b> Chemometrics Analysis</a>
+<li class="chapter" data-level="3" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html"><i class="fa fa-check"></i><b>3</b> Convert inputdata into phyloseq object</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages-2"><i class="fa fa-check"></i><b>3.3.1</b> Loading packages</a></li>
-<li class="chapter" data-level="3.3.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-2"><i class="fa fa-check"></i><b>3.3.2</b> Importing data</a></li>
-<li class="chapter" data-level="3.3.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>3.3.3</b> Principal Component Analysis (PCA)</a></li>
-<li class="chapter" data-level="3.3.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#partial-least-squares-discriminant-analysis-pls-da"><i class="fa fa-check"></i><b>3.3.4</b> Partial Least Squares-Discriminant Analysis (PLS-DA)</a></li>
-<li class="chapter" data-level="3.3.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#sparse-partial-least-squares-discriminant-analysis-spls-da"><i class="fa fa-check"></i><b>3.3.5</b> Sparse Partial Least Squares-Discriminant Analysis (sPLS-DA)</a></li>
-<li class="chapter" data-level="3.3.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#orthogonal-partial-least-squares-discriminant-analysis-orthopls-da"><i class="fa fa-check"></i><b>3.3.6</b> Orthogonal Partial Least Squares-Discriminant Analysis (orthoPLS-DA)</a></li>
-<li class="chapter" data-level="3.3.7" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#chemometrics-analysis-by-own-scripts"><i class="fa fa-check"></i><b>3.3.7</b> Chemometrics Analysis by own scripts</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#univariate-analysis"><i class="fa fa-check"></i><b>3.4</b> Univariate Analysis</a>
+<li class="chapter" data-level="3.1" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#loading-packages"><i class="fa fa-check"></i><b>3.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="3.2" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#importing-data"><i class="fa fa-check"></i><b>3.2</b> Importing Data</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages-3"><i class="fa fa-check"></i><b>3.4.1</b> Loading packages</a></li>
-<li class="chapter" data-level="3.4.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-3"><i class="fa fa-check"></i><b>3.4.2</b> Importing data</a></li>
-<li class="chapter" data-level="3.4.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#fold-change-analysis"><i class="fa fa-check"></i><b>3.4.3</b> Fold Change Analysis</a></li>
-<li class="chapter" data-level="3.4.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#t-test"><i class="fa fa-check"></i><b>3.4.4</b> T Test</a></li>
-<li class="chapter" data-level="3.4.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#wilcoxon-test"><i class="fa fa-check"></i><b>3.4.5</b> Wilcoxon Test</a></li>
-<li class="chapter" data-level="3.4.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#limma-test"><i class="fa fa-check"></i><b>3.4.6</b> Limma Test</a></li>
-<li class="chapter" data-level="3.4.7" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#volcano-plot"><i class="fa fa-check"></i><b>3.4.7</b> Volcano plot</a></li>
-<li class="chapter" data-level="3.4.8" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#vip-variable-influence-on-projection-coefficient"><i class="fa fa-check"></i><b>3.4.8</b> VIP (Variable influence on projection &amp; coefficient)</a></li>
-<li class="chapter" data-level="3.4.9" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#t-test-by-local-codes"><i class="fa fa-check"></i><b>3.4.9</b> T-test by local codes</a></li>
-<li class="chapter" data-level="3.4.10" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#merging-result"><i class="fa fa-check"></i><b>3.4.10</b> Merging result</a></li>
-<li class="chapter" data-level="3.4.11" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#volcano-of-merged-results"><i class="fa fa-check"></i><b>3.4.11</b> Volcano of Merged Results</a></li>
-<li class="chapter" data-level="3.4.12" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#correlation-heatmaps"><i class="fa fa-check"></i><b>3.4.12</b> Correlation Heatmaps</a></li>
-<li class="chapter" data-level="3.4.13" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package"><i class="fa fa-check"></i><b>3.4.13</b> glasso: this function will compute a Gaussian Graphical Model using the glmnet package</a></li>
+<li class="chapter" data-level="3.2.1" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#result-from-dada2"><i class="fa fa-check"></i><b>3.2.1</b> Result from dada2</a></li>
+<li class="chapter" data-level="3.2.2" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#result-from-metaphlan"><i class="fa fa-check"></i><b>3.2.2</b> Result from Metaphlan</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#multivariate-analysis"><i class="fa fa-check"></i><b>3.5</b> Multivariate analysis</a>
+<li class="chapter" data-level="3.3" data-path="convert-inputdata-into-phyloseq-object.html"><a href="convert-inputdata-into-phyloseq-object.html#systematic-information"><i class="fa fa-check"></i><b>3.3</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="quality-evaluation.html"><a href="quality-evaluation.html"><i class="fa fa-check"></i><b>4</b> Quality Evaluation</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages-4"><i class="fa fa-check"></i><b>3.5.1</b> Loading packages</a></li>
-<li class="chapter" data-level="3.5.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-4"><i class="fa fa-check"></i><b>3.5.2</b> Importing data</a></li>
-<li class="chapter" data-level="3.5.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-curation"><i class="fa fa-check"></i><b>3.5.3</b> Data curation</a></li>
-<li class="chapter" data-level="3.5.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#regularized-generalized-linear-models"><i class="fa fa-check"></i><b>3.5.4</b> Regularized Generalized Linear Models</a></li>
-<li class="chapter" data-level="3.5.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#classification"><i class="fa fa-check"></i><b>3.5.5</b> Classification</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#network-analysis"><i class="fa fa-check"></i><b>3.6</b> Network Analysis</a>
+<li class="chapter" data-level="4.1" data-path="quality-evaluation.html"><a href="quality-evaluation.html#loading-packages-1"><i class="fa fa-check"></i><b>4.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="4.2" data-path="quality-evaluation.html"><a href="quality-evaluation.html#importing-data-1"><i class="fa fa-check"></i><b>4.2</b> Importing Data</a></li>
+<li class="chapter" data-level="4.3" data-path="quality-evaluation.html"><a href="quality-evaluation.html#reads-track"><i class="fa fa-check"></i><b>4.3</b> Reads track</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#introduction-1"><i class="fa fa-check"></i><b>3.6.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.6.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#loading-packages-5"><i class="fa fa-check"></i><b>3.6.2</b> Loading packages</a></li>
-<li class="chapter" data-level="3.6.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-5"><i class="fa fa-check"></i><b>3.6.3</b> Importing data</a></li>
-<li class="chapter" data-level="3.6.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-curation-1"><i class="fa fa-check"></i><b>3.6.4</b> Data curation</a></li>
-<li class="chapter" data-level="3.6.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#associations-among-features"><i class="fa fa-check"></i><b>3.6.5</b> Associations Among Features</a></li>
-<li class="chapter" data-level="3.6.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#network-comparison"><i class="fa fa-check"></i><b>3.6.6</b> Network comparison</a></li>
+<li class="chapter" data-level="4.3.1" data-path="quality-evaluation.html"><a href="quality-evaluation.html#plotting-dad2"><i class="fa fa-check"></i><b>4.3.1</b> Plotting DAD2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="quality-evaluation.html"><a href="quality-evaluation.html#plotting-metaphlan"><i class="fa fa-check"></i><b>4.3.2</b> Plotting Metaphlan</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#systematic-information-1"><i class="fa fa-check"></i><b>3.7</b> Systematic Information</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html"><i class="fa fa-check"></i><b>4</b> Functional Analysis</a>
+<li class="chapter" data-level="4.4" data-path="quality-evaluation.html"><a href="quality-evaluation.html#spike-in-brs-sample-assessment"><i class="fa fa-check"></i><b>4.4</b> Spike-in (BRS) sample assessment</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#enrichment-analysis"><i class="fa fa-check"></i><b>4.1</b> Enrichment Analysis</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#enviroment-setup"><i class="fa fa-check"></i><b>4.1.1</b> Enviroment Setup</a></li>
-<li class="chapter" data-level="4.1.2" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#over-representation-analysis-ora"><i class="fa fa-check"></i><b>4.1.2</b> Over representation analysis (ORA)</a></li>
-<li class="chapter" data-level="4.1.3" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#clean-environment-1"><i class="fa fa-check"></i><b>4.1.3</b> Clean environment 1</a></li>
-<li class="chapter" data-level="4.1.4" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#single-sample-profiling"><i class="fa fa-check"></i><b>4.1.4</b> Single Sample Profiling</a></li>
-<li class="chapter" data-level="4.1.5" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#clean-environment-2"><i class="fa fa-check"></i><b>4.1.5</b> Clean environment 2</a></li>
-<li class="chapter" data-level="4.1.6" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#quantitative-enrichment-analysis-qea"><i class="fa fa-check"></i><b>4.1.6</b> Quantitative Enrichment Analysis (QEA)</a></li>
+<li class="chapter" data-level="4.4.1" data-path="quality-evaluation.html"><a href="quality-evaluation.html#s-data"><i class="fa fa-check"></i><b>4.4.1</b> 16s data</a></li>
+<li class="chapter" data-level="4.4.2" data-path="quality-evaluation.html"><a href="quality-evaluation.html#metagenomic-data"><i class="fa fa-check"></i><b>4.4.2</b> Metagenomic data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#pathway-analysis"><i class="fa fa-check"></i><b>4.2</b> Pathway Analysis</a>
+<li class="chapter" data-level="4.5" data-path="quality-evaluation.html"><a href="quality-evaluation.html#removing-brs"><i class="fa fa-check"></i><b>4.5</b> Removing BRS</a></li>
+<li class="chapter" data-level="4.6" data-path="quality-evaluation.html"><a href="quality-evaluation.html#rarefaction-curves"><i class="fa fa-check"></i><b>4.6</b> Rarefaction Curves</a></li>
+<li class="chapter" data-level="4.7" data-path="quality-evaluation.html"><a href="quality-evaluation.html#summarize-phyloseq-class-object"><i class="fa fa-check"></i><b>4.7</b> Summarize phyloseq-class object</a></li>
+<li class="chapter" data-level="4.8" data-path="quality-evaluation.html"><a href="quality-evaluation.html#variability"><i class="fa fa-check"></i><b>4.8</b> Variability</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#enviroment-set-up"><i class="fa fa-check"></i><b>4.2.1</b> Enviroment Set up</a></li>
-<li class="chapter" data-level="4.2.2" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#over-representation-analysis"><i class="fa fa-check"></i><b>4.2.2</b> Over representation analysis</a></li>
-<li class="chapter" data-level="4.2.3" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#clean-environment-3"><i class="fa fa-check"></i><b>4.2.3</b> Clean environment 3</a></li>
-<li class="chapter" data-level="4.2.4" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#concentration-table-qea"><i class="fa fa-check"></i><b>4.2.4</b> Concentration Table (QEA)</a></li>
+<li class="chapter" data-level="4.8.1" data-path="quality-evaluation.html"><a href="quality-evaluation.html#coefficient-of-variation"><i class="fa fa-check"></i><b>4.8.1</b> Coefficient of variation</a></li>
+<li class="chapter" data-level="4.8.2" data-path="quality-evaluation.html"><a href="quality-evaluation.html#distribution-of-number-of-sequences"><i class="fa fa-check"></i><b>4.8.2</b> Distribution of number of sequences</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#functional-analysis-by-r-package"><i class="fa fa-check"></i><b>4.3</b> Functional Analysis by R package</a>
+<li class="chapter" data-level="4.9" data-path="quality-evaluation.html"><a href="quality-evaluation.html#systematic-information-1"><i class="fa fa-check"></i><b>4.9</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>5</b> Pre-processing</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#loading-r-packages"><i class="fa fa-check"></i><b>4.3.1</b> Loading R packages</a></li>
-<li class="chapter" data-level="4.3.2" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#importing-data-6"><i class="fa fa-check"></i><b>4.3.2</b> Importing Data</a></li>
-<li class="chapter" data-level="4.3.3" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#differential-analysis"><i class="fa fa-check"></i><b>4.3.3</b> Differential Analysis</a></li>
-<li class="chapter" data-level="4.3.4" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#metabolites-id-for-merged-results"><i class="fa fa-check"></i><b>4.3.4</b> Metabolites ID for Merged Results</a></li>
-<li class="chapter" data-level="4.3.5" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#kegg-pathway-compound"><i class="fa fa-check"></i><b>4.3.5</b> KEGG PATHWAY COMPOUND</a></li>
-<li class="chapter" data-level="4.3.6" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#functions-related-to-analysis"><i class="fa fa-check"></i><b>4.3.6</b> Functions related to Analysis</a></li>
+<li class="chapter" data-level="5.1" data-path="pre-processing.html"><a href="pre-processing.html#loading-packages-2"><i class="fa fa-check"></i><b>5.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="5.2" data-path="pre-processing.html"><a href="pre-processing.html#importing-data-2"><i class="fa fa-check"></i><b>5.2</b> Importing Data</a></li>
+<li class="chapter" data-level="5.3" data-path="pre-processing.html"><a href="pre-processing.html#transformation"><i class="fa fa-check"></i><b>5.3</b> Transformation</a></li>
+<li class="chapter" data-level="5.4" data-path="pre-processing.html"><a href="pre-processing.html#normalization"><i class="fa fa-check"></i><b>5.4</b> Normalization</a></li>
+<li class="chapter" data-level="5.5" data-path="pre-processing.html"><a href="pre-processing.html#filtering"><i class="fa fa-check"></i><b>5.5</b> Filtering</a></li>
+<li class="chapter" data-level="5.6" data-path="pre-processing.html"><a href="pre-processing.html#trimming"><i class="fa fa-check"></i><b>5.6</b> Trimming</a></li>
+<li class="chapter" data-level="5.7" data-path="pre-processing.html"><a href="pre-processing.html#imputation"><i class="fa fa-check"></i><b>5.7</b> Imputation</a></li>
+<li class="chapter" data-level="5.8" data-path="pre-processing.html"><a href="pre-processing.html#extracting-specific-taxa-phyloseq-class-object"><i class="fa fa-check"></i><b>5.8</b> Extracting specific taxa phyloseq-class object</a></li>
+<li class="chapter" data-level="5.9" data-path="pre-processing.html"><a href="pre-processing.html#aggregating-low-relative-abundance-or-unclassified-taxa-into-others"><i class="fa fa-check"></i><b>5.9</b> Aggregating low relative abundance or unclassified taxa into others</a></li>
+<li class="chapter" data-level="5.10" data-path="pre-processing.html"><a href="pre-processing.html#transform-the-abundance-of-taxa-whose-relative-abundance-under-limit-of-detection-lod-into-zeros-only-in-metaphlan23"><i class="fa fa-check"></i><b>5.10</b> Transform the abundance of taxa whose relative abundance under Limit Of Detection (LOD) into Zeros (only in metaphlan2/3)</a></li>
+<li class="chapter" data-level="5.11" data-path="pre-processing.html"><a href="pre-processing.html#systematic-information-2"><i class="fa fa-check"></i><b>5.11</b> Systematic Information</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="functional-analysis-1.html"><a href="functional-analysis-1.html#session-info"><i class="fa fa-check"></i><b>4.4</b> Session info</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html"><i class="fa fa-check"></i><b>5</b> MetOrigin Analysis</a>
+<li class="chapter" data-level="6" data-path="aplha-diversity.html"><a href="aplha-diversity.html"><i class="fa fa-check"></i><b>6</b> Aplha diversity</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#loading-packages-6"><i class="fa fa-check"></i><b>5.1</b> Loading packages</a></li>
-<li class="chapter" data-level="5.2" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#importing-data-7"><i class="fa fa-check"></i><b>5.2</b> Importing data</a></li>
-<li class="chapter" data-level="5.3" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#differential-analysis-1"><i class="fa fa-check"></i><b>5.3</b> Differential Analysis</a></li>
-<li class="chapter" data-level="5.4" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#de-metabolites"><i class="fa fa-check"></i><b>5.4</b> DE metabolites</a></li>
-<li class="chapter" data-level="5.5" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#obtain-inputs-for-metorigin"><i class="fa fa-check"></i><b>5.5</b> Obtain inputs for Metorigin</a></li>
-<li class="chapter" data-level="5.6" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#save-result"><i class="fa fa-check"></i><b>5.6</b> Save result</a></li>
-<li class="chapter" data-level="5.7" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#metorigin-user-tutorial"><i class="fa fa-check"></i><b>5.7</b> MetOrigin User Tutorial</a></li>
-<li class="chapter" data-level="5.8" data-path="metorigin-analysis.html"><a href="metorigin-analysis.html#session-info-1"><i class="fa fa-check"></i><b>5.8</b> Session info</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="example.html"><a href="example.html"><i class="fa fa-check"></i><b>6</b> Example</a>
+<li class="chapter" data-level="6.1" data-path="aplha-diversity.html"><a href="aplha-diversity.html#loading-packages-3"><i class="fa fa-check"></i><b>6.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="6.2" data-path="aplha-diversity.html"><a href="aplha-diversity.html#importing-data-3"><i class="fa fa-check"></i><b>6.2</b> Importing Data</a></li>
+<li class="chapter" data-level="6.3" data-path="aplha-diversity.html"><a href="aplha-diversity.html#equal-sample-sums"><i class="fa fa-check"></i><b>6.3</b> Equal sample sums</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="example.html"><a href="example.html#loading-packages-7"><i class="fa fa-check"></i><b>6.1</b> Loading packages</a></li>
-<li class="chapter" data-level="6.2" data-path="example.html"><a href="example.html#importing-data-8"><i class="fa fa-check"></i><b>6.2</b> Importing data</a></li>
-<li class="chapter" data-level="6.3" data-path="example.html"><a href="example.html#data-processing-1"><i class="fa fa-check"></i><b>6.3</b> Data Processing</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="example.html"><a href="example.html#data-checking-2"><i class="fa fa-check"></i><b>6.3.1</b> Data Checking</a></li>
-<li class="chapter" data-level="6.3.2" data-path="example.html"><a href="example.html#missing-value-imputation-2"><i class="fa fa-check"></i><b>6.3.2</b> Missing value imputation</a></li>
-<li class="chapter" data-level="6.3.3" data-path="example.html"><a href="example.html#data-filtering-2"><i class="fa fa-check"></i><b>6.3.3</b> Data Filtering</a></li>
-<li class="chapter" data-level="6.3.4" data-path="example.html"><a href="example.html#data-normalization-2"><i class="fa fa-check"></i><b>6.3.4</b> Data Normalization</a></li>
+<li class="chapter" data-level="6.3.1" data-path="aplha-diversity.html"><a href="aplha-diversity.html#dada2_ps-dataset"><i class="fa fa-check"></i><b>6.3.1</b> dada2_ps dataset</a></li>
+<li class="chapter" data-level="6.3.2" data-path="aplha-diversity.html"><a href="aplha-diversity.html#amplicon_ps-dataset"><i class="fa fa-check"></i><b>6.3.2</b> amplicon_ps dataset</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="example.html"><a href="example.html#cluster-analysis-1"><i class="fa fa-check"></i><b>6.4</b> Cluster Analysis</a>
+<li class="chapter" data-level="6.4" data-path="aplha-diversity.html"><a href="aplha-diversity.html#non-phylogenetic-diversities"><i class="fa fa-check"></i><b>6.4</b> Non-phylogenetic diversities</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="example.html"><a href="example.html#hierarchical-clustering-1"><i class="fa fa-check"></i><b>6.4.1</b> Hierarchical Clustering</a></li>
+<li class="chapter" data-level="6.4.1" data-path="aplha-diversity.html"><a href="aplha-diversity.html#xmas2-r-package"><i class="fa fa-check"></i><b>6.4.1</b> XMAS2 R package</a></li>
+<li class="chapter" data-level="6.4.2" data-path="aplha-diversity.html"><a href="aplha-diversity.html#microbiome-r-package"><i class="fa fa-check"></i><b>6.4.2</b> microbiome R package</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="example.html"><a href="example.html#chemometrics-analysis-1"><i class="fa fa-check"></i><b>6.5</b> Chemometrics Analysis</a>
+<li class="chapter" data-level="6.5" data-path="aplha-diversity.html"><a href="aplha-diversity.html#phylogenetic-diversity"><i class="fa fa-check"></i><b>6.5</b> Phylogenetic diversity</a></li>
+<li class="chapter" data-level="6.6" data-path="aplha-diversity.html"><a href="aplha-diversity.html#rank-abundance"><i class="fa fa-check"></i><b>6.6</b> Rank Abundance</a></li>
+<li class="chapter" data-level="6.7" data-path="aplha-diversity.html"><a href="aplha-diversity.html#evenness"><i class="fa fa-check"></i><b>6.7</b> Evenness</a></li>
+<li class="chapter" data-level="6.8" data-path="aplha-diversity.html"><a href="aplha-diversity.html#systematic-information-3"><i class="fa fa-check"></i><b>6.8</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="beta-diversity.html"><a href="beta-diversity.html"><i class="fa fa-check"></i><b>7</b> Beta diversity</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="example.html"><a href="example.html#partial-least-squares-discriminant-analysis-pls-da-1"><i class="fa fa-check"></i><b>6.5.1</b> Partial Least Squares-Discriminant Analysis (PLS-DA)</a></li>
-<li class="chapter" data-level="6.5.2" data-path="example.html"><a href="example.html#sparse-partial-least-squares-discriminant-analysis-spls-da-1"><i class="fa fa-check"></i><b>6.5.2</b> Sparse Partial Least Squares-Discriminant Analysis (sPLS-DA)</a></li>
-</ul></li>
-<li class="chapter" data-level="6.6" data-path="example.html"><a href="example.html#univariate-analysis-1"><i class="fa fa-check"></i><b>6.6</b> Univariate Analysis</a>
+<li class="chapter" data-level="7.1" data-path="beta-diversity.html"><a href="beta-diversity.html#loading-packages-4"><i class="fa fa-check"></i><b>7.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="7.2" data-path="beta-diversity.html"><a href="beta-diversity.html#importing-data-4"><i class="fa fa-check"></i><b>7.2</b> Importing Data</a></li>
+<li class="chapter" data-level="7.3" data-path="beta-diversity.html"><a href="beta-diversity.html#phylogenetic-beta-diversity-metrics"><i class="fa fa-check"></i><b>7.3</b> Phylogenetic beta-diversity metrics</a>
 <ul>
-<li class="chapter" data-level="6.6.1" data-path="example.html"><a href="example.html#fold-change-analysis-1"><i class="fa fa-check"></i><b>6.6.1</b> Fold Change Analysis</a></li>
-<li class="chapter" data-level="6.6.2" data-path="example.html"><a href="example.html#vip-variable-influence-on-projection-coefficient-1"><i class="fa fa-check"></i><b>6.6.2</b> VIP (Variable influence on projection &amp; coefficient)</a></li>
-<li class="chapter" data-level="6.6.3" data-path="example.html"><a href="example.html#t-test-by-local-codes-1"><i class="fa fa-check"></i><b>6.6.3</b> T-test by local codes</a></li>
-<li class="chapter" data-level="6.6.4" data-path="example.html"><a href="example.html#merging-result-1"><i class="fa fa-check"></i><b>6.6.4</b> Merging result</a></li>
-<li class="chapter" data-level="6.6.5" data-path="example.html"><a href="example.html#volcano-of-merged-results-1"><i class="fa fa-check"></i><b>6.6.5</b> Volcano of Merged Results</a></li>
-<li class="chapter" data-level="6.6.6" data-path="example.html"><a href="example.html#t-test-1"><i class="fa fa-check"></i><b>6.6.6</b> T Test</a></li>
-<li class="chapter" data-level="6.6.7" data-path="example.html"><a href="example.html#volcano-plot-1"><i class="fa fa-check"></i><b>6.6.7</b> Volcano plot</a></li>
+<li class="chapter" data-level="7.3.1" data-path="beta-diversity.html"><a href="beta-diversity.html#unweighted-unifrac"><i class="fa fa-check"></i><b>7.3.1</b> Unweighted Unifrac</a></li>
+<li class="chapter" data-level="7.3.2" data-path="beta-diversity.html"><a href="beta-diversity.html#weighted-unifrac"><i class="fa fa-check"></i><b>7.3.2</b> Weighted Unifrac</a></li>
+<li class="chapter" data-level="7.3.3" data-path="beta-diversity.html"><a href="beta-diversity.html#generalized-unifrac-distance-metrics"><i class="fa fa-check"></i><b>7.3.3</b> Generalized UniFrac Distance Metrics</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="example.html"><a href="example.html#feature-selection"><i class="fa fa-check"></i><b>6.7</b> Feature Selection</a>
+<li class="chapter" data-level="7.4" data-path="beta-diversity.html"><a href="beta-diversity.html#distance-dissimilarity-coefficients-bray-curtis-index"><i class="fa fa-check"></i><b>7.4</b> Distance (Dissimilarity) Coefficients: Bray-Curtis Index</a></li>
+<li class="chapter" data-level="7.5" data-path="beta-diversity.html"><a href="beta-diversity.html#checking-the-homogeneity-condition"><i class="fa fa-check"></i><b>7.5</b> Checking the homogeneity condition</a></li>
+<li class="chapter" data-level="7.6" data-path="beta-diversity.html"><a href="beta-diversity.html#permutational-multivariate-analysis-of-variance-permanova"><i class="fa fa-check"></i><b>7.6</b> Permutational Multivariate Analysis of Variance (PERMANOVA)</a></li>
+<li class="chapter" data-level="7.7" data-path="beta-diversity.html"><a href="beta-diversity.html#mantel-test"><i class="fa fa-check"></i><b>7.7</b> Mantel Test</a></li>
+<li class="chapter" data-level="7.8" data-path="beta-diversity.html"><a href="beta-diversity.html#analysis-of-similarity-anosim"><i class="fa fa-check"></i><b>7.8</b> Analysis of Similarity (ANOSIM)</a></li>
+<li class="chapter" data-level="7.9" data-path="beta-diversity.html"><a href="beta-diversity.html#multi-response-permutation-procedures-mrpp"><i class="fa fa-check"></i><b>7.9</b> Multi-response permutation procedures (MRPP)</a></li>
+<li class="chapter" data-level="7.10" data-path="beta-diversity.html"><a href="beta-diversity.html#ordination"><i class="fa fa-check"></i><b>7.10</b> Ordination</a>
 <ul>
-<li class="chapter" data-level="6.7.1" data-path="example.html"><a href="example.html#regularized-generalized-linear-models-lasso-alpha-1"><i class="fa fa-check"></i><b>6.7.1</b> Regularized Generalized Linear Models (Lasso: alpha = 1)</a></li>
-<li class="chapter" data-level="6.7.2" data-path="example.html"><a href="example.html#classification-random-forest"><i class="fa fa-check"></i><b>6.7.2</b> Classification (Random Forest)</a></li>
+<li class="chapter" data-level="7.10.1" data-path="beta-diversity.html"><a href="beta-diversity.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>7.10.1</b> Principal Component Analysis (PCA)</a></li>
+<li class="chapter" data-level="7.10.2" data-path="beta-diversity.html"><a href="beta-diversity.html#principal-coordinate-analysis-pcoa"><i class="fa fa-check"></i><b>7.10.2</b> Principal Coordinate Analysis (PCoA)</a></li>
+<li class="chapter" data-level="7.10.3" data-path="beta-diversity.html"><a href="beta-diversity.html#t-distributed-stochastic-neighbor-embedding-t-sne"><i class="fa fa-check"></i><b>7.10.3</b> t-distributed stochastic neighbor embedding (t-SNE)</a></li>
+<li class="chapter" data-level="7.10.4" data-path="beta-diversity.html"><a href="beta-diversity.html#uniform-manifold-approximation-and-projection-for-dimension-reduction-umap"><i class="fa fa-check"></i><b>7.10.4</b> Uniform Manifold Approximation and Projection for Dimension Reduction (UMAP)</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="example.html"><a href="example.html#network-analysis-2"><i class="fa fa-check"></i><b>6.8</b> Network Analysis</a>
+<li class="chapter" data-level="7.11" data-path="beta-diversity.html"><a href="beta-diversity.html#systematic-information-4"><i class="fa fa-check"></i><b>7.11</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="microbial-composition.html"><a href="microbial-composition.html"><i class="fa fa-check"></i><b>8</b> Microbial Composition</a>
 <ul>
-<li class="chapter" data-level="6.8.1" data-path="example.html"><a href="example.html#data-curation-2"><i class="fa fa-check"></i><b>6.8.1</b> Data curation</a></li>
-<li class="chapter" data-level="6.8.2" data-path="example.html"><a href="example.html#building-network-model-4"><i class="fa fa-check"></i><b>6.8.2</b> Building network model</a></li>
-<li class="chapter" data-level="6.8.3" data-path="example.html"><a href="example.html#visualizing-the-network-4"><i class="fa fa-check"></i><b>6.8.3</b> Visualizing the network</a></li>
+<li class="chapter" data-level="8.1" data-path="microbial-composition.html"><a href="microbial-composition.html#loading-packages-5"><i class="fa fa-check"></i><b>8.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="8.2" data-path="microbial-composition.html"><a href="microbial-composition.html#importing-data-5"><i class="fa fa-check"></i><b>8.2</b> Importing Data</a></li>
+<li class="chapter" data-level="8.3" data-path="microbial-composition.html"><a href="microbial-composition.html#plot_stacked_bar-from-xviz"><i class="fa fa-check"></i><b>8.3</b> plot_stacked_bar from XVIZ</a></li>
+<li class="chapter" data-level="8.4" data-path="microbial-composition.html"><a href="microbial-composition.html#plot_stackbarplot-from-xams2"><i class="fa fa-check"></i><b>8.4</b> plot_StackBarPlot from XAMS2</a></li>
+<li class="chapter" data-level="8.5" data-path="microbial-composition.html"><a href="microbial-composition.html#heatmaps"><i class="fa fa-check"></i><b>8.5</b> Heatmaps</a></li>
+<li class="chapter" data-level="8.6" data-path="microbial-composition.html"><a href="microbial-composition.html#systematic-information-5"><i class="fa fa-check"></i><b>8.6</b> Systematic Information</a></li>
 </ul></li>
-<li class="chapter" data-level="6.9" data-path="example.html"><a href="example.html#network-analysis-by-wgcna"><i class="fa fa-check"></i><b>6.9</b> Network Analysis by WGCNA</a>
+<li class="chapter" data-level="9" data-path="core-microbiota.html"><a href="core-microbiota.html"><i class="fa fa-check"></i><b>9</b> Core microbiota</a>
 <ul>
-<li class="chapter" data-level="6.9.1" data-path="example.html"><a href="example.html#data-curation-3"><i class="fa fa-check"></i><b>6.9.1</b> Data curation</a></li>
-<li class="chapter" data-level="6.9.2" data-path="example.html"><a href="example.html#tuning-soft-thresholds"><i class="fa fa-check"></i><b>6.9.2</b> Tuning soft thresholds</a></li>
-<li class="chapter" data-level="6.9.3" data-path="example.html"><a href="example.html#create-the-network-using-the-blockwisemodules"><i class="fa fa-check"></i><b>6.9.3</b> Create the network using the <code>blockwiseModules</code></a></li>
-<li class="chapter" data-level="6.9.4" data-path="example.html"><a href="example.html#plot-modules"><i class="fa fa-check"></i><b>6.9.4</b> plot modules</a></li>
-<li class="chapter" data-level="6.9.5" data-path="example.html"><a href="example.html#relationships-among-modules"><i class="fa fa-check"></i><b>6.9.5</b> Relationships among modules</a></li>
-<li class="chapter" data-level="6.9.6" data-path="example.html"><a href="example.html#module-eigengene-correlation"><i class="fa fa-check"></i><b>6.9.6</b> Module (Eigengene) correlation</a></li>
-<li class="chapter" data-level="6.9.7" data-path="example.html"><a href="example.html#relate-module-cluster-assignments-to-groups"><i class="fa fa-check"></i><b>6.9.7</b> Relate Module (cluster) Assignments to Groups</a></li>
-<li class="chapter" data-level="6.9.8" data-path="example.html"><a href="example.html#generate-and-export-networks"><i class="fa fa-check"></i><b>6.9.8</b> Generate and Export Networks</a></li>
-<li class="chapter" data-level="6.9.9" data-path="example.html"><a href="example.html#network-visualization"><i class="fa fa-check"></i><b>6.9.9</b> Network visualization</a></li>
+<li class="chapter" data-level="9.1" data-path="core-microbiota.html"><a href="core-microbiota.html#loading-packages-6"><i class="fa fa-check"></i><b>9.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="9.2" data-path="core-microbiota.html"><a href="core-microbiota.html#importing-data-6"><i class="fa fa-check"></i><b>9.2</b> Importing Data</a></li>
+<li class="chapter" data-level="9.3" data-path="core-microbiota.html"><a href="core-microbiota.html#obtaining-core-microbiota"><i class="fa fa-check"></i><b>9.3</b> Obtaining core microbiota</a></li>
+<li class="chapter" data-level="9.4" data-path="core-microbiota.html"><a href="core-microbiota.html#showing-core-abundance-and-diversity"><i class="fa fa-check"></i><b>9.4</b> Showing core abundance and diversity</a></li>
+<li class="chapter" data-level="9.5" data-path="core-microbiota.html"><a href="core-microbiota.html#visualizing-core-taxa"><i class="fa fa-check"></i><b>9.5</b> Visualizing core taxa</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="core-microbiota.html"><a href="core-microbiota.html#heatmap"><i class="fa fa-check"></i><b>9.5.1</b> heatmap</a></li>
+<li class="chapter" data-level="9.5.2" data-path="core-microbiota.html"><a href="core-microbiota.html#linechart"><i class="fa fa-check"></i><b>9.5.2</b> linechart</a></li>
 </ul></li>
-<li class="chapter" data-level="6.10" data-path="example.html"><a href="example.html#systematic-information-2"><i class="fa fa-check"></i><b>6.10</b> Systematic Information</a></li>
+<li class="chapter" data-level="9.6" data-path="core-microbiota.html"><a href="core-microbiota.html#systematic-information-6"><i class="fa fa-check"></i><b>9.6</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="differential-analysis.html"><a href="differential-analysis.html"><i class="fa fa-check"></i><b>10</b> Differential Analysis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="differential-analysis.html"><a href="differential-analysis.html#loading-packages-7"><i class="fa fa-check"></i><b>10.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="10.2" data-path="differential-analysis.html"><a href="differential-analysis.html#importing-data-7"><i class="fa fa-check"></i><b>10.2</b> Importing Data</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="differential-analysis.html"><a href="differential-analysis.html#s-data-1"><i class="fa fa-check"></i><b>10.2.1</b> 16s data</a></li>
+<li class="chapter" data-level="10.2.2" data-path="differential-analysis.html"><a href="differential-analysis.html#metagenomic-data-1"><i class="fa fa-check"></i><b>10.2.2</b> Metagenomic data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="differential-analysis.html"><a href="differential-analysis.html#amplicon-sequencing-microbial-data-16s"><i class="fa fa-check"></i><b>10.3</b> Amplicon sequencing microbial data (16s)</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="differential-analysis.html"><a href="differential-analysis.html#aldex2"><i class="fa fa-check"></i><b>10.3.1</b> ALDEx2</a></li>
+<li class="chapter" data-level="10.3.2" data-path="differential-analysis.html"><a href="differential-analysis.html#limma_voom"><i class="fa fa-check"></i><b>10.3.2</b> limma_voom</a></li>
+<li class="chapter" data-level="10.3.3" data-path="differential-analysis.html"><a href="differential-analysis.html#mbzinb"><i class="fa fa-check"></i><b>10.3.3</b> mbzinb</a></li>
+<li class="chapter" data-level="10.3.4" data-path="differential-analysis.html"><a href="differential-analysis.html#omnibus"><i class="fa fa-check"></i><b>10.3.4</b> omnibus</a></li>
+<li class="chapter" data-level="10.3.5" data-path="differential-analysis.html"><a href="differential-analysis.html#raida"><i class="fa fa-check"></i><b>10.3.5</b> RAIDA</a></li>
+<li class="chapter" data-level="10.3.6" data-path="differential-analysis.html"><a href="differential-analysis.html#wilcoxon-rank-sum-and-signed-rank-tests"><i class="fa fa-check"></i><b>10.3.6</b> Wilcoxon Rank Sum and Signed Rank Tests</a></li>
+<li class="chapter" data-level="10.3.7" data-path="differential-analysis.html"><a href="differential-analysis.html#liner-discriminant-analysis-lda-effect-size-lefse"><i class="fa fa-check"></i><b>10.3.7</b> Liner discriminant analysis (LDA) effect size (LEfSe)</a></li>
+<li class="chapter" data-level="10.3.8" data-path="differential-analysis.html"><a href="differential-analysis.html#t-test"><i class="fa fa-check"></i><b>10.3.8</b> t-test</a></li>
+<li class="chapter" data-level="10.3.9" data-path="differential-analysis.html"><a href="differential-analysis.html#metagenomeseq"><i class="fa fa-check"></i><b>10.3.9</b> MetagenomeSeq</a></li>
+<li class="chapter" data-level="10.3.10" data-path="differential-analysis.html"><a href="differential-analysis.html#deseq2"><i class="fa fa-check"></i><b>10.3.10</b> DESeq2</a></li>
+<li class="chapter" data-level="10.3.11" data-path="differential-analysis.html"><a href="differential-analysis.html#edger"><i class="fa fa-check"></i><b>10.3.11</b> EdgeR</a></li>
+<li class="chapter" data-level="10.3.12" data-path="differential-analysis.html"><a href="differential-analysis.html#ancom"><i class="fa fa-check"></i><b>10.3.12</b> ANCOM</a></li>
+<li class="chapter" data-level="10.3.13" data-path="differential-analysis.html"><a href="differential-analysis.html#corncob"><i class="fa fa-check"></i><b>10.3.13</b> Corncob</a></li>
+<li class="chapter" data-level="10.3.14" data-path="differential-analysis.html"><a href="differential-analysis.html#maaslin2-microbiome-multivariable-association-with-linear-models"><i class="fa fa-check"></i><b>10.3.14</b> Maaslin2 (Microbiome Multivariable Association with Linear Models)</a></li>
+<li class="chapter" data-level="10.3.15" data-path="differential-analysis.html"><a href="differential-analysis.html#locom"><i class="fa fa-check"></i><b>10.3.15</b> LOCOM</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="differential-analysis.html"><a href="differential-analysis.html#metagenomic-sequencing-microbial-data-metaphlan23"><i class="fa fa-check"></i><b>10.4</b> Metagenomic sequencing microbial data (metaphlan2/3)</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="differential-analysis.html"><a href="differential-analysis.html#wilcoxon-rank-sum-and-signed-rank-tests-1"><i class="fa fa-check"></i><b>10.4.1</b> Wilcoxon Rank Sum and Signed Rank Tests</a></li>
+<li class="chapter" data-level="10.4.2" data-path="differential-analysis.html"><a href="differential-analysis.html#liner-discriminant-analysis-lda-effect-size-lefse-1"><i class="fa fa-check"></i><b>10.4.2</b> Liner discriminant analysis (LDA) effect size (LEfSe)</a></li>
+<li class="chapter" data-level="10.4.3" data-path="differential-analysis.html"><a href="differential-analysis.html#t-test-1"><i class="fa fa-check"></i><b>10.4.3</b> t-test</a></li>
+<li class="chapter" data-level="10.4.4" data-path="differential-analysis.html"><a href="differential-analysis.html#maaslin2-microbiome-multivariable-association-with-linear-models-1"><i class="fa fa-check"></i><b>10.4.4</b> Maaslin2 (Microbiome Multivariable Association with Linear Models)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="differential-analysis.html"><a href="differential-analysis.html#visualization-4"><i class="fa fa-check"></i><b>10.5</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="differential-analysis.html"><a href="differential-analysis.html#volcano-plot"><i class="fa fa-check"></i><b>10.5.1</b> Volcano plot</a></li>
+<li class="chapter" data-level="10.5.2" data-path="differential-analysis.html"><a href="differential-analysis.html#barplot-in-lefse"><i class="fa fa-check"></i><b>10.5.2</b> barplot in lefse</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="differential-analysis.html"><a href="differential-analysis.html#dominant-taxa"><i class="fa fa-check"></i><b>10.6</b> Dominant taxa</a></li>
+<li class="chapter" data-level="10.7" data-path="differential-analysis.html"><a href="differential-analysis.html#multiple-differential-analysis-by-one-function"><i class="fa fa-check"></i><b>10.7</b> Multiple differential analysis by one function</a></li>
+<li class="chapter" data-level="10.8" data-path="differential-analysis.html"><a href="differential-analysis.html#systematic-information-7"><i class="fa fa-check"></i><b>10.8</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="visualization-5.html"><a href="visualization-5.html"><i class="fa fa-check"></i><b>11</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="visualization-5.html"><a href="visualization-5.html#loading-packages-8"><i class="fa fa-check"></i><b>11.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="11.2" data-path="visualization-5.html"><a href="visualization-5.html#importing-data-8"><i class="fa fa-check"></i><b>11.2</b> Importing Data</a></li>
+<li class="chapter" data-level="11.3" data-path="visualization-5.html"><a href="visualization-5.html#plot_boxplot"><i class="fa fa-check"></i><b>11.3</b> plot_boxplot</a></li>
+<li class="chapter" data-level="11.4" data-path="visualization-5.html"><a href="visualization-5.html#plot_barplot"><i class="fa fa-check"></i><b>11.4</b> plot_barplot</a></li>
+<li class="chapter" data-level="11.5" data-path="visualization-5.html"><a href="visualization-5.html#plot_dotplot"><i class="fa fa-check"></i><b>11.5</b> plot_dotplot</a></li>
+<li class="chapter" data-level="11.6" data-path="visualization-5.html"><a href="visualization-5.html#plot_correlation_boxplot"><i class="fa fa-check"></i><b>11.6</b> plot_correlation_boxplot</a></li>
+<li class="chapter" data-level="11.7" data-path="visualization-5.html"><a href="visualization-5.html#plot_correlation_density"><i class="fa fa-check"></i><b>11.7</b> plot_correlation_density</a></li>
+<li class="chapter" data-level="11.8" data-path="visualization-5.html"><a href="visualization-5.html#plot_ordination"><i class="fa fa-check"></i><b>11.8</b> plot_Ordination</a></li>
+<li class="chapter" data-level="11.9" data-path="visualization-5.html"><a href="visualization-5.html#plot_ggbiplot"><i class="fa fa-check"></i><b>11.9</b> plot_ggbiplot</a></li>
+<li class="chapter" data-level="11.10" data-path="visualization-5.html"><a href="visualization-5.html#plot_corrplot"><i class="fa fa-check"></i><b>11.10</b> plot_corrplot</a></li>
+<li class="chapter" data-level="11.11" data-path="visualization-5.html"><a href="visualization-5.html#plot_2da_venn"><i class="fa fa-check"></i><b>11.11</b> plot_2DA_venn</a></li>
+<li class="chapter" data-level="11.12" data-path="visualization-5.html"><a href="visualization-5.html#plot-the-da-results-from-the-significant-taxa-by-double-barplot"><i class="fa fa-check"></i><b>11.12</b> plot the DA results from the significant taxa by double barplot</a></li>
+<li class="chapter" data-level="11.13" data-path="visualization-5.html"><a href="visualization-5.html#plot_stacked_bar_xivz"><i class="fa fa-check"></i><b>11.13</b> plot_stacked_bar_XIVZ</a></li>
+<li class="chapter" data-level="11.14" data-path="visualization-5.html"><a href="visualization-5.html#plot_stackbarplot"><i class="fa fa-check"></i><b>11.14</b> plot_StackBarPlot</a></li>
+<li class="chapter" data-level="11.15" data-path="visualization-5.html"><a href="visualization-5.html#color-palettes"><i class="fa fa-check"></i><b>11.15</b> Color Palettes</a>
+<ul>
+<li class="chapter" data-level="11.15.1" data-path="visualization-5.html"><a href="visualization-5.html#wes-anderson-palettes"><i class="fa fa-check"></i><b>11.15.1</b> Wes Anderson Palettes</a></li>
+<li class="chapter" data-level="11.15.2" data-path="visualization-5.html"><a href="visualization-5.html#usemycol"><i class="fa fa-check"></i><b>11.15.2</b> useMyCol</a></li>
+</ul></li>
+<li class="chapter" data-level="11.16" data-path="visualization-5.html"><a href="visualization-5.html#ordination-plots-with-ggplot2"><i class="fa fa-check"></i><b>11.16</b> Ordination plots with ggplot2</a>
+<ul>
+<li class="chapter" data-level="11.16.1" data-path="visualization-5.html"><a href="visualization-5.html#principal-components-analysis-with-the-iris-data-set"><i class="fa fa-check"></i><b>11.16.1</b> principal components analysis with the iris data set</a></li>
+<li class="chapter" data-level="11.16.2" data-path="visualization-5.html"><a href="visualization-5.html#multiple-correspondence-analysis-with-the-tea-dataset"><i class="fa fa-check"></i><b>11.16.2</b> multiple correspondence analysis with the tea dataset</a></li>
+<li class="chapter" data-level="11.16.3" data-path="visualization-5.html"><a href="visualization-5.html#linear-discriminant-analysis"><i class="fa fa-check"></i><b>11.16.3</b> linear discriminant analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="11.17" data-path="visualization-5.html"><a href="visualization-5.html#systematic-information-8"><i class="fa fa-check"></i><b>11.17</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="association-analysis.html"><a href="association-analysis.html"><i class="fa fa-check"></i><b>12</b> Association Analysis</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="association-analysis.html"><a href="association-analysis.html#loading-packages-9"><i class="fa fa-check"></i><b>12.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="12.2" data-path="association-analysis.html"><a href="association-analysis.html#importing-data-9"><i class="fa fa-check"></i><b>12.2</b> Importing Data</a></li>
+<li class="chapter" data-level="12.3" data-path="association-analysis.html"><a href="association-analysis.html#spearman-correlation-analysis"><i class="fa fa-check"></i><b>12.3</b> Spearman Correlation Analysis</a></li>
+<li class="chapter" data-level="12.4" data-path="association-analysis.html"><a href="association-analysis.html#partial-correlation-analysis"><i class="fa fa-check"></i><b>12.4</b> Partial Correlation Analysis</a></li>
+<li class="chapter" data-level="12.5" data-path="association-analysis.html"><a href="association-analysis.html#systematic-information-9"><i class="fa fa-check"></i><b>12.5</b> Systematic Information</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html"><i class="fa fa-check"></i><b>13</b> Principals of Differential Analysis methods</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#aldex2-1"><i class="fa fa-check"></i><b>13.1</b> ALDEx2</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-1"><i class="fa fa-check"></i><b>13.1.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.1.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type"><i class="fa fa-check"></i><b>13.1.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.1.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments"><i class="fa fa-check"></i><b>13.1.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.1.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures"><i class="fa fa-check"></i><b>13.1.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.1.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output"><i class="fa fa-check"></i><b>13.1.5</b> Key output</a></li>
+<li class="chapter" data-level="13.1.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax"><i class="fa fa-check"></i><b>13.1.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.1.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax"><i class="fa fa-check"></i><b>13.1.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.1.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes"><i class="fa fa-check"></i><b>13.1.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#ancom-ii"><i class="fa fa-check"></i><b>13.2</b> ANCOM-II</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-1"><i class="fa fa-check"></i><b>13.2.1</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.2.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-1"><i class="fa fa-check"></i><b>13.2.2</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.2.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-1"><i class="fa fa-check"></i><b>13.2.3</b> Procedures</a></li>
+<li class="chapter" data-level="13.2.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-1"><i class="fa fa-check"></i><b>13.2.4</b> Key output</a></li>
+<li class="chapter" data-level="13.2.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-1"><i class="fa fa-check"></i><b>13.2.5</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.2.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-1"><i class="fa fa-check"></i><b>13.2.6</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.2.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-1"><i class="fa fa-check"></i><b>13.2.7</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#corncob-1"><i class="fa fa-check"></i><b>13.3</b> corncob</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-2"><i class="fa fa-check"></i><b>13.3.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.3.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-2"><i class="fa fa-check"></i><b>13.3.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.3.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-2"><i class="fa fa-check"></i><b>13.3.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.3.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-2"><i class="fa fa-check"></i><b>13.3.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.3.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-2"><i class="fa fa-check"></i><b>13.3.5</b> Key output</a></li>
+<li class="chapter" data-level="13.3.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-2"><i class="fa fa-check"></i><b>13.3.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.3.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-2"><i class="fa fa-check"></i><b>13.3.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.3.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-2"><i class="fa fa-check"></i><b>13.3.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#deseq2-1"><i class="fa fa-check"></i><b>13.4</b> DESeq2</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-3"><i class="fa fa-check"></i><b>13.4.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.4.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-3"><i class="fa fa-check"></i><b>13.4.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.4.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-3"><i class="fa fa-check"></i><b>13.4.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.4.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-3"><i class="fa fa-check"></i><b>13.4.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.4.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-3"><i class="fa fa-check"></i><b>13.4.5</b> Key output</a></li>
+<li class="chapter" data-level="13.4.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-3"><i class="fa fa-check"></i><b>13.4.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.4.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-3"><i class="fa fa-check"></i><b>13.4.7</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#edger-1"><i class="fa fa-check"></i><b>13.5</b> edgeR</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-4"><i class="fa fa-check"></i><b>13.5.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.5.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-4"><i class="fa fa-check"></i><b>13.5.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.5.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-4"><i class="fa fa-check"></i><b>13.5.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.5.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-4"><i class="fa fa-check"></i><b>13.5.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.5.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-4"><i class="fa fa-check"></i><b>13.5.5</b> Key output</a></li>
+<li class="chapter" data-level="13.5.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-4"><i class="fa fa-check"></i><b>13.5.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.5.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-4"><i class="fa fa-check"></i><b>13.5.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.5.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-3"><i class="fa fa-check"></i><b>13.5.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#lefse"><i class="fa fa-check"></i><b>13.6</b> LEfSe</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-5"><i class="fa fa-check"></i><b>13.6.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.6.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-5"><i class="fa fa-check"></i><b>13.6.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.6.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-5"><i class="fa fa-check"></i><b>13.6.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.6.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-5"><i class="fa fa-check"></i><b>13.6.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.6.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-5"><i class="fa fa-check"></i><b>13.6.5</b> Key output</a></li>
+<li class="chapter" data-level="13.6.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-5"><i class="fa fa-check"></i><b>13.6.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.6.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-5"><i class="fa fa-check"></i><b>13.6.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.6.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-4"><i class="fa fa-check"></i><b>13.6.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#limma-voom"><i class="fa fa-check"></i><b>13.7</b> limma voom</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-6"><i class="fa fa-check"></i><b>13.7.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.7.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-6"><i class="fa fa-check"></i><b>13.7.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.7.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-6"><i class="fa fa-check"></i><b>13.7.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.7.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-6"><i class="fa fa-check"></i><b>13.7.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.7.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-6"><i class="fa fa-check"></i><b>13.7.5</b> Key output</a></li>
+<li class="chapter" data-level="13.7.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-6"><i class="fa fa-check"></i><b>13.7.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.7.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-6"><i class="fa fa-check"></i><b>13.7.7</b> XMAS2 Syntax</a></li>
+<li class="chapter" data-level="13.7.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#notes-5"><i class="fa fa-check"></i><b>13.7.8</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#maaslin2"><i class="fa fa-check"></i><b>13.8</b> MaAsLin2</a>
+<ul>
+<li class="chapter" data-level="13.8.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-7"><i class="fa fa-check"></i><b>13.8.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.8.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-7"><i class="fa fa-check"></i><b>13.8.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.8.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-7"><i class="fa fa-check"></i><b>13.8.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.8.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-7"><i class="fa fa-check"></i><b>13.8.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.8.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-7"><i class="fa fa-check"></i><b>13.8.5</b> Key output</a></li>
+<li class="chapter" data-level="13.8.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-7"><i class="fa fa-check"></i><b>13.8.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.8.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-7"><i class="fa fa-check"></i><b>13.8.7</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#metagenomeseq-1"><i class="fa fa-check"></i><b>13.9</b> metagenomeSeq</a>
+<ul>
+<li class="chapter" data-level="13.9.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-8"><i class="fa fa-check"></i><b>13.9.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.9.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-8"><i class="fa fa-check"></i><b>13.9.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.9.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-8"><i class="fa fa-check"></i><b>13.9.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.9.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-8"><i class="fa fa-check"></i><b>13.9.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.9.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-8"><i class="fa fa-check"></i><b>13.9.5</b> Key output</a></li>
+<li class="chapter" data-level="13.9.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-8"><i class="fa fa-check"></i><b>13.9.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.9.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-8"><i class="fa fa-check"></i><b>13.9.7</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.10" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#t-test-2"><i class="fa fa-check"></i><b>13.10</b> t-test</a>
+<ul>
+<li class="chapter" data-level="13.10.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-9"><i class="fa fa-check"></i><b>13.10.1</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.10.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-9"><i class="fa fa-check"></i><b>13.10.2</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.10.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-9"><i class="fa fa-check"></i><b>13.10.3</b> Procedures</a></li>
+<li class="chapter" data-level="13.10.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-9"><i class="fa fa-check"></i><b>13.10.4</b> Key output</a></li>
+<li class="chapter" data-level="13.10.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-9"><i class="fa fa-check"></i><b>13.10.5</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.10.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-9"><i class="fa fa-check"></i><b>13.10.6</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.11" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#wilcoxon-test"><i class="fa fa-check"></i><b>13.11</b> Wilcoxon test</a>
+<ul>
+<li class="chapter" data-level="13.11.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-10"><i class="fa fa-check"></i><b>13.11.1</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.11.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-10"><i class="fa fa-check"></i><b>13.11.2</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.11.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-10"><i class="fa fa-check"></i><b>13.11.3</b> Procedures</a></li>
+<li class="chapter" data-level="13.11.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-10"><i class="fa fa-check"></i><b>13.11.4</b> Key output</a></li>
+<li class="chapter" data-level="13.11.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-10"><i class="fa fa-check"></i><b>13.11.5</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.11.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-10"><i class="fa fa-check"></i><b>13.11.6</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.12" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#raida-1"><i class="fa fa-check"></i><b>13.12</b> RAIDA</a>
+<ul>
+<li class="chapter" data-level="13.12.1" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#vignette-9"><i class="fa fa-check"></i><b>13.12.1</b> Vignette</a></li>
+<li class="chapter" data-level="13.12.2" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-data-type-11"><i class="fa fa-check"></i><b>13.12.2</b> Input Data Type</a></li>
+<li class="chapter" data-level="13.12.3" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#input-key-arguments-11"><i class="fa fa-check"></i><b>13.12.3</b> Input Key Arguments</a></li>
+<li class="chapter" data-level="13.12.4" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#procedures-11"><i class="fa fa-check"></i><b>13.12.4</b> Procedures</a></li>
+<li class="chapter" data-level="13.12.5" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#key-output-11"><i class="fa fa-check"></i><b>13.12.5</b> Key output</a></li>
+<li class="chapter" data-level="13.12.6" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#original-syntax-11"><i class="fa fa-check"></i><b>13.12.6</b> Original Syntax</a></li>
+<li class="chapter" data-level="13.12.7" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#xmas2-syntax-11"><i class="fa fa-check"></i><b>13.12.7</b> XMAS2 Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="13.13" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#summary"><i class="fa fa-check"></i><b>13.13</b> Summary</a></li>
+<li class="chapter" data-level="13.14" data-path="principals-of-differential-analysis-methods.html"><a href="principals-of-differential-analysis-methods.html#advantages-and-disadvantages"><i class="fa fa-check"></i><b>13.14</b> Advantages and disadvantages</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>14</b> Examples</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="examples.html"><a href="examples.html#loading-packages-10"><i class="fa fa-check"></i><b>14.1</b> Loading Packages</a></li>
+<li class="chapter" data-level="14.2" data-path="examples.html"><a href="examples.html#workflow-description"><i class="fa fa-check"></i><b>14.2</b> Workflow description</a></li>
+<li class="chapter" data-level="14.3" data-path="examples.html"><a href="examples.html#amplicon-sequencing-16s"><i class="fa fa-check"></i><b>14.3</b> Amplicon sequencing (16s)</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="examples.html"><a href="examples.html#converting-inputs-into-phyloseq-class-object"><i class="fa fa-check"></i><b>14.3.1</b> Converting inputs into phyloseq-class object</a></li>
+<li class="chapter" data-level="14.3.2" data-path="examples.html"><a href="examples.html#quality-control"><i class="fa fa-check"></i><b>14.3.2</b> Quality Control</a></li>
+<li class="chapter" data-level="14.3.3" data-path="examples.html"><a href="examples.html#data-processing"><i class="fa fa-check"></i><b>14.3.3</b> Data processing</a></li>
+<li class="chapter" data-level="14.3.4" data-path="examples.html"><a href="examples.html#diversity-analysis"><i class="fa fa-check"></i><b>14.3.4</b> Diversity analysis</a></li>
+<li class="chapter" data-level="14.3.5" data-path="examples.html"><a href="examples.html#permanova-ordination"><i class="fa fa-check"></i><b>14.3.5</b> PERMANOVA + Ordination</a></li>
+<li class="chapter" data-level="14.3.6" data-path="examples.html"><a href="examples.html#microbial-composition-1"><i class="fa fa-check"></i><b>14.3.6</b> Microbial composition</a></li>
+<li class="chapter" data-level="14.3.7" data-path="examples.html"><a href="examples.html#differential-analysis-1"><i class="fa fa-check"></i><b>14.3.7</b> Differential Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="examples.html"><a href="examples.html#metagenomics-mgs"><i class="fa fa-check"></i><b>14.4</b> Metagenomics (MGS)</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="examples.html"><a href="examples.html#converting-inputs-into-phyloseq-class-object-1"><i class="fa fa-check"></i><b>14.4.1</b> Converting inputs into phyloseq-class object</a></li>
+<li class="chapter" data-level="14.4.2" data-path="examples.html"><a href="examples.html#quality-control-1"><i class="fa fa-check"></i><b>14.4.2</b> Quality Control</a></li>
+<li class="chapter" data-level="14.4.3" data-path="examples.html"><a href="examples.html#data-processing-1"><i class="fa fa-check"></i><b>14.4.3</b> Data processing</a></li>
+<li class="chapter" data-level="14.4.4" data-path="examples.html"><a href="examples.html#diversity-analysis-1"><i class="fa fa-check"></i><b>14.4.4</b> Diversity analysis</a></li>
+<li class="chapter" data-level="14.4.5" data-path="examples.html"><a href="examples.html#permanova-ordination-1"><i class="fa fa-check"></i><b>14.4.5</b> PERMANOVA + Ordination</a></li>
+<li class="chapter" data-level="14.4.6" data-path="examples.html"><a href="examples.html#microbial-composition-2"><i class="fa fa-check"></i><b>14.4.6</b> Microbial composition</a></li>
+<li class="chapter" data-level="14.4.7" data-path="examples.html"><a href="examples.html#differential-analysis-2"><i class="fa fa-check"></i><b>14.4.7</b> Differential Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="examples.html"><a href="examples.html#systematic-information-10"><i class="fa fa-check"></i><b>14.5</b> Systematic Information</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -365,7 +561,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analysis in Metabolomics</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">XMAS 2.0 Tutorial</a>
           </h1>
         </div>
 
@@ -416,7 +612,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/XbiomeAnalysis/Metabolomics_Aanlysis/blob/main/%s",
+"link": "https://github.com/XbiomeAnalysis/XMAS_tutorial/blob/main/%s",
 "text": "Edit"
 },
 "history": {
@@ -427,7 +623,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["XMAS 2.0 Tutorial.pdf", "XMAS 2.0 Tutorial.epub"],
 "search": {
 "engine": "fuse",
 "options": null
@@ -441,6 +637,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
