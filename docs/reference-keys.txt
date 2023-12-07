@@ -1,5 +1,5 @@
-fig:unnamed-chunk-1
-fig:unnamed-chunk-2
+fig:unnamed-chunk-74
+fig:unnamed-chunk-75
 introduction
 what-is-metabolomics
 workflow-of-metabolomics-data-analysis
@@ -11,6 +11,7 @@ data-processing
 loading-packages
 importing-data
 data-checking
+data-trimming
 missing-value-imputation
 data-filtering
 data-normalization
@@ -64,6 +65,7 @@ vip-variable-influence-on-projection-coefficient
 t-test-by-local-codes
 merging-result
 volcano-of-merged-results
+adjusting-for-confounding-variables
 correlation-heatmaps
 glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package
 multivariate-analysis
