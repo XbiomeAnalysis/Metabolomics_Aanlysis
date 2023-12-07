@@ -236,9 +236,8 @@ div.csl-indent {
 <li class="chapter" data-level="3.4.9" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#t-test-by-local-codes"><i class="fa fa-check"></i><b>3.4.9</b> T-test by local codes</a></li>
 <li class="chapter" data-level="3.4.10" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#merging-result"><i class="fa fa-check"></i><b>3.4.10</b> Merging result</a></li>
 <li class="chapter" data-level="3.4.11" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#volcano-of-merged-results"><i class="fa fa-check"></i><b>3.4.11</b> Volcano of Merged Results</a></li>
-<li class="chapter" data-level="3.4.12" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#adjusting-for-confounding-variables"><i class="fa fa-check"></i><b>3.4.12</b> Adjusting for confounding variables</a></li>
-<li class="chapter" data-level="3.4.13" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#correlation-heatmaps"><i class="fa fa-check"></i><b>3.4.13</b> Correlation Heatmaps</a></li>
-<li class="chapter" data-level="3.4.14" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package"><i class="fa fa-check"></i><b>3.4.14</b> glasso: this function will compute a Gaussian Graphical Model using the glmnet package</a></li>
+<li class="chapter" data-level="3.4.12" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#correlation-heatmaps"><i class="fa fa-check"></i><b>3.4.12</b> Correlation Heatmaps</a></li>
+<li class="chapter" data-level="3.4.13" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package"><i class="fa fa-check"></i><b>3.4.13</b> glasso: this function will compute a Gaussian Graphical Model using the glmnet package</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#multivariate-analysis"><i class="fa fa-check"></i><b>3.5</b> Multivariate analysis</a>
 <ul>
@@ -246,7 +245,8 @@ div.csl-indent {
 <li class="chapter" data-level="3.5.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-4"><i class="fa fa-check"></i><b>3.5.2</b> Importing data</a></li>
 <li class="chapter" data-level="3.5.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-curation"><i class="fa fa-check"></i><b>3.5.3</b> Data curation</a></li>
 <li class="chapter" data-level="3.5.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#regularized-generalized-linear-models"><i class="fa fa-check"></i><b>3.5.4</b> Regularized Generalized Linear Models</a></li>
-<li class="chapter" data-level="3.5.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#classification"><i class="fa fa-check"></i><b>3.5.5</b> Classification</a></li>
+<li class="chapter" data-level="3.5.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#adjusting-for-confounding-variables"><i class="fa fa-check"></i><b>3.5.5</b> Adjusting for confounding variables</a></li>
+<li class="chapter" data-level="3.5.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#classification"><i class="fa fa-check"></i><b>3.5.6</b> Classification</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#network-analysis"><i class="fa fa-check"></i><b>3.6</b> Network Analysis</a>
 <ul>
@@ -1349,7 +1349,7 @@ div.csl-indent {
 <span id="cb36-6"><a href="data-processing.html#cb36-6" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Normalized&quot;</span>) <span class="co"># data after normalization</span></span>
 <span id="cb36-7"><a href="data-processing.html#cb36-7" tabindex="-1"></a></span>
 <span id="cb36-8"><a href="data-processing.html#cb36-8" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(pl_unnor, pl_nor, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">align =</span> <span class="st">&quot;v&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-88-1.png" width="1344" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-15-1.png" width="1344" /></p>
 <ul>
 <li>density</li>
 </ul>
@@ -1361,7 +1361,7 @@ div.csl-indent {
 <span id="cb37-6"><a href="data-processing.html#cb37-6" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Normalized&quot;</span>) <span class="co"># data after normalization</span></span>
 <span id="cb37-7"><a href="data-processing.html#cb37-7" tabindex="-1"></a></span>
 <span id="cb37-8"><a href="data-processing.html#cb37-8" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(pl_unnor, pl_nor, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">align =</span> <span class="st">&quot;v&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-89-1.png" width="960" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-16-1.png" width="960" /></p>
 </div>
 </div>
 <div id="removing-outliers" class="section level2 hasAnchor" number="2.8">
@@ -1369,7 +1369,7 @@ div.csl-indent {
 <p>Calculating the pairwise distance (distance measured by “euclidean”, “maximum”, “manhattan”, “canberra” or “minkowski”), and using 1.5 in Q3 + 1.5*IQR formula to detect outliers. More details to see <code>?POMA::PomaOutliers</code>.</p>
 <p><strong>Caution</strong>: this step will remove samples regarded as outliers, please pay attention to your own data.</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-processing.html#cb38-1" tabindex="-1"></a><span class="fu">PomaOutliers</span>(se_normalize, <span class="at">do =</span> <span class="st">&quot;analyze&quot;</span>)<span class="sc">$</span>polygon_plot <span class="co"># to explore</span></span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-90-1.png" width="960" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-17-1.png" width="960" /></p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-processing.html#cb39-1" tabindex="-1"></a>se_processed <span class="ot">&lt;-</span> <span class="fu">PomaOutliers</span>(se_normalize, <span class="at">do =</span> <span class="st">&quot;clean&quot;</span>) <span class="co"># to remove outliers</span></span>
 <span id="cb39-2"><a href="data-processing.html#cb39-2" tabindex="-1"></a>se_processed</span></code></pre></div>
 <pre><code>## class: SummarizedExperiment 
@@ -1441,7 +1441,7 @@ div.csl-indent {
 <span id="cb41-56"><a href="data-processing.html#cb41-56" tabindex="-1"></a>                   filter_pl, impute_pl,</span>
 <span id="cb41-57"><a href="data-processing.html#cb41-57" tabindex="-1"></a>                   norm_pl,</span>
 <span id="cb41-58"><a href="data-processing.html#cb41-58" tabindex="-1"></a>                   <span class="at">align =</span> <span class="st">&quot;hv&quot;</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-91-1.png" width="960" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-18-1.png" width="960" /></p>
 </div>
 <div id="saving-datasets-into-rds-files" class="section level2 hasAnchor" number="2.10">
 <h2><span class="header-section-number">2.10</span> Saving datasets into RDS files<a href="data-processing.html#saving-datasets-into-rds-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>

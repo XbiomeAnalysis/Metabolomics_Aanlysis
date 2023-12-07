@@ -236,9 +236,8 @@ div.csl-indent {
 <li class="chapter" data-level="3.4.9" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#t-test-by-local-codes"><i class="fa fa-check"></i><b>3.4.9</b> T-test by local codes</a></li>
 <li class="chapter" data-level="3.4.10" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#merging-result"><i class="fa fa-check"></i><b>3.4.10</b> Merging result</a></li>
 <li class="chapter" data-level="3.4.11" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#volcano-of-merged-results"><i class="fa fa-check"></i><b>3.4.11</b> Volcano of Merged Results</a></li>
-<li class="chapter" data-level="3.4.12" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#adjusting-for-confounding-variables"><i class="fa fa-check"></i><b>3.4.12</b> Adjusting for confounding variables</a></li>
-<li class="chapter" data-level="3.4.13" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#correlation-heatmaps"><i class="fa fa-check"></i><b>3.4.13</b> Correlation Heatmaps</a></li>
-<li class="chapter" data-level="3.4.14" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package"><i class="fa fa-check"></i><b>3.4.14</b> glasso: this function will compute a Gaussian Graphical Model using the glmnet package</a></li>
+<li class="chapter" data-level="3.4.12" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#correlation-heatmaps"><i class="fa fa-check"></i><b>3.4.12</b> Correlation Heatmaps</a></li>
+<li class="chapter" data-level="3.4.13" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package"><i class="fa fa-check"></i><b>3.4.13</b> glasso: this function will compute a Gaussian Graphical Model using the glmnet package</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#multivariate-analysis"><i class="fa fa-check"></i><b>3.5</b> Multivariate analysis</a>
 <ul>
@@ -246,7 +245,8 @@ div.csl-indent {
 <li class="chapter" data-level="3.5.2" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#importing-data-4"><i class="fa fa-check"></i><b>3.5.2</b> Importing data</a></li>
 <li class="chapter" data-level="3.5.3" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#data-curation"><i class="fa fa-check"></i><b>3.5.3</b> Data curation</a></li>
 <li class="chapter" data-level="3.5.4" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#regularized-generalized-linear-models"><i class="fa fa-check"></i><b>3.5.4</b> Regularized Generalized Linear Models</a></li>
-<li class="chapter" data-level="3.5.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#classification"><i class="fa fa-check"></i><b>3.5.5</b> Classification</a></li>
+<li class="chapter" data-level="3.5.5" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#adjusting-for-confounding-variables"><i class="fa fa-check"></i><b>3.5.5</b> Adjusting for confounding variables</a></li>
+<li class="chapter" data-level="3.5.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#classification"><i class="fa fa-check"></i><b>3.5.6</b> Classification</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="statistical-analysis-1.html"><a href="statistical-analysis-1.html#network-analysis"><i class="fa fa-check"></i><b>3.6</b> Network Analysis</a>
 <ul>
@@ -1284,7 +1284,7 @@ div.csl-indent {
 <span id="cb78-6"><a href="statistical-analysis-1.html#cb78-6" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Normalized&quot;</span>) <span class="co"># data after normalization</span></span>
 <span id="cb78-7"><a href="statistical-analysis-1.html#cb78-7" tabindex="-1"></a></span>
 <span id="cb78-8"><a href="statistical-analysis-1.html#cb78-8" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(pl_unnor, pl_nor, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">align =</span> <span class="st">&quot;v&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-105-1.png" width="1344" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-32-1.png" width="1344" /></p>
 <ul>
 <li>density</li>
 </ul>
@@ -1296,13 +1296,13 @@ div.csl-indent {
 <span id="cb79-6"><a href="statistical-analysis-1.html#cb79-6" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Normalized&quot;</span>) <span class="co"># data after normalization</span></span>
 <span id="cb79-7"><a href="statistical-analysis-1.html#cb79-7" tabindex="-1"></a></span>
 <span id="cb79-8"><a href="statistical-analysis-1.html#cb79-8" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(pl_unnor, pl_nor, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">align =</span> <span class="st">&quot;v&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-106-1.png" width="960" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-33-1.png" width="960" /></p>
 </div>
 </div>
 <div id="removing-outliers-1" class="section level3 hasAnchor" number="3.1.8">
 <h3><span class="header-section-number">3.1.8</span> Removing outliers<a href="statistical-analysis-1.html#removing-outliers-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="statistical-analysis-1.html#cb80-1" tabindex="-1"></a><span class="fu">PomaOutliers</span>(se_normalize, <span class="at">do =</span> <span class="st">&quot;analyze&quot;</span>)<span class="sc">$</span>polygon_plot <span class="co"># to explore</span></span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-107-1.png" width="960" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-34-1.png" width="960" /></p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="statistical-analysis-1.html#cb81-1" tabindex="-1"></a>se_processed <span class="ot">&lt;-</span> <span class="fu">PomaOutliers</span>(se_normalize, <span class="at">do =</span> <span class="st">&quot;clean&quot;</span>) <span class="co"># to remove outliers</span></span>
 <span id="cb81-2"><a href="statistical-analysis-1.html#cb81-2" tabindex="-1"></a>se_processed</span></code></pre></div>
 <pre><code>## class: SummarizedExperiment 
@@ -1445,13 +1445,13 @@ div.csl-indent {
 <span id="cb87-3"><a href="statistical-analysis-1.html#cb87-3" tabindex="-1"></a>      <span class="at">method_dis =</span> <span class="st">&quot;euclidean&quot;</span>,</span>
 <span id="cb87-4"><a href="statistical-analysis-1.html#cb87-4" tabindex="-1"></a>      <span class="at">method_cluster =</span> <span class="st">&quot;ward.D2&quot;</span>,</span>
 <span id="cb87-5"><a href="statistical-analysis-1.html#cb87-5" tabindex="-1"></a>      <span class="at">cluster_type =</span> <span class="st">&quot;Agglomerative&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-112-1.png" width="768" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-39-1.png" width="768" /></p>
 <ul>
 <li>Visualization: visualize the result in a scatter plot</li>
 </ul>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="statistical-analysis-1.html#cb88-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(<span class="fu">list</span>(<span class="at">data =</span> Agg_hc_res<span class="sc">$</span>data, </span>
 <span id="cb88-2"><a href="statistical-analysis-1.html#cb88-2" tabindex="-1"></a>                  <span class="at">cluster =</span> Agg_hc_res<span class="sc">$</span>cluster))</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-113-1.png" width="768" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-40-1.png" width="768" /></p>
 </div>
 <div id="divisive-hierarchical-clustering" class="section level4 hasAnchor" number="3.2.3.2">
 <h4><span class="header-section-number">3.2.3.2</span> Divisive Hierarchical Clustering<a href="statistical-analysis-1.html#divisive-hierarchical-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1466,13 +1466,13 @@ div.csl-indent {
 <span id="cb89-3"><a href="statistical-analysis-1.html#cb89-3" tabindex="-1"></a>      <span class="at">method_dis =</span> <span class="st">&quot;euclidean&quot;</span>,</span>
 <span id="cb89-4"><a href="statistical-analysis-1.html#cb89-4" tabindex="-1"></a>      <span class="at">method_cluster =</span> <span class="st">&quot;ward&quot;</span>,</span>
 <span id="cb89-5"><a href="statistical-analysis-1.html#cb89-5" tabindex="-1"></a>      <span class="at">cluster_type =</span> <span class="st">&quot;Divisive&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-114-1.png" width="768" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-41-1.png" width="768" /></p>
 <ul>
 <li>Visualization: visualize the result in a scatter plot</li>
 </ul>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="statistical-analysis-1.html#cb90-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(<span class="fu">list</span>(<span class="at">data =</span> Div_hc_res<span class="sc">$</span>data, </span>
 <span id="cb90-2"><a href="statistical-analysis-1.html#cb90-2" tabindex="-1"></a>                  <span class="at">cluster =</span> Div_hc_res<span class="sc">$</span>cluster))</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-115-1.png" width="768" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-42-1.png" width="768" /></p>
 </div>
 <div id="comparison" class="section level4 hasAnchor" number="3.2.3.3">
 <h4><span class="header-section-number">3.2.3.3</span> Comparison<a href="statistical-analysis-1.html#comparison" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1483,7 +1483,7 @@ div.csl-indent {
 <span id="cb91-2"><a href="statistical-analysis-1.html#cb91-2" tabindex="-1"></a>Div_hc_dend <span class="ot">&lt;-</span> <span class="fu">as.dendrogram</span>(Div_hc_res<span class="sc">$</span>hc)</span>
 <span id="cb91-3"><a href="statistical-analysis-1.html#cb91-3" tabindex="-1"></a></span>
 <span id="cb91-4"><a href="statistical-analysis-1.html#cb91-4" tabindex="-1"></a><span class="fu">tanglegram</span>(Agg_hc_dend, Div_hc_dend)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-116-1.png" width="768" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-43-1.png" width="768" /></p>
 <ul>
 <li>tanglegrams</li>
 </ul>
@@ -1493,7 +1493,7 @@ div.csl-indent {
 <span id="cb92-4"><a href="statistical-analysis-1.html#cb92-4" tabindex="-1"></a>  <span class="at">common_subtrees_color_lines =</span> <span class="cn">FALSE</span>, <span class="co"># Turn-off line colors</span></span>
 <span id="cb92-5"><a href="statistical-analysis-1.html#cb92-5" tabindex="-1"></a>  <span class="at">common_subtrees_color_branches =</span> <span class="cn">TRUE</span>, <span class="co"># Color common branches </span></span>
 <span id="cb92-6"><a href="statistical-analysis-1.html#cb92-6" tabindex="-1"></a>  <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;entanglement =&quot;</span>, <span class="fu">round</span>(<span class="fu">entanglement</span>(dend_list), <span class="dv">2</span>)))</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-117-1.png" width="768" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-44-1.png" width="768" /></p>
 </div>
 <div id="determining-optimal-clusters" class="section level4 hasAnchor" number="3.2.3.4">
 <h4><span class="header-section-number">3.2.3.4</span> Determining Optimal Clusters<a href="statistical-analysis-1.html#determining-optimal-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1501,12 +1501,12 @@ div.csl-indent {
 <li>Elbow plot</li>
 </ul>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="statistical-analysis-1.html#cb93-1" tabindex="-1"></a><span class="fu">fviz_nbclust</span>(Agg_hc_res<span class="sc">$</span>data, <span class="at">FUN =</span> hcut, <span class="at">method =</span> <span class="st">&quot;wss&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-118-1.png" width="576" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-45-1.png" width="576" /></p>
 <ul>
 <li>Average Silhouette Method</li>
 </ul>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="statistical-analysis-1.html#cb94-1" tabindex="-1"></a><span class="fu">fviz_nbclust</span>(Agg_hc_res<span class="sc">$</span>data, <span class="at">FUN =</span> hcut, <span class="at">method =</span> <span class="st">&quot;silhouette&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-119-1.png" width="576" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-46-1.png" width="576" /></p>
 <ul>
 <li>Gap Statistic Method</li>
 </ul>
@@ -1515,7 +1515,7 @@ div.csl-indent {
 ## Bootstrapping, b = 1,2,..., B (= 50)  [one &quot;.&quot; per sample]:
 ## .................................................. 50</code></pre>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="statistical-analysis-1.html#cb97-1" tabindex="-1"></a><span class="fu">fviz_gap_stat</span>(gap_stat)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-120-1.png" width="576" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-47-1.png" width="576" /></p>
 </div>
 </div>
 <div id="partitional-clustering" class="section level3 hasAnchor" number="3.2.4">
@@ -1541,7 +1541,7 @@ div.csl-indent {
 <span id="cb98-16"><a href="statistical-analysis-1.html#cb98-16" tabindex="-1"></a>Kcluster_res <span class="ot">&lt;-</span> <span class="fu">PartCluster</span>(</span>
 <span id="cb98-17"><a href="statistical-analysis-1.html#cb98-17" tabindex="-1"></a>        <span class="at">object =</span> se_normalize,</span>
 <span id="cb98-18"><a href="statistical-analysis-1.html#cb98-18" tabindex="-1"></a>        <span class="at">cluster_num =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-121-1.png" width="768" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-48-1.png" width="768" /></p>
 <hr />
 </div>
 </div>
@@ -1578,7 +1578,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="statistical-analysis-1.html#cb101-1" tabindex="-1"></a>poma_pca <span class="ot">&lt;-</span> <span class="fu">PomaMultivariate</span>(se_processed, <span class="at">method =</span> <span class="st">&quot;pca&quot;</span>)</span>
 <span id="cb101-2"><a href="statistical-analysis-1.html#cb101-2" tabindex="-1"></a>poma_pca<span class="sc">$</span>scoresplot <span class="sc">+</span></span>
 <span id="cb101-3"><a href="statistical-analysis-1.html#cb101-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Scores Plot (pca)&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-124-1.png" width="768" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-51-1.png" width="768" /></p>
 </div>
 <div id="partial-least-squares-discriminant-analysis-pls-da" class="section level3 hasAnchor" number="3.3.4">
 <h3><span class="header-section-number">3.3.4</span> Partial Least Squares-Discriminant Analysis (PLS-DA)<a href="statistical-analysis-1.html#partial-least-squares-discriminant-analysis-pls-da" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1594,13 +1594,13 @@ div.csl-indent {
 </ul>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="statistical-analysis-1.html#cb103-1" tabindex="-1"></a>poma_plsda<span class="sc">$</span>scoresplot <span class="sc">+</span></span>
 <span id="cb103-2"><a href="statistical-analysis-1.html#cb103-2" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Scores Plot (plsda)&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-126-1.png" width="768" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-53-1.png" width="768" /></p>
 <ul>
 <li>errors plot</li>
 </ul>
 <div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="statistical-analysis-1.html#cb104-1" tabindex="-1"></a>poma_plsda<span class="sc">$</span>errors_plsda_plot <span class="sc">+</span></span>
 <span id="cb104-2"><a href="statistical-analysis-1.html#cb104-2" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Error Plot (plsda)&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-127-1.png" width="768" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-54-1.png" width="768" /></p>
 </div>
 <div id="sparse-partial-least-squares-discriminant-analysis-spls-da" class="section level3 hasAnchor" number="3.3.5">
 <h3><span class="header-section-number">3.3.5</span> Sparse Partial Least Squares-Discriminant Analysis (sPLS-DA)<a href="statistical-analysis-1.html#sparse-partial-least-squares-discriminant-analysis-spls-da" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1616,7 +1616,7 @@ div.csl-indent {
 </ul>
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="statistical-analysis-1.html#cb106-1" tabindex="-1"></a>poma_splsda<span class="sc">$</span>scoresplot <span class="sc">+</span></span>
 <span id="cb106-2"><a href="statistical-analysis-1.html#cb106-2" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Scores Plot (splsda)&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-129-1.png" width="768" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-56-1.png" width="768" /></p>
 </div>
 <div id="orthogonal-partial-least-squares-discriminant-analysis-orthopls-da" class="section level3 hasAnchor" number="3.3.6">
 <h3><span class="header-section-number">3.3.6</span> Orthogonal Partial Least Squares-Discriminant Analysis (orthoPLS-DA)<a href="statistical-analysis-1.html#orthogonal-partial-least-squares-discriminant-analysis-orthopls-da" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1708,7 +1708,7 @@ div.csl-indent {
 ## standard scaling of predictors
 ##       R2X(cum) pre ort
 ## Total    0.528   5   0</code></pre>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-131-1.png" width="672" /><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-131-2.png" width="672" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-58-1.png" width="672" /><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-58-2.png" width="672" /></p>
 <ul>
 <li>Partial Least Squares-Discriminant Analysis (PLS-DA)</li>
 </ul>
@@ -1722,7 +1722,7 @@ div.csl-indent {
 ## standard scaling of predictors and response(s)
 ##       R2X(cum) R2Y(cum) Q2(cum) RMSEE pre ort pR2Y  pQ2
 ## Total    0.296    0.857   0.537   0.2   2   0 0.25 0.05</code></pre>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-132-1.png" width="672" /><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-132-2.png" width="672" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-59-1.png" width="672" /><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-59-2.png" width="672" /></p>
 <ul>
 <li>Orthogonal Partial Least Squares-Discriminant Analysis (orthoPLS-DA)</li>
 </ul>
@@ -1736,7 +1736,7 @@ div.csl-indent {
 ## standard scaling of predictors and response(s)
 ##       R2X(cum) R2Y(cum) Q2(cum)  RMSEE pre ort pR2Y  pQ2
 ## Total    0.402     0.99   0.521 0.0566   1   3 0.05 0.05</code></pre>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-133-1.png" width="672" /><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-133-2.png" width="672" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-60-1.png" width="672" /><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-60-2.png" width="672" /></p>
 <hr />
 </div>
 </div>
@@ -1921,7 +1921,7 @@ div.csl-indent {
 <span id="cb124-8"><a href="statistical-analysis-1.html#cb124-8" tabindex="-1"></a>            <span class="at">xlim =</span> <span class="dv">1</span>,</span>
 <span id="cb124-9"><a href="statistical-analysis-1.html#cb124-9" tabindex="-1"></a>            <span class="at">labels =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb124-10"><a href="statistical-analysis-1.html#cb124-10" tabindex="-1"></a>            <span class="at">plot_title =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-140-1.png" width="576" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-67-1.png" width="576" /></p>
 </div>
 <div id="vip-variable-influence-on-projection-coefficient" class="section level3 hasAnchor" number="3.4.8">
 <h3><span class="header-section-number">3.4.8</span> VIP (Variable influence on projection &amp; coefficient)<a href="statistical-analysis-1.html#vip-variable-influence-on-projection-coefficient" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -2059,7 +2059,7 @@ div.csl-indent {
 ## standard scaling of predictors and response(s)
 ##       R2X(cum) R2Y(cum) Q2(cum) RMSEE pre ort pR2Y  pQ2
 ## Total     0.12    0.692    0.33 0.288   1   0  0.1 0.05</code></pre>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-141-1.png" width="672" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="statistical-analysis-1.html#cb127-1" tabindex="-1"></a><span class="fu">head</span>(vip_res<span class="sc">$</span>vip)</span></code></pre></div>
 <pre><code>##         FeatureID                Block      VIP   CorPvalue
 ## M_42449   M_42449 14_Mild vs 12_Severe 2.362694 0.002247897
@@ -2069,7 +2069,7 @@ div.csl-indent {
 ## M_52446   M_52446 14_Mild vs 12_Severe 2.059461 0.009476225
 ## M_37482   M_37482 14_Mild vs 12_Severe 2.052135 0.009774742</code></pre>
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="statistical-analysis-1.html#cb129-1" tabindex="-1"></a>vip_res<span class="sc">$</span>plot</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-141-2.png" width="672" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-68-2.png" width="672" /></p>
 </div>
 <div id="t-test-by-local-codes" class="section level3 hasAnchor" number="3.4.9">
 <h3><span class="header-section-number">3.4.9</span> T-test by local codes<a href="statistical-analysis-1.html#t-test-by-local-codes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -2315,19 +2315,10 @@ div.csl-indent {
 <span id="cb134-79"><a href="statistical-analysis-1.html#cb134-79" tabindex="-1"></a>  <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb134-80"><a href="statistical-analysis-1.html#cb134-80" tabindex="-1"></a></span>
 <span id="cb134-81"><a href="statistical-analysis-1.html#cb134-81" tabindex="-1"></a>lgfc_FDR_vol<span class="sc">$</span>figure</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-144-1.png" width="672" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 </div>
-<div id="adjusting-for-confounding-variables" class="section level3 hasAnchor" number="3.4.12">
-<h3><span class="header-section-number">3.4.12</span> Adjusting for confounding variables<a href="statistical-analysis-1.html#adjusting-for-confounding-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Controlling confounding effects by the following statistical approaches or R packages</p>
-<ul>
-<li><p><a href="https://huttenhower.sph.harvard.edu/maaslin/"><strong>MaAsLin2</strong></a>: Microbiome Multivariable Association with Linear Models.</p></li>
-<li><p><a href="https://www.bioconductor.org/packages/release/bioc/vignettes/ALDEx2/inst/doc/ALDEx2_vignette.html"><strong>ALDEx2</strong></a>: differential abundance analysis across two or more conditions.</p></li>
-<li><p><a href="https://stats.oarc.ucla.edu/other/mult-pkg/introduction-to-linear-mixed-models/">Linear Mixed Model</a></p></li>
-</ul>
-</div>
-<div id="correlation-heatmaps" class="section level3 hasAnchor" number="3.4.13">
-<h3><span class="header-section-number">3.4.13</span> Correlation Heatmaps<a href="statistical-analysis-1.html#correlation-heatmaps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="correlation-heatmaps" class="section level3 hasAnchor" number="3.4.12">
+<h3><span class="header-section-number">3.4.12</span> Correlation Heatmaps<a href="statistical-analysis-1.html#correlation-heatmaps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="statistical-analysis-1.html#cb135-1" tabindex="-1"></a>poma_cor <span class="ot">&lt;-</span> <span class="fu">PomaCorr</span>(se_processed_subset, <span class="at">label_size =</span> <span class="dv">8</span>, <span class="at">coeff =</span> <span class="fl">0.6</span>)</span>
 <span id="cb135-2"><a href="statistical-analysis-1.html#cb135-2" tabindex="-1"></a>poma_cor<span class="sc">$</span>correlations</span></code></pre></div>
 <pre><code>## # A tibble: 13,861 × 5
@@ -2348,17 +2339,17 @@ div.csl-indent {
 <li>correlation plot</li>
 </ul>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="statistical-analysis-1.html#cb137-1" tabindex="-1"></a>poma_cor<span class="sc">$</span>corrplot</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-146-1.png" width="960" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-73-1.png" width="960" /></p>
 <ul>
 <li>Network</li>
 </ul>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="statistical-analysis-1.html#cb138-1" tabindex="-1"></a>poma_cor<span class="sc">$</span>graph</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-147-1.png" width="960" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-74-1.png" width="960" /></p>
 </div>
-<div id="glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package" class="section level3 hasAnchor" number="3.4.14">
-<h3><span class="header-section-number">3.4.14</span> glasso: this function will compute a Gaussian Graphical Model using the glmnet package<a href="statistical-analysis-1.html#glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package" class="section level3 hasAnchor" number="3.4.13">
+<h3><span class="header-section-number">3.4.13</span> glasso: this function will compute a Gaussian Graphical Model using the glmnet package<a href="statistical-analysis-1.html#glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="statistical-analysis-1.html#cb139-1" tabindex="-1"></a><span class="fu">PomaCorr</span>(se_processed_subset, <span class="at">corr_type =</span> <span class="st">&quot;glasso&quot;</span>, <span class="at">coeff =</span> <span class="fl">0.6</span>)<span class="sc">$</span>graph</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-148-1.png" width="960" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-75-1.png" width="960" /></p>
 <hr />
 </div>
 </div>
@@ -2408,7 +2399,7 @@ div.csl-indent {
 <span id="cb143-3"><a href="statistical-analysis-1.html#cb143-3" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(lasso_res<span class="sc">$</span>cvLassoPlot,</span>
 <span id="cb143-4"><a href="statistical-analysis-1.html#cb143-4" tabindex="-1"></a>                   lasso_res<span class="sc">$</span>coefficientPlot,</span>
 <span id="cb143-5"><a href="statistical-analysis-1.html#cb143-5" tabindex="-1"></a>                   <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">align =</span> <span class="st">&quot;hv&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-152-1.png" width="1152" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-79-1.png" width="1152" /></p>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="statistical-analysis-1.html#cb144-1" tabindex="-1"></a>lasso_res<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>## # A tibble: 11 × 2
 ##    feature     coefficient
@@ -2432,7 +2423,7 @@ div.csl-indent {
 <span id="cb146-3"><a href="statistical-analysis-1.html#cb146-3" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(ridge_res<span class="sc">$</span>cvLassoPlot,</span>
 <span id="cb146-4"><a href="statistical-analysis-1.html#cb146-4" tabindex="-1"></a>                   ridge_res<span class="sc">$</span>coefficientPlot,</span>
 <span id="cb146-5"><a href="statistical-analysis-1.html#cb146-5" tabindex="-1"></a>                   <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">align =</span> <span class="st">&quot;hv&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-153-1.png" width="1152" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-80-1.png" width="1152" /></p>
 <div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="statistical-analysis-1.html#cb147-1" tabindex="-1"></a>ridge_res<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>## # A tibble: 168 × 2
 ##    feature     coefficient
@@ -2456,7 +2447,7 @@ div.csl-indent {
 <span id="cb149-3"><a href="statistical-analysis-1.html#cb149-3" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(elastic_res<span class="sc">$</span>cvLassoPlot,</span>
 <span id="cb149-4"><a href="statistical-analysis-1.html#cb149-4" tabindex="-1"></a>                   elastic_res<span class="sc">$</span>coefficientPlot,</span>
 <span id="cb149-5"><a href="statistical-analysis-1.html#cb149-5" tabindex="-1"></a>                   <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">align =</span> <span class="st">&quot;hv&quot;</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-154-1.png" width="1152" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-81-1.png" width="1152" /></p>
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="statistical-analysis-1.html#cb150-1" tabindex="-1"></a>elastic_res<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>## # A tibble: 7 × 2
 ##   feature     coefficient
@@ -2470,16 +2461,25 @@ div.csl-indent {
 ## 7 M_1566           0.125</code></pre>
 </div>
 </div>
-<div id="classification" class="section level3 hasAnchor" number="3.5.5">
-<h3><span class="header-section-number">3.5.5</span> Classification<a href="statistical-analysis-1.html#classification" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="random-forest" class="section level4 hasAnchor" number="3.5.5.1">
-<h4><span class="header-section-number">3.5.5.1</span> Random Forest<a href="statistical-analysis-1.html#random-forest" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="adjusting-for-confounding-variables" class="section level3 hasAnchor" number="3.5.5">
+<h3><span class="header-section-number">3.5.5</span> Adjusting for confounding variables<a href="statistical-analysis-1.html#adjusting-for-confounding-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Controlling confounding effects by the following statistical approaches or R packages</p>
+<ul>
+<li><p><a href="https://huttenhower.sph.harvard.edu/maaslin/"><strong>MaAsLin2</strong></a>: Microbiome Multivariable Association with Linear Models.</p></li>
+<li><p><a href="https://www.bioconductor.org/packages/release/bioc/vignettes/ALDEx2/inst/doc/ALDEx2_vignette.html"><strong>ALDEx2</strong></a>: differential abundance analysis across two or more conditions.</p></li>
+<li><p><a href="https://stats.oarc.ucla.edu/other/mult-pkg/introduction-to-linear-mixed-models/">Linear Mixed Model</a></p></li>
+</ul>
+</div>
+<div id="classification" class="section level3 hasAnchor" number="3.5.6">
+<h3><span class="header-section-number">3.5.6</span> Classification<a href="statistical-analysis-1.html#classification" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="random-forest" class="section level4 hasAnchor" number="3.5.6.1">
+<h4><span class="header-section-number">3.5.6.1</span> Random Forest<a href="statistical-analysis-1.html#random-forest" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li>Calculation</li>
 </ul>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="statistical-analysis-1.html#cb152-1" tabindex="-1"></a>poma_rf <span class="ot">&lt;-</span> <span class="fu">PomaRandForest</span>(se_processed_subset, <span class="at">ntest =</span> <span class="dv">10</span>, <span class="at">nvar =</span> <span class="dv">10</span>)</span>
 <span id="cb152-2"><a href="statistical-analysis-1.html#cb152-2" tabindex="-1"></a>poma_rf<span class="sc">$</span>error_tree</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-155-1.png" width="576" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-82-1.png" width="576" /></p>
 <ul>
 <li>table</li>
 </ul>
@@ -2492,10 +2492,10 @@ div.csl-indent {
 <li>Important features</li>
 </ul>
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="statistical-analysis-1.html#cb155-1" tabindex="-1"></a>poma_rf<span class="sc">$</span>MeanDecreaseGini_plot</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-157-1.png" width="576" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-84-1.png" width="576" /></p>
 </div>
-<div id="support-vector-machine-svm" class="section level4 hasAnchor" number="3.5.5.2">
-<h4><span class="header-section-number">3.5.5.2</span> Support Vector Machine (SVM)<a href="statistical-analysis-1.html#support-vector-machine-svm" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="support-vector-machine-svm" class="section level4 hasAnchor" number="3.5.6.2">
+<h4><span class="header-section-number">3.5.6.2</span> Support Vector Machine (SVM)<a href="statistical-analysis-1.html#support-vector-machine-svm" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Still in development…</p>
 <hr />
 </div>
@@ -2694,7 +2694,7 @@ from <code>SpiecEasi</code> package))</p></li>
 <span id="cb161-10"><a href="statistical-analysis-1.html#cb161-10" tabindex="-1"></a><span class="fu">legend</span>(<span class="fl">0.7</span>, <span class="fl">1.1</span>, <span class="at">cex =</span> <span class="dv">1</span>, <span class="at">title =</span> <span class="st">&quot;estimated correlation:&quot;</span>, </span>
 <span id="cb161-11"><a href="statistical-analysis-1.html#cb161-11" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;+&quot;</span>,<span class="st">&quot;-&quot;</span>), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;#009900&quot;</span>,<span class="st">&quot;red&quot;</span>), </span>
 <span id="cb161-12"><a href="statistical-analysis-1.html#cb161-12" tabindex="-1"></a>       <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">horiz =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-162-1.png" width="768" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-89-1.png" width="768" /></p>
 <ul>
 <li><p>improve the visualization by changing the following arguments:</p>
 <ul>
@@ -2720,7 +2720,7 @@ from <code>SpiecEasi</code> package))</p></li>
 <span id="cb162-14"><a href="statistical-analysis-1.html#cb162-14" tabindex="-1"></a><span class="fu">legend</span>(<span class="fl">0.7</span>, <span class="fl">1.1</span>, <span class="at">cex =</span> <span class="fl">1.2</span>, <span class="at">title =</span> <span class="st">&quot;estimated correlation:&quot;</span>,</span>
 <span id="cb162-15"><a href="statistical-analysis-1.html#cb162-15" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;+&quot;</span>,<span class="st">&quot;-&quot;</span>), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;#009900&quot;</span>,<span class="st">&quot;red&quot;</span>),</span>
 <span id="cb162-16"><a href="statistical-analysis-1.html#cb162-16" tabindex="-1"></a>       <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">horiz =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-163-1.png" width="1152" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-90-1.png" width="1152" /></p>
 </div>
 </div>
 <div id="single-network-with-spearman-correlation-as-association-measure" class="section level4 hasAnchor" number="3.6.5.2">
@@ -2756,7 +2756,7 @@ from <code>SpiecEasi</code> package))</p></li>
 <span id="cb164-16"><a href="statistical-analysis-1.html#cb164-16" tabindex="-1"></a><span class="fu">legend</span>(<span class="fl">0.7</span>, <span class="fl">1.1</span>, <span class="at">cex =</span> <span class="fl">1.2</span>, <span class="at">title =</span> <span class="st">&quot;estimated correlation:&quot;</span>,</span>
 <span id="cb164-17"><a href="statistical-analysis-1.html#cb164-17" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;+&quot;</span>,<span class="st">&quot;-&quot;</span>), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;#009900&quot;</span>,<span class="st">&quot;red&quot;</span>),</span>
 <span id="cb164-18"><a href="statistical-analysis-1.html#cb164-18" tabindex="-1"></a>       <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">horiz =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-165-1.png" width="1152" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-92-1.png" width="1152" /></p>
 </div>
 </div>
 <div id="single-network-with-wgcna-bicor-as-association-measure" class="section level4 hasAnchor" number="3.6.5.3">
@@ -2798,7 +2798,7 @@ from <code>SpiecEasi</code> package))</p></li>
 <span id="cb167-16"><a href="statistical-analysis-1.html#cb167-16" tabindex="-1"></a><span class="fu">legend</span>(<span class="fl">0.7</span>, <span class="fl">1.1</span>, <span class="at">cex =</span> <span class="fl">1.2</span>, <span class="at">title =</span> <span class="st">&quot;estimated correlation:&quot;</span>,</span>
 <span id="cb167-17"><a href="statistical-analysis-1.html#cb167-17" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;+&quot;</span>,<span class="st">&quot;-&quot;</span>), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;#009900&quot;</span>,<span class="st">&quot;red&quot;</span>),</span>
 <span id="cb167-18"><a href="statistical-analysis-1.html#cb167-18" tabindex="-1"></a>       <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">horiz =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-167-1.png" width="1152" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-94-1.png" width="1152" /></p>
 </div>
 </div>
 </div>
@@ -2977,7 +2977,7 @@ from <code>SpiecEasi</code> package))</p></li>
 <span id="cb172-14"><a href="statistical-analysis-1.html#cb172-14" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottom&quot;</span>, <span class="at">title =</span> <span class="st">&quot;estimated association:&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;+&quot;</span>, <span class="st">&quot;-&quot;</span>), </span>
 <span id="cb172-15"><a href="statistical-analysis-1.html#cb172-15" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;#009900&quot;</span>,<span class="st">&quot;red&quot;</span>), <span class="at">inset =</span> <span class="fl">0.04</span>, <span class="at">cex =</span> <span class="dv">3</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="dv">4</span>, </span>
 <span id="cb172-16"><a href="statistical-analysis-1.html#cb172-16" tabindex="-1"></a>       <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">horiz =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-171-1.png" width="1920" /></p>
+<p><img src="Data-Analysis-in-Metabolomics_files/figure-html/unnamed-chunk-98-1.png" width="1920" /></p>
 </div>
 <div id="quantitative-network-comparison" class="section level4 hasAnchor" number="3.6.6.5">
 <h4><span class="header-section-number">3.6.6.5</span> Quantitative network comparison<a href="statistical-analysis-1.html#quantitative-network-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h4>

@@ -1,5 +1,5 @@
-fig:unnamed-chunk-74
-fig:unnamed-chunk-75
+fig:unnamed-chunk-1
+fig:unnamed-chunk-2
 introduction
 what-is-metabolomics
 workflow-of-metabolomics-data-analysis
@@ -65,7 +65,6 @@ vip-variable-influence-on-projection-coefficient
 t-test-by-local-codes
 merging-result
 volcano-of-merged-results
-adjusting-for-confounding-variables
 correlation-heatmaps
 glasso-this-function-will-compute-a-gaussian-graphical-model-using-the-glmnet-package
 multivariate-analysis
@@ -76,6 +75,7 @@ regularized-generalized-linear-models
 lasso-alpha-1
 ridge-alpha-0
 elasticnet-0-alpha-1
+adjusting-for-confounding-variables
 classification
 random-forest
 support-vector-machine-svm
